@@ -4,15 +4,14 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>API Docs of RE-Model Bitarray-Based Implementations &#8212; remodel  documentation</title>
-    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -42,7 +41,7 @@
 <h2><code class="xref py py-class docutils literal notranslate"><span class="pre">BitarrayPosition</span></code> class<a class="headerlink" href="#bitarrayposition-class" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt id="bitarray_implementation.BitarrayPosition">
-<em class="property">class </em><code class="sig-prename descclassname">bitarray_implementation.</code><code class="sig-name descname">BitarrayPosition</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ba</span></em>, <em class="sig-param"><span class="n">n_unnegated_sentence_pool</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayPosition" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">bitarray_implementation.</span></code><code class="sig-name descname"><span class="pre">BitarrayPosition</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ba</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_unnegated_sentence_pool</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayPosition" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">remodeldescription.basics.Position</span></code></p>
 <p>using bitarrays to represent positions and their methods</p>
 <p>A pair of bits represents a sentence:
@@ -109,7 +108,7 @@ sentencepool, e.g. BitarrayPosition({1, 3, -4}, n_unnegated_sentence_pool = 4))<
 </table>
 <dl class="py method">
 <dt id="bitarray_implementation.BitarrayPosition.are_minimally_compatible">
-<code class="sig-name descname">are_minimally_compatible</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">position1</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayPosition.are_minimally_compatible" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">are_minimally_compatible</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayPosition.are_minimally_compatible" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks for minimal compatibility with <code class="code docutils literal notranslate"><span class="pre">position</span></code>.</p>
 <p>Two positions <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> and <span class="math notranslate nohighlight">\(\mathcal{A}'\)</span> are minimally compatible iff
 <span class="math notranslate nohighlight">\(\mathcal{A} \cup \mathcal{A}'\)</span> is minimally consistent.</p>
@@ -125,7 +124,7 @@ sentencepool, e.g. BitarrayPosition({1, 3, -4}, n_unnegated_sentence_pool = 4))<
 
 <dl class="py method">
 <dt id="bitarray_implementation.BitarrayPosition.as_bitarray">
-<code class="sig-name descname">as_bitarray</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n_unnegated_sentence_pool</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayPosition.as_bitarray" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">as_bitarray</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_unnegated_sentence_pool</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayPosition.as_bitarray" title="Permalink to this definition">¶</a></dt>
 <dd><p>Position as bitarray.</p>
 <p>A pair of bits represents a sentence:
 The first bit represents acceptance and the second bit rejection.
@@ -144,7 +143,7 @@ the position <span class="math notranslate nohighlight">\(\{ s_1, s_3, \neg s_4 
 
 <dl class="py method">
 <dt id="bitarray_implementation.BitarrayPosition.as_list">
-<code class="sig-name descname">as_list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayPosition.as_list" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">as_list</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayPosition.as_list" title="Permalink to this definition">¶</a></dt>
 <dd><p>Position as integer list.</p>
 <p>The position <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> represented by a python list of integer values. 
 <span class="math notranslate nohighlight">\(s_i \in \mathcal{A}\)</span> is represented by <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(\neg s_i \in \mathcal{A}\)</span> by <span class="math notranslate nohighlight">\(-i\)</span>.
@@ -165,7 +164,7 @@ For instance, the position <span class="math notranslate nohighlight">\(\{ s_1, 
 
 <dl class="py method">
 <dt id="bitarray_implementation.BitarrayPosition.as_set">
-<code class="sig-name descname">as_set</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayPosition.as_set" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">as_set</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayPosition.as_set" title="Permalink to this definition">¶</a></dt>
 <dd><p>Position as integer set.</p>
 <p>The position <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> represented by a python set of integer values. 
 <span class="math notranslate nohighlight">\(s_i \in \mathcal{A}\)</span> is represented by <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(\neg s_i \in \mathcal{A}\)</span> by <span class="math notranslate nohighlight">\(-i\)</span>.
@@ -182,7 +181,7 @@ For instance, the position <span class="math notranslate nohighlight">\(\{ s_1, 
 
 <dl class="py method">
 <dt id="bitarray_implementation.BitarrayPosition.as_ternary">
-<code class="sig-name descname">as_ternary</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayPosition.as_ternary" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">as_ternary</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayPosition.as_ternary" title="Permalink to this definition">¶</a></dt>
 <dd><p>Position as ternary.</p>
 <p>The position <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> represented by an integer of base 3 (at least). 
 <span class="math notranslate nohighlight">\(s_i \in \mathcal{A}\)</span> is represented by <span class="math notranslate nohighlight">\(1*10^{i-1}\)</span>, 
@@ -205,7 +204,7 @@ For instance, the position <span class="math notranslate nohighlight">\(\{ s_1, 
 
 <dl class="py method">
 <dt id="bitarray_implementation.BitarrayPosition.direct_subpositions">
-<code class="sig-name descname">direct_subpositions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayPosition.direct_subpositions" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">direct_subpositions</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayPosition.direct_subpositions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates subpositions of position that have exactly one element less than postion.
 Used for efficiency in update method.</p>
 <dl class="field-list simple">
@@ -217,7 +216,7 @@ Used for efficiency in update method.</p>
 
 <dl class="py method">
 <dt id="bitarray_implementation.BitarrayPosition.domain">
-<code class="sig-name descname">domain</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayPosition.domain" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">domain</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayPosition.domain" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determines the domain of the position.</p>
 <p>The domain of a position <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> is the closure of <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> under negation.</p>
 <dl class="field-list simple">
@@ -232,7 +231,7 @@ Used for efficiency in update method.</p>
 
 <dl class="py method">
 <dt id="bitarray_implementation.BitarrayPosition.intersection">
-<em class="property">static </em><code class="sig-name descname">intersection</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">positions</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayPosition.intersection" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">intersection</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">positions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayPosition.intersection" title="Permalink to this definition">¶</a></dt>
 <dd><p>set-theoretic intersection</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -246,7 +245,7 @@ Used for efficiency in update method.</p>
 
 <dl class="py method">
 <dt id="bitarray_implementation.BitarrayPosition.is_accepting">
-<code class="sig-name descname">is_accepting</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sentence</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayPosition.is_accepting" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">is_accepting</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sentence</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayPosition.is_accepting" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks whether <code class="code docutils literal notranslate"><span class="pre">sentence</span></code> is in the position.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -263,7 +262,7 @@ Used for efficiency in update method.</p>
 
 <dl class="py method">
 <dt id="bitarray_implementation.BitarrayPosition.is_in_domain">
-<code class="sig-name descname">is_in_domain</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sentence</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayPosition.is_in_domain" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">is_in_domain</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sentence</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayPosition.is_in_domain" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks whether <code class="code docutils literal notranslate"><span class="pre">sentence</span></code> is in the domain of the position.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -280,7 +279,7 @@ Used for efficiency in update method.</p>
 
 <dl class="py method">
 <dt id="bitarray_implementation.BitarrayPosition.is_minimally_consistent">
-<code class="sig-name descname">is_minimally_consistent</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayPosition.is_minimally_consistent" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">is_minimally_consistent</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayPosition.is_minimally_consistent" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks for minimal consistency.</p>
 <p>A position <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> is minimally consistent iff 
 <span class="math notranslate nohighlight">\(\forall s \in S: s\in \mathcal{A} \rightarrow \neg s \notin \mathcal{A}\)</span></p>
@@ -296,7 +295,7 @@ Used for efficiency in update method.</p>
 
 <dl class="py method">
 <dt id="bitarray_implementation.BitarrayPosition.is_subposition">
-<code class="sig-name descname">is_subposition</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pos2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayPosition.is_subposition" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">is_subposition</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayPosition.is_subposition" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks for set-theoretic inclusion.</p>
 <p>The position <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> is a subposition of <span class="math notranslate nohighlight">\(\mathcal{A}'\)</span> iff
 <span class="math notranslate nohighlight">\(\mathcal{A} \subset \mathcal{A}'\)</span>.</p>
@@ -312,7 +311,7 @@ Used for efficiency in update method.</p>
 
 <dl class="py method">
 <dt id="bitarray_implementation.BitarrayPosition.size">
-<code class="sig-name descname">size</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayPosition.size" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">size</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayPosition.size" title="Permalink to this definition">¶</a></dt>
 <dd><p>size of the position</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -326,7 +325,7 @@ Used for efficiency in update method.</p>
 
 <dl class="py method">
 <dt id="bitarray_implementation.BitarrayPosition.subpositions">
-<code class="sig-name descname">subpositions</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n</span><span class="o">=</span><span class="default_value">- 1</span></em>, <em class="sig-param"><span class="n">only_consistent_subpositions</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayPosition.subpositions" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">subpositions</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_consistent_subpositions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayPosition.subpositions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns an iterator over subpositions of size n, with n being an optional
 argument (defaulting to -1, returning all subpositions.
 If only_consistent_subposition is set to true (by default), only minimally
@@ -341,7 +340,7 @@ consistent subpositions are returned, which is less costly than returning all su
 
 <dl class="py method">
 <dt id="bitarray_implementation.BitarrayPosition.union">
-<em class="property">static </em><code class="sig-name descname">union</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">positions</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayPosition.union" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">union</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">positions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayPosition.union" title="Permalink to this definition">¶</a></dt>
 <dd><p>set-theoretic union</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -360,7 +359,7 @@ consistent subpositions are returned, which is less costly than returning all su
 <h2><code class="xref py py-class docutils literal notranslate"><span class="pre">BitarrayDialecticalStructure</span></code> class<a class="headerlink" href="#bitarraydialecticalstructure-class" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt id="bitarray_implementation.BitarrayDialecticalStructure">
-<em class="property">class </em><code class="sig-prename descclassname">bitarray_implementation.</code><code class="sig-name descname">BitarrayDialecticalStructure</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n</span></em>, <em class="sig-param"><span class="n">initial_arguments</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayDialecticalStructure" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">bitarray_implementation.</span></code><code class="sig-name descname"><span class="pre">BitarrayDialecticalStructure</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_arguments</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayDialecticalStructure" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">remodeldescription.basics.DialecticalStructure</span></code></p>
 <p class="rubric">Methods</p>
 <table class="longtable docutils align-default">
@@ -447,7 +446,7 @@ consistent subpositions are returned, which is less costly than returning all su
 </table>
 <dl class="py method">
 <dt id="bitarray_implementation.BitarrayDialecticalStructure.add_argument">
-<code class="sig-name descname">add_argument</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">argument</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayDialecticalStructure.add_argument" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">add_argument</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">argument</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayDialecticalStructure.add_argument" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adds an argument to the dialectical structure.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -464,7 +463,7 @@ consistent subpositions are returned, which is less costly than returning all su
 
 <dl class="py method">
 <dt id="bitarray_implementation.BitarrayDialecticalStructure.add_arguments">
-<code class="sig-name descname">add_arguments</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">arguments</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayDialecticalStructure.add_arguments" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">add_arguments</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arguments</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayDialecticalStructure.add_arguments" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adds arguments to the dialectical structure.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -481,7 +480,7 @@ consistent subpositions are returned, which is less costly than returning all su
 
 <dl class="py method">
 <dt id="bitarray_implementation.BitarrayDialecticalStructure.are_compatible">
-<code class="sig-name descname">are_compatible</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">position1</span></em>, <em class="sig-param"><span class="n">position2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayDialecticalStructure.are_compatible" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">are_compatible</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayDialecticalStructure.are_compatible" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks for dialectical compatibility of two positions.</p>
 <p>Two positions are dialectically compatible iff there is a complete and consistent positition that 
 extends both.</p>
@@ -497,7 +496,7 @@ extends both.</p>
 
 <dl class="py method">
 <dt id="bitarray_implementation.BitarrayDialecticalStructure.axioms">
-<code class="sig-name descname">axioms</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">position</span></em>, <em class="sig-param"><span class="n">source</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayDialecticalStructure.axioms" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">axioms</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayDialecticalStructure.axioms" title="Permalink to this definition">¶</a></dt>
 <dd><p>Iterator over all axiomatic bases from source.
 The source defaults to all consistent positions if it is not provided.</p>
 <p>A position <span class="math notranslate nohighlight">\(\mathcal{B}\)</span> is an axiomatic basis of another position <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> iff
@@ -517,7 +516,7 @@ subset <span class="math notranslate nohighlight">\(\mathcal{C}\)</span> of <spa
 
 <dl class="py method">
 <dt id="bitarray_implementation.BitarrayDialecticalStructure.closed_positions">
-<code class="sig-name descname">closed_positions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayDialecticalStructure.closed_positions" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">closed_positions</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayDialecticalStructure.closed_positions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Iterator over all dialectically closed positions.</p>
 <p>This iterator will include the empty position, if it is closed.</p>
 <dl class="field-list simple">
@@ -532,7 +531,7 @@ subset <span class="math notranslate nohighlight">\(\mathcal{C}\)</span> of <spa
 
 <dl class="py method">
 <dt id="bitarray_implementation.BitarrayDialecticalStructure.closure">
-<code class="sig-name descname">closure</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">position</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayDialecticalStructure.closure" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">closure</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayDialecticalStructure.closure" title="Permalink to this definition">¶</a></dt>
 <dd><p>Dialectical closure.</p>
 <p>The dialectical closure of a position <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> is the intersection of all consistent and 
 complete positions that extend <span class="math notranslate nohighlight">\(\mathcal{A}\)</span>. Note that in consequence, the empty position can have
@@ -549,7 +548,7 @@ a non-empty closure.</p>
 
 <dl class="py method">
 <dt id="bitarray_implementation.BitarrayDialecticalStructure.complete_extensions">
-<code class="sig-name descname">complete_extensions</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">position</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayDialecticalStructure.complete_extensions" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">complete_extensions</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayDialecticalStructure.complete_extensions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns complete extensions of position by retrieving corresponding
 node in the graph that stores complete extensions.</p>
 <dl class="field-list simple">
@@ -561,7 +560,7 @@ node in the graph that stores complete extensions.</p>
 
 <dl class="py method">
 <dt id="bitarray_implementation.BitarrayDialecticalStructure.consistent_complete_positions">
-<code class="sig-name descname">consistent_complete_positions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayDialecticalStructure.consistent_complete_positions" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">consistent_complete_positions</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayDialecticalStructure.consistent_complete_positions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Iterator over all dialectically consistent and complete positions.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -575,7 +574,7 @@ node in the graph that stores complete extensions.</p>
 
 <dl class="py method">
 <dt id="bitarray_implementation.BitarrayDialecticalStructure.consistent_positions">
-<code class="sig-name descname">consistent_positions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayDialecticalStructure.consistent_positions" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">consistent_positions</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayDialecticalStructure.consistent_positions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Iterator over all dialectically consistent positions.</p>
 <p>This iterator will include the empty position.</p>
 <dl class="field-list simple">
@@ -590,7 +589,7 @@ node in the graph that stores complete extensions.</p>
 
 <dl class="py method">
 <dt id="bitarray_implementation.BitarrayDialecticalStructure.degree_of_justification">
-<code class="sig-name descname">degree_of_justification</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">position1</span></em>, <em class="sig-param"><span class="n">position2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayDialecticalStructure.degree_of_justification" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">degree_of_justification</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayDialecticalStructure.degree_of_justification" title="Permalink to this definition">¶</a></dt>
 <dd><p>Conditional degree of justification.</p>
 <p>The conditional degree of justification <span class="math notranslate nohighlight">\(DOJ\)</span> of two positions <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> and 
 <span class="math notranslate nohighlight">\(\mathcal{B}\)</span> is defined by <span class="math notranslate nohighlight">\(DOJ(\mathcal{A}| \mathcal{B}):=\frac{\sigma_{\mathcal{AB}}}{\sigma_{\mathcal{B}}}\)</span>
@@ -608,7 +607,7 @@ and <span class="math notranslate nohighlight">\(\sigma_{\mathcal{B}}\)</span> t
 
 <dl class="py method">
 <dt id="bitarray_implementation.BitarrayDialecticalStructure.entails">
-<code class="sig-name descname">entails</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">position1</span></em>, <em class="sig-param"><span class="n">position2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayDialecticalStructure.entails" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">entails</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayDialecticalStructure.entails" title="Permalink to this definition">¶</a></dt>
 <dd><p>Dialectical entailment.</p>
 <p>A position <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> dialectically entails another position <span class="math notranslate nohighlight">\(\mathcal{B}\)</span> iff 
 every consistent and complete position that extends <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> also extends <span class="math notranslate nohighlight">\(\mathcal{B}\)</span>.</p>
@@ -624,7 +623,7 @@ every consistent and complete position that extends <span class="math notranslat
 
 <dl class="py method">
 <dt id="bitarray_implementation.BitarrayDialecticalStructure.get_arguments">
-<code class="sig-name descname">get_arguments</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayDialecticalStructure.get_arguments" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">get_arguments</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayDialecticalStructure.get_arguments" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]]</p>
@@ -634,7 +633,7 @@ every consistent and complete position that extends <span class="math notranslat
 
 <dl class="py method">
 <dt id="bitarray_implementation.BitarrayDialecticalStructure.is_closed">
-<code class="sig-name descname">is_closed</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">position</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayDialecticalStructure.is_closed" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">is_closed</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayDialecticalStructure.is_closed" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks whether a position is dialectically closed.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -648,7 +647,7 @@ every consistent and complete position that extends <span class="math notranslat
 
 <dl class="py method">
 <dt id="bitarray_implementation.BitarrayDialecticalStructure.is_complete">
-<code class="sig-name descname">is_complete</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">position</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayDialecticalStructure.is_complete" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">is_complete</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayDialecticalStructure.is_complete" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks whether :code:<a href="#id7"><span class="problematic" id="id8">`</span></a>position’ is complete.</p>
 <p>A position <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> is complete iff the domain of <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> is identical with the 
 sentence pool <span class="math notranslate nohighlight">\(S\)</span>.</p>
@@ -664,7 +663,7 @@ sentence pool <span class="math notranslate nohighlight">\(S\)</span>.</p>
 
 <dl class="py method">
 <dt id="bitarray_implementation.BitarrayDialecticalStructure.is_consistent">
-<code class="sig-name descname">is_consistent</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">position</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayDialecticalStructure.is_consistent" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">is_consistent</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayDialecticalStructure.is_consistent" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks for dialectical consistency.</p>
 <p>A complete position <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> is dialectically consistent iff it is a minimally consistent 
 and for all arguments <span class="math notranslate nohighlight">\(a=(P_a, c_a) \in A\)</span> holds: If <span class="math notranslate nohighlight">\((\forall p \in P_a:p \in \mathcal{A})\)</span> then
@@ -683,7 +682,7 @@ consistent position that extends <span class="math notranslate nohighlight">\(\m
 
 <dl class="py method">
 <dt id="bitarray_implementation.BitarrayDialecticalStructure.is_minimal">
-<code class="sig-name descname">is_minimal</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">position</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayDialecticalStructure.is_minimal" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">is_minimal</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayDialecticalStructure.is_minimal" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks dialectical minimality.</p>
 <p>A position <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> is dialectically minimal if every
 subposition <span class="math notranslate nohighlight">\(\mathcal{B}\subseteq\mathcal{A}\)</span> that
@@ -700,7 +699,7 @@ entails <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> is ide
 
 <dl class="py method">
 <dt id="bitarray_implementation.BitarrayDialecticalStructure.minimal_positions">
-<code class="sig-name descname">minimal_positions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayDialecticalStructure.minimal_positions" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">minimal_positions</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayDialecticalStructure.minimal_positions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Iterator over all dialectically minimal positions.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -714,7 +713,7 @@ entails <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> is ide
 
 <dl class="py method">
 <dt id="bitarray_implementation.BitarrayDialecticalStructure.minimally_consistent_positions">
-<code class="sig-name descname">minimally_consistent_positions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayDialecticalStructure.minimally_consistent_positions" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">minimally_consistent_positions</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayDialecticalStructure.minimally_consistent_positions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Iterator over all minimally consistent positions.</p>
 <p>A position <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> is minimally consistent iff
 <span class="math notranslate nohighlight">\(\forall s \in S: s\in \mathcal{A} \rightarrow \neg s \notin \mathcal{A}\)</span></p>
@@ -731,7 +730,7 @@ entails <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> is ide
 
 <dl class="py method">
 <dt id="bitarray_implementation.BitarrayDialecticalStructure.n_complete_extensions">
-<code class="sig-name descname">n_complete_extensions</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">position</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayDialecticalStructure.n_complete_extensions" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">n_complete_extensions</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayDialecticalStructure.n_complete_extensions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Number of complete and consistent extension.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -745,7 +744,7 @@ entails <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> is ide
 
 <dl class="py method">
 <dt id="bitarray_implementation.BitarrayDialecticalStructure.satisfies">
-<code class="sig-name descname">satisfies</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">argument</span></em>, <em class="sig-param"><span class="n">position</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayDialecticalStructure.satisfies" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">satisfies</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">argument</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayDialecticalStructure.satisfies" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
@@ -755,7 +754,7 @@ entails <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> is ide
 
 <dl class="py method">
 <dt id="bitarray_implementation.BitarrayDialecticalStructure.sentence_pool">
-<code class="sig-name descname">sentence_pool</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayDialecticalStructure.sentence_pool" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">sentence_pool</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayDialecticalStructure.sentence_pool" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the unnegated half of sentence pool</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -766,7 +765,7 @@ entails <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> is ide
 
 <dl class="py method">
 <dt id="bitarray_implementation.BitarrayDialecticalStructure.to_bitarray_position">
-<code class="sig-name descname">to_bitarray_position</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">position</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayDialecticalStructure.to_bitarray_position" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">to_bitarray_position</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayDialecticalStructure.to_bitarray_position" title="Permalink to this definition">¶</a></dt>
 <dd><p>This auxiliary method converts a position from another implemenation to a BitarrayPosition.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -782,7 +781,7 @@ entails <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> is ide
 <h2><code class="xref py py-class docutils literal notranslate"><span class="pre">BitarrayReflectiveEquilibrium</span></code> class<a class="headerlink" href="#bitarrayreflectiveequilibrium-class" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt id="bitarray_implementation.BitarrayReflectiveEquilibrium">
-<em class="property">class </em><code class="sig-prename descclassname">bitarray_implementation.</code><code class="sig-name descname">BitarrayReflectiveEquilibrium</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dialectical_structure</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">model_name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayReflectiveEquilibrium" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">bitarray_implementation.</span></code><code class="sig-name descname"><span class="pre">BitarrayReflectiveEquilibrium</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dialectical_structure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayReflectiveEquilibrium" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">remodel.abstract_re.AbstractReflectiveEquilibrium</span></code></p>
 <p class="rubric">Methods</p>
 <table class="longtable docutils align-default">
@@ -792,7 +791,7 @@ entails <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> is ide
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">REStage</span></code>([initial_commitments, commitments, …])</p></td>
-<td><p>Stores all relevant information during an RE process in order to track branching processes due to random choices.</p></td>
+<td><p>Stores all relevant information of a step during an RE process.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Results</span></code>(*args, **kwargs)</p></td>
 <td><p># todo für Andi Result class for RE processes as a typed dictionary.</p></td>
@@ -810,7 +809,7 @@ entails <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> is ide
 <td><p>Model name.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">global_optima</span></code>(initial_commitments)</p></td>
-<td><p>This experimental method returns globally optimal pairs (according to the achievement function).</p></td>
+<td><p>Searches for globally optimal theory-commitment pairs (according to the achievement function).</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#bitarray_implementation.BitarrayReflectiveEquilibrium.hamming_distance" title="bitarray_implementation.BitarrayReflectiveEquilibrium.hamming_distance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hamming_distance</span></code></a>(position1, position2, penalties)</p></td>
 <td><p>The weighted Hamming distance.</p></td>
@@ -818,8 +817,14 @@ entails <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> is ide
 <tr class="row-odd"><td><p><a class="reference internal" href="#bitarray_implementation.BitarrayReflectiveEquilibrium.penalty" title="bitarray_implementation.BitarrayReflectiveEquilibrium.penalty"><code class="xref py py-obj docutils literal notranslate"><span class="pre">penalty</span></code></a>(pos1, pos2, sentence, penalties)</p></td>
 <td><p>A penalty function.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">re_process</span></code>(initial_commitments[, …])</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">prepare_results</span></code>(re_stage)</p></td>
+<td><p>Prepares a ReflectiveEquilibrium.Results dict from a REstage that reached a fixed point.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">re_process</span></code>(initial_commitments[, …])</p></td>
 <td><p>Process of finding an RE-state based on given initial commitments.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">re_steps</span></code>(re_stage[, branching])</p></td>
+<td><p>Executes RE steps until a fixed point is reached.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_account_penalties</span></code>(d0, d1, d2, d3)</p></td>
 <td><p>Setting penalty values for the <code class="xref py py-func docutils literal notranslate"><span class="pre">account()</span></code>-function.</p></td>
@@ -854,7 +859,7 @@ entails <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> is ide
 </table>
 <dl class="py method">
 <dt id="bitarray_implementation.BitarrayReflectiveEquilibrium.hamming_distance">
-<code class="sig-name descname">hamming_distance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">position1</span></em>, <em class="sig-param"><span class="n">position2</span></em>, <em class="sig-param"><span class="n">penalties</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayReflectiveEquilibrium.hamming_distance" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">hamming_distance</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">penalties</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayReflectiveEquilibrium.hamming_distance" title="Permalink to this definition">¶</a></dt>
 <dd><p>The weighted Hamming distance.</p>
 <p>A weighted (asymmetric) Hamming Distance <span class="math notranslate nohighlight">\(D\)</span> between two
 positions <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> and <span class="math notranslate nohighlight">\(\mathcal{B}\)</span> which is defined by</p>
@@ -880,7 +885,7 @@ positions <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> and 
 
 <dl class="py method">
 <dt id="bitarray_implementation.BitarrayReflectiveEquilibrium.penalty">
-<code class="sig-name descname">penalty</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pos1</span></em>, <em class="sig-param"><span class="n">pos2</span></em>, <em class="sig-param"><span class="n">sentence</span></em>, <em class="sig-param"><span class="n">penalties</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayReflectiveEquilibrium.penalty" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">penalty</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sentence</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">penalties</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bitarray_implementation.BitarrayReflectiveEquilibrium.penalty" title="Permalink to this definition">¶</a></dt>
 <dd><p>A penalty function.</p>
 <p>The penalty function calculates a penalty value for two sentences of two positions given a list of penalty-value
 and is defined by</p>
@@ -945,7 +950,7 @@ and is defined by</p>
       &copy;2020, Claus Beisbart, Gregor Betz, Georg Brun, Sebastian Cacean, Andreas Freivogel, Richard Lohse.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.1.2</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

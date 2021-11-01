@@ -4,15 +4,14 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ensemble Generation with the module re_model.ensemble_generation &#8212; remodel  documentation</title>
-    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -82,8 +81,8 @@ commitments.</p></li>
 <li><p><code class="code docutils literal notranslate"><span class="pre">init_coms_dia_consistent</span></code>: Whether the initial commitments are dialectically consistent.</p></li>
 <li><p><code class="code docutils literal notranslate"><span class="pre">init_coms_closed</span></code>: Whether the initial commitments are dialectically closed.</p></li>
 <li><p><code class="code docutils literal notranslate"><span class="pre">init_coms_closure</span></code>: Dialectical closure of initial commitments.</p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">fixed_point_commitments</span></code>: Final commitments.</p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">fixed_point_coms_size</span></code>: The number of propositions in <code class="code docutils literal notranslate"><span class="pre">fixed_point_commitments</span></code>.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">fixed_point_coms</span></code>: Final commitments.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">fixed_point_coms_size</span></code>: The number of propositions in <code class="code docutils literal notranslate"><span class="pre">fixed_point_coms</span></code>.</p></li>
 <li><p><code class="code docutils literal notranslate"><span class="pre">fixed_point_coms_com_n_tau_truths</span></code>: Number of tau-true propositions in the final commitments.</p></li>
 <li><p><code class="code docutils literal notranslate"><span class="pre">fixed_point_coms_com_n_tau_falsehoods</span></code>: Number of tau-false propositions in the final commitments.</p></li>
 <li><p><code class="code docutils literal notranslate"><span class="pre">fixed_point_is_global_optimum</span></code>: Whether the fixed point is a global optimum.</p></li>
@@ -94,13 +93,13 @@ commitments.</p></li>
 <li><p><code class="code docutils literal notranslate"><span class="pre">fixed_point_coms_consistent</span></code>: Whether the final commitments is dialectically consistent.</p></li>
 <li><p><code class="code docutils literal notranslate"><span class="pre">fixed_point_coms_n_consistent_complete_positions</span></code>: The number of complete and dialectically consistent
 positions that extend the final commitments.</p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">fixed_point_coms_min_ax_bases</span></code>: Minimal-length axiomatic bases of <code class="code docutils literal notranslate"><span class="pre">fixed_point_commitments</span></code> with
-sentences from <code class="code docutils literal notranslate"><span class="pre">fixed_point_commitments</span></code> only. (Sentences <span class="math notranslate nohighlight">\(\mathcal{C}_a\)</span> are an axiomatic basis
+<li><p><code class="code docutils literal notranslate"><span class="pre">fixed_point_coms_min_ax_bases</span></code>: Minimal-length axiomatic bases of <code class="code docutils literal notranslate"><span class="pre">fixed_point_coms</span></code> with
+sentences from <code class="code docutils literal notranslate"><span class="pre">fixed_point_coms</span></code> only. (Sentences <span class="math notranslate nohighlight">\(\mathcal{C}_a\)</span> are an axiomatic basis
 of <span class="math notranslate nohighlight">\(\mathcal{C}_1\)</span> (with sentences from <span class="math notranslate nohighlight">\(\mathcal{C}_2\)</span> only) iff <span class="math notranslate nohighlight">\(\mathcal{C}_a\)</span> dialectically
 implies <span class="math notranslate nohighlight">\(\mathcal{C}_1\)</span> and there is no proper subset of <span class="math notranslate nohighlight">\(\mathcal{C}_a\)</span> such that it implies
 <span class="math notranslate nohighlight">\(\mathcal{C}_1\)</span> (and <span class="math notranslate nohighlight">\(\mathcal{C}_a \subset \mathcal{C}_2\)</span>).)</p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">n_fixed_point_coms_min_ax_base</span></code>: The size of minimal-length axiomatic bases of <code class="code docutils literal notranslate"><span class="pre">fixed_point_commitments</span></code> with
-sentences from <code class="code docutils literal notranslate"><span class="pre">fixed_point_commitments</span></code> only.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">n_fixed_point_coms_min_ax_base</span></code>: The size of minimal-length axiomatic bases of <code class="code docutils literal notranslate"><span class="pre">fixed_point_coms</span></code> with
+sentences from <code class="code docutils literal notranslate"><span class="pre">fixed_point_coms</span></code> only.</p></li>
 <li><p><code class="code docutils literal notranslate"><span class="pre">fixed_point_coms_min_ax_bases_theory</span></code>: A minimal-length subset <span class="math notranslate nohighlight">\(\mathcal{C}'\)</span> of the
 final commitments such that the final commitments are entailed by the theory and <span class="math notranslate nohighlight">\(\mathcal{C}'\)</span>.
 (Or equivalently: A smallest subset <span class="math notranslate nohighlight">\(\mathcal{C}'\)</span> within the commitments such that there is an axiomatic
@@ -137,27 +136,87 @@ be smaller than the amount of elements combined in <code class="code docutils li
 </ul>
 <p><strong>PROCESS-INDEPENDENT FEATURES</strong></p>
 <ul class="simple">
-<li><p><code class="code docutils literal notranslate"><span class="pre">n_global_optima</span></code>: Number of global optima.</p></li>
 <li><p><code class="code docutils literal notranslate"><span class="pre">n_branches</span></code>: Number of branches of the process (i.e. paths to all fixed points w.r.t. the given initial
 commitments.</p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">fixed_points</span></code>: All fixed points as theory-commitments-tuples.</p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">n_fixed_points</span></code>: Number of fixed points</p></li>
+</ul>
+<p><em>Global optima</em>:</p>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">global_optima</span></code>: All global optima as theory-commitments-tuples.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">n_global_optima</span></code>: Number of global optima.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">go_coms_consistent</span></code>: A list of bools (<code class="code docutils literal notranslate"><span class="pre">List[bool]</span></code>) indicating whether commitments of the <cite>global_optima</cite>
+are dialectically consistent. The order of the list represents the order in <cite>global_optima</cite>.</p></li>
 <li><dl class="simple">
-<dt><code class="code docutils literal notranslate"><span class="pre">global_optima_that_are_fixed_points</span></code>: bool list indicating which global optima are fixed points</dt><dd><p>(i.e. which global optima are reachable via a re-process)</p>
+<dt><code class="code docutils literal notranslate"><span class="pre">go_union_consistent</span></code>: A list of bools (<code class="code docutils literal notranslate"><span class="pre">List[bool]</span></code>) indicating whether the unions of a</dt><dd><p>commitment-theory-tuple of the <cite>global_optima</cite> are dialectically consistent. I.e. whether the global optima
+are RE states.The order of the list represents the order in <cite>global_optima</cite>.</p>
 </dd>
 </dl>
 </li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">fixed_points_that_are_global_optima</span></code>:</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">go_full_re_state</span></code>: A list of bools (<code class="code docutils literal notranslate"><span class="pre">List[bool]</span></code>) indicating whether the <cite>global_optima</cite> are full
+RE-states (i.e. whether the dialectical closure of the theory is identical to the commitments). The order of the list
+represents the order in <cite>global_optima</cite>.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">go_fixed_point</span></code>: A list of bools (<code class="code docutils literal notranslate"><span class="pre">List[bool]</span></code>) indicating which global optima are fixed points
+(i.e. which global optima are reachable via a re-process). The order of the list
+represents the order in <cite>global_optima</cite>.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">go_account</span></code>: The account of each global optimum as <code class="code docutils literal notranslate"><span class="pre">List[float]</span></code>. The order of the list represents the
+order in <cite>global_optima</cite>.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">go_faithfulness</span></code>: The faithfulness of each global optimum as <code class="code docutils literal notranslate"><span class="pre">List[float]</span></code>. The order of the list
+represents the order in <cite>global_optima</cite>.</p></li>
+</ul>
+<p><em>Fixed points</em>:</p>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">fixed_points</span></code>: All fixed points as theory-commitments-tuples.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">n_fixed_points</span></code>: Number of fixed points</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">fp_coms_consistent</span></code>: A list of bools (<code class="code docutils literal notranslate"><span class="pre">List[bool]</span></code>) indicating whether commitments of the <cite>fixed_points</cite>
+are dialectically consistent. The order of the list represents the order in <cite>fixed_points</cite>.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">fp_union_consistent</span></code>:  A list of bools (<code class="code docutils literal notranslate"><span class="pre">List[bool]</span></code>) indicating whether the unions of a
+commitment-theory-tuple of the <cite>fixed_points</cite> are dialectically consistent.The order of the list represents the
+order in <cite>fixed_points</cite>.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">fp_full_re_state</span></code>:  A list of bools (<code class="code docutils literal notranslate"><span class="pre">List[bool]</span></code>) indicating whether the <cite>fixed_points</cite> are full
+RE-states (i.e. whether the dialectical closure of the theory is identical to the commitments). The order of the list
+represents the order in <cite>fixed_points</cite>.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">fp_account</span></code>: The account of each fixed point as <code class="code docutils literal notranslate"><span class="pre">List[float]</span></code>. The order of the list represents the
+order in <cite>fixed_points</cite>.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">fp_faithfulness</span></code>: The faithfulness of each fixed as <code class="code docutils literal notranslate"><span class="pre">List[float]</span></code>. The order of the list represents
+the order in <cite>fixed_points</cite>.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">fp_global_optimum</span></code>: A list of bools (<code class="code docutils literal notranslate"><span class="pre">List[bool]</span></code>) indicating whether the <cite>fixed_points</cite> are
+<cite>global_optima</cite>.</p></li>
+</ul>
+<p><em>RE states and full RE states</em>:</p>
+<ul class="simple">
 <li><p><code class="code docutils literal notranslate"><span class="pre">re_states</span></code>:</p></li>
 <li><p><code class="code docutils literal notranslate"><span class="pre">n_re_states</span></code>:</p></li>
 <li><p><code class="code docutils literal notranslate"><span class="pre">full_re_states</span></code>:</p></li>
 <li><p><code class="code docutils literal notranslate"><span class="pre">n_full_re_states</span></code>:</p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">global_optima_that_are_full_re_states</span></code>: Bool-list describing which elements in gl.optima-list
-are full re-states.</p></li>
 </ul>
 <dl class="py function">
+<dt id="remodel.ensemble_generation.generate_ensemble">
+<code class="sig-prename descclassname"><span class="pre">remodel.ensemble_generation.</span></code><code class="sig-name descname"><span class="pre">generate_ensemble</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output_file_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dir_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dialectical_structure</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_commitments_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha_values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">re_models</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">account_penalties</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[0,</span> <span class="pre">0.3,</span> <span class="pre">1,</span> <span class="pre">1]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">faithfulness_penalties</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">1,</span> <span class="pre">1]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_all_branches</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_preliminary_results</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preliminary_results_interval</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">500</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_arg_map_dot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#remodel.ensemble_generation.generate_ensemble" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function to generate an ensemble of RE-Processes for on particular dialectical structure.</p>
+<p>Generates an ensemble of RE-Processes for the given dialectical structure, the given initial commitments and
+<span class="math notranslate nohighlight">\(\alpha\)</span>-values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>output_file</strong> – CSV-File where the date will be saved.</p></li>
+<li><p><strong>dialectical_structure</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">DialecticalStructure</span></code>) – The dialectical structure.</p></li>
+<li><p><strong>initial_commitments</strong> – The initial commitments.</p></li>
+<li><p><strong>alpha_values</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]]) – List of weights (<span class="math notranslate nohighlight">\(\alpha\)</span>-values) for the achievement-function
+(order: account, sytematicity, faithfulness).</p></li>
+<li><p><strong>re_implementations</strong> – String-representation of the models to be used (defined by module- and class name)
+(Must be instantiations of <code class="xref py py-class docutils literal notranslate"><span class="pre">remodeldescription.basics.ReflectiveEquilibrium</span></code>).</p></li>
+<li><p><strong>save_all_branches</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If <code class="code docutils literal notranslate"><span class="pre">True</span></code> every possible branch of an re-process is saved as an individual row
+in the table.</p></li>
+<li><p><strong>save_preliminary_results</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If <code class="code docutils literal notranslate"><span class="pre">True</span></code> the data-generation process will save temporary file every
+other amount of rows as defined by <code class="code docutils literal notranslate"><span class="pre">preliminary_results_interval</span></code>.</p></li>
+<li><p><strong>preliminary_results_interval</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt id="remodel.ensemble_generation.generate_ensemble_with_variable_argument_size">
-<code class="sig-prename descclassname">remodel.ensemble_generation.</code><code class="sig-name descname">generate_ensemble_with_variable_argument_size</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">output_file</span></em>, <em class="sig-param"><span class="n">param_dia_structures</span></em>, <em class="sig-param"><span class="n">n_dialectical_structure</span></em>, <em class="sig-param"><span class="n">n_premises_max</span></em>, <em class="sig-param"><span class="n">n_premises_fixed</span></em>, <em class="sig-param"><span class="n">n_initial_commitments</span></em>, <em class="sig-param"><span class="n">alpha_resolution</span></em>, <em class="sig-param"><span class="n">n_principles</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">re_implementations</span><span class="o">=</span><span class="default_value">['remodel.bitarray_implementation', 'BitarrayReflectiveEquilibrium']</span></em>, <em class="sig-param"><span class="n">save_all_branches</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">save_preliminary_results</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">preliminary_results_interval</span><span class="o">=</span><span class="default_value">500</span></em><span class="sig-paren">)</span><a class="headerlink" href="#remodel.ensemble_generation.generate_ensemble_with_variable_argument_size" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">remodel.ensemble_generation.</span></code><code class="sig-name descname"><span class="pre">generate_ensemble_with_variable_argument_size</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output_file_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dir_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param_dia_structures</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_dialectical_structure</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_premises_max</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_premises_fixed</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_initial_commitments</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha_resolution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">with_extreme_alphas</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha_values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_principles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inf_dens_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inf_dens_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">re_implementations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[('remodel.bitarray_implementation',</span> <span class="pre">'BitarrayReflectiveEquilibrium')]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_all_branches</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_preliminary_results</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preliminary_results_interval</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">500</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#remodel.ensemble_generation.generate_ensemble_with_variable_argument_size" title="Permalink to this definition">¶</a></dt>
 <dd><p>A function to generate an ensemble of RE-processes.</p>
 <p>The ensemble generation proceeds along the following steps:</p>
 <ol class="arabic simple">
@@ -182,14 +241,17 @@ choices the process might have at some steps.)</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>output_file</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – File where the date will be saved.</p></li>
+<li><p><strong>output_file</strong> – File where the date will be saved.</p></li>
 <li><p><strong>param_dia_structures</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]]) – List of tupels of the form &lt;<cite>n_arguments_min</cite>, <cite>n_arguments_max</cite>, <cite>n_sentence_pool</cite>&gt;.</p></li>
 <li><p><strong>n_dialectical_structure</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Number of dialectical structure (per tupel and model).</p></li>
 <li><p><strong>n_premises_max</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Maximum number of premises in an argument.</p></li>
 <li><p><strong>n_premises_fixed</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If <code class="code docutils literal notranslate"><span class="pre">True</span></code> all arguments will have exactly <code class="code docutils literal notranslate"><span class="pre">n_premises_max</span></code> premises.</p></li>
 <li><p><strong>n_initial_commitments</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – The number of initial commitments.</p></li>
-<li><p><strong>alpha_resolution</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Will be used to generate a spectrum of weight for the achievement function.
+<li><p><strong>alpha_resolution</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – If not <code class="code docutils literal notranslate"><span class="pre">None</span></code> it will be used to generate a spectrum of weight for the
+achievement function.
 Resolution of 10 means to generate a spectrum of 0.1,0.2,…,0.9 for each weight.</p></li>
+<li><p><strong>alpha_values</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]]]) – List of weights (<span class="math notranslate nohighlight">\(\alpha\)</span>-values) for the achievement-function
+(order: account, sytematicity, faithfulness).</p></li>
 <li><p><strong>n_principles</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Number of principles to be guaranteed by the algorithm generating the dialectical structures.</p></li>
 <li><p><strong>re_implementations</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]) – String-representation of the models to be used (defined by module- and class name)
 (Must be instantiations of <code class="xref py py-class docutils literal notranslate"><span class="pre">remodeldescription.basics.ReflectiveEquilibrium</span></code>).</p></li>
@@ -236,7 +298,7 @@ other amount of rows as defined by <code class="code docutils literal notranslat
       &copy;2020, Claus Beisbart, Gregor Betz, Georg Brun, Sebastian Cacean, Andreas Freivogel, Richard Lohse.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.1.2</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

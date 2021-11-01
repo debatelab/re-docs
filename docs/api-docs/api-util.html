@@ -4,16 +4,14 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Methods of the module re_model.util &#8212; remodel  documentation</title>
-    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="prev" title="Ensemble Generation with the module re_model.ensemble_generation" href="api-ensemble-generation.html" />
@@ -38,14 +36,14 @@
 <p>A collection of convenient helper-functions.</p>
 <dl class="py function">
 <dt id="remodel.util.arg_to_cnf">
-<code class="sig-prename descclassname">remodel.util.</code><code class="sig-name descname">arg_to_cnf</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">arg</span></em><span class="sig-paren">)</span><a class="headerlink" href="#remodel.util.arg_to_cnf" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">remodel.util.</span></code><code class="sig-name descname"><span class="pre">arg_to_cnf</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#remodel.util.arg_to_cnf" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts list representation of an argument to a cnf-position-like list
 of negated premises + non-negated conclusion</p>
 </dd></dl>
 
 <dl class="py function">
 <dt id="remodel.util.create_random_arguments">
-<code class="sig-prename descclassname">remodel.util.</code><code class="sig-name descname">create_random_arguments</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n_sentences</span></em>, <em class="sig-param"><span class="n">n_arguments</span></em>, <em class="sig-param"><span class="n">n_max_premises</span></em>, <em class="sig-param"><span class="n">variation</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">connected</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">max_loops</span><span class="o">=</span><span class="default_value">1000</span></em><span class="sig-paren">)</span><a class="headerlink" href="#remodel.util.create_random_arguments" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">remodel.util.</span></code><code class="sig-name descname"><span class="pre">create_random_arguments</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_sentences</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_arguments</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_max_premises</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connected</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_loops</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#remodel.util.create_random_arguments" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a list of arguments represented as integer lists.</p>
 <p>The dialectical strucature given by the returned arguments is satisfiable
 (i.e. there is at least one complete and dialectically consistent position).
@@ -72,7 +70,7 @@ Otherwise it is constantly n_max_premises.</p></li>
 
 <dl class="py function">
 <dt id="remodel.util.create_random_arguments2">
-<code class="sig-prename descclassname">remodel.util.</code><code class="sig-name descname">create_random_arguments2</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n_sentences</span></em>, <em class="sig-param"><span class="n">n_arguments</span></em>, <em class="sig-param"><span class="n">n_max_premises</span></em>, <em class="sig-param"><span class="n">n_principles</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">variation</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">connected</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">max_loops</span><span class="o">=</span><span class="default_value">1000</span></em><span class="sig-paren">)</span><a class="headerlink" href="#remodel.util.create_random_arguments2" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">remodel.util.</span></code><code class="sig-name descname"><span class="pre">create_random_arguments2</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_sentences</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_arguments</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_max_premises</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_principles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connected</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_loops</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#remodel.util.create_random_arguments2" title="Permalink to this definition">¶</a></dt>
 <dd><p>Second, refined version. Returns a list of arguments represented as integer lists.</p>
 <p>The dialectical structure given by the returned arguments is satisfiable
 (i.e. there is at least one complete and dialectically consistent position).
@@ -105,7 +103,7 @@ whether they fit into the dialectical structure.</p>
 
 <dl class="py function">
 <dt id="remodel.util.get_principles">
-<code class="sig-prename descclassname">remodel.util.</code><code class="sig-name descname">get_principles</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">arguments</span></em><span class="sig-paren">)</span><a class="headerlink" href="#remodel.util.get_principles" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">remodel.util.</span></code><code class="sig-name descname"><span class="pre">get_principles</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arguments</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#remodel.util.get_principles" title="Permalink to this definition">¶</a></dt>
 <dd><p>”
 Returns a list of tuples of the form <code class="code docutils literal notranslate"><span class="pre">(principle,</span> <span class="pre">multiplicity)</span></code> with <code class="code docutils literal notranslate"><span class="pre">multiplicity</span></code>
 indicating the multiplicity of the principle.
@@ -116,33 +114,33 @@ as premise.</p>
 
 <dl class="py function">
 <dt id="remodel.util.inferential_density">
-<code class="sig-prename descclassname">remodel.util.</code><code class="sig-name descname">inferential_density</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dialectical_structure</span></em><span class="sig-paren">)</span><a class="headerlink" href="#remodel.util.inferential_density" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">remodel.util.</span></code><code class="sig-name descname"><span class="pre">inferential_density</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dialectical_structure</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#remodel.util.inferential_density" title="Permalink to this definition">¶</a></dt>
 <dd><p>Inferential density of a dialectical structure.</p>
 <p>As defined by Betz (2013), p. 44: todo</p>
 </dd></dl>
 
 <dl class="py function">
 <dt id="remodel.util.is_satisfiable">
-<code class="sig-prename descclassname">remodel.util.</code><code class="sig-name descname">is_satisfiable</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">args</span></em>, <em class="sig-param"><span class="n">principles</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#remodel.util.is_satisfiable" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">remodel.util.</span></code><code class="sig-name descname"><span class="pre">is_satisfiable</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">principles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#remodel.util.is_satisfiable" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fast method of checking for satisfiability (using xxx).</p>
 </dd></dl>
 
 <dl class="py function">
 <dt id="remodel.util.load_dialectical_structure">
-<code class="sig-prename descclassname">remodel.util.</code><code class="sig-name descname">load_dialectical_structure</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">DIR</span></em>, <em class="sig-param"><span class="n">fileName</span></em><span class="sig-paren">)</span><a class="headerlink" href="#remodel.util.load_dialectical_structure" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">remodel.util.</span></code><code class="sig-name descname"><span class="pre">load_dialectical_structure</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">DIR</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fileName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#remodel.util.load_dialectical_structure" title="Permalink to this definition">¶</a></dt>
 <dd><p>ToDo: doc</p>
 </dd></dl>
 
 <dl class="py function">
 <dt id="remodel.util.number_of_complete_consistent_positions">
-<code class="sig-prename descclassname">remodel.util.</code><code class="sig-name descname">number_of_complete_consistent_positions</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#remodel.util.number_of_complete_consistent_positions" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">remodel.util.</span></code><code class="sig-name descname"><span class="pre">number_of_complete_consistent_positions</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#remodel.util.number_of_complete_consistent_positions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fast method to calculate the number of complete consistent positions.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt id="remodel.util.random_position_as_set">
-<code class="sig-prename descclassname">remodel.util.</code><code class="sig-name descname">random_position_as_set</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n_sentences</span></em>, <em class="sig-param"><span class="n">allow_empty_position</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#remodel.util.random_position_as_set" title="Permalink to this definition">¶</a></dt>
-<dd><p>Generates a random position in its set-representation.</p>
+<code class="sig-prename descclassname"><span class="pre">remodel.util.</span></code><code class="sig-name descname"><span class="pre">random_position_as_set</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_sentences</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allow_empty_position</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#remodel.util.random_position_as_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a random minimally consistent position in its set-representation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -158,7 +156,7 @@ as premise.</p>
 
 <dl class="py function">
 <dt id="remodel.util.re_from_text_file">
-<code class="sig-prename descclassname">remodel.util.</code><code class="sig-name descname">re_from_text_file</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dir</span></em>, <em class="sig-param"><span class="n">file_name</span></em>, <em class="sig-param"><span class="n">re_implementations</span><span class="o">=</span><span class="default_value">['remodel.bitarray_implementation', 'BitarrayReflectiveEquilibrium']</span></em>, <em class="sig-param"><span class="n">ds_module_name</span><span class="o">=</span><span class="default_value">'remodel.bitarray_implementation'</span></em>, <em class="sig-param"><span class="n">ds_class_name</span><span class="o">=</span><span class="default_value">'BitarrayDialecticalStructure'</span></em>, <em class="sig-param"><span class="n">position_module_name</span><span class="o">=</span><span class="default_value">'remodel.bitarray_implementation'</span></em>, <em class="sig-param"><span class="n">position_class_name</span><span class="o">=</span><span class="default_value">'BitarrayPosition'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#remodel.util.re_from_text_file" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">remodel.util.</span></code><code class="sig-name descname"><span class="pre">re_from_text_file</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">re_implementations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[('remodel.bitarray_implementation',</span> <span class="pre">'BitarrayReflectiveEquilibrium')]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ds_module_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'remodel.bitarray_implementation'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ds_class_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'BitarrayDialecticalStructure'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position_module_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'remodel.bitarray_implementation'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position_class_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'BitarrayPosition'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#remodel.util.re_from_text_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a list of RE classes  from a text-file.</p>
 <p>The text file consists of a list (i.e. […]) of dictionaries (i.e. {…})
 and commented lines used for the description of the example (starting with #).
@@ -217,26 +215,26 @@ with the inner lists of <code class="code docutils literal notranslate"><span cl
 
 <dl class="py function">
 <dt id="remodel.util.re_weight_variations">
-<code class="sig-prename descclassname">remodel.util.</code><code class="sig-name descname">re_weight_variations</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">re</span></em>, <em class="sig-param"><span class="n">initial_commitments</span></em>, <em class="sig-param"><span class="n">DIR</span></em>, <em class="sig-param"><span class="n">fileName</span></em>, <em class="sig-param"><span class="n">resolution</span><span class="o">=</span><span class="default_value">20</span></em><span class="sig-paren">)</span><a class="headerlink" href="#remodel.util.re_weight_variations" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">remodel.util.</span></code><code class="sig-name descname"><span class="pre">re_weight_variations</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">re</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_commitments</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">DIR</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fileName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#remodel.util.re_weight_variations" title="Permalink to this definition">¶</a></dt>
 <dd><p>Simulate RE processes with
 todo</p>
 </dd></dl>
 
 <dl class="py function">
 <dt id="remodel.util.save_dialectical_structure">
-<code class="sig-prename descclassname">remodel.util.</code><code class="sig-name descname">save_dialectical_structure</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">DIR</span></em>, <em class="sig-param"><span class="n">fileName</span></em>, <em class="sig-param"><span class="n">dialectical_structure</span></em><span class="sig-paren">)</span><a class="headerlink" href="#remodel.util.save_dialectical_structure" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">remodel.util.</span></code><code class="sig-name descname"><span class="pre">save_dialectical_structure</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">DIR</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fileName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dialectical_structure</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#remodel.util.save_dialectical_structure" title="Permalink to this definition">¶</a></dt>
 <dd><p>ToDo: doc</p>
 </dd></dl>
 
 <dl class="py function">
 <dt id="remodel.util.write_as_dot">
-<code class="sig-prename descclassname">remodel.util.</code><code class="sig-name descname">write_as_dot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">directory</span></em>, <em class="sig-param"><span class="n">fileName</span></em>, <em class="sig-param"><span class="n">arg_list</span></em>, <em class="sig-param"><span class="n">equal_rank_for_principles</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#remodel.util.write_as_dot" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">remodel.util.</span></code><code class="sig-name descname"><span class="pre">write_as_dot</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fileName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">equal_rank_for_principles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#remodel.util.write_as_dot" title="Permalink to this definition">¶</a></dt>
 <dd><p>ToDo: doc</p>
 </dd></dl>
 
 <dl class="py function">
 <dt id="remodel.util.write_as_tex">
-<code class="sig-prename descclassname">remodel.util.</code><code class="sig-name descname">write_as_tex</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">directory</span></em>, <em class="sig-param"><span class="n">fileName</span></em>, <em class="sig-param"><span class="n">arg_list</span></em><span class="sig-paren">)</span><a class="headerlink" href="#remodel.util.write_as_tex" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">remodel.util.</span></code><code class="sig-name descname"><span class="pre">write_as_tex</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fileName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#remodel.util.write_as_tex" title="Permalink to this definition">¶</a></dt>
 <dd><p>ToDo: doca</p>
 </dd></dl>
 
@@ -273,7 +271,7 @@ todo</p>
       &copy;2020, Claus Beisbart, Gregor Betz, Georg Brun, Sebastian Cacean, Andreas Freivogel, Richard Lohse.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.1.2</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
