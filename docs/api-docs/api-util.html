@@ -1,0 +1,288 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Methods of the module re_model.util &#8212; remodel  documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Ensemble Generation with the module re_model.ensemble_generation" href="api-ensemble-generation.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-remodel.util">
+<span id="methods-of-the-module-re-model-util"></span><h1>Methods of the module <code class="code docutils literal notranslate"><span class="pre">re_model.util</span></code><a class="headerlink" href="#module-remodel.util" title="Permalink to this headline">¶</a></h1>
+<p>A collection of convenient helper-functions.</p>
+<dl class="py function">
+<dt id="remodel.util.arg_to_cnf">
+<code class="sig-prename descclassname">remodel.util.</code><code class="sig-name descname">arg_to_cnf</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">arg</span></em><span class="sig-paren">)</span><a class="headerlink" href="#remodel.util.arg_to_cnf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts list representation of an argument to a cnf-position-like list
+of negated premises + non-negated conclusion</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="remodel.util.create_random_arguments">
+<code class="sig-prename descclassname">remodel.util.</code><code class="sig-name descname">create_random_arguments</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n_sentences</span></em>, <em class="sig-param"><span class="n">n_arguments</span></em>, <em class="sig-param"><span class="n">n_max_premises</span></em>, <em class="sig-param"><span class="n">variation</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">connected</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">max_loops</span><span class="o">=</span><span class="default_value">1000</span></em><span class="sig-paren">)</span><a class="headerlink" href="#remodel.util.create_random_arguments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of arguments represented as integer lists.</p>
+<p>The dialectical strucature given by the returned arguments is satisfiable
+(i.e. there is at least one complete and dialectically consistent position).
+Furthermore, the arguments avoid begging the question, repeating premises,
+flat contradictions among premises and with the conclusion, and using the same
+premises for different conclusions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n_sentences</strong> – Number of non-negated sentences of the sentence pool.</p></li>
+<li><p><strong>n_arguments</strong> – Number of generated arguments.</p></li>
+<li><p><strong>n_max_premises</strong> – Maximal number of premises per argument.</p></li>
+<li><p><strong>variation</strong> – If true (default), the number of premises per argument is chosen randomly.
+Otherwise it is constantly n_max_premises.</p></li>
+<li><p><strong>connected</strong> – If true (default), the arguments are related
+(either by attack or support) to at least one other argument in the structure.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="remodel.util.create_random_arguments2">
+<code class="sig-prename descclassname">remodel.util.</code><code class="sig-name descname">create_random_arguments2</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n_sentences</span></em>, <em class="sig-param"><span class="n">n_arguments</span></em>, <em class="sig-param"><span class="n">n_max_premises</span></em>, <em class="sig-param"><span class="n">n_principles</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">variation</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">connected</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">max_loops</span><span class="o">=</span><span class="default_value">1000</span></em><span class="sig-paren">)</span><a class="headerlink" href="#remodel.util.create_random_arguments2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Second, refined version. Returns a list of arguments represented as integer lists.</p>
+<p>The dialectical structure given by the returned arguments is satisfiable
+(i.e. there is at least one complete and dialectically consistent position).
+Furthermore, the arguments avoid begging the question, repeating premises,
+flat contradictions among premises and with the conclusion, and using the same
+premises for different conclusions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n_sentences</strong> – Number of non-negated sentences of the sentence pool.
+Every sentence (or its negation) occurs at least once in an argument.</p></li>
+<li><p><strong>n_arguments</strong> – Number of generated arguments.</p></li>
+<li><p><strong>n_max_premises</strong> – Maximal number of premises per argument.</p></li>
+<li><p><strong>n_principles</strong> – The number of principles, i.e. sentences that may occur in arguments as premises only.</p></li>
+<li><p><strong>variation</strong> – If true (default), the number of premises per argument is chosen randomly.
+Otherwise it is constantly n_max_premises.</p></li>
+<li><p><strong>connected</strong> – If true (default), the arguments are related
+(either by attack or support) to at least one other argument in the structure.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Max_loops</dt>
+<dd class="field-even"><p>Breaks possibply endless loops. Number of arguments that tested
+whether they fit into the dialectical structure.</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="remodel.util.get_principles">
+<code class="sig-prename descclassname">remodel.util.</code><code class="sig-name descname">get_principles</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">arguments</span></em><span class="sig-paren">)</span><a class="headerlink" href="#remodel.util.get_principles" title="Permalink to this definition">¶</a></dt>
+<dd><p>”
+Returns a list of tuples of the form <code class="code docutils literal notranslate"><span class="pre">(principle,</span> <span class="pre">multiplicity)</span></code> with <code class="code docutils literal notranslate"><span class="pre">multiplicity</span></code>
+indicating the multiplicity of the principle.
+A sentence counts as a principle iff it occurs in at least one argument as premise and it or its negation
+does not occur as a conclusion in an argument. The multiplicity counts in how many argument the sentence occurs
+as premise.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="remodel.util.inferential_density">
+<code class="sig-prename descclassname">remodel.util.</code><code class="sig-name descname">inferential_density</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dialectical_structure</span></em><span class="sig-paren">)</span><a class="headerlink" href="#remodel.util.inferential_density" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inferential density of a dialectical structure.</p>
+<p>As defined by Betz (2013), p. 44: todo</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="remodel.util.is_satisfiable">
+<code class="sig-prename descclassname">remodel.util.</code><code class="sig-name descname">is_satisfiable</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">args</span></em>, <em class="sig-param"><span class="n">principles</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#remodel.util.is_satisfiable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fast method of checking for satisfiability (using xxx).</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="remodel.util.load_dialectical_structure">
+<code class="sig-prename descclassname">remodel.util.</code><code class="sig-name descname">load_dialectical_structure</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">DIR</span></em>, <em class="sig-param"><span class="n">fileName</span></em><span class="sig-paren">)</span><a class="headerlink" href="#remodel.util.load_dialectical_structure" title="Permalink to this definition">¶</a></dt>
+<dd><p>ToDo: doc</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="remodel.util.number_of_complete_consistent_positions">
+<code class="sig-prename descclassname">remodel.util.</code><code class="sig-name descname">number_of_complete_consistent_positions</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#remodel.util.number_of_complete_consistent_positions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fast method to calculate the number of complete consistent positions.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="remodel.util.random_position_as_set">
+<code class="sig-prename descclassname">remodel.util.</code><code class="sig-name descname">random_position_as_set</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n_sentences</span></em>, <em class="sig-param"><span class="n">allow_empty_position</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#remodel.util.random_position_as_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a random position in its set-representation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n_sentences</strong> – Size of the sentence-pool (without negations).</p></li>
+<li><p><strong>allow_empty_position</strong> – Iff <code class="code docutils literal notranslate"><span class="pre">True</span></code> an empty position might be returned.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A set of integer representing the position.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="remodel.util.re_from_text_file">
+<code class="sig-prename descclassname">remodel.util.</code><code class="sig-name descname">re_from_text_file</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dir</span></em>, <em class="sig-param"><span class="n">file_name</span></em>, <em class="sig-param"><span class="n">re_implementations</span><span class="o">=</span><span class="default_value">['remodel.bitarray_implementation', 'BitarrayReflectiveEquilibrium']</span></em>, <em class="sig-param"><span class="n">ds_module_name</span><span class="o">=</span><span class="default_value">'remodel.bitarray_implementation'</span></em>, <em class="sig-param"><span class="n">ds_class_name</span><span class="o">=</span><span class="default_value">'BitarrayDialecticalStructure'</span></em>, <em class="sig-param"><span class="n">position_module_name</span><span class="o">=</span><span class="default_value">'remodel.bitarray_implementation'</span></em>, <em class="sig-param"><span class="n">position_class_name</span><span class="o">=</span><span class="default_value">'BitarrayPosition'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#remodel.util.re_from_text_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a list of RE classes  from a text-file.</p>
+<p>The text file consists of a list (i.e. […]) of dictionaries (i.e. {…})
+and commented lines used for the description of the example (starting with #).
+The dictionaries have to contain comma separated entries for the number of unnegated
+sentences (key: ‘n’, e.g. ‘n’:7) and the arguments (key: ‘arguments’) as a list of lists of numbers
+(e.g.’arguments’:[[1,-3], [2,3,5]]).</p>
+<p>Optionally, the dictionary may contain entries ‘account_penalties’, ‘faithfulness_penalties’ and
+‘weights’ if non-standard values should be considered. Finally, an entry of ‘initial_commitments’
+may be provided, which is returned as a list of positions in the desired implementation.</p>
+<p>A simple schematic example is:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+<span class="c1"># the standard examples (cases A,B,C and D) contain only arguments with one premise.</span>
+<span class="p">{</span>
+    <span class="s1">&#39;n&#39;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+    <span class="s1">&#39;arguments&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">6</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">4</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span>
+    <span class="p">],</span>
+    <span class="s1">&#39;initial_commitments&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">},</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">},</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">},</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">}],</span>
+    <span class="s1">&#39;weights&#39;</span> <span class="p">:</span> <span class="p">{</span><span class="s1">&#39;account&#39;</span><span class="p">:</span> <span class="mf">0.35</span><span class="p">,</span> <span class="s1">&#39;systematicity&#39;</span><span class="p">:</span> <span class="mf">0.55</span><span class="p">,</span> <span class="s1">&#39;faithfulness&#39;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">},</span>
+    <span class="s1">&#39;account_penalties&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="s1">&#39;faithfulness_penalties&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="p">},</span>
+<span class="p">{</span> <span class="c1"># some other dialectical structure ...</span>
+<span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dir</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Directory of the text-file.</p></li>
+<li><p><strong>file_name</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Name of the text-file to be used.</p></li>
+<li><p><strong>implementations</strong> – String-representation of the implementation to be used (defined by module- and class name).</p></li>
+<li><p><strong>ds_module_name</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Modulename of the implementation of <code class="code docutils literal notranslate"><span class="pre">DialecticalStructure</span></code> to be used.</p></li>
+<li><p><strong>ds_class_name</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Classname of the implementation of <code class="code docutils literal notranslate"><span class="pre">DialecticalStructure</span></code> to be used.</p></li>
+<li><p><strong>position_module_name</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Module name of the implementation of <code class="code docutils literal notranslate"><span class="pre">Position</span></code> to be used.</p></li>
+<li><p><strong>position_class_name</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Class name of the implementation of <code class="code docutils literal notranslate"><span class="pre">Position</span></code> to be used.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ReflectiveEquilibrium</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code>]]]</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>List of the form <code class="code docutils literal notranslate"><span class="pre">[(ReflectiveEquilibrium,[Position,Position,...]),(ReflectiveEquilibrium,[Position,Position,...]),...]</span></code>
+with the inner lists of <code class="code docutils literal notranslate"><span class="pre">Position</span></code> possibly being <code class="code docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="remodel.util.re_weight_variations">
+<code class="sig-prename descclassname">remodel.util.</code><code class="sig-name descname">re_weight_variations</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">re</span></em>, <em class="sig-param"><span class="n">initial_commitments</span></em>, <em class="sig-param"><span class="n">DIR</span></em>, <em class="sig-param"><span class="n">fileName</span></em>, <em class="sig-param"><span class="n">resolution</span><span class="o">=</span><span class="default_value">20</span></em><span class="sig-paren">)</span><a class="headerlink" href="#remodel.util.re_weight_variations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simulate RE processes with
+todo</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="remodel.util.save_dialectical_structure">
+<code class="sig-prename descclassname">remodel.util.</code><code class="sig-name descname">save_dialectical_structure</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">DIR</span></em>, <em class="sig-param"><span class="n">fileName</span></em>, <em class="sig-param"><span class="n">dialectical_structure</span></em><span class="sig-paren">)</span><a class="headerlink" href="#remodel.util.save_dialectical_structure" title="Permalink to this definition">¶</a></dt>
+<dd><p>ToDo: doc</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="remodel.util.write_as_dot">
+<code class="sig-prename descclassname">remodel.util.</code><code class="sig-name descname">write_as_dot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">directory</span></em>, <em class="sig-param"><span class="n">fileName</span></em>, <em class="sig-param"><span class="n">arg_list</span></em>, <em class="sig-param"><span class="n">equal_rank_for_principles</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#remodel.util.write_as_dot" title="Permalink to this definition">¶</a></dt>
+<dd><p>ToDo: doc</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="remodel.util.write_as_tex">
+<code class="sig-prename descclassname">remodel.util.</code><code class="sig-name descname">write_as_tex</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">directory</span></em>, <em class="sig-param"><span class="n">fileName</span></em>, <em class="sig-param"><span class="n">arg_list</span></em><span class="sig-paren">)</span><a class="headerlink" href="#remodel.util.write_as_tex" title="Permalink to this definition">¶</a></dt>
+<dd><p>ToDo: doca</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="../index.html">Table of Contents</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user/running_model.html">Running the Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/extending_model.html">Extending the Model</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="api.html">API Docs of RE-Model Implementations</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="api-abstractre.html"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractReflectiveEquilibrium</span></code> class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api-setimplementation.html">API Docs of RE-Model Set-Based Implementations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api-bitarrayimplementation.html">API Docs of RE-Model Bitarray-Based Implementations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api-ensemble-generation.html">Ensemble Generation with the module <code class="code docutils literal notranslate"><span class="pre">re_model.ensemble_generation</span></code></a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Methods of the module <code class="code docutils literal notranslate"><span class="pre">re_model.util</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Claus Beisbart, Gregor Betz, Georg Brun, Sebastian Cacean, Andreas Freivogel, Richard Lohse.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/api-docs/api-util.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

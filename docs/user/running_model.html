@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Running the Model &#8212; remodel  documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Extending the Model" href="extending_model.html" />
+    <link rel="prev" title="A Formal Model of Reflective Equilibrium" href="../index.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="running-the-model">
+<h1>Running the Model<a class="headerlink" href="#running-the-model" title="Permalink to this headline">¶</a></h1>
+<p>Importing libraries: The are two implementations of the model description - an implementation which
+represent positions as sets of integers and an implementation which represents positions as
+bitarrays.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># importing libraries</span>
+<span class="kn">from</span> <span class="nn">remodel.set_implementation</span> <span class="kn">import</span> <span class="n">SetBasedPosition</span><span class="p">,</span> <span class="n">SetBasedDialecticalStructure</span><span class="p">,</span> <span class="n">SetBasedReflectiveEquilibrium</span>
+<span class="kn">from</span> <span class="nn">remodel.bitarray_implementation</span> <span class="kn">import</span> <span class="n">BitarrayPosition</span><span class="p">,</span> <span class="n">BitarrayDialecticalStructure</span><span class="p">,</span> <span class="n">BitarrayReflectiveEquilibrium</span>
+<span class="kn">from</span> <span class="nn">remodeldescription.basics</span> <span class="kn">import</span> <span class="n">Position</span>
+<span class="kn">from</span> <span class="nn">bitarray</span> <span class="kn">import</span> <span class="n">bitarray</span>
+</pre></div>
+</div>
+<div class="section" id="creating-dialectical-structures-from-scratch">
+<h2>Creating Dialectical Structures from Scratch<a class="headerlink" href="#creating-dialectical-structures-from-scratch" title="Permalink to this headline">¶</a></h2>
+<p>Dialectical structures can be instantiated by defining a list of arguments.
+Each argument is represented by a list of integers - the last integer of the list representing
+the conclusion and the other the premises. Negations are indicated by negative numbers.</p>
+<p>The following examples are taken from <a class="reference internal" href="../index.html#bbb" id="id1"><span>[BBB]</span></a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">arguments</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+             <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+             <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+             <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">6</span><span class="p">],</span>
+             <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">],</span>
+             <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+             <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
+             <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">]]</span>
+</pre></div>
+</div>
+<p>Instantiating a dialectical structure further requires to decide the used sentencepool by
+fixing the number of unnegated sentences <code class="code docutils literal notranslate"><span class="pre">n</span></code>.</p>
+<p>As a set-based dialectical structure:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">setbased_ds</span> <span class="o">=</span> <span class="n">SetBasedDialecticalStructure</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="mi">7</span><span class="p">,</span> <span class="n">arguments</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>As a bitarray-based dialectical structure:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bitarray_ds</span> <span class="o">=</span> <span class="n">BitarrayDialecticalStructure</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="mi">7</span><span class="p">,</span> <span class="n">arguments</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>Running the model<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Running the model (for finding RE-states or global opitma) requires</p>
+<ul class="simple">
+<li><p>instantiating the reflective equilibrium class,</p></li>
+<li><p>defining initial commitments <span class="math notranslate nohighlight">\(\mathcal{C}_0\)</span> as a <code class="code docutils literal notranslate"><span class="pre">Position</span></code> and</p></li>
+<li><p>calling respective methods of the RE-instance.</p></li>
+</ul>
+<p>With the set-based implementation:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">setbased_re</span> <span class="o">=</span> <span class="n">SetBasedReflectiveEquilibrium</span><span class="p">(</span><span class="n">setbased_ds</span><span class="p">)</span>
+<span class="n">setbased_initial_position_A</span> <span class="o">=</span> <span class="n">SetBasedPosition</span><span class="p">({</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">})</span>
+<span class="n">setbased_result</span> <span class="o">=</span> <span class="n">setbased_re</span><span class="o">.</span><span class="n">re_process</span><span class="p">(</span><span class="n">setbased_initial_position_A</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>With the bitarray-based implementation:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bitarray_re</span> <span class="o">=</span> <span class="n">BitarrayReflectiveEquilibrium</span><span class="p">(</span><span class="n">bitarray_ds</span><span class="p">)</span>
+<span class="n">bitarray_initial_position_A</span> <span class="o">=</span> <span class="n">BitarrayPosition</span><span class="p">(</span><span class="s1">&#39;00001010100000&#39;</span><span class="p">)</span>
+<span class="n">bitarray_result</span> <span class="o">=</span> <span class="n">bitarray_re</span><span class="o">.</span><span class="n">re_process</span><span class="p">(</span><span class="n">bitarray_initial_position_A</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The results of the process can be accessed via the returned
+result as <code class="code docutils literal notranslate"><span class="pre">ReflectiveEquilibrium.Result</span></code>, e.g.:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Commitments of RE-state: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">setbased_result</span><span class="p">[</span><span class="s1">&#39;commitments&#39;</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Theory of RE-state: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">setbased_result</span><span class="p">[</span><span class="s1">&#39;theory&#39;</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-different-weights-for-the-achievement-function">
+<h2>Using Different Weights for the Achievement Function<a class="headerlink" href="#using-different-weights-for-the-achievement-function" title="Permalink to this headline">¶</a></h2>
+<p>The achievement function uses default values for different weighing and
+penalty parameters, which can be adjusted. E.g.:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">setbased_re</span> <span class="o">=</span> <span class="n">SetBasedReflectiveEquilibrium</span><span class="p">(</span><span class="n">setbased_ds</span><span class="p">)</span>
+<span class="n">setbased_re</span><span class="o">.</span><span class="n">set_weights</span><span class="p">(</span><span class="n">account</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">systematicity</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">faithfulness</span> <span class="o">=</span> <span class="mf">0.6</span><span class="p">)</span>
+<span class="n">setbased_re</span><span class="o">.</span><span class="n">set_account_penalties</span><span class="p">(</span><span class="n">d0</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">d1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">d2</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">d3</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">setbased_re</span><span class="o">.</span><span class="n">set_faithfulness_penalties</span><span class="p">(</span><span class="n">d0</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">d1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">d2</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">d3</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For further information consult the API-docs of <a class="reference internal" href="../api-docs/api.html#api-docs-label"><span class="std std-ref">remodel</span></a>
+and <a class="reference external" href="http://argunet.philosophie.kit.edu/remodeldescription%2Dapidocs/">remodeldescription</a>
+or have a look at the various <strong>notebook-examples</strong> under <a class="reference external" href="https://git.scc.kit.edu/debatelab/re-python/-/tree/master/notebooks">https://git.scc.kit.edu/debatelab/re-python/-/tree/master/notebooks</a>.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="../index.html">Table of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Running the Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_model.html">Extending the Model</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-docs/api.html">API Docs of RE-Model Implementations</a></li>
+</ul>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Claus Beisbart, Gregor Betz, Georg Brun, Sebastian Cacean, Andreas Freivogel, Richard Lohse.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/user/running_model.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

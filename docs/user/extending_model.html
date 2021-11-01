@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extending the Model &#8212; remodel  documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="API Docs of RE-Model Implementations" href="../api-docs/api.html" />
+    <link rel="prev" title="Running the Model" href="running_model.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="extending-the-model">
+<h1>Extending the Model<a class="headerlink" href="#extending-the-model" title="Permalink to this headline">¶</a></h1>
+<p>The easiest way to extend or change the model is to override existing methods
+of the implemented classes by writing own classes that inherit the given classes.</p>
+<p>The given implementations use a quadratic term for calculating account, systematicity and
+faithfulness. Suppose you want to get rid of the quadratic form of e.g. account:</p>
+<div class="math notranslate nohighlight">
+\[A(\mathcal{C}, \mathcal{T}):=\left( 1-\left(\frac{D_{0,0.3,1,1}(\mathcal{C}, \overline{\mathcal{T}})}{N}\right)^2 \right)\]</div>
+<p>and use instead:</p>
+<div class="math notranslate nohighlight">
+\[A(\mathcal{C}, \mathcal{T}):=\left( 1-\frac{D_{0,0.3,1,1}(\mathcal{C}, \overline{\mathcal{T}})}{N} \right)\]</div>
+<p>This can simply done by overriding the account-function of the
+<code class="xref py py-class docutils literal notranslate"><span class="pre">SetBasedReflectiveEquilibrium</span></code> in the following way:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">NewSetBasedReflectiveEquilibrium</span><span class="p">(</span><span class="n">SetBasedReflectiveEquilibrium</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">account</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">commitments</span><span class="p">:</span> <span class="n">Position</span><span class="p">,</span> <span class="n">theory</span><span class="p">:</span> <span class="n">Position</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hamming_distance</span><span class="p">(</span><span class="n">commitments</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dialectical_structure</span><span class="o">.</span><span class="n">closure</span><span class="p">(</span><span class="n">theory</span><span class="p">),</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span> <span class="o">/</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">dialectical_structure</span><span class="o">.</span><span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now you can use the newly defined class to calculate the account of positions w.r.t. initial
+positions or to find RE-states with this new class:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># instantiating new class</span>
+<span class="n">new_setbased_re</span> <span class="o">=</span> <span class="n">NewSetBasedReflectiveEquilibrium</span><span class="p">(</span><span class="n">setbased_ds</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;New account value: &quot;</span><span class="p">,</span> <span class="n">new_setbased_re</span><span class="o">.</span><span class="n">account</span><span class="p">(</span><span class="n">SetBasedPosition</span><span class="p">({</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">}),</span> <span class="n">SetBasedPosition</span><span class="p">({</span><span class="mi">1</span><span class="p">})))</span>
+<span class="n">setbased_result</span> <span class="o">=</span> <span class="n">new_setbased_re</span><span class="o">.</span><span class="n">re_process</span><span class="p">(</span><span class="n">SetBasedPosition</span><span class="p">({</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">}))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Commitements of RE-state: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">setbased_result</span><span class="p">[</span><span class="s1">&#39;commitments&#39;</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Theory of RE-state: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">setbased_result</span><span class="p">[</span><span class="s1">&#39;theory&#39;</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="../index.html">Table of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="running_model.html">Running the Model</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Extending the Model</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-docs/api.html">API Docs of RE-Model Implementations</a></li>
+</ul>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Claus Beisbart, Gregor Betz, Georg Brun, Sebastian Cacean, Andreas Freivogel, Richard Lohse.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/user/extending_model.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

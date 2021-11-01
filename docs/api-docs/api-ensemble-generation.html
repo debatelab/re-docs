@@ -1,0 +1,251 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ensemble Generation with the module re_model.ensemble_generation &#8212; remodel  documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Methods of the module re_model.util" href="api-util.html" />
+    <link rel="prev" title="API Docs of RE-Model Bitarray-Based Implementations" href="api-bitarrayimplementation.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-remodel.ensemble_generation">
+<span id="ensemble-generation-with-the-module-re-model-ensemble-generation"></span><h1>Ensemble Generation with the module <code class="code docutils literal notranslate"><span class="pre">re_model.ensemble_generation</span></code><a class="headerlink" href="#module-remodel.ensemble_generation" title="Permalink to this headline">¶</a></h1>
+<p>The methods in this module can be used to generate an ensemble of randomly generated runs of reflective equilibrium
+processes. The generated data will be saved in a csv-file, with the following columns (all complex data-types are stored
+as strings and have to be parsed if needed):</p>
+<p><strong>FEATURES OF THE DIALECTICAL STRUCTURE</strong></p>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">model_name</span></code>: A name of the model as string.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">ds</span></code>: The dialectical structure as list of int-lists. The first numbers of each list represent the premises,
+the last one the conclusion.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">n_sentence_pool</span></code>: Number of unnegated sentences (half the full size).</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">ds_arg_size</span></code>: Number of arguments.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">ds_infer_dens</span></code>: The inferential density of the structure.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">ds_n_consistent_complete_positions</span></code>: Number of dialectically complete and consistent positions.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">ds_mean_prem</span></code>: Mean number of premises per argument.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">ds_variance_prem</span></code>: Variance of the number of premises per argument.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">tau_truths</span></code>: Propositions that are true in every complete consistent position.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">principles</span></code>: A list of tuples of the form <code class="code docutils literal notranslate"><span class="pre">(principle,</span> <span class="pre">multiplicity)</span></code> with <code class="code docutils literal notranslate"><span class="pre">multiplicity</span></code>
+indicating the multiplicity of the principle.
+A sentence counts as a principle iff it occurs in at least one argument as premise and it or its negation
+does not occur as a conclusion in an argument. The multiplicity counts in how many argument the sentence occurs
+as premise.</p></li>
+</ul>
+<p><strong>PARAMETERS OF THE RE-PROCESS</strong></p>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">account_penalties</span></code>:</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">faithfulness_penalties</span></code>:</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">weight_account</span></code>:</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">weight_systematicity</span></code>:</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">weight_faithfulness</span></code>:</p></li>
+</ul>
+<p><strong>PROCESS-FEATURES</strong></p>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">init_coms</span></code>: The initial commitments.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">init_coms_size</span></code>: Number of initial commitments.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">init_coms_n_tau_truths</span></code>: Number of tau-true propositions in the initial commitments.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">init_coms_n_tau_falsehoods</span></code>: Number of tau-false propositions in the initial commitments.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">init_coms_min_ax_bases</span></code>: Minimal-length axiomatic bases of <code class="code docutils literal notranslate"><span class="pre">init_coms</span></code> with sentences
+from <code class="code docutils literal notranslate"><span class="pre">init_coms</span></code> only. (Sentences <span class="math notranslate nohighlight">\(\mathcal{C}_a\)</span> are an axiomatic basis
+of <span class="math notranslate nohighlight">\(\mathcal{C}_1\)</span> (with sentences from <span class="math notranslate nohighlight">\(\mathcal{C}_2\)</span> only) iff <span class="math notranslate nohighlight">\(\mathcal{C}_a\)</span> dialectically
+implies <span class="math notranslate nohighlight">\(\mathcal{C}_1\)</span> and there is no proper subset of <span class="math notranslate nohighlight">\(\mathcal{C}_a\)</span> such that it implies
+<span class="math notranslate nohighlight">\(\mathcal{C}_1\)</span> (and <span class="math notranslate nohighlight">\(\mathcal{C}_a \subset \mathcal{C}_2\)</span>).)</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">n_init_coms_min_ax_base</span></code>: The length of the minimal-length axiomatic bases (not the number of such bases).</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">init_coms_n_consistent_complete_positions</span></code>: Number of consistent complete positions that extend the initial
+commitments.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">init_coms_dia_consistent</span></code>: Whether the initial commitments are dialectically consistent.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">init_coms_closed</span></code>: Whether the initial commitments are dialectically closed.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">init_coms_closure</span></code>: Dialectical closure of initial commitments.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">fixed_point_commitments</span></code>: Final commitments.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">fixed_point_coms_size</span></code>: The number of propositions in <code class="code docutils literal notranslate"><span class="pre">fixed_point_commitments</span></code>.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">fixed_point_coms_com_n_tau_truths</span></code>: Number of tau-true propositions in the final commitments.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">fixed_point_coms_com_n_tau_falsehoods</span></code>: Number of tau-false propositions in the final commitments.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">fixed_point_is_global_optimum</span></code>: Whether the fixed point is a global optimum.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">fixed_point_is_re_state</span></code>: Whether the fixed point is a RE state.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">fixed_point_is_full_re_state</span></code>: Whether the fixed point is a full RE state.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">fixed_point_coms_closed</span></code>: Whether the final commitments is dialectically closed.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">fixed_point_coms_closure</span></code>: Dialectical closure of final commitments.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">fixed_point_coms_consistent</span></code>: Whether the final commitments is dialectically consistent.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">fixed_point_coms_n_consistent_complete_positions</span></code>: The number of complete and dialectically consistent
+positions that extend the final commitments.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">fixed_point_coms_min_ax_bases</span></code>: Minimal-length axiomatic bases of <code class="code docutils literal notranslate"><span class="pre">fixed_point_commitments</span></code> with
+sentences from <code class="code docutils literal notranslate"><span class="pre">fixed_point_commitments</span></code> only. (Sentences <span class="math notranslate nohighlight">\(\mathcal{C}_a\)</span> are an axiomatic basis
+of <span class="math notranslate nohighlight">\(\mathcal{C}_1\)</span> (with sentences from <span class="math notranslate nohighlight">\(\mathcal{C}_2\)</span> only) iff <span class="math notranslate nohighlight">\(\mathcal{C}_a\)</span> dialectically
+implies <span class="math notranslate nohighlight">\(\mathcal{C}_1\)</span> and there is no proper subset of <span class="math notranslate nohighlight">\(\mathcal{C}_a\)</span> such that it implies
+<span class="math notranslate nohighlight">\(\mathcal{C}_1\)</span> (and <span class="math notranslate nohighlight">\(\mathcal{C}_a \subset \mathcal{C}_2\)</span>).)</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">n_fixed_point_coms_min_ax_base</span></code>: The size of minimal-length axiomatic bases of <code class="code docutils literal notranslate"><span class="pre">fixed_point_commitments</span></code> with
+sentences from <code class="code docutils literal notranslate"><span class="pre">fixed_point_commitments</span></code> only.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">fixed_point_coms_min_ax_bases_theory</span></code>: A minimal-length subset <span class="math notranslate nohighlight">\(\mathcal{C}'\)</span> of the
+final commitments such that the final commitments are entailed by the theory and <span class="math notranslate nohighlight">\(\mathcal{C}'\)</span>.
+(Or equivalently: A smallest subset <span class="math notranslate nohighlight">\(\mathcal{C}'\)</span> within the commitments such that there is an axiomatic
+basis <span class="math notranslate nohighlight">\(A\)</span> for the commitments <span class="math notranslate nohighlight">\(\mathcal{C}\)</span> with:
+<span class="math notranslate nohighlight">\(A= \mathcal{C}' \cup \mathcal{T}'\)</span> and <span class="math notranslate nohighlight">\(\mathcal{T}'\)</span> a subset of the theory)</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">n_fixed_point_coms_min_ax_base_theory</span></code>: Number of propositions in each set
+in <code class="code docutils literal notranslate"><span class="pre">fixed_point_coms_min_ax_bases_theory</span></code>.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">fixed_point_theory</span></code>: The final theory.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">fixed_point_theory_closure</span></code>: Closure of the final theory.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">fixed_point_theory_axioms</span></code>: Axiomatic bases of the final theory.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">achievements_evolution</span></code>:</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">fixed_point_dia_consistent</span></code>: Whether the union of final theory &amp; commitments is dialectically consistent.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">init_final_coms_simple_hamming</span></code>: Simple hamming distance between initial and final commitments.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">init_final_coms_hamming</span></code>: Hamming distance between initial and final commitments as defined in
+BBB with d_3 = 1, d_2 = 1, d_1 = 1, d_0 = 0.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">init_final_coms_contradictions</span></code>: Amount of contradictions: number of sentences whose contradictions
+are in both positions (i.e. hamming distance as defined in BBB with d_3 = 1, d_2 = 0, d_1 = 0, d_0 = 0)</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">init_final_coms_expansions</span></code>: Amount of expansions without expansions that lead to
+contradictions or identities (i.e. hamming distance as defined in BBB with d_3 = 0, d_2 = 0, d_1 = 1, d_0 = 0)</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">init_final_coms_contractions</span></code>: Amount of contractions (i.e. hamming distance as
+defined in BBB with d_3 = 0, d_2 = 1, d_1 = 0, d_0 = 0)</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">init_final_coms_identities</span></code>: Amount of identities without identities that are associated with contradictions
+(i.e. hamming distance as defined in BBB with d_3 = 0, d_2 = 0, d_1 = 0, d_0 = 1)
+attention: counts also sentences on which both positions are indifferent.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">random_choices</span></code>:</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">n_random_choices</span></code>: Number of random choice of the process.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">comms_evolution</span></code>: The dynamic evolution of theories during the process. (Depicting the algorithmic
+process.)</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">theory_evolution</span></code>: The dynamic evolution of commitments during the process. (Depicting the algorithmic
+process.)</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">process_length</span></code>: The length of the process. Defined as the number of steps that will either produce a change
+in the commitments or a change in the theory, beginning the choosing the first theory. (I.e. this number will generally
+be smaller than the amount of elements combined in <code class="code docutils literal notranslate"><span class="pre">commitments_evolution</span></code> and <code class="code docutils literal notranslate"><span class="pre">theory_evolution</span></code>.)</p></li>
+</ul>
+<p><strong>PROCESS-INDEPENDENT FEATURES</strong></p>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">n_global_optima</span></code>: Number of global optima.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">n_branches</span></code>: Number of branches of the process (i.e. paths to all fixed points w.r.t. the given initial
+commitments.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">fixed_points</span></code>: All fixed points as theory-commitments-tuples.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">n_fixed_points</span></code>: Number of fixed points</p></li>
+<li><dl class="simple">
+<dt><code class="code docutils literal notranslate"><span class="pre">global_optima_that_are_fixed_points</span></code>: bool list indicating which global optima are fixed points</dt><dd><p>(i.e. which global optima are reachable via a re-process)</p>
+</dd>
+</dl>
+</li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">fixed_points_that_are_global_optima</span></code>:</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">re_states</span></code>:</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">n_re_states</span></code>:</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">full_re_states</span></code>:</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">n_full_re_states</span></code>:</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">global_optima_that_are_full_re_states</span></code>: Bool-list describing which elements in gl.optima-list
+are full re-states.</p></li>
+</ul>
+<dl class="py function">
+<dt id="remodel.ensemble_generation.generate_ensemble_with_variable_argument_size">
+<code class="sig-prename descclassname">remodel.ensemble_generation.</code><code class="sig-name descname">generate_ensemble_with_variable_argument_size</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">output_file</span></em>, <em class="sig-param"><span class="n">param_dia_structures</span></em>, <em class="sig-param"><span class="n">n_dialectical_structure</span></em>, <em class="sig-param"><span class="n">n_premises_max</span></em>, <em class="sig-param"><span class="n">n_premises_fixed</span></em>, <em class="sig-param"><span class="n">n_initial_commitments</span></em>, <em class="sig-param"><span class="n">alpha_resolution</span></em>, <em class="sig-param"><span class="n">n_principles</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">re_implementations</span><span class="o">=</span><span class="default_value">['remodel.bitarray_implementation', 'BitarrayReflectiveEquilibrium']</span></em>, <em class="sig-param"><span class="n">save_all_branches</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">save_preliminary_results</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">preliminary_results_interval</span><span class="o">=</span><span class="default_value">500</span></em><span class="sig-paren">)</span><a class="headerlink" href="#remodel.ensemble_generation.generate_ensemble_with_variable_argument_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function to generate an ensemble of RE-processes.</p>
+<p>The ensemble generation proceeds along the following steps:</p>
+<ol class="arabic simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">param_dia_structures</span></code> should provide a fixed sequence of tupels in
+the form &lt;<cite>n_arguments_min</cite>, <cite>n_arguments_max</cite>, <cite>n_sentences</cite>&gt;.</p></li>
+<li><p>For each tupel &lt;<cite>n_arguments_min</cite>, <cite>n_arguments_max</cite>, <cite>n_sentence_pool</cite>&gt; the function randomly
+generates a number of dialectical structures (as defined by <cite>n_dialectical_structure</cite>) with a
+number of arguments between <cite>n_arguments_min</cite> and <cite>n_arguments_max</cite> and a sentence-pool of
+size <cite>n_sentence_pool</cite> (without negations).</p></li>
+<li><p>For each generated dialectical structure the function then generates a set of initial commitment-sets
+(not necessarily the same for each dialectical structure).</p></li>
+<li><p>For each such dialectical-structure/initial-commitments pair,
+the function runs RE-processes for each model and each specified set of parameters for the achievement function.</p>
+<ul class="simple">
+<li><p>The result of each run is saved as a row in the table.</p></li>
+<li><p>If <code class="code docutils literal notranslate"><span class="pre">save_branches</span> <span class="pre">==</span> <span class="pre">True</span></code> each alternative branch of the re-process is saved as an additional row.
+(Fixed points of RE-processes are not unique, since a process can be underdetermined due to different available
+choices the process might have at some steps.)</p></li>
+</ul>
+</li>
+</ol>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>output_file</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – File where the date will be saved.</p></li>
+<li><p><strong>param_dia_structures</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]]) – List of tupels of the form &lt;<cite>n_arguments_min</cite>, <cite>n_arguments_max</cite>, <cite>n_sentence_pool</cite>&gt;.</p></li>
+<li><p><strong>n_dialectical_structure</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Number of dialectical structure (per tupel and model).</p></li>
+<li><p><strong>n_premises_max</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Maximum number of premises in an argument.</p></li>
+<li><p><strong>n_premises_fixed</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If <code class="code docutils literal notranslate"><span class="pre">True</span></code> all arguments will have exactly <code class="code docutils literal notranslate"><span class="pre">n_premises_max</span></code> premises.</p></li>
+<li><p><strong>n_initial_commitments</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – The number of initial commitments.</p></li>
+<li><p><strong>alpha_resolution</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Will be used to generate a spectrum of weight for the achievement function.
+Resolution of 10 means to generate a spectrum of 0.1,0.2,…,0.9 for each weight.</p></li>
+<li><p><strong>n_principles</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Number of principles to be guaranteed by the algorithm generating the dialectical structures.</p></li>
+<li><p><strong>re_implementations</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]) – String-representation of the models to be used (defined by module- and class name)
+(Must be instantiations of <code class="xref py py-class docutils literal notranslate"><span class="pre">remodeldescription.basics.ReflectiveEquilibrium</span></code>).</p></li>
+<li><p><strong>save_all_branches</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If <code class="code docutils literal notranslate"><span class="pre">True</span></code> every possible branch of an re-process is saved as an individual row
+in the table.</p></li>
+<li><p><strong>save_preliminary_results</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If <code class="code docutils literal notranslate"><span class="pre">True</span></code> the data-generation process will save temporary file every
+other amount of rows as defined by <code class="code docutils literal notranslate"><span class="pre">preliminary_results_interval</span></code>.</p></li>
+<li><p><strong>preliminary_results_interval</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="../index.html">Table of Contents</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user/running_model.html">Running the Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/extending_model.html">Extending the Model</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="api.html">API Docs of RE-Model Implementations</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="api-abstractre.html"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractReflectiveEquilibrium</span></code> class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api-setimplementation.html">API Docs of RE-Model Set-Based Implementations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api-bitarrayimplementation.html">API Docs of RE-Model Bitarray-Based Implementations</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Ensemble Generation with the module <code class="code docutils literal notranslate"><span class="pre">re_model.ensemble_generation</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api-util.html">Methods of the module <code class="code docutils literal notranslate"><span class="pre">re_model.util</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Claus Beisbart, Gregor Betz, Georg Brun, Sebastian Cacean, Andreas Freivogel, Richard Lohse.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/api-docs/api-ensemble-generation.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

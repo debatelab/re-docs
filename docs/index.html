@@ -1,9 +1,165 @@
+
 <!DOCTYPE html>
+
 <html>
-<head>
-<title>Hello World HTML</title>
-</head>
-<body>
-<h1>Hello World</h1>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Formal Model of Reflective Equilibrium &#8212; remodel  documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Running the Model" href="user/running_model.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="a-formal-model-of-reflective-equilibrium">
+<h1>A Formal Model of Reflective Equilibrium<a class="headerlink" href="#a-formal-model-of-reflective-equilibrium" title="Permalink to this headline">¶</a></h1>
+<p>A Python implementation of a reflective equilibrium model based on <a class="reference internal" href="#bbb" id="id1"><span>[BBB]</span></a>, <a class="reference internal" href="#betz2010" id="id2"><span>[Betz2010]</span></a> and <a class="reference internal" href="#betz2012" id="id3"><span>[Betz2012]</span></a>.</p>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>The RE Model consists of two python packages – <em>remodeldescription</em> and <em>remodel</em>.
+If you want to use and/or extend the model implementation
+you have to install both packages locally, by</p>
+<ul class="simple">
+<li><p>first git-cloning the repositories of both packages:</p>
+<ul>
+<li><p><code class="code docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">git&#64;git.scc.kit.edu:debatelab/re-python.git</span></code></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">git&#64;git.scc.kit.edu:debatelab/re-model-description.git</span></code></p></li>
+</ul>
+</li>
+<li><p>and then installing the packages by running <code class="code docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code> from the local directories of
+the packages (e.g. <code class="code docutils literal notranslate"><span class="pre">local-path-to-repository/remodel</span></code>). Pip will install the packges by using the
+<code class="code docutils literal notranslate"><span class="pre">setup.py</span></code> file. (The <code class="code docutils literal notranslate"><span class="pre">-e</span></code>-option will install the packages in the editable mode, allowing you to
+change the source code.)</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Both packages require a python version &gt;= 3.8. The package <em>remodel</em> further depends on the
+packages <a class="reference external" href="https://pypi.org/project/bitarray/">bitarray</a> and <a class="reference external" href="https://github.com/pysathq/pysat">PySat</a>
+(which will be installed when installing <em>remodel</em> by using pip).</p>
+</div>
+</div>
+<div class="section" id="user-guide">
+<h2>User Guide<a class="headerlink" href="#user-guide" title="Permalink to this headline">¶</a></h2>
+<p>This part of the documentation provides step-by-step instructions for running and adapting the model.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="user/running_model.html">Running the Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user/extending_model.html">Extending the Model</a></li>
+</ul>
+</div>
+<p>For further information consult the API-docs of <a class="reference internal" href="api-docs/api.html#api-docs-label"><span class="std std-ref">remodel</span></a>
+and <a class="reference external" href="http://argunet.philosophie.kit.edu/remodeldescription%2Dapidocs/">remodeldescription</a>
+or have a look at the various <strong>notebook-examples</strong> under <a class="reference external" href="https://git.scc.kit.edu/debatelab/re-python/-/tree/master/notebooks">https://git.scc.kit.edu/debatelab/re-python/-/tree/master/notebooks</a>.</p>
+</div>
+<div class="section" id="api-documentation">
+<h2>API Documentation<a class="headerlink" href="#api-documentation" title="Permalink to this headline">¶</a></h2>
+<p>The RE Model consists of two python packages. One package (<em>remodeldescription</em>) describes the
+methods as abstract classes and the other package (<em>remodel</em>) provides two different implementations
+of the model description.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://argunet.philosophie.kit.edu/remodeldescription%2Dapidocs/">API Docs of the Model Description</a></p></li>
+</ul>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api-docs/api.html">API Docs of RE-Model Implementations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api-docs/api-abstractre.html"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractReflectiveEquilibrium</span></code> class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api-docs/api-setimplementation.html">API Docs of RE-Model Set-Based Implementations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api-docs/api-setimplementation.html#setbasedposition-class"><code class="xref py py-class docutils literal notranslate"><span class="pre">SetBasedPosition</span></code> class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-docs/api-setimplementation.html#setbaseddialecticalstructure-class"><code class="xref py py-class docutils literal notranslate"><span class="pre">SetBasedDialecticalStructure</span></code> class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-docs/api-setimplementation.html#setbasedreflectiveequilibrium-class"><code class="xref py py-class docutils literal notranslate"><span class="pre">SetBasedReflectiveEquilibrium</span></code> class</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api-docs/api-bitarrayimplementation.html">API Docs of RE-Model Bitarray-Based Implementations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api-docs/api-bitarrayimplementation.html#bitarrayposition-class"><code class="xref py py-class docutils literal notranslate"><span class="pre">BitarrayPosition</span></code> class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-docs/api-bitarrayimplementation.html#bitarraydialecticalstructure-class"><code class="xref py py-class docutils literal notranslate"><span class="pre">BitarrayDialecticalStructure</span></code> class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-docs/api-bitarrayimplementation.html#bitarrayreflectiveequilibrium-class"><code class="xref py py-class docutils literal notranslate"><span class="pre">BitarrayReflectiveEquilibrium</span></code> class</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api-docs/api-ensemble-generation.html">Ensemble Generation with the module <code class="code docutils literal notranslate"><span class="pre">re_model.ensemble_generation</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api-docs/api-util.html">Methods of the module <code class="code docutils literal notranslate"><span class="pre">re_model.util</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="licence">
+<h2>Licence<a class="headerlink" href="#licence" title="Permalink to this headline">¶</a></h2>
+<p><strong>ToDo</strong></p>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<dl class="citation">
+<dt class="label" id="bbb"><span class="brackets"><a class="fn-backref" href="#id1">BBB</a></span></dt>
+<dd><p>Claus Beisbart, Gregor Betz and Georg Brun. 202x. <strong>A Formal Model of Reflective Equilibrium</strong>. x, x:x-x.</p>
+</dd>
+<dt class="label" id="betz2010"><span class="brackets"><a class="fn-backref" href="#id2">Betz2010</a></span></dt>
+<dd><p>Betz, G. 2010, Theorie dialektischer Strukturen, Frankfurt a.M.: Klostermann.</p>
+</dd>
+<dt class="label" id="betz2012"><span class="brackets"><a class="fn-backref" href="#id3">Betz2012</a></span></dt>
+<dd><p>Betz, G. 2012, Debate Dynamics: How Controversy Improves Our Beliefs, Synthese Library, Dordrecht: Springer 2012.</p>
+</dd>
+</dl>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="#">Table of Contents</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="user/running_model.html">Running the Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user/extending_model.html">Extending the Model</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api-docs/api.html">API Docs of RE-Model Implementations</a></li>
+</ul>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Claus Beisbart, Gregor Betz, Georg Brun, Sebastian Cacean, Andreas Freivogel, Richard Lohse.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
 </html>
