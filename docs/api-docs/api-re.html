@@ -1,0 +1,352 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ReflectiveEquilibrium &#8212; remodel  documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="DialecticalStructure" href="api-dialecticalstructure.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="reflectiveequilibrium">
+<h1><code class="xref py py-class docutils literal notranslate"><span class="pre">ReflectiveEquilibrium</span></code><a class="headerlink" href="#reflectiveequilibrium" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<dl class="py class">
+<dt id="basics.ReflectiveEquilibrium">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">basics.</span></code><code class="sig-name descname"><span class="pre">ReflectiveEquilibrium</span></code><a class="headerlink" href="#basics.ReflectiveEquilibrium" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<p>Class representing a process of finding RE states.</p>
+<p>Implementations of this abstract class represent a formal model of a process that finds reflective
+equilibria (RE states). The process of finding an
+RE state starts with an initial epistemic state (initial commitments <span class="math notranslate nohighlight">\(\mathcal{C}_0\)</span>), which
+are step-wise adjusted until they reach an RE state.
+An RE state is an epistemic state - pairs of commitments and theories <span class="math notranslate nohighlight">\((\mathcal{C}, \mathcal{T}\)</span>) -
+that maximises an achievement function <span class="math notranslate nohighlight">\(Z\)</span> and is dialectically consistent.</p>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#basics.ReflectiveEquilibrium.account" title="basics.ReflectiveEquilibrium.account"><code class="xref py py-obj docutils literal notranslate"><span class="pre">account</span></code></a>(commitments, theory)</p></td>
+<td><p>Account of the theory w.r.t.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#basics.ReflectiveEquilibrium.achievement" title="basics.ReflectiveEquilibrium.achievement"><code class="xref py py-obj docutils literal notranslate"><span class="pre">achievement</span></code></a>(commitments, theory, …)</p></td>
+<td><p>The achievement function <span class="math notranslate nohighlight">\(Z\)</span>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#basics.ReflectiveEquilibrium.faithfulness" title="basics.ReflectiveEquilibrium.faithfulness"><code class="xref py py-obj docutils literal notranslate"><span class="pre">faithfulness</span></code></a>(commitments, initial_commitments)</p></td>
+<td><p>Faithfulness of the commitments w.r.t.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#basics.ReflectiveEquilibrium.global_optima" title="basics.ReflectiveEquilibrium.global_optima"><code class="xref py py-obj docutils literal notranslate"><span class="pre">global_optima</span></code></a>(initial_commitments)</p></td>
+<td><p>Epistemic states that maximise the <a class="reference internal" href="#basics.ReflectiveEquilibrium.achievement" title="basics.ReflectiveEquilibrium.achievement"><code class="xref py py-func docutils literal notranslate"><span class="pre">achievement()</span></code></a>-function.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#basics.ReflectiveEquilibrium.re_process" title="basics.ReflectiveEquilibrium.re_process"><code class="xref py py-obj docutils literal notranslate"><span class="pre">re_process</span></code></a>(initial_commitments)</p></td>
+<td><p>Process of finding an RE-state based on given initial commitments.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#basics.ReflectiveEquilibrium.systematicity" title="basics.ReflectiveEquilibrium.systematicity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">systematicity</span></code></a>(theory)</p></td>
+<td><p>Systematicity of the theory.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="basics.ReflectiveEquilibrium.account">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">account</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">commitments</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theory</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#basics.ReflectiveEquilibrium.account" title="Permalink to this definition">¶</a></dt>
+<dd><p>Account of the theory w.r.t. the position.</p>
+<p>A measure of how well the theory <span class="math notranslate nohighlight">\(\mathcal{T}\)</span> accounts for the given
+commitments <span class="math notranslate nohighlight">\(\mathcal{C}\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>commitments</strong> (<a class="reference internal" href="api-position.html#basics.Position" title="basics.Position"><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></a>) – The commitments <span class="math notranslate nohighlight">\(\mathcal{C}\)</span>.</p></li>
+<li><p><strong>theory</strong> (<a class="reference internal" href="api-position.html#basics.Position" title="basics.Position"><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></a>) – The theory <span class="math notranslate nohighlight">\(\mathcal{T}\)</span>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="basics.ReflectiveEquilibrium.achievement">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">achievement</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">commitments</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_commitments</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#basics.ReflectiveEquilibrium.achievement" title="Permalink to this definition">¶</a></dt>
+<dd><p>The achievement function <span class="math notranslate nohighlight">\(Z\)</span>.</p>
+<p>The achievement function can be based on <a class="reference internal" href="#basics.ReflectiveEquilibrium.account" title="basics.ReflectiveEquilibrium.account"><code class="xref py py-func docutils literal notranslate"><span class="pre">account()</span></code></a>, <a class="reference internal" href="#basics.ReflectiveEquilibrium.systematicity" title="basics.ReflectiveEquilibrium.systematicity"><code class="xref py py-func docutils literal notranslate"><span class="pre">systematicity()</span></code></a> and
+<a class="reference internal" href="#basics.ReflectiveEquilibrium.faithfulness" title="basics.ReflectiveEquilibrium.faithfulness"><code class="xref py py-func docutils literal notranslate"><span class="pre">faithfulness()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="basics.ReflectiveEquilibrium.faithfulness">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">faithfulness</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">commitments</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_commitments</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#basics.ReflectiveEquilibrium.faithfulness" title="Permalink to this definition">¶</a></dt>
+<dd><p>Faithfulness of the commitments w.r.t. the initial commitments.</p>
+<p>The faithfulness <span class="math notranslate nohighlight">\(F\)</span> is a measure of how faithful the commitments <span class="math notranslate nohighlight">\(\mathcal{C}\)</span>
+are to the initial commitments <span class="math notranslate nohighlight">\(\mathcal{C}_0\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>commitments</strong> (<a class="reference internal" href="api-position.html#basics.Position" title="basics.Position"><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></a>) – The commitments <span class="math notranslate nohighlight">\(\mathcal{C}\)</span>.</p></li>
+<li><p><strong>initial_commitments</strong> (<a class="reference internal" href="api-position.html#basics.Position" title="basics.Position"><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></a>) – The initial commitments <span class="math notranslate nohighlight">\(\mathcal{C}_0\)</span>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="basics.ReflectiveEquilibrium.global_optima">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">global_optima</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">initial_commitments</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#basics.ReflectiveEquilibrium.global_optima" title="Permalink to this definition">¶</a></dt>
+<dd><p>Epistemic states that maximise the <a class="reference internal" href="#basics.ReflectiveEquilibrium.achievement" title="basics.ReflectiveEquilibrium.achievement"><code class="xref py py-func docutils literal notranslate"><span class="pre">achievement()</span></code></a>-function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>initial_commitments</strong> (<a class="reference internal" href="api-position.html#basics.Position" title="basics.Position"><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></a>) – The initial commitments <span class="math notranslate nohighlight">\(\mathcal{C}_0\)</span>.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="api-position.html#basics.Position" title="basics.Position"><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></a>]</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of :class:<a href="#id1"><span class="problematic" id="id2">`</span></a>Position`s of global optima.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="basics.ReflectiveEquilibrium.re_process">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">re_process</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">initial_commitments</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#basics.ReflectiveEquilibrium.re_process" title="Permalink to this definition">¶</a></dt>
+<dd><p>Process of finding an RE-state based on given initial commitments.</p>
+<p>Starting with the initial commitments <span class="math notranslate nohighlight">\(\mathcal{C}_0\)</span> as the initial epistemic state, the epistemic
+state is successively revised until a stopping condition is satisfied.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>initial_commitments</strong> (<a class="reference internal" href="api-position.html#basics.Position" title="basics.Position"><em>Position</em></a>) – The initial commitments <span class="math notranslate nohighlight">\(\mathcal{C}_0\)</span>.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#basics.ReflectiveEquilibrium.Results" title="basics.ReflectiveEquilibrium.Results">Results</a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The end point of the process as <a class="reference internal" href="#basics.ReflectiveEquilibrium.Results" title="basics.ReflectiveEquilibrium.Results"><code class="xref py py-class docutils literal notranslate"><span class="pre">ReflectiveEquilibrium.Results</span></code></a>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="basics.ReflectiveEquilibrium.systematicity">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">systematicity</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">theory</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#basics.ReflectiveEquilibrium.systematicity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Systematicity of the theory.</p>
+<p>The systematicity <span class="math notranslate nohighlight">\(S\)</span> is a measure of the systematising power of a theory <span class="math notranslate nohighlight">\(\mathcal{T}\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>theory</strong> (<a class="reference internal" href="api-position.html#basics.Position" title="basics.Position"><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></a>) – The theory <span class="math notranslate nohighlight">\(\mathcal{T}\)</span>.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<div class="section" id="reflectiveequilibrium-results">
+<h2><code class="xref py py-class docutils literal notranslate"><span class="pre">ReflectiveEquilibrium.Results</span></code><a class="headerlink" href="#reflectiveequilibrium-results" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="basics.ReflectiveEquilibrium.Results">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">basics.ReflectiveEquilibrium.</span></code><code class="sig-name descname"><span class="pre">Results</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#basics.ReflectiveEquilibrium.Results" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></p>
+<p>Result class for RE processes as a typed dictionary. It contains the following entries:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference internal" href="#basics.ReflectiveEquilibrium.Results.initial_commitments" title="basics.ReflectiveEquilibrium.Results.initial_commitments"><strong>initial_commitments</strong></a> – A position representing the initial commitments.</p></li>
+<li><p><a class="reference internal" href="#basics.ReflectiveEquilibrium.Results.weights" title="basics.ReflectiveEquilibrium.Results.weights"><strong>weights</strong></a> – Dictionary for the weights . It has entries for ‘account’, ‘systematicity’ and ‘faithfulness.</p></li>
+<li><p><a class="reference internal" href="#basics.ReflectiveEquilibrium.Results.theory" title="basics.ReflectiveEquilibrium.Results.theory"><strong>theory</strong></a> – A position representing the theory in the fixed point reached by the RE process.</p></li>
+<li><p><a class="reference internal" href="#basics.ReflectiveEquilibrium.Results.commitments" title="basics.ReflectiveEquilibrium.Results.commitments"><strong>commitments</strong></a> – A position representing the commitments in the fixed point reached by the RE process.</p></li>
+<li><p><strong>evolution</strong> (<em>theory</em>) – A list of positions storing the chosen theories for each theory adjustment step.</p></li>
+<li><p><a class="reference internal" href="#basics.ReflectiveEquilibrium.Results.commitments_evolution" title="basics.ReflectiveEquilibrium.Results.commitments_evolution"><strong>commitments_evolution</strong></a> – A list of positions storing the chosen commitments for each commitment adjustment step.</p></li>
+<li><p><a class="reference internal" href="#basics.ReflectiveEquilibrium.Results.achievements" title="basics.ReflectiveEquilibrium.Results.achievements"><strong>achievements</strong></a> – A list of floats for the value of the achievement function after each step.</p></li>
+<li><p><strong>choices</strong> (<em>random</em>) – A list of numbers representing steps in which a random choice among equally well performing candidates occured.</p></li>
+<li><p><a class="reference internal" href="#basics.ReflectiveEquilibrium.Results.branches" title="basics.ReflectiveEquilibrium.Results.branches"><strong>branches</strong></a> – A list of further Result dicts (including all information from above except for ‘branches’) for every alternative path due to random choices.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">clear</span></code>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">copy</span></code>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">fromkeys</span></code>(iterable[, value])</p></td>
+<td><p>Create a new dictionary with keys from iterable and values set to value.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get</span></code>(key[, default])</p></td>
+<td><p>Return the value for key if key is in the dictionary, else default.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">items</span></code>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">keys</span></code>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">pop</span></code>(k[,d])</p></td>
+<td><p>If key is not found, d is returned if given, otherwise KeyError is raised</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">popitem</span></code>(/)</p></td>
+<td><p>Remove and return a (key, value) pair as a 2-tuple.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">setdefault</span></code>(key[, default])</p></td>
+<td><p>Insert key with a value of default if key is not in the dictionary.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">update</span></code>([E, ]**F)</p></td>
+<td><p>If E is present and has a .keys() method, then does:  for k in E: D[k] = E[k] If E is present and lacks a .keys() method, then does:  for k, v in E: D[k] = v In either case, this is followed by: for k in F:  D[k] = F[k]</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">values</span></code>()</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py attribute">
+<dt id="basics.ReflectiveEquilibrium.Results.achievements">
+<code class="sig-name descname"><span class="pre">achievements</span></code><em class="property"><span class="pre">:</span> <span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#basics.ReflectiveEquilibrium.Results.achievements" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="basics.ReflectiveEquilibrium.Results.branches">
+<code class="sig-name descname"><span class="pre">branches</span></code><em class="property"><span class="pre">:</span> <span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#basics.ReflectiveEquilibrium.Results" title="basics.ReflectiveEquilibrium.Results"><span class="pre">basics.ReflectiveEquilibrium.Results</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#basics.ReflectiveEquilibrium.Results.branches" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="basics.ReflectiveEquilibrium.Results.commitments">
+<code class="sig-name descname"><span class="pre">commitments</span></code><em class="property"><span class="pre">:</span> <a class="reference internal" href="api-position.html#basics.Position" title="basics.Position"><span class="pre">basics.Position</span></a></em><a class="headerlink" href="#basics.ReflectiveEquilibrium.Results.commitments" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="basics.ReflectiveEquilibrium.Results.commitments_evolution">
+<code class="sig-name descname"><span class="pre">commitments_evolution</span></code><em class="property"><span class="pre">:</span> <span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="api-position.html#basics.Position" title="basics.Position"><span class="pre">basics.Position</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#basics.ReflectiveEquilibrium.Results.commitments_evolution" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="basics.ReflectiveEquilibrium.Results.initial_commitments">
+<code class="sig-name descname"><span class="pre">initial_commitments</span></code><em class="property"><span class="pre">:</span> <a class="reference internal" href="api-position.html#basics.Position" title="basics.Position"><span class="pre">basics.Position</span></a></em><a class="headerlink" href="#basics.ReflectiveEquilibrium.Results.initial_commitments" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="basics.ReflectiveEquilibrium.Results.random_choices">
+<code class="sig-name descname"><span class="pre">random_choices</span></code><em class="property"><span class="pre">:</span> <span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#basics.ReflectiveEquilibrium.Results.random_choices" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="basics.ReflectiveEquilibrium.Results.theory">
+<code class="sig-name descname"><span class="pre">theory</span></code><em class="property"><span class="pre">:</span> <a class="reference internal" href="api-position.html#basics.Position" title="basics.Position"><span class="pre">basics.Position</span></a></em><a class="headerlink" href="#basics.ReflectiveEquilibrium.Results.theory" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="basics.ReflectiveEquilibrium.Results.theory_evolution">
+<code class="sig-name descname"><span class="pre">theory_evolution</span></code><em class="property"><span class="pre">:</span> <span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="api-position.html#basics.Position" title="basics.Position"><span class="pre">basics.Position</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#basics.ReflectiveEquilibrium.Results.theory_evolution" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="basics.ReflectiveEquilibrium.Results.weights">
+<code class="sig-name descname"><span class="pre">weights</span></code><em class="property"><span class="pre">:</span> <span class="pre">dict</span></em><a class="headerlink" href="#basics.ReflectiveEquilibrium.Results.weights" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="../index.html">Table of Contents</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user/running_model.html">Running the Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/extending_model.html">Extending the Model</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="api.html">API Docs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="api.html#package-repython">Package <code class="code docutils literal notranslate"><span class="pre">repython</span></code></a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="api.html#package-remodeldescription">Package <code class="code docutils literal notranslate"><span class="pre">remodeldescription</span></code></a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="api-position.html"><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-dialecticalstructure.html"><code class="xref py py-class docutils literal notranslate"><span class="pre">DialecticalStructure</span></code></a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#"><code class="xref py py-class docutils literal notranslate"><span class="pre">ReflectiveEquilibrium</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#reflectiveequilibrium-results"><code class="xref py py-class docutils literal notranslate"><span class="pre">ReflectiveEquilibrium.Results</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Claus Beisbart, Gregor Betz, Georg Brun, Sebastian Cacean, Andreas Freivogel, Richard Lohse.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/api-docs/api-re.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

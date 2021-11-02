@@ -41,9 +41,8 @@ This part of the documentation provides step-by-step instructions for running an
     user/running_model
     user/extending_model
 
-For further information consult the API-docs of :ref:`remodel <api-docs-label>`
-and `remodeldescription <http://argunet.philosophie.kit.edu/remodeldescription%2Dapidocs/>`_
-or have a look at the various **notebook-examples** under `<https://git.scc.kit.edu/debatelab/re-python/-/tree/master/notebooks>`_.
+For further information consult the :ref:`API-docs <api-docs-label>` or have a look at
+the various **notebook-examples** (todo templates).
 
 
 
@@ -51,10 +50,9 @@ API Documentation
 -----------------
 
 The RE Model consists of two python packages. One package (*remodeldescription*) describes the
-methods as abstract classes and the other package (*remodel*) provides two different implementations
+methods as abstract classes and the other package (*remodel*) provides different implementations
 of the model description.
 
-* `API Docs of the Model Description <http://argunet.philosophie.kit.edu/remodeldescription%2Dapidocs/>`_
 
 .. toctree::
     :maxdepth: 3

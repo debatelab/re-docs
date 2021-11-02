@@ -32,7 +32,9 @@ author = 'Claus Beisbart, Gregor Betz, Georg Brun, Sebastian Cacean, Andreas Fre
 # extensions = ['sphinx.ext.autodoc','sphinx.ext.napoleon']
 # see https://github.com/agronholm/sphinx-autodoc-typehints
 
-extensions = ['sphinx.ext.autodoc','numpydoc','sphinx_autodoc_typehints']
+extensions = ['sphinx.ext.autodoc','numpydoc','sphinx_autodoc_typehints',
+              # via sphinxcontrib-fulltoc (https://pypi.org/project/sphinxcontrib-fulltoc/)
+              'sphinxcontrib.fulltoc']
 
 
 # Add any paths that contain templates here, relative to this directory.
@@ -59,6 +61,5 @@ html_static_path = ['_static']
 html_sidebars = {
    #'**': ['globaltoc.html','localtoc.html'],
    '**': ['globaltoc.html'],
-
    #'modules': ['windowssidebar.html', 'searchbox.html'],
 }

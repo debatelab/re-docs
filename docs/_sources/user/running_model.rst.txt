@@ -75,7 +75,7 @@ With the bitarray-based implementation:
     bitarray_result = bitarray_re.re_process(bitarray_initial_position_A)
 
 The results of the process can be accessed via the returned
-result as :code:`ReflectiveEquilibrium.Result`, e.g.:
+result as :class:`ReflectiveEquilibrium.Results`, e.g.:
 
 .. code:: python
 
@@ -99,8 +99,6 @@ penalty parameters, which can be adjusted. E.g.:
 
 
 
-For further information consult the API-docs of :ref:`remodel <api-docs-label>`
-and `remodeldescription <http://argunet.philosophie.kit.edu/remodeldescription%2Dapidocs/>`_
-or have a look at the various **notebook-examples** under `<https://git.scc.kit.edu/debatelab/re-python/-/tree/master/notebooks>`_.
-
+For further information consult the :ref:`API-docs <api-docs-label>` or have
+a look at the various **notebook-examples** (todo: templates).
 

@@ -1,29 +1,29 @@
-API Docs of RE-Model Bitarray-Based Implementations
-===================================================
+Bitarray-Based Implementations
+==============================
 
 .. toctree::
     :maxdepth: 3
 
 .. currentmodule:: remodel.bitarray_implementation
 
-:class:`BitarrayPosition` class
--------------------------------
+:class:`BitarrayPosition`
+-------------------------
 
 .. autoclass:: bitarray_implementation.BitarrayPosition
     :members:
     :undoc-members:
     :show-inheritance:
 
-:class:`BitarrayDialecticalStructure` class
--------------------------------------------
+:class:`BitarrayDialecticalStructure`
+-------------------------------------
 
 .. autoclass:: bitarray_implementation.BitarrayDialecticalStructure
     :members:
     :undoc-members:
     :show-inheritance:
 
-:class:`BitarrayReflectiveEquilibrium` class
---------------------------------------------
+:class:`BitarrayReflectiveEquilibrium`
+--------------------------------------
 
 .. autoclass:: bitarray_implementation.BitarrayReflectiveEquilibrium
     :members:

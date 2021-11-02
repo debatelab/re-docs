@@ -93,7 +93,7 @@ fixing the number of unnegated sentences <code class="code docutils literal notr
 </pre></div>
 </div>
 <p>The results of the process can be accessed via the returned
-result as <code class="code docutils literal notranslate"><span class="pre">ReflectiveEquilibrium.Result</span></code>, e.g.:</p>
+result as <code class="xref py py-class docutils literal notranslate"><span class="pre">ReflectiveEquilibrium.Results</span></code>, e.g.:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Commitments of RE-state: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">setbased_result</span><span class="p">[</span><span class="s1">&#39;commitments&#39;</span><span class="p">]))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Theory of RE-state: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">setbased_result</span><span class="p">[</span><span class="s1">&#39;theory&#39;</span><span class="p">]))</span>
 </pre></div>
@@ -109,9 +109,8 @@ penalty parameters, which can be adjusted. E.g.:</p>
 <span class="n">setbased_re</span><span class="o">.</span><span class="n">set_faithfulness_penalties</span><span class="p">(</span><span class="n">d0</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">d1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">d2</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">d3</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>For further information consult the API-docs of <a class="reference internal" href="../api-docs/api.html#api-docs-label"><span class="std std-ref">remodel</span></a>
-and <a class="reference external" href="http://argunet.philosophie.kit.edu/remodeldescription%2Dapidocs/">remodeldescription</a>
-or have a look at the various <strong>notebook-examples</strong> under <a class="reference external" href="https://git.scc.kit.edu/debatelab/re-python/-/tree/master/notebooks">https://git.scc.kit.edu/debatelab/re-python/-/tree/master/notebooks</a>.</p>
+<p>For further information consult the <a class="reference internal" href="../api-docs/api.html#api-docs-label"><span class="std std-ref">API-docs</span></a> or have
+a look at the various <strong>notebook-examples</strong> (todo: templates).</p>
 </div>
 </div>
 
@@ -124,11 +123,16 @@ or have a look at the various <strong>notebook-examples</strong> under <a class=
         <div class="sphinxsidebarwrapper">
 <h3><a href="../index.html">Table of Contents</a></h3>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Running the Model</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Running the Model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#creating-dialectical-structures-from-scratch">Creating Dialectical Structures from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">Running the model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-different-weights-for-the-achievement-function">Using Different Weights for the Achievement Function</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="extending_model.html">Extending the Model</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../api-docs/api.html">API Docs of RE-Model Implementations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api-docs/api.html">API Docs</a></li>
 </ul>
 
         </div>

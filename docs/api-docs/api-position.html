@@ -1,0 +1,392 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Position &#8212; remodel  documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="DialecticalStructure" href="api-dialecticalstructure.html" />
+    <link rel="prev" title="Utility methods" href="api-util.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="position">
+<h1><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code><a class="headerlink" href="#position" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<dl class="py class">
+<dt id="basics.Position">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">basics.</span></code><code class="sig-name descname"><span class="pre">Position</span></code><a class="headerlink" href="#basics.Position" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<p>Class representing a position.</p>
+<p>A position <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> is a subset <span class="math notranslate nohighlight">\(\mathcal{A}\subset S\)</span> over a sentence pool 
+<span class="math notranslate nohighlight">\(S = \{ s_1, s_2, \dots, s_N, \neg s_1, \neg s_2, \dots, \neg s_N \}\)</span>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Implementations of this abstract class do not necessarily adhere to a set-theoretic representation.</p>
+</div>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#basics.Position.are_minimally_compatible" title="basics.Position.are_minimally_compatible"><code class="xref py py-obj docutils literal notranslate"><span class="pre">are_minimally_compatible</span></code></a>(position)</p></td>
+<td><p>Checks for minimal compatibility with <code class="code docutils literal notranslate"><span class="pre">position</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#basics.Position.as_bitarray" title="basics.Position.as_bitarray"><code class="xref py py-obj docutils literal notranslate"><span class="pre">as_bitarray</span></code></a>([n_unnegated_sentence_pool])</p></td>
+<td><p>Position as bitarray.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#basics.Position.as_list" title="basics.Position.as_list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">as_list</span></code></a>()</p></td>
+<td><p>Position as integer list.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#basics.Position.as_set" title="basics.Position.as_set"><code class="xref py py-obj docutils literal notranslate"><span class="pre">as_set</span></code></a>()</p></td>
+<td><p>Position as integer set.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#basics.Position.as_ternary" title="basics.Position.as_ternary"><code class="xref py py-obj docutils literal notranslate"><span class="pre">as_ternary</span></code></a>()</p></td>
+<td><p>Position as ternary.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#basics.Position.domain" title="basics.Position.domain"><code class="xref py py-obj docutils literal notranslate"><span class="pre">domain</span></code></a>()</p></td>
+<td><p>Determines the domain of the position.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#basics.Position.intersection" title="basics.Position.intersection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">intersection</span></code></a>(positions)</p></td>
+<td><p>set-theoretic intersection</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#basics.Position.is_accepting" title="basics.Position.is_accepting"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_accepting</span></code></a>(sentence)</p></td>
+<td><p>Checks whether <code class="code docutils literal notranslate"><span class="pre">sentence</span></code> is in the position.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#basics.Position.is_in_domain" title="basics.Position.is_in_domain"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_in_domain</span></code></a>(sentence)</p></td>
+<td><p>Checks whether <code class="code docutils literal notranslate"><span class="pre">sentence</span></code> is in the domain of the position.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#basics.Position.is_minimally_consistent" title="basics.Position.is_minimally_consistent"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_minimally_consistent</span></code></a>()</p></td>
+<td><p>Checks for minimal consistency.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#basics.Position.is_subposition" title="basics.Position.is_subposition"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_subposition</span></code></a>(position)</p></td>
+<td><p>Checks for set-theoretic inclusion.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#basics.Position.size" title="basics.Position.size"><code class="xref py py-obj docutils literal notranslate"><span class="pre">size</span></code></a>()</p></td>
+<td><p>size of the position</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#basics.Position.subpositions" title="basics.Position.subpositions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">subpositions</span></code></a>([n, only_consistent_subpositions])</p></td>
+<td><p>Iterator over subsets of size n.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#basics.Position.union" title="basics.Position.union"><code class="xref py py-obj docutils literal notranslate"><span class="pre">union</span></code></a>(positions)</p></td>
+<td><p>set-theoretic union</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="basics.Position.are_minimally_compatible">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">are_minimally_compatible</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#basics.Position.are_minimally_compatible" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks for minimal compatibility with <code class="code docutils literal notranslate"><span class="pre">position</span></code>.</p>
+<p>Two positions <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> and <span class="math notranslate nohighlight">\(\mathcal{A}'\)</span> are minimally compatible iff
+<span class="math notranslate nohighlight">\(\mathcal{A} \cup \mathcal{A}'\)</span> is minimally consistent.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><code class="code docutils literal notranslate"><span class="pre">True</span></code> iff the position-instance is compatible with <code class="code docutils literal notranslate"><span class="pre">position</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="basics.Position.as_bitarray">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">as_bitarray</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_unnegated_sentence_pool</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#basics.Position.as_bitarray" title="Permalink to this definition">¶</a></dt>
+<dd><p>Position as bitarray.</p>
+<p>A pair of bits represents a sentence:
+The first bit represents acceptance and the second bit rejection.
+Suspension of a sentence corresponds to both bits being False/0 and
+(minimal or flat) contradiction is present if both bits are True/1. For instance,
+the position <span class="math notranslate nohighlight">\(\{ s_1, s_3, \neg s_4 \}\)</span> is represented by <code class="code docutils literal notranslate"><span class="pre">10001001</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bitarray</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a bitarray representation of the position if possible, otherwise should return <code class="code docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="basics.Position.as_list">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">as_list</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#basics.Position.as_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Position as integer list.</p>
+<p>The position <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> represented by a python list of integer values. 
+<span class="math notranslate nohighlight">\(s_i \in \mathcal{A}\)</span> is represented by <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(\neg s_i \in \mathcal{A}\)</span> by <span class="math notranslate nohighlight">\(-i\)</span>.
+For instance, the position <span class="math notranslate nohighlight">\(\{ s_1, s_3, \neg s_4 \}\)</span> is represented by <code class="code docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">3,</span> <span class="pre">-4]</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The returned order integer values is not specified.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a representation of the position as a list of integer values</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="basics.Position.as_set">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">as_set</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#basics.Position.as_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Position as integer set.</p>
+<p>The position <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> represented by a python set of integer values. 
+<span class="math notranslate nohighlight">\(s_i \in \mathcal{A}\)</span> is represented by <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(\neg s_i \in \mathcal{A}\)</span> by <span class="math notranslate nohighlight">\(-i\)</span>.
+For instance, the position <span class="math notranslate nohighlight">\(\{ s_1, s_3, \neg s_4 \}\)</span> is represented by <code class="code docutils literal notranslate"><span class="pre">{1,</span> <span class="pre">3,</span> <span class="pre">-4}</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Set</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a representation of the position as a set of integer values</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="basics.Position.as_ternary">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">as_ternary</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#basics.Position.as_ternary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Position as ternary.</p>
+<p>The position <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> represented by an integer of base 3 (at least). 
+<span class="math notranslate nohighlight">\(s_i \in \mathcal{A}\)</span> is represented by <span class="math notranslate nohighlight">\(1*10^{i-1}\)</span>, 
+<span class="math notranslate nohighlight">\(\neg s_i \in \mathcal{A}\)</span> by <span class="math notranslate nohighlight">\(2*10^{i-1}\)</span> and  
+<span class="math notranslate nohighlight">\(s_i, \neg s_i \notin \mathcal{A}\)</span> by zero. For instance, the position 
+<span class="math notranslate nohighlight">\(\{ s_1, s_3, \neg s_4 \}\)</span> is represented by the integer 2101.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Positions that are not minimally consistent cannot be represented in this way.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a ternary representation of the position if possible, otherwise should return <code class="code docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="basics.Position.domain">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">domain</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#basics.Position.domain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determines the domain of the position.</p>
+<p>The domain of a position <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> is the closure of <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> under negation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#basics.Position" title="basics.Position"><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></a></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the domain of the position</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="basics.Position.intersection">
+<em class="property"><span class="pre">abstract</span> <span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">intersection</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">positions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#basics.Position.intersection" title="Permalink to this definition">¶</a></dt>
+<dd><p>set-theoretic intersection</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#basics.Position" title="basics.Position"><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></a></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The set-theoretic intersection of the given set of :code:<a href="#id1"><span class="problematic" id="id2">`</span></a>position`s.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="basics.Position.is_accepting">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">is_accepting</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sentence</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#basics.Position.is_accepting" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks whether <code class="code docutils literal notranslate"><span class="pre">sentence</span></code> is in the position.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>sentence</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – A sentence <span class="math notranslate nohighlight">\(s_i\)</span> represented by i.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><code class="code docutils literal notranslate"><span class="pre">True</span></code> iff <code class="code docutils literal notranslate"><span class="pre">sentence</span></code> is in the position.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="basics.Position.is_in_domain">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">is_in_domain</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sentence</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#basics.Position.is_in_domain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks whether <code class="code docutils literal notranslate"><span class="pre">sentence</span></code> is in the domain of the position.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>sentence</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – A sentence <span class="math notranslate nohighlight">\(s_i\)</span> represented by i.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><code class="code docutils literal notranslate"><span class="pre">True</span></code> iff <code class="code docutils literal notranslate"><span class="pre">sentence</span></code> is in the domain of the position.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="basics.Position.is_minimally_consistent">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">is_minimally_consistent</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#basics.Position.is_minimally_consistent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks for minimal consistency.</p>
+<p>A position <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> is minimally consistent iff 
+<span class="math notranslate nohighlight">\(\forall s \in S: s\in \mathcal{A} \rightarrow \neg s \notin \mathcal{A}\)</span></p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><code class="code docutils literal notranslate"><span class="pre">True</span></code> iff the position is minimally consistent</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="basics.Position.is_subposition">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">is_subposition</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#basics.Position.is_subposition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks for set-theoretic inclusion.</p>
+<p>The position <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> is a subposition of <span class="math notranslate nohighlight">\(\mathcal{A}'\)</span> iff
+<span class="math notranslate nohighlight">\(\mathcal{A} \subset \mathcal{A}'\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><code class="code docutils literal notranslate"><span class="pre">True</span></code> iff the position-instance is a subposition of <code class="code docutils literal notranslate"><span class="pre">position</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="basics.Position.size">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">size</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#basics.Position.size" title="Permalink to this definition">¶</a></dt>
+<dd><p>size of the position</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The amount of sentences in that position (<span class="math notranslate nohighlight">\(|S|\)</span>).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="basics.Position.subpositions">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">subpositions</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_consistent_subpositions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#basics.Position.subpositions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterator over subsets of size n.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – The size of the returned positions. If <code class="code docutils literal notranslate"><span class="pre">n</span></code> is <span class="math notranslate nohighlight">\(-1\)</span>, the method returns all subpositions including the empty position and itself.</p></li>
+<li><p><strong>only_consistent_subpositions</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If <code class="code docutils literal notranslate"><span class="pre">True</span></code> only consistent subpositions will be returned.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code>[<a class="reference internal" href="#basics.Position" title="basics.Position"><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></a>]</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A python iterator over subpositions of size n.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="basics.Position.union">
+<em class="property"><span class="pre">abstract</span> <span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">union</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">positions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#basics.Position.union" title="Permalink to this definition">¶</a></dt>
+<dd><p>set-theoretic union</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#basics.Position" title="basics.Position"><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></a></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The set-theoretic union of the given set of :code:<a href="#id3"><span class="problematic" id="id4">`</span></a>position`s.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="../index.html">Table of Contents</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user/running_model.html">Running the Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/extending_model.html">Extending the Model</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="api.html">API Docs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="api.html#package-repython">Package <code class="code docutils literal notranslate"><span class="pre">repython</span></code></a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="api.html#package-remodeldescription">Package <code class="code docutils literal notranslate"><span class="pre">remodeldescription</span></code></a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#"><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api-dialecticalstructure.html"><code class="xref py py-class docutils literal notranslate"><span class="pre">DialecticalStructure</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-re.html"><code class="xref py py-class docutils literal notranslate"><span class="pre">ReflectiveEquilibrium</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Claus Beisbart, Gregor Betz, Georg Brun, Sebastian Cacean, Andreas Freivogel, Richard Lohse.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/api-docs/api-position.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
