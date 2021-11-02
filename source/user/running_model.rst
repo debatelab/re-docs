@@ -41,13 +41,13 @@ As a set-based dialectical structure:
 
 .. code:: python
 
- setbased_ds = SetBasedDialecticalStructure(n = 7, arguments)
+ setbased_ds = SetBasedDialecticalStructure(n = 7, initial_arguments = arguments)
 
 As a bitarray-based dialectical structure:
 
 .. code:: python
 
-    bitarray_ds = BitarrayDialecticalStructure(n = 7, arguments)
+    bitarray_ds = BitarrayDialecticalStructure(n = 7, initial_arguments = arguments)
 
 Running the model
 -----------------
