@@ -198,14 +198,14 @@ state is successively revised until a stopping condition is satisfied.</p>
 <dt class="field-odd">Variables</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><a class="reference internal" href="#basics.ReflectiveEquilibrium.Results.initial_commitments" title="basics.ReflectiveEquilibrium.Results.initial_commitments"><strong>initial_commitments</strong></a> – A position representing the initial commitments.</p></li>
-<li><p><a class="reference internal" href="#basics.ReflectiveEquilibrium.Results.weights" title="basics.ReflectiveEquilibrium.Results.weights"><strong>weights</strong></a> – Dictionary for the weights . It has entries for ‘account’, ‘systematicity’ and ‘faithfulness.</p></li>
+<li><p><a class="reference internal" href="#basics.ReflectiveEquilibrium.Results.weights" title="basics.ReflectiveEquilibrium.Results.weights"><strong>weights</strong></a> – Dictionary for the weights. It has entries for ‘account’, ‘systematicity’ and ‘faithfulness.</p></li>
 <li><p><a class="reference internal" href="#basics.ReflectiveEquilibrium.Results.theory" title="basics.ReflectiveEquilibrium.Results.theory"><strong>theory</strong></a> – A position representing the theory in the fixed point reached by the RE process.</p></li>
 <li><p><a class="reference internal" href="#basics.ReflectiveEquilibrium.Results.commitments" title="basics.ReflectiveEquilibrium.Results.commitments"><strong>commitments</strong></a> – A position representing the commitments in the fixed point reached by the RE process.</p></li>
 <li><p><strong>evolution</strong> (<em>theory</em>) – A list of positions storing the chosen theories for each theory adjustment step.</p></li>
 <li><p><a class="reference internal" href="#basics.ReflectiveEquilibrium.Results.commitments_evolution" title="basics.ReflectiveEquilibrium.Results.commitments_evolution"><strong>commitments_evolution</strong></a> – A list of positions storing the chosen commitments for each commitment adjustment step.</p></li>
 <li><p><a class="reference internal" href="#basics.ReflectiveEquilibrium.Results.achievements" title="basics.ReflectiveEquilibrium.Results.achievements"><strong>achievements</strong></a> – A list of floats for the value of the achievement function after each step.</p></li>
 <li><p><strong>choices</strong> (<em>random</em>) – A list of numbers representing steps in which a random choice among equally well performing candidates occured.</p></li>
-<li><p><a class="reference internal" href="#basics.ReflectiveEquilibrium.Results.branches" title="basics.ReflectiveEquilibrium.Results.branches"><strong>branches</strong></a> – A list of further Result dicts (including all information from above except for ‘branches’) for every alternative path due to random choices.</p></li>
+<li><p><a class="reference internal" href="#basics.ReflectiveEquilibrium.Results.branches" title="basics.ReflectiveEquilibrium.Results.branches"><strong>branches</strong></a> – A list of further Result dicts (including all information from above except for ‘branches’, which are set to <cite>None</cite>) for every alternative path due to random choices.</p></li>
 </ul>
 </dd>
 </dl>
