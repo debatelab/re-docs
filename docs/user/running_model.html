@@ -88,7 +88,7 @@ fixing the number of unnegated sentences <code class="code docutils literal notr
 </div>
 <p>With the bitarray-based implementation:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bitarray_re</span> <span class="o">=</span> <span class="n">BitarrayReflectiveEquilibrium</span><span class="p">(</span><span class="n">bitarray_ds</span><span class="p">)</span>
-<span class="n">bitarray_initial_position_A</span> <span class="o">=</span> <span class="n">BitarrayPosition</span><span class="p">(</span><span class="s1">&#39;00001010100000&#39;</span><span class="p">)</span>
+<span class="n">bitarray_initial_position_A</span> <span class="o">=</span> <span class="n">BitarrayPosition</span><span class="p">({</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">},</span> <span class="n">n</span><span class="p">)</span>
 <span class="n">bitarray_result</span> <span class="o">=</span> <span class="n">bitarray_re</span><span class="o">.</span><span class="n">re_process</span><span class="p">(</span><span class="n">bitarray_initial_position_A</span><span class="p">)</span>
 </pre></div>
 </div>

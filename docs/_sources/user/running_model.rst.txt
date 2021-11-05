@@ -71,7 +71,7 @@ With the bitarray-based implementation:
 .. code:: python
 
     bitarray_re = BitarrayReflectiveEquilibrium(bitarray_ds)
-    bitarray_initial_position_A = BitarrayPosition('00001010100000')
+    bitarray_initial_position_A = BitarrayPosition({3, 4, 5}, n)
     bitarray_result = bitarray_re.re_process(bitarray_initial_position_A)
 
 The results of the process can be accessed via the returned
