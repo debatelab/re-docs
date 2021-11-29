@@ -4,7 +4,7 @@ Set-Based Implementations
 .. toctree::
     :maxdepth: 3
 
-.. currentmodule:: remodel.set_implementation
+.. currentmodule:: rethon.set_implementation
 
 :class:`SetBasedPosition`
 -------------------------
@@ -14,18 +14,18 @@ Set-Based Implementations
     :undoc-members:
     :show-inheritance:
 
-:class:`SetBasedDialecticalStructure`
+:class:`DAGSetBasedDialecticalStructure`
 -------------------------------------
 
-.. autoclass:: set_implementation.SetBasedDialecticalStructure
+.. autoclass:: set_implementation.DAGSetBasedDialecticalStructure
     :members:
     :undoc-members:
     :show-inheritance:
 
-:class:`SetBasedReflectiveEquilibrium`
+:class:`GlobalSetBasedReflectiveEquilibrium`
 --------------------------------------
 
-.. autoclass:: set_implementation.SetBasedReflectiveEquilibrium
+.. autoclass:: set_implementation.GlobalSetBasedReflectiveEquilibrium
     :members:
     :undoc-members:
     :show-inheritance:

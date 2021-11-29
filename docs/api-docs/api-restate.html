@@ -1,0 +1,265 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>REState &#8212; rethon  documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="REContainer" href="api-recontainter.html" />
+    <link rel="prev" title="ReflectiveEquilibrium" href="api-re.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="restate">
+<h1><code class="xref py py-class docutils literal notranslate"><span class="pre">REState</span></code><a class="headerlink" href="#restate" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="basics.REState">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">basics.</span></code><code class="sig-name descname"><span class="pre">REState</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">finished</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">evolution</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alternatives</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#basics.REState" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#basics.REState.from_dict" title="basics.REState.from_dict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_dict</span></code></a>(state_dict)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#basics.REState.indices_of_non_empty_alternatives" title="basics.REState.indices_of_non_empty_alternatives"><code class="xref py py-obj docutils literal notranslate"><span class="pre">indices_of_non_empty_alternatives</span></code></a>()</p></td>
+<td><p>Steps in the process with non-empty alternatives.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 71%" />
+<col style="width: 29%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>add_step</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>as_dict</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>commitments_evolution</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>initial_commitments</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>last_alternatives</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>last_commitments</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>last_step</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>last_theory</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>next_step_is_theory</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>past</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>theory_evolution</strong></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="basics.REState.add_step">
+<code class="sig-name descname"><span class="pre">add_step</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alternatives</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#basics.REState.add_step" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="basics.REState.alternatives">
+<code class="sig-name descname"><span class="pre">alternatives</span></code><em class="property"><span class="pre">:</span> <span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="api-position.html#basics.Position" title="basics.Position"><span class="pre">basics.Position</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#basics.REState.alternatives" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="basics.REState.as_dict">
+<code class="sig-name descname"><span class="pre">as_dict</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#basics.REState.as_dict" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="basics.REState.commitments_evolution">
+<code class="sig-name descname"><span class="pre">commitments_evolution</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#basics.REState.commitments_evolution" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="basics.REState.evolution">
+<code class="sig-name descname"><span class="pre">evolution</span></code><em class="property"><span class="pre">:</span> <span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="api-position.html#basics.Position" title="basics.Position"><span class="pre">basics.Position</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#basics.REState.evolution" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="basics.REState.finished">
+<code class="sig-name descname"><span class="pre">finished</span></code><em class="property"><span class="pre">:</span> <span class="pre">bool</span></em><a class="headerlink" href="#basics.REState.finished" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="basics.REState.from_dict">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">from_dict</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state_dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#basics.REState.from_dict" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#basics.REState" title="basics.REState">REState</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="basics.REState.indices_of_non_empty_alternatives">
+<code class="sig-name descname"><span class="pre">indices_of_non_empty_alternatives</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#basics.REState.indices_of_non_empty_alternatives" title="Permalink to this definition">¶</a></dt>
+<dd><p>Steps in the process with non-empty alternatives.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="basics.REState.initial_commitments">
+<code class="sig-name descname"><span class="pre">initial_commitments</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#basics.REState.initial_commitments" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="basics.REState.last_alternatives">
+<code class="sig-name descname"><span class="pre">last_alternatives</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#basics.REState.last_alternatives" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="basics.REState.last_commitments">
+<code class="sig-name descname"><span class="pre">last_commitments</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">past</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#basics.REState.last_commitments" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="api-position.html#basics.Position" title="basics.Position"><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="basics.REState.last_step">
+<code class="sig-name descname"><span class="pre">last_step</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#basics.REState.last_step" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="api-position.html#basics.Position" title="basics.Position"><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="basics.REState.last_theory">
+<code class="sig-name descname"><span class="pre">last_theory</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">past</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#basics.REState.last_theory" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="api-position.html#basics.Position" title="basics.Position"><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="basics.REState.next_step_is_theory">
+<code class="sig-name descname"><span class="pre">next_step_is_theory</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#basics.REState.next_step_is_theory" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="basics.REState.past">
+<code class="sig-name descname"><span class="pre">past</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">past</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#basics.REState.past" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#basics.REState" title="basics.REState"><code class="xref py py-class docutils literal notranslate"><span class="pre">REState</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="basics.REState.theory_evolution">
+<code class="sig-name descname"><span class="pre">theory_evolution</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#basics.REState.theory_evolution" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="../index.html">Table of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="api.html">API Docs</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="api.html#package-remodeldescription">Package <code class="code docutils literal notranslate"><span class="pre">remodeldescription</span></code></a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="api-position.html"><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-dialecticalstructure.html"><code class="xref py py-class docutils literal notranslate"><span class="pre">DialecticalStructure</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-re.html"><code class="xref py py-class docutils literal notranslate"><span class="pre">ReflectiveEquilibrium</span></code></a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#"><code class="xref py py-class docutils literal notranslate"><span class="pre">REState</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-recontainter.html"><code class="xref py py-class docutils literal notranslate"><span class="pre">REContainer</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#package-repython">Package <code class="code docutils literal notranslate"><span class="pre">repython</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Claus Beisbart, Gregor Betz, Georg Brun, Sebastian Cacean, Andreas Freivogel, Richard Lohse.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/api-docs/api-restate.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

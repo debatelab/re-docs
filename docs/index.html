@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>A Formal Model of Reflective Equilibrium &#8212; remodel  documentation</title>
+    <title>A Formal Model of Reflective Equilibrium &#8212; rethon  documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -14,7 +14,7 @@
     <script src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Running the Model" href="user/running_model.html" />
+    <link rel="next" title="API Docs" href="api-docs/api.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -44,8 +44,8 @@ you have to install both packages locally, by</p>
 <ul class="simple">
 <li><p>first git-cloning the repositories of both packages:</p>
 <ul>
-<li><p><code class="code docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">git&#64;git.scc.kit.edu:debatelab/re-python.git</span></code></p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">git&#64;git.scc.kit.edu:debatelab/re-model-description.git</span></code></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">git&#64;github.com:debatelab/re-python.git</span></code></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">git&#64;github.com:debatelab/re-model-description.git</span></code></p></li>
 </ul>
 </li>
 <li><p>and then installing the packages by running <code class="code docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code> from the local directories of
@@ -56,21 +56,27 @@ change the source code.)</p></li>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Both packages require a python version &gt;= 3.8. The package <em>remodel</em> further depends on the
-packages <a class="reference external" href="https://pypi.org/project/bitarray/">bitarray</a> and <a class="reference external" href="https://github.com/pysathq/pysat">PySat</a>
+packages <a class="reference external" href="https://pypi.org/project/bitarray/">bitarray</a>, <a class="reference external" href="https://numba.pydata.org/">numba</a> and <a class="reference external" href="https://github.com/pysathq/pysat">PySat</a>
 (which will be installed when installing <em>remodel</em> by using pip).</p>
 </div>
 </div>
-<div class="section" id="user-guide">
-<h2>User Guide<a class="headerlink" href="#user-guide" title="Permalink to this headline">¶</a></h2>
-<p>This part of the documentation provides step-by-step instructions for running and adapting the model.</p>
-<div class="toctree-wrapper compound">
+<div class="section" id="tutorials">
+<h2>Tutorials<a class="headerlink" href="#tutorials" title="Permalink to this headline">¶</a></h2>
+<p>The are different <a class="reference external" href="https://jupyter.org/">Jupyter notebooks</a> that provide step-by-step instructions of running and adapting the model:</p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="user/running_model.html">Running the Model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="user/extending_model.html">Extending the Model</a></li>
+<li><p><a class="reference external" href="https://github.com/debatelab/re-docs/blob/master/notebooks/intro-repython.ipynb">intro-repython.ipynb</a>: Introduction of using
+re-python. Covering the following topics:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Running the model</p></li>
+<li><p>Export to JSON</p></li>
+<li><p>Extending the model</p></li>
 </ul>
-</div>
-<p>For further information consult the <a class="reference internal" href="api-docs/api.html#api-docs-label"><span class="std std-ref">API-docs</span></a> or have a look at
-the various <strong>notebook-examples</strong> (todo templates).</p>
+</div></blockquote>
+</li>
+<li><p><a class="reference external" href="https://github.com/debatelab/re-docs/blob/master/notebooks/ensemble-generation-tutorial.ipynb">ensemble-generation-tutorial.ipynb</a>: A
+notebook that illustrates how to generate model ensembles with the <a class="reference internal" href="api-docs/api-ensemble-generation.html#ensemble-generation-label"><span class="std std-ref">ensemble generation module</span></a>.</p></li>
+</ul>
 </div>
 <div class="section" id="api-documentation">
 <h2>API Documentation<a class="headerlink" href="#api-documentation" title="Permalink to this headline">¶</a></h2>
@@ -80,18 +86,22 @@ of the model description.</p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="api-docs/api.html">API Docs</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api-docs/api.html#package-repython">Package <code class="code docutils literal notranslate"><span class="pre">repython</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="api-docs/api-abstractre.html"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractReflectiveEquilibrium</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="api-docs/api-setimplementation.html">Set-Based Implementations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api-docs/api-bitarrayimplementation.html">Bitarray-Based Implementations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api-docs/api-ensemble-generation.html">Ensemble generation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api-docs/api-util.html">Utility methods</a></li>
-</ul>
-</li>
 <li class="toctree-l2"><a class="reference internal" href="api-docs/api.html#package-remodeldescription">Package <code class="code docutils literal notranslate"><span class="pre">remodeldescription</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="api-docs/api-position.html"><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="api-docs/api-dialecticalstructure.html"><code class="xref py py-class docutils literal notranslate"><span class="pre">DialecticalStructure</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="api-docs/api-re.html"><code class="xref py py-class docutils literal notranslate"><span class="pre">ReflectiveEquilibrium</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-docs/api-restate.html"><code class="xref py py-class docutils literal notranslate"><span class="pre">REState</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-docs/api-recontainter.html"><code class="xref py py-class docutils literal notranslate"><span class="pre">REContainer</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api-docs/api.html#package-repython">Package <code class="code docutils literal notranslate"><span class="pre">repython</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api-docs/api-abstractre.html">Module <code class="code docutils literal notranslate"><span class="pre">abstract_re.py</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-docs/api-model.html">Standard Implementations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-docs/api-ensemble-generation.html">Ensemble generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-docs/api-util.html">Utility methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-docs/api-numpyimplementation.html">Numpy-Based Implementations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-docs/api-setimplementation.html">Set-Based Implementations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-docs/api-bitarrayimplementation.html">Bitarray-Based Implementations</a></li>
 </ul>
 </li>
 </ul>
@@ -127,10 +137,6 @@ of the model description.</p>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
 <h3><a href="#">Table of Contents</a></h3>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="user/running_model.html">Running the Model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="user/extending_model.html">Extending the Model</a></li>
-</ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="api-docs/api.html">API Docs</a></li>
 </ul>

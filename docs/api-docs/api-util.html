@@ -5,16 +5,17 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Utility methods &#8212; remodel  documentation</title>
+    <title>Utility methods &#8212; rethon  documentation</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Position" href="api-position.html" />
+    <link rel="next" title="Numpy-Based Implementations" href="api-numpyimplementation.html" />
     <link rel="prev" title="Ensemble generation" href="api-ensemble-generation.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -34,78 +35,72 @@
             
   <div class="section" id="utility-methods">
 <h1>Utility methods<a class="headerlink" href="#utility-methods" title="Permalink to this headline">¶</a></h1>
-<p>Methods of the module <code class="code docutils literal notranslate"><span class="pre">re_model.util</span></code></p>
-<span class="target" id="module-remodel.util"></span><p>A collection of convenient helper-functions.</p>
+<p>Methods of the module <code class="code docutils literal notranslate"><span class="pre">rethon.util</span></code></p>
+<span class="target" id="module-rethon.util"></span><p>A collection of convenient helper-functions.</p>
+<dl class="py class">
+<dt id="rethon.util.REJSONEncoder">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">rethon.util.</span></code><code class="sig-name descname"><span class="pre">REJSONEncoder</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">serialize_implementation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.util.REJSONEncoder" title="Permalink to this definition">¶</a></dt>
+<dd><p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rethon.util.REJSONEncoder.default" title="rethon.util.REJSONEncoder.default"><code class="xref py py-obj docutils literal notranslate"><span class="pre">default</span></code></a>(o)</p></td>
+<td><p>An implemention of <code class="xref py py-func docutils literal notranslate"><span class="pre">JSONEncoder.default()</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">encode</span></code>(o)</p></td>
+<td><p>Return a JSON string representation of a Python data structure.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">iterencode</span></code>(o[, _one_shot])</p></td>
+<td><p>Encode the given object and yield each string representation as available.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="rethon.util.REJSONEncoder.default">
+<code class="sig-name descname"><span class="pre">default</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">o</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.util.REJSONEncoder.default" title="Permalink to this definition">¶</a></dt>
+<dd><p>An implemention of <code class="xref py py-func docutils literal notranslate"><span class="pre">JSONEncoder.default()</span></code>.</p>
+<p>This implementation handles the serialization of <code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code>-,
+<code class="xref py py-class docutils literal notranslate"><span class="pre">DialecticalStructure</span></code>-, <code class="xref py py-class docutils literal notranslate"><span class="pre">REState</span></code>- and <code class="xref py py-class docutils literal notranslate"><span class="pre">ReflectiveEquilibrium</span></code> instances.</p>
+</dd></dl>
+
+</dd></dl>
+
 <dl class="py function">
-<dt id="remodel.util.arg_to_cnf">
-<code class="sig-prename descclassname"><span class="pre">remodel.util.</span></code><code class="sig-name descname"><span class="pre">arg_to_cnf</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#remodel.util.arg_to_cnf" title="Permalink to this definition">¶</a></dt>
+<dt id="rethon.util.arg_to_cnf">
+<code class="sig-prename descclassname"><span class="pre">rethon.util.</span></code><code class="sig-name descname"><span class="pre">arg_to_cnf</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.util.arg_to_cnf" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts list representation of an argument to a cnf-position-like list
 of negated premises + non-negated conclusion</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="remodel.util.create_random_arguments">
-<code class="sig-prename descclassname"><span class="pre">remodel.util.</span></code><code class="sig-name descname"><span class="pre">create_random_arguments</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_sentences</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_arguments</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_max_premises</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connected</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_loops</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#remodel.util.create_random_arguments" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a list of arguments represented as integer lists.</p>
-<p>The dialectical strucature given by the returned arguments is satisfiable
-(i.e. there is at least one complete and dialectically consistent position).
-Furthermore, the arguments avoid begging the question, repeating premises,
-flat contradictions among premises and with the conclusion, and using the same
-premises for different conclusions.</p>
+<dt id="rethon.util.args2cnf">
+<code class="sig-prename descclassname"><span class="pre">rethon.util.</span></code><code class="sig-name descname"><span class="pre">args2cnf</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arguments</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_sentence_pool</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.util.args2cnf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converting argument list to <code class="code docutils literal notranslate"><span class="pre">pysat.formula.CNF</span></code></p>
+<p>This method converts a list of arguments into a conjunctive normal form.
+Sentences <span class="math notranslate nohighlight">\(p\)</span> that are not used in arguments will be added in a tautological manner (i.e.,
+<span class="math notranslate nohighlight">\(p\vee\neg p\)</span>)
+to the CNF formula.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>n_sentences</strong> – Number of non-negated sentences of the sentence pool.</p></li>
-<li><p><strong>n_arguments</strong> – Number of generated arguments.</p></li>
-<li><p><strong>n_max_premises</strong> – Maximal number of premises per argument.</p></li>
-<li><p><strong>variation</strong> – If true (default), the number of premises per argument is chosen randomly.
-Otherwise it is constantly n_max_premises.</p></li>
-<li><p><strong>connected</strong> – If true (default), the arguments are related
-(either by attack or support) to at least one other argument in the structure.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p></p>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">CNF</span></code></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
-<dt id="remodel.util.create_random_arguments2">
-<code class="sig-prename descclassname"><span class="pre">remodel.util.</span></code><code class="sig-name descname"><span class="pre">create_random_arguments2</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_sentences</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_arguments</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_max_premises</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_principles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connected</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_loops</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#remodel.util.create_random_arguments2" title="Permalink to this definition">¶</a></dt>
-<dd><p>Second, refined version. Returns a list of arguments represented as integer lists.</p>
-<p>The dialectical structure given by the returned arguments is satisfiable
-(i.e. there is at least one complete and dialectically consistent position).
-Furthermore, the arguments avoid begging the question, repeating premises,
-flat contradictions among premises and with the conclusion, and using the same
-premises for different conclusions.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>n_sentences</strong> – Number of non-negated sentences of the sentence pool.
-Every sentence (or its negation) occurs at least once in an argument.</p></li>
-<li><p><strong>n_arguments</strong> – Number of generated arguments.</p></li>
-<li><p><strong>n_max_premises</strong> – Maximal number of premises per argument.</p></li>
-<li><p><strong>n_principles</strong> – The number of principles, i.e. sentences that may occur in arguments as premises only.</p></li>
-<li><p><strong>variation</strong> – If true (default), the number of premises per argument is chosen randomly.
-Otherwise it is constantly n_max_premises.</p></li>
-<li><p><strong>connected</strong> – If true (default), the arguments are related
-(either by attack or support) to at least one other argument in the structure.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Max_loops</dt>
-<dd class="field-even"><p>Breaks possibply endless loops. Number of arguments that tested
-whether they fit into the dialectical structure.</p>
-</dd>
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p></p>
-</dd>
-</dl>
+<dt id="rethon.util.deprecated">
+<code class="sig-prename descclassname"><span class="pre">rethon.util.</span></code><code class="sig-name descname"><span class="pre">deprecated</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.util.deprecated" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is a decorator which can be used to mark functions
+as deprecated. It will result in a warning being emitted
+when the function is used.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="remodel.util.get_principles">
-<code class="sig-prename descclassname"><span class="pre">remodel.util.</span></code><code class="sig-name descname"><span class="pre">get_principles</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arguments</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#remodel.util.get_principles" title="Permalink to this definition">¶</a></dt>
+<dt id="rethon.util.get_principles">
+<code class="sig-prename descclassname"><span class="pre">rethon.util.</span></code><code class="sig-name descname"><span class="pre">get_principles</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arguments</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.util.get_principles" title="Permalink to this definition">¶</a></dt>
 <dd><p>”
 Returns a list of tuples of the form <code class="code docutils literal notranslate"><span class="pre">(principle,</span> <span class="pre">multiplicity)</span></code> with <code class="code docutils literal notranslate"><span class="pre">multiplicity</span></code>
 indicating the multiplicity of the principle.
@@ -115,50 +110,89 @@ as premise.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="remodel.util.inferential_density">
-<code class="sig-prename descclassname"><span class="pre">remodel.util.</span></code><code class="sig-name descname"><span class="pre">inferential_density</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dialectical_structure</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#remodel.util.inferential_density" title="Permalink to this definition">¶</a></dt>
+<dt id="rethon.util.inferential_density">
+<code class="sig-prename descclassname"><span class="pre">rethon.util.</span></code><code class="sig-name descname"><span class="pre">inferential_density</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dialectical_structure</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.util.inferential_density" title="Permalink to this definition">¶</a></dt>
 <dd><p>Inferential density of a dialectical structure.</p>
 <p>As defined by Betz (2013), p. 44: todo</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="remodel.util.is_satisfiable">
-<code class="sig-prename descclassname"><span class="pre">remodel.util.</span></code><code class="sig-name descname"><span class="pre">is_satisfiable</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">principles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#remodel.util.is_satisfiable" title="Permalink to this definition">¶</a></dt>
+<dt id="rethon.util.is_satisfiable">
+<code class="sig-prename descclassname"><span class="pre">rethon.util.</span></code><code class="sig-name descname"><span class="pre">is_satisfiable</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">principles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.util.is_satisfiable" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fast method of checking for satisfiability (using xxx).</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="remodel.util.load_dialectical_structure">
-<code class="sig-prename descclassname"><span class="pre">remodel.util.</span></code><code class="sig-name descname"><span class="pre">load_dialectical_structure</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">DIR</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fileName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#remodel.util.load_dialectical_structure" title="Permalink to this definition">¶</a></dt>
+<dt id="rethon.util.load_dialectical_structure">
+<code class="sig-prename descclassname"><span class="pre">rethon.util.</span></code><code class="sig-name descname"><span class="pre">load_dialectical_structure</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">DIR</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fileName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.util.load_dialectical_structure" title="Permalink to this definition">¶</a></dt>
 <dd><p>ToDo: doc</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="remodel.util.number_of_complete_consistent_positions">
-<code class="sig-prename descclassname"><span class="pre">remodel.util.</span></code><code class="sig-name descname"><span class="pre">number_of_complete_consistent_positions</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#remodel.util.number_of_complete_consistent_positions" title="Permalink to this definition">¶</a></dt>
+<dt id="rethon.util.number_of_complete_consistent_positions">
+<code class="sig-prename descclassname"><span class="pre">rethon.util.</span></code><code class="sig-name descname"><span class="pre">number_of_complete_consistent_positions</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_unnegated_sentence_pool</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.util.number_of_complete_consistent_positions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fast method to calculate the number of complete consistent positions.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt id="remodel.util.random_position_as_set">
-<code class="sig-prename descclassname"><span class="pre">remodel.util.</span></code><code class="sig-name descname"><span class="pre">random_position_as_set</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_sentences</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allow_empty_position</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#remodel.util.random_position_as_set" title="Permalink to this definition">¶</a></dt>
-<dd><p>Generates a random minimally consistent position in its set-representation.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>n_sentences</strong> – Size of the sentence-pool (without negations).</p></li>
-<li><p><strong>allow_empty_position</strong> – Iff <code class="code docutils literal notranslate"><span class="pre">True</span></code> an empty position might be returned.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>A set of integer representing the position.</p>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
-<dt id="remodel.util.re_from_text_file">
-<code class="sig-prename descclassname"><span class="pre">remodel.util.</span></code><code class="sig-name descname"><span class="pre">re_from_text_file</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">re_implementations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[('remodel.bitarray_implementation',</span> <span class="pre">'BitarrayReflectiveEquilibrium')]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ds_module_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'remodel.bitarray_implementation'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ds_class_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'BitarrayDialecticalStructure'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position_module_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'remodel.bitarray_implementation'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position_class_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'BitarrayPosition'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#remodel.util.re_from_text_file" title="Permalink to this definition">¶</a></dt>
+<dt id="rethon.util.re_decoder">
+<code class="sig-prename descclassname"><span class="pre">rethon.util.</span></code><code class="sig-name descname"><span class="pre">re_decoder</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">json_obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_json_specified_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position_module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'rethon.bitarray_implementation'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position_class</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'BitarrayPosition'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dialectical_structure_module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'rethon.bitarray_implementation'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dialectical_structure_class</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'BitarrayDialecticalStructure'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reflective_equilibrium_module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'rethon.bitarray_implementation'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reflective_equilibrium_class</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'BitarrayReflectiveEquilibrium'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.util.re_decoder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Object hook for <code class="xref py py-func docutils literal notranslate"><span class="pre">json.loads()</span></code> and <code class="xref py py-func docutils literal notranslate"><span class="pre">json.load()</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>use_json_specified_type</strong> – If <code class="code docutils literal notranslate"><span class="pre">True</span></code> the methods used the implementation details
+(modulname and classname) that are specified in the json string, if there are any. Otherwise,
+the methode uses implementation details as given by the other parameters.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="rethon.util.re_dump">
+<code class="sig-prename descclassname"><span class="pre">rethon.util.</span></code><code class="sig-name descname"><span class="pre">re_dump</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">re_object</span></em>, <em class="sig-param"><span class="pre">fp</span></em>, <em class="sig-param"><span class="pre">cls=&lt;class</span> <span class="pre">'rethon.util.REJSONEncoder'&gt;</span></em>, <em class="sig-param"><span class="pre">serialize_implementation=False</span></em>, <em class="sig-param"><span class="pre">**kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.util.re_dump" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saving an object as JSON-String in a file.</p>
+<p>This is a convenient method that calls <code class="xref py py-func docutils literal notranslate"><span class="pre">json.dump()</span></code> with <a class="reference internal" href="#rethon.util.REJSONEncoder" title="rethon.util.REJSONEncoder"><code class="xref py py-class docutils literal notranslate"><span class="pre">REJSONEncoder</span></code></a> as
+its default encoder, which will handle the JSON serialization of <code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code>-,
+<code class="xref py py-class docutils literal notranslate"><span class="pre">DialecticalStructure</span></code>-, <code class="xref py py-class docutils literal notranslate"><span class="pre">REState</span></code>- and <code class="xref py py-class docutils literal notranslate"><span class="pre">ReflectiveEquilibrium</span></code> instances.</p>
+<p><a href="#id1"><span class="problematic" id="id2">**</span></a>kwargs will be given to <code class="xref py py-func docutils literal notranslate"><span class="pre">json.dumps()</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>serialize_implementation</strong> – If <code class="code docutils literal notranslate"><span class="pre">True</span></code> implementation details (modulname and classname) will
+be serialized.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The object as a JSON string.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="rethon.util.re_dumps">
+<code class="sig-prename descclassname"><span class="pre">rethon.util.</span></code><code class="sig-name descname"><span class="pre">re_dumps</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">re_object</span></em>, <em class="sig-param"><span class="pre">cls=&lt;class</span> <span class="pre">'rethon.util.REJSONEncoder'&gt;</span></em>, <em class="sig-param"><span class="pre">serialize_implementation=False</span></em>, <em class="sig-param"><span class="pre">**kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.util.re_dumps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getting an object as JSON-String.</p>
+<p>This is a convenient method that calls <code class="xref py py-func docutils literal notranslate"><span class="pre">json.dumps()</span></code> with <a class="reference internal" href="#rethon.util.REJSONEncoder" title="rethon.util.REJSONEncoder"><code class="xref py py-class docutils literal notranslate"><span class="pre">REJSONEncoder</span></code></a> as
+its default encoder, which will handle the JSON serialization of <code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code>-,
+<code class="xref py py-class docutils literal notranslate"><span class="pre">DialecticalStructure</span></code>-, <code class="xref py py-class docutils literal notranslate"><span class="pre">REState</span></code>- and <code class="xref py py-class docutils literal notranslate"><span class="pre">ReflectiveEquilibrium</span></code> instances.</p>
+<p><a href="#id3"><span class="problematic" id="id4">**</span></a>kwargs will be given to <code class="xref py py-func docutils literal notranslate"><span class="pre">json.dumps()</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>serialize_implementation</strong> – If <code class="code docutils literal notranslate"><span class="pre">True</span></code> implementation details (modulname and classname) will
+be serialized.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The object as a JSON string.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="rethon.util.re_from_text_file">
+<code class="sig-prename descclassname"><span class="pre">rethon.util.</span></code><code class="sig-name descname"><span class="pre">re_from_text_file</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">re_implementations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[('rethon.bitarray_implementation',</span> <span class="pre">'BitarrayReflectiveEquilibrium')]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ds_module_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'rethon.bitarray_implementation'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ds_class_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'BitarrayDialecticalStructure'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position_module_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'rethon.bitarray_implementation'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position_class_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'BitarrayPosition'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.util.re_from_text_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a list of RE classes  from a text-file.</p>
 <p>The text file consists of a list (i.e. […]) of dictionaries (i.e. {…})
 and commented lines used for the description of the example (starting with #).
@@ -216,27 +250,47 @@ with the inner lists of <code class="code docutils literal notranslate"><span cl
 </dd></dl>
 
 <dl class="py function">
-<dt id="remodel.util.re_weight_variations">
-<code class="sig-prename descclassname"><span class="pre">remodel.util.</span></code><code class="sig-name descname"><span class="pre">re_weight_variations</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">re</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_commitments</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">DIR</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fileName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#remodel.util.re_weight_variations" title="Permalink to this definition">¶</a></dt>
+<dt id="rethon.util.re_load">
+<code class="sig-prename descclassname"><span class="pre">rethon.util.</span></code><code class="sig-name descname"><span class="pre">re_load</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_json_specified_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position_module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'rethon.bitarray_implementation'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position_class</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'BitarrayPosition'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dialectical_structure_module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'rethon.bitarray_implementation'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dialectical_structure_class</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'BitarrayDialecticalStructure'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reflective_equilibrium_module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'rethon.bitarray_implementation'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reflective_equilibrium_class</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'BitarrayReflectiveEquilibrium'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.util.re_load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loading an object from a JSON file.</p>
+<p>This is a convenient method that calls <code class="xref py py-func docutils literal notranslate"><span class="pre">json.load()</span></code> and uses <a class="reference internal" href="#rethon.util.re_decoder" title="rethon.util.re_decoder"><code class="xref py py-func docutils literal notranslate"><span class="pre">re_decoder()</span></code></a> as object hook
+to handle the instantiation of <code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code>-,
+<code class="xref py py-class docutils literal notranslate"><span class="pre">DialecticalStructure</span></code>-, <code class="xref py py-class docutils literal notranslate"><span class="pre">REState</span></code>- and <code class="xref py py-class docutils literal notranslate"><span class="pre">ReflectiveEquilibrium</span></code> objects. Desired
+implementation details can be given by parameter values (see <a class="reference internal" href="#rethon.util.re_decoder" title="rethon.util.re_decoder"><code class="xref py py-func docutils literal notranslate"><span class="pre">re_decoder()</span></code></a>).</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="rethon.util.re_loads">
+<code class="sig-prename descclassname"><span class="pre">rethon.util.</span></code><code class="sig-name descname"><span class="pre">re_loads</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">json_obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_json_specified_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position_module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'rethon.bitarray_implementation'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position_class</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'BitarrayPosition'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dialectical_structure_module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'rethon.bitarray_implementation'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dialectical_structure_class</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'BitarrayDialecticalStructure'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reflective_equilibrium_module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'rethon.bitarray_implementation'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reflective_equilibrium_class</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'BitarrayReflectiveEquilibrium'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.util.re_loads" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loading an object from a JSON string.</p>
+<p>This is a convenient method that calls <code class="xref py py-func docutils literal notranslate"><span class="pre">json.loads()</span></code> and uses <a class="reference internal" href="#rethon.util.re_decoder" title="rethon.util.re_decoder"><code class="xref py py-func docutils literal notranslate"><span class="pre">re_decoder()</span></code></a> as object hook
+to handle the instantiation of <code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code>-,
+<code class="xref py py-class docutils literal notranslate"><span class="pre">DialecticalStructure</span></code>-, <code class="xref py py-class docutils literal notranslate"><span class="pre">REState</span></code>- and <code class="xref py py-class docutils literal notranslate"><span class="pre">ReflectiveEquilibrium</span></code> objects. Desired
+implementation details can be given by parameter values (see <a class="reference internal" href="#rethon.util.re_decoder" title="rethon.util.re_decoder"><code class="xref py py-func docutils literal notranslate"><span class="pre">re_decoder()</span></code></a>).</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="rethon.util.re_weight_variations">
+<code class="sig-prename descclassname"><span class="pre">rethon.util.</span></code><code class="sig-name descname"><span class="pre">re_weight_variations</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">re</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_commitments</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">DIR</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fileName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.util.re_weight_variations" title="Permalink to this definition">¶</a></dt>
 <dd><p>Simulate RE processes with
 todo</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="remodel.util.save_dialectical_structure">
-<code class="sig-prename descclassname"><span class="pre">remodel.util.</span></code><code class="sig-name descname"><span class="pre">save_dialectical_structure</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">DIR</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fileName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dialectical_structure</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#remodel.util.save_dialectical_structure" title="Permalink to this definition">¶</a></dt>
+<dt id="rethon.util.save_dialectical_structure">
+<code class="sig-prename descclassname"><span class="pre">rethon.util.</span></code><code class="sig-name descname"><span class="pre">save_dialectical_structure</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">DIR</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fileName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dialectical_structure</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.util.save_dialectical_structure" title="Permalink to this definition">¶</a></dt>
 <dd><p>ToDo: doc</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="remodel.util.write_as_dot">
-<code class="sig-prename descclassname"><span class="pre">remodel.util.</span></code><code class="sig-name descname"><span class="pre">write_as_dot</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fileName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">equal_rank_for_principles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#remodel.util.write_as_dot" title="Permalink to this definition">¶</a></dt>
+<dt id="rethon.util.write_as_dot">
+<code class="sig-prename descclassname"><span class="pre">rethon.util.</span></code><code class="sig-name descname"><span class="pre">write_as_dot</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fileName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">equal_rank_for_principles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.util.write_as_dot" title="Permalink to this definition">¶</a></dt>
 <dd><p>ToDo: doc</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="remodel.util.write_as_tex">
-<code class="sig-prename descclassname"><span class="pre">remodel.util.</span></code><code class="sig-name descname"><span class="pre">write_as_tex</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fileName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#remodel.util.write_as_tex" title="Permalink to this definition">¶</a></dt>
+<dt id="rethon.util.write_as_tex">
+<code class="sig-prename descclassname"><span class="pre">rethon.util.</span></code><code class="sig-name descname"><span class="pre">write_as_tex</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fileName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.util.write_as_tex" title="Permalink to this definition">¶</a></dt>
 <dd><p>ToDo: doca</p>
 </dd></dl>
 
@@ -250,21 +304,19 @@ todo</p>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
 <h3><a href="../index.html">Table of Contents</a></h3>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../user/running_model.html">Running the Model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user/extending_model.html">Extending the Model</a></li>
-</ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="api.html">API Docs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="api.html#package-remodeldescription">Package <code class="code docutils literal notranslate"><span class="pre">remodeldescription</span></code></a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="api.html#package-repython">Package <code class="code docutils literal notranslate"><span class="pre">repython</span></code></a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="api-abstractre.html"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractReflectiveEquilibrium</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="api-setimplementation.html">Set-Based Implementations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api-bitarrayimplementation.html">Bitarray-Based Implementations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-abstractre.html">Module <code class="code docutils literal notranslate"><span class="pre">abstract_re.py</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-model.html">Standard Implementations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api-ensemble-generation.html">Ensemble generation</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Utility methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-numpyimplementation.html">Numpy-Based Implementations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-setimplementation.html">Set-Based Implementations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-bitarrayimplementation.html">Bitarray-Based Implementations</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#package-remodeldescription">Package <code class="code docutils literal notranslate"><span class="pre">remodeldescription</span></code></a></li>
 </ul>
 </li>
 </ul>

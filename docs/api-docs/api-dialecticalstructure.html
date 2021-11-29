@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DialecticalStructure &#8212; remodel  documentation</title>
+    <title>DialecticalStructure &#8212; rethon  documentation</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -42,10 +42,10 @@
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">basics.</span></code><code class="sig-name descname"><span class="pre">DialecticalStructure</span></code><a class="headerlink" href="#basics.DialecticalStructure" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
 <p>Class representing a dialectical structure.</p>
-<p>A dialectical structure is a tupel  <span class="math notranslate nohighlight">\(\left&lt; S,A\right&gt;\)</span> of a sentence pool 
-<span class="math notranslate nohighlight">\(S = \{ s_1, s_2, \dots, s_N, \neg s_1, \neg s_2, \dots, \neg s_N \}\)</span> and a set 
+<p>A dialectical structure is a tupel  <span class="math notranslate nohighlight">\(\left&lt; S,A\right&gt;\)</span> of a sentence pool
+<span class="math notranslate nohighlight">\(S = \{ s_1, s_2, \dots, s_N, \neg s_1, \neg s_2, \dots, \neg s_N \}\)</span> and a set
 <span class="math notranslate nohighlight">\(A\)</span> of arguments.</p>
-<p>An argument <span class="math notranslate nohighlight">\(a=(P_a, c_a)\)</span> is defined as a pair consisting of premises <span class="math notranslate nohighlight">\(P_a \subset S\)</span> and 
+<p>An argument <span class="math notranslate nohighlight">\(a=(P_a, c_a)\)</span> is defined as a pair consisting of premises <span class="math notranslate nohighlight">\(P_a \subset S\)</span> and
 a conclusion <span class="math notranslate nohighlight">\(c_a \in S\)</span>.</p>
 <p class="rubric">Methods</p>
 <table class="longtable docutils align-default">
@@ -84,6 +84,12 @@ a conclusion <span class="math notranslate nohighlight">\(c_a \in S\)</span>.</p
 <tr class="row-even"><td><p><a class="reference internal" href="#basics.DialecticalStructure.entails" title="basics.DialecticalStructure.entails"><code class="xref py py-obj docutils literal notranslate"><span class="pre">entails</span></code></a>(position1, position2)</p></td>
 <td><p>Dialectical entailment.</p></td>
 </tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#basics.DialecticalStructure.from_arguments" title="basics.DialecticalStructure.from_arguments"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_arguments</span></code></a>(arguments, …)</p></td>
+<td><p>Instanciating a <a class="reference internal" href="#basics.DialecticalStructure" title="basics.DialecticalStructure"><code class="xref py py-class docutils literal notranslate"><span class="pre">DialecticalStructure</span></code></a> from a list of int lists.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#basics.DialecticalStructure.get_arguments" title="basics.DialecticalStructure.get_arguments"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_arguments</span></code></a>()</p></td>
+<td><p>The arguments as a list.</p></td>
+</tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#basics.DialecticalStructure.is_closed" title="basics.DialecticalStructure.is_closed"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_closed</span></code></a>(position)</p></td>
 <td><p>Checks whether a position is dialectically closed.</p></td>
 </tr>
@@ -116,7 +122,7 @@ a conclusion <span class="math notranslate nohighlight">\(c_a \in S\)</span>.</p
 <dd><p>Adds an argument to the dialectical structure.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>argument</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – An argument as an integer list. The last element representing the conclusion the others the premises.</p>
+<dd class="field-odd"><p><strong>argument</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – An argument as an integer list. The last element represents the conclusion the others the premises.</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p><a class="reference internal" href="#basics.DialecticalStructure" title="basics.DialecticalStructure"><code class="xref py py-class docutils literal notranslate"><span class="pre">DialecticalStructure</span></code></a></p>
@@ -148,7 +154,7 @@ a conclusion <span class="math notranslate nohighlight">\(c_a \in S\)</span>.</p
 <dt id="basics.DialecticalStructure.are_compatible">
 <em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">are_compatible</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#basics.DialecticalStructure.are_compatible" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks for dialectical compatibility of two positions.</p>
-<p>Two positions are dialectically compatible iff there is a complete and consistent positition that 
+<p>Two positions are dialectically compatible iff there is a complete and consistent positition that
 extends both.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -166,8 +172,8 @@ extends both.</p>
 <dd><p>Iterator over all axiomatic bases from source.
 The source defaults to all consistent positions if it is not provided.</p>
 <p>A position <span class="math notranslate nohighlight">\(\mathcal{B}\)</span> is an axiomatic basis of another position <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> iff
-<span class="math notranslate nohighlight">\(\mathcal{A}\)</span> is dialectically entailed by <span class="math notranslate nohighlight">\(\mathcal{B}\)</span> and there is no proper 
-subset <span class="math notranslate nohighlight">\(\mathcal{C}\)</span> of <span class="math notranslate nohighlight">\(\mathcal{B}\)</span> such that <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> is entailed by 
+<span class="math notranslate nohighlight">\(\mathcal{A}\)</span> is dialectically entailed by <span class="math notranslate nohighlight">\(\mathcal{B}\)</span> and there is no proper
+subset <span class="math notranslate nohighlight">\(\mathcal{C}\)</span> of <span class="math notranslate nohighlight">\(\mathcal{B}\)</span> such that <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> is entailed by
 <span class="math notranslate nohighlight">\(\mathcal{C}\)</span>.</p>
 <p>This method should throw a <code class="code docutils literal notranslate"><span class="pre">ValueError</span></code> if the given position is inconsistent.</p>
 <dl class="field-list simple">
@@ -175,7 +181,8 @@ subset <span class="math notranslate nohighlight">\(\mathcal{C}\)</span> of <spa
 <dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code>[<a class="reference internal" href="api-position.html#basics.Position" title="basics.Position"><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></a>]</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>A python-iterator over all axiomatic bases of <code class="code docutils literal notranslate"><span class="pre">position</span></code> from <code class="code docutils literal notranslate"><span class="pre">source</span></code></p>
+<dd class="field-even"><p>A python-iterator over all axiomatic bases of <code class="code docutils literal notranslate"><span class="pre">position</span></code> from <code class="code docutils literal notranslate"><span class="pre">source</span></code> and <code class="code docutils literal notranslate"><span class="pre">None</span></code> if
+there is no axiomatic basis in the source.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -199,7 +206,7 @@ subset <span class="math notranslate nohighlight">\(\mathcal{C}\)</span> of <spa
 <dt id="basics.DialecticalStructure.closure">
 <em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">closure</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#basics.DialecticalStructure.closure" title="Permalink to this definition">¶</a></dt>
 <dd><p>Dialectical closure.</p>
-<p>The dialectical closure of a position <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> is the intersection of all consistent and 
+<p>The dialectical closure of a position <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> is the intersection of all consistent and
 complete positions that extend <span class="math notranslate nohighlight">\(\mathcal{A}\)</span>. Note that in consequence, the empty position can have
 a non-empty closure.</p>
 <dl class="field-list simple">
@@ -245,7 +252,7 @@ a non-empty closure.</p>
 <dt id="basics.DialecticalStructure.degree_of_justification">
 <em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">degree_of_justification</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#basics.DialecticalStructure.degree_of_justification" title="Permalink to this definition">¶</a></dt>
 <dd><p>Conditional degree of justification.</p>
-<p>The conditional degree of justification <span class="math notranslate nohighlight">\(DOJ\)</span> of two positions <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> and 
+<p>The conditional degree of justification <span class="math notranslate nohighlight">\(DOJ\)</span> of two positions <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> and
 <span class="math notranslate nohighlight">\(\mathcal{B}\)</span> is defined by <span class="math notranslate nohighlight">\(DOJ(\mathcal{A}| \mathcal{B}):=\frac{\sigma_{\mathcal{AB}}}{\sigma_{\mathcal{B}}}\)</span>
 with <span class="math notranslate nohighlight">\(\sigma_{\mathcal{AB}}\)</span> the set of all consistent and complete positions that extend both <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> and <span class="math notranslate nohighlight">\(\mathcal{B}\)</span>
 and <span class="math notranslate nohighlight">\(\sigma_{\mathcal{B}}\)</span> the set of all consistent and complete positions that extend <span class="math notranslate nohighlight">\(\mathcal{B}\)</span>.</p>
@@ -263,7 +270,7 @@ and <span class="math notranslate nohighlight">\(\sigma_{\mathcal{B}}\)</span> t
 <dt id="basics.DialecticalStructure.entails">
 <em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">entails</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#basics.DialecticalStructure.entails" title="Permalink to this definition">¶</a></dt>
 <dd><p>Dialectical entailment.</p>
-<p>A position <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> dialectically entails another position <span class="math notranslate nohighlight">\(\mathcal{B}\)</span> iff 
+<p>A position <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> dialectically entails another position <span class="math notranslate nohighlight">\(\mathcal{B}\)</span> iff
 every consistent and complete position that extends <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> also extends <span class="math notranslate nohighlight">\(\mathcal{B}\)</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -271,6 +278,34 @@ every consistent and complete position that extends <span class="math notranslat
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><code class="code docutils literal notranslate"><span class="pre">True</span></code> iff <code class="code docutils literal notranslate"><span class="pre">position2</span></code> is dialectically entailed by <code class="code docutils literal notranslate"><span class="pre">position1</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="basics.DialecticalStructure.from_arguments">
+<em class="property"><span class="pre">abstract</span> <span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">from_arguments</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arguments</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_unnegated_sentence_pool</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#basics.DialecticalStructure.from_arguments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instanciating a <a class="reference internal" href="#basics.DialecticalStructure" title="basics.DialecticalStructure"><code class="xref py py-class docutils literal notranslate"><span class="pre">DialecticalStructure</span></code></a> from a list of int lists.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#basics.DialecticalStructure" title="basics.DialecticalStructure"><code class="xref py py-class docutils literal notranslate"><span class="pre">DialecticalStructure</span></code></a></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><a class="reference internal" href="#basics.DialecticalStructure" title="basics.DialecticalStructure"><code class="xref py py-class docutils literal notranslate"><span class="pre">DialecticalStructure</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="basics.DialecticalStructure.get_arguments">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">get_arguments</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#basics.DialecticalStructure.get_arguments" title="Permalink to this definition">¶</a></dt>
+<dd><p>The arguments as a list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]]</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The arguments as a list of integer lists. The last element of each inner list represents the conclusion, the others the premises.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -293,7 +328,7 @@ every consistent and complete position that extends <span class="math notranslat
 <dt id="basics.DialecticalStructure.is_complete">
 <em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">is_complete</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#basics.DialecticalStructure.is_complete" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks whether :code:<a href="#id3"><span class="problematic" id="id4">`</span></a>position’ is complete.</p>
-<p>A position <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> is complete iff the domain of <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> is identical with the 
+<p>A position <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> is complete iff the domain of <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> is identical with the
 sentence pool <span class="math notranslate nohighlight">\(S\)</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -309,10 +344,10 @@ sentence pool <span class="math notranslate nohighlight">\(S\)</span>.</p>
 <dt id="basics.DialecticalStructure.is_consistent">
 <em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">is_consistent</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#basics.DialecticalStructure.is_consistent" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks for dialectical consistency.</p>
-<p>A complete position <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> is dialectically consistent iff it is a minimally consistent 
+<p>A complete position <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> is dialectically consistent iff it is a minimally consistent
 and for all arguments <span class="math notranslate nohighlight">\(a=(P_a, c_a) \in A\)</span> holds: If <span class="math notranslate nohighlight">\((\forall p \in P_a:p \in \mathcal{A})\)</span> then
 <span class="math notranslate nohighlight">\(c_a \in \mathcal{A}\)</span></p>
-<p>A partial position <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> is dialectically consistent iff there is a complete and 
+<p>A partial position <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> is dialectically consistent iff there is a complete and
 consistent position that extends <span class="math notranslate nohighlight">\(\mathcal{A}\)</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -390,7 +425,7 @@ entails <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> is ide
 <dt id="basics.DialecticalStructure.sentence_pool">
 <em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">sentence_pool</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#basics.DialecticalStructure.sentence_pool" title="Permalink to this definition">¶</a></dt>
 <dd><p>sentence pool.</p>
-<p>Returns from <span class="math notranslate nohighlight">\(S = \{ s_1, s_2, \dots, s_N, \neg s_1, \neg s_2, \dots, \neg s_N \}\)</span> 
+<p>Returns from <span class="math notranslate nohighlight">\(S = \{ s_1, s_2, \dots, s_N, \neg s_1, \neg s_2, \dots, \neg s_N \}\)</span>
 only <span class="math notranslate nohighlight">\(\{ s_1, s_2, \dots, s_N\}\)</span></p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -414,21 +449,19 @@ only <span class="math notranslate nohighlight">\(\{ s_1, s_2, \dots, s_N\}\)</s
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
 <h3><a href="../index.html">Table of Contents</a></h3>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../user/running_model.html">Running the Model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user/extending_model.html">Extending the Model</a></li>
-</ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="api.html">API Docs</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="api.html#package-repython">Package <code class="code docutils literal notranslate"><span class="pre">repython</span></code></a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="api.html#package-remodeldescription">Package <code class="code docutils literal notranslate"><span class="pre">remodeldescription</span></code></a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="api-position.html"><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#"><code class="xref py py-class docutils literal notranslate"><span class="pre">DialecticalStructure</span></code></a><ul class="simple">
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="api-re.html"><code class="xref py py-class docutils literal notranslate"><span class="pre">ReflectiveEquilibrium</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-restate.html"><code class="xref py py-class docutils literal notranslate"><span class="pre">REState</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-recontainter.html"><code class="xref py py-class docutils literal notranslate"><span class="pre">REContainer</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#package-repython">Package <code class="code docutils literal notranslate"><span class="pre">repython</span></code></a></li>
 </ul>
 </li>
 </ul>

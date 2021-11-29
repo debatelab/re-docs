@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ensemble generation &#8212; remodel  documentation</title>
+    <title>Ensemble generation &#8212; rethon  documentation</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -16,7 +16,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Utility methods" href="api-util.html" />
-    <link rel="prev" title="Bitarray-Based Implementations" href="api-bitarrayimplementation.html" />
+    <link rel="prev" title="Standard Implementations" href="api-model.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -34,11 +34,180 @@
           <div class="body" role="main">
             
   <div class="section" id="ensemble-generation">
-<h1>Ensemble generation<a class="headerlink" href="#ensemble-generation" title="Permalink to this headline">¶</a></h1>
-<p>Ensemble Generation with the module <code class="code docutils literal notranslate"><span class="pre">re_model.ensemble_generation</span></code></p>
-<span class="target" id="module-remodel.ensemble_generation"></span><p>The methods in this module can be used to generate an ensemble of randomly generated runs of reflective equilibrium
+<span id="ensemble-generation-label"></span><h1>Ensemble generation<a class="headerlink" href="#ensemble-generation" title="Permalink to this headline">¶</a></h1>
+<p>Ensemble Generation with the module <code class="code docutils literal notranslate"><span class="pre">rethon.ensemble_generation</span></code></p>
+<p>The methods in this module can be used to generate an ensemble of randomly generated runs of reflective equilibrium
 processes. The generated data will be saved in a csv-file, with the following columns (all complex data-types are stored
 as strings and have to be parsed if needed):</p>
+<div class="section" id="ensemblegenerator">
+<h2><code class="xref py py-class docutils literal notranslate"><span class="pre">EnsembleGenerator</span></code><a class="headerlink" href="#ensemblegenerator" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="rethon.ensemble_generation.EnsembleGenerator">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">rethon.ensemble_generation.</span></code><code class="sig-name descname"><span class="pre">EnsembleGenerator</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arguments_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_sentence_pool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_commitments_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_parameters_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">create_branches</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">implementations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[{'module_name':</span> <span class="pre">'rethon.model',</span> <span class="pre">'position_class_name':</span> <span class="pre">'StandardPosition',</span> <span class="pre">'dialectical_structure_class_name':</span> <span class="pre">'DAGDialecticalStructure',</span> <span class="pre">'reflective_equilibrium_class_name':</span> <span class="pre">'StandardGlobalReflectiveEquilibrium'}]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.ensemble_generation.EnsembleGenerator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Ensemble generator base class.</p>
+<p>A class that provides iterators for model runs based on the given parameters of the constructor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>arguments_list</strong> – Dialectical strucutures as list of argument lists.</p></li>
+<li><p><strong>n_sentence_pool</strong> – Number of (unnegated) sentences in the sentence pool.</p></li>
+<li><p><strong>initial_commitments_list</strong> – List of initial commitments. Each commitments is represent as set of integers.</p></li>
+<li><p><strong>model_parameters_list</strong> – A list of dictionaries that represent the model parameters and can be set by
+<code class="xref py py-func docutils literal notranslate"><span class="pre">ReflectiveEquilibrium.set_model_parameter()</span></code>.</p></li>
+<li><p><strong>create_branches</strong> – If <code class="code docutils literal notranslate"><span class="pre">True</span></code> all branches are created.</p></li>
+<li><p><strong>implementations</strong> – A list of dicts, each representing a specific implementation. Each dict should contain
+strings for the keys ‘module_name’, ‘position_class_name’, ‘dialectical_structure_class_name’
+and ‘reflective_equilibrium_class_name’.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rethon.ensemble_generation.EnsembleGenerator.add_item" title="rethon.ensemble_generation.EnsembleGenerator.add_item"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_item</span></code></a>(key, fun)</p></td>
+<td><p>Adds a data item.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rethon.ensemble_generation.EnsembleGenerator.ensemble_items_iter" title="rethon.ensemble_generation.EnsembleGenerator.ensemble_items_iter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ensemble_items_iter</span></code></a>()</p></td>
+<td><p>Iterator through data items of model runs.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rethon.ensemble_generation.EnsembleGenerator.ensemble_iter" title="rethon.ensemble_generation.EnsembleGenerator.ensemble_iter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ensemble_iter</span></code></a>()</p></td>
+<td><p>Iterator through the as defined by the instance.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">init_branching_fields</span></code>(re_branch_states, …)</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 72%" />
+<col style="width: 28%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>add_obj</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>branching_states</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>dialectical_structure</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>ensemble_items_to_csv</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>get_item</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>get_obj</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>init_dia_fields</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>init_re_final_fields</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>init_re_start_fields</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>initial_commitments</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>reflective_equilibrium</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>remove_item</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>state</strong></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="rethon.ensemble_generation.EnsembleGenerator.add_item">
+<code class="sig-name descname"><span class="pre">add_item</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fun</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.ensemble_generation.EnsembleGenerator.add_item" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a data item.</p>
+<p>Adding a key-method pais that will be used to calculate a data item. Data item will be returned for each model
+run by <a class="reference internal" href="#rethon.ensemble_generation.EnsembleGenerator.ensemble_items_iter" title="rethon.ensemble_generation.EnsembleGenerator.ensemble_items_iter"><code class="xref py py-func docutils literal notranslate"><span class="pre">ensemble_items_iter()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.ensemble_generation.EnsembleGenerator.ensemble_items_iter">
+<code class="sig-name descname"><span class="pre">ensemble_items_iter</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rethon.ensemble_generation.EnsembleGenerator.ensemble_items_iter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterator through data items of model runs.</p>
+<p>This methods return for each model run a dictionary with predefined data items that can be added with
+<a class="reference internal" href="#rethon.ensemble_generation.EnsembleGenerator.add_item" title="rethon.ensemble_generation.EnsembleGenerator.add_item"><code class="xref py py-func docutils literal notranslate"><span class="pre">add_item()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.ensemble_generation.EnsembleGenerator.ensemble_iter">
+<code class="sig-name descname"><span class="pre">ensemble_iter</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rethon.ensemble_generation.EnsembleGenerator.ensemble_iter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterator through the as defined by the instance.</p>
+<p>The ensemble generation proceeds along the following steps:</p>
+<ol class="arabic simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">param_dia_structures</span></code> should provide a fixed sequence of tupels in
+the form &lt;<cite>n_arguments_min</cite>, <cite>n_arguments_max</cite>, <cite>n_sentences</cite>&gt;.</p></li>
+<li><p>For each tupel &lt;<cite>n_arguments_min</cite>, <cite>n_arguments_max</cite>, <cite>n_sentence_pool</cite>&gt; the function randomly
+generates a number of dialectical structures (as defined by <cite>n_dialectical_structure</cite>) with a
+number of arguments between <cite>n_arguments_min</cite> and <cite>n_arguments_max</cite> and a sentence-pool of
+size <cite>n_sentence_pool</cite> (without negations).</p></li>
+<li><p>For each generated dialectical structure the function then generates a set of initial commitment-sets
+(not necessarily the same for each dialectical structure).</p></li>
+<li><p>For each such dialectical-structure/initial-commitments pair,
+the function runs RE-processes for each model and each specified set of parameters for the achievement function.</p>
+<ul class="simple">
+<li><p>The result of each run is saved as a row in the table.</p></li>
+<li><p>If <code class="code docutils literal notranslate"><span class="pre">save_branches</span> <span class="pre">==</span> <span class="pre">True</span></code> each alternative branch of the re-process is saved as an additional row.
+(Fixed points of RE-processes are not unique, since a process can be underdetermined due to different available
+choices the process might have at some steps.)</p></li>
+</ul>
+</li>
+</ol>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>output_file</strong> – File where the date will be saved.</p></li>
+<li><p><strong>param_dia_structures</strong> – List of tupels of the form &lt;<cite>n_arguments_min</cite>, <cite>n_arguments_max</cite>, <cite>n_sentence_pool</cite>&gt;.</p></li>
+<li><p><strong>n_dialectical_structure</strong> – Number of dialectical structure (per tupel and model).</p></li>
+<li><p><strong>n_premises_max</strong> – Maximum number of premises in an argument.</p></li>
+<li><p><strong>n_premises_fixed</strong> – If <code class="code docutils literal notranslate"><span class="pre">True</span></code> all arguments will have exactly <code class="code docutils literal notranslate"><span class="pre">n_premises_max</span></code> premises.</p></li>
+<li><p><strong>n_initial_commitments</strong> – The number of initial commitments.</p></li>
+<li><p><strong>save_preliminary_results</strong> – If <code class="code docutils literal notranslate"><span class="pre">True</span></code> the data-generation process will save temporary file every
+other amount of rows as defined by <code class="code docutils literal notranslate"><span class="pre">preliminary_results_interval</span></code>.</p></li>
+<li><p><strong>preliminary_results_interval</strong> – </p></li>
+</ul>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ReflectiveEquilibrium</span></code>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="simpleensemblegenerator">
+<h2><code class="xref py py-class docutils literal notranslate"><span class="pre">SimpleEnsembleGenerator</span></code><a class="headerlink" href="#simpleensemblegenerator" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="rethon.ensemble_generation.SimpleEnsembleGenerator">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">rethon.ensemble_generation.</span></code><code class="sig-name descname"><span class="pre">SimpleEnsembleGenerator</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arguments_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_sentence_pool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_commitments_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_parameters_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">create_branches</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">implementations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[{'module_name':</span> <span class="pre">'rethon.model',</span> <span class="pre">'position_class_name':</span> <span class="pre">'StandardPosition',</span> <span class="pre">'dialectical_structure_class_name':</span> <span class="pre">'DAGDialecticalStructure',</span> <span class="pre">'reflective_equilibrium_class_name':</span> <span class="pre">'StandardGlobalReflectiveEquilibrium'}]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.ensemble_generation.SimpleEnsembleGenerator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#rethon.ensemble_generation.EnsembleGenerator" title="rethon.ensemble_generation.EnsembleGenerator"><code class="xref py py-class docutils literal notranslate"><span class="pre">rethon.ensemble_generation.EnsembleGenerator</span></code></a></p>
+<p>This class overwrites <a class="reference internal" href="#rethon.ensemble_generation.EnsembleGenerator" title="rethon.ensemble_generation.EnsembleGenerator"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnsembleGenerator</span></code></a> and adds the following items that are produced by
+<code class="xref py py-func docutils literal notranslate"><span class="pre">ensemble_items_iter()</span></code>:</p>
 <p><strong>FEATURES OF THE DIALECTICAL STRUCTURE</strong></p>
 <ul class="simple">
 <li><p><code class="code docutils literal notranslate"><span class="pre">model_name</span></code>: A name of the model as string.</p></li>
@@ -86,9 +255,6 @@ commitments.</p></li>
 <li><p><code class="code docutils literal notranslate"><span class="pre">fixed_point_coms_size</span></code>: The number of propositions in <code class="code docutils literal notranslate"><span class="pre">fixed_point_coms</span></code>.</p></li>
 <li><p><code class="code docutils literal notranslate"><span class="pre">fixed_point_coms_com_n_tau_truths</span></code>: Number of tau-true propositions in the final commitments.</p></li>
 <li><p><code class="code docutils literal notranslate"><span class="pre">fixed_point_coms_com_n_tau_falsehoods</span></code>: Number of tau-false propositions in the final commitments.</p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">fixed_point_is_global_optimum</span></code>: Whether the fixed point is a global optimum.</p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">fixed_point_is_re_state</span></code>: Whether the fixed point is a RE state.</p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">fixed_point_is_full_re_state</span></code>: Whether the fixed point is a full RE state.</p></li>
 <li><p><code class="code docutils literal notranslate"><span class="pre">fixed_point_coms_closed</span></code>: Whether the final commitments is dialectically closed.</p></li>
 <li><p><code class="code docutils literal notranslate"><span class="pre">fixed_point_coms_closure</span></code>: Dialectical closure of final commitments.</p></li>
 <li><p><code class="code docutils literal notranslate"><span class="pre">fixed_point_coms_consistent</span></code>: Whether the final commitments is dialectically consistent.</p></li>
@@ -140,29 +306,6 @@ be smaller than the amount of elements combined in <code class="code docutils li
 <li><p><code class="code docutils literal notranslate"><span class="pre">n_branches</span></code>: Number of branches of the process (i.e. paths to all fixed points w.r.t. the given initial
 commitments.</p></li>
 </ul>
-<p><em>Global optima</em>:</p>
-<ul class="simple">
-<li><p><code class="code docutils literal notranslate"><span class="pre">global_optima</span></code>: All global optima as theory-commitments-tuples.</p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">n_global_optima</span></code>: Number of global optima.</p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">go_coms_consistent</span></code>: A list of bools (<code class="code docutils literal notranslate"><span class="pre">List[bool]</span></code>) indicating whether commitments of the <cite>global_optima</cite>
-are dialectically consistent. The order of the list represents the order in <cite>global_optima</cite>.</p></li>
-<li><dl class="simple">
-<dt><code class="code docutils literal notranslate"><span class="pre">go_union_consistent</span></code>: A list of bools (<code class="code docutils literal notranslate"><span class="pre">List[bool]</span></code>) indicating whether the unions of a</dt><dd><p>commitment-theory-tuple of the <cite>global_optima</cite> are dialectically consistent. I.e. whether the global optima
-are RE states.The order of the list represents the order in <cite>global_optima</cite>.</p>
-</dd>
-</dl>
-</li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">go_full_re_state</span></code>: A list of bools (<code class="code docutils literal notranslate"><span class="pre">List[bool]</span></code>) indicating whether the <cite>global_optima</cite> are full
-RE-states (i.e. whether the dialectical closure of the theory is identical to the commitments). The order of the list
-represents the order in <cite>global_optima</cite>.</p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">go_fixed_point</span></code>: A list of bools (<code class="code docutils literal notranslate"><span class="pre">List[bool]</span></code>) indicating which global optima are fixed points
-(i.e. which global optima are reachable via a re-process). The order of the list
-represents the order in <cite>global_optima</cite>.</p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">go_account</span></code>: The account of each global optimum as <code class="code docutils literal notranslate"><span class="pre">List[float]</span></code>. The order of the list represents the
-order in <cite>global_optima</cite>.</p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">go_faithfulness</span></code>: The faithfulness of each global optimum as <code class="code docutils literal notranslate"><span class="pre">List[float]</span></code>. The order of the list
-represents the order in <cite>global_optima</cite>.</p></li>
-</ul>
 <p><em>Fixed points</em>:</p>
 <ul class="simple">
 <li><p><code class="code docutils literal notranslate"><span class="pre">fixed_points</span></code>: All fixed points as theory-commitments-tuples.</p></li>
@@ -172,100 +315,107 @@ are dialectically consistent. The order of the list represents the order in <cit
 <li><p><code class="code docutils literal notranslate"><span class="pre">fp_union_consistent</span></code>:  A list of bools (<code class="code docutils literal notranslate"><span class="pre">List[bool]</span></code>) indicating whether the unions of a
 commitment-theory-tuple of the <cite>fixed_points</cite> are dialectically consistent.The order of the list represents the
 order in <cite>fixed_points</cite>.</p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">fp_full_re_state</span></code>:  A list of bools (<code class="code docutils literal notranslate"><span class="pre">List[bool]</span></code>) indicating whether the <cite>fixed_points</cite> are full
-RE-states (i.e. whether the dialectical closure of the theory is identical to the commitments). The order of the list
-represents the order in <cite>fixed_points</cite>.</p></li>
 <li><p><code class="code docutils literal notranslate"><span class="pre">fp_account</span></code>: The account of each fixed point as <code class="code docutils literal notranslate"><span class="pre">List[float]</span></code>. The order of the list represents the
 order in <cite>fixed_points</cite>.</p></li>
 <li><p><code class="code docutils literal notranslate"><span class="pre">fp_faithfulness</span></code>: The faithfulness of each fixed as <code class="code docutils literal notranslate"><span class="pre">List[float]</span></code>. The order of the list represents
 the order in <cite>fixed_points</cite>.</p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">fp_global_optimum</span></code>: A list of bools (<code class="code docutils literal notranslate"><span class="pre">List[bool]</span></code>) indicating whether the <cite>fixed_points</cite> are
-<cite>global_optima</cite>.</p></li>
 </ul>
-<p><em>RE states and full RE states</em>:</p>
-<ul class="simple">
-<li><p><code class="code docutils literal notranslate"><span class="pre">re_states</span></code>:</p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">n_re_states</span></code>:</p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">full_re_states</span></code>:</p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">n_full_re_states</span></code>:</p></li>
-</ul>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_item</span></code>(key, fun)</p></td>
+<td><p>Adds a data item.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ensemble_items_iter</span></code>()</p></td>
+<td><p>Iterator through data items of model runs.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ensemble_iter</span></code>()</p></td>
+<td><p>Iterator through the as defined by the instance.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 72%" />
+<col style="width: 28%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>add_obj</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>branching_states</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>dialectical_structure</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>ensemble_items_to_csv</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>get_item</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>get_obj</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>init_branching_fields</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>init_dia_fields</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>init_re_final_fields</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>init_re_start_fields</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>initial_commitments</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>reflective_equilibrium</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>remove_item</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>state</strong></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-rethon.ensemble_generation">
+<span id="methods-in-rethon-ensemble-generation"></span><h2>Methods in <code class="code docutils literal notranslate"><span class="pre">rethon.ensemble_generation</span></code><a class="headerlink" href="#module-rethon.ensemble_generation" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
-<dt id="remodel.ensemble_generation.generate_ensemble">
-<code class="sig-prename descclassname"><span class="pre">remodel.ensemble_generation.</span></code><code class="sig-name descname"><span class="pre">generate_ensemble</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output_file_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dir_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dialectical_structure</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_commitments_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha_values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">re_models</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">account_penalties</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[0,</span> <span class="pre">0.3,</span> <span class="pre">1,</span> <span class="pre">1]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">faithfulness_penalties</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">1,</span> <span class="pre">1]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_all_branches</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_preliminary_results</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preliminary_results_interval</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">500</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_arg_map_dot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#remodel.ensemble_generation.generate_ensemble" title="Permalink to this definition">¶</a></dt>
-<dd><p>A function to generate an ensemble of RE-Processes for on particular dialectical structure.</p>
-<p>Generates an ensemble of RE-Processes for the given dialectical structure, the given initial commitments and
-<span class="math notranslate nohighlight">\(\alpha\)</span>-values.</p>
+<dt id="rethon.ensemble_generation.local_re_model_params_varied_alphas">
+<code class="sig-prename descclassname"><span class="pre">rethon.ensemble_generation.</span></code><code class="sig-name descname"><span class="pre">local_re_model_params_varied_alphas</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alpha_resolution</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">with_extremes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.ensemble_generation.local_re_model_params_varied_alphas" title="Permalink to this definition">¶</a></dt>
+<dd><p>Model parameters for Local RE with varied alphas.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>output_file</strong> – CSV-File where the date will be saved.</p></li>
-<li><p><strong>dialectical_structure</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">DialecticalStructure</span></code>) – The dialectical structure.</p></li>
-<li><p><strong>initial_commitments</strong> – The initial commitments.</p></li>
-<li><p><strong>alpha_values</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]]) – List of weights (<span class="math notranslate nohighlight">\(\alpha\)</span>-values) for the achievement-function
-(order: account, sytematicity, faithfulness).</p></li>
-<li><p><strong>re_implementations</strong> – String-representation of the models to be used (defined by module- and class name)
-(Must be instantiations of <code class="xref py py-class docutils literal notranslate"><span class="pre">remodeldescription.basics.ReflectiveEquilibrium</span></code>).</p></li>
-<li><p><strong>save_all_branches</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If <code class="code docutils literal notranslate"><span class="pre">True</span></code> every possible branch of an re-process is saved as an individual row
-in the table.</p></li>
-<li><p><strong>save_preliminary_results</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If <code class="code docutils literal notranslate"><span class="pre">True</span></code> the data-generation process will save temporary file every
-other amount of rows as defined by <code class="code docutils literal notranslate"><span class="pre">preliminary_results_interval</span></code>.</p></li>
-<li><p><strong>preliminary_results_interval</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
-</ul>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>]</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
-<dt id="remodel.ensemble_generation.generate_ensemble_with_variable_argument_size">
-<code class="sig-prename descclassname"><span class="pre">remodel.ensemble_generation.</span></code><code class="sig-name descname"><span class="pre">generate_ensemble_with_variable_argument_size</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output_file_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dir_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param_dia_structures</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_dialectical_structure</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_premises_max</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_premises_fixed</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_initial_commitments</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha_resolution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">with_extreme_alphas</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha_values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_principles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inf_dens_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inf_dens_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">re_implementations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[('remodel.bitarray_implementation',</span> <span class="pre">'BitarrayReflectiveEquilibrium')]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_all_branches</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_preliminary_results</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preliminary_results_interval</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">500</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#remodel.ensemble_generation.generate_ensemble_with_variable_argument_size" title="Permalink to this definition">¶</a></dt>
-<dd><p>A function to generate an ensemble of RE-processes.</p>
-<p>The ensemble generation proceeds along the following steps:</p>
-<ol class="arabic simple">
-<li><p><code class="code docutils literal notranslate"><span class="pre">param_dia_structures</span></code> should provide a fixed sequence of tupels in
-the form &lt;<cite>n_arguments_min</cite>, <cite>n_arguments_max</cite>, <cite>n_sentences</cite>&gt;.</p></li>
-<li><p>For each tupel &lt;<cite>n_arguments_min</cite>, <cite>n_arguments_max</cite>, <cite>n_sentence_pool</cite>&gt; the function randomly
-generates a number of dialectical structures (as defined by <cite>n_dialectical_structure</cite>) with a
-number of arguments between <cite>n_arguments_min</cite> and <cite>n_arguments_max</cite> and a sentence-pool of
-size <cite>n_sentence_pool</cite> (without negations).</p></li>
-<li><p>For each generated dialectical structure the function then generates a set of initial commitment-sets
-(not necessarily the same for each dialectical structure).</p></li>
-<li><p>For each such dialectical-structure/initial-commitments pair,
-the function runs RE-processes for each model and each specified set of parameters for the achievement function.</p>
-<ul class="simple">
-<li><p>The result of each run is saved as a row in the table.</p></li>
-<li><p>If <code class="code docutils literal notranslate"><span class="pre">save_branches</span> <span class="pre">==</span> <span class="pre">True</span></code> each alternative branch of the re-process is saved as an additional row.
-(Fixed points of RE-processes are not unique, since a process can be underdetermined due to different available
-choices the process might have at some steps.)</p></li>
-</ul>
-</li>
-</ol>
+<dt id="rethon.ensemble_generation.standard_model_params_varied_alphas">
+<code class="sig-prename descclassname"><span class="pre">rethon.ensemble_generation.</span></code><code class="sig-name descname"><span class="pre">standard_model_params_varied_alphas</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alpha_resolution</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">with_extremes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.ensemble_generation.standard_model_params_varied_alphas" title="Permalink to this definition">¶</a></dt>
+<dd><p>Standard model parameters with varied alphas.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>output_file</strong> – File where the date will be saved.</p></li>
-<li><p><strong>param_dia_structures</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]]) – List of tupels of the form &lt;<cite>n_arguments_min</cite>, <cite>n_arguments_max</cite>, <cite>n_sentence_pool</cite>&gt;.</p></li>
-<li><p><strong>n_dialectical_structure</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Number of dialectical structure (per tupel and model).</p></li>
-<li><p><strong>n_premises_max</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Maximum number of premises in an argument.</p></li>
-<li><p><strong>n_premises_fixed</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If <code class="code docutils literal notranslate"><span class="pre">True</span></code> all arguments will have exactly <code class="code docutils literal notranslate"><span class="pre">n_premises_max</span></code> premises.</p></li>
-<li><p><strong>n_initial_commitments</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – The number of initial commitments.</p></li>
-<li><p><strong>alpha_resolution</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – If not <code class="code docutils literal notranslate"><span class="pre">None</span></code> it will be used to generate a spectrum of weight for the
-achievement function.
-Resolution of 10 means to generate a spectrum of 0.1,0.2,…,0.9 for each weight.</p></li>
-<li><p><strong>alpha_values</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]]]) – List of weights (<span class="math notranslate nohighlight">\(\alpha\)</span>-values) for the achievement-function
-(order: account, sytematicity, faithfulness).</p></li>
-<li><p><strong>n_principles</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Number of principles to be guaranteed by the algorithm generating the dialectical structures.</p></li>
-<li><p><strong>re_implementations</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]) – String-representation of the models to be used (defined by module- and class name)
-(Must be instantiations of <code class="xref py py-class docutils literal notranslate"><span class="pre">remodeldescription.basics.ReflectiveEquilibrium</span></code>).</p></li>
-<li><p><strong>save_all_branches</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If <code class="code docutils literal notranslate"><span class="pre">True</span></code> every possible branch of an re-process is saved as an individual row
-in the table.</p></li>
-<li><p><strong>save_preliminary_results</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If <code class="code docutils literal notranslate"><span class="pre">True</span></code> the data-generation process will save temporary file every
-other amount of rows as defined by <code class="code docutils literal notranslate"><span class="pre">preliminary_results_interval</span></code>.</p></li>
-<li><p><strong>preliminary_results_interval</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
-</ul>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>]</p>
 </dd>
 </dl>
 </dd></dl>
 
+</div>
 </div>
 
 
@@ -276,21 +426,24 @@ other amount of rows as defined by <code class="code docutils literal notranslat
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
 <h3><a href="../index.html">Table of Contents</a></h3>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../user/running_model.html">Running the Model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user/extending_model.html">Extending the Model</a></li>
-</ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="api.html">API Docs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="api.html#package-remodeldescription">Package <code class="code docutils literal notranslate"><span class="pre">remodeldescription</span></code></a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="api.html#package-repython">Package <code class="code docutils literal notranslate"><span class="pre">repython</span></code></a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="api-abstractre.html"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractReflectiveEquilibrium</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="api-setimplementation.html">Set-Based Implementations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api-bitarrayimplementation.html">Bitarray-Based Implementations</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Ensemble generation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api-util.html">Utility methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-abstractre.html">Module <code class="code docutils literal notranslate"><span class="pre">abstract_re.py</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-model.html">Standard Implementations</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Ensemble generation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ensemblegenerator"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnsembleGenerator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#simpleensemblegenerator"><code class="xref py py-class docutils literal notranslate"><span class="pre">SimpleEnsembleGenerator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-rethon.ensemble_generation">Methods in <code class="code docutils literal notranslate"><span class="pre">rethon.ensemble_generation</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#package-remodeldescription">Package <code class="code docutils literal notranslate"><span class="pre">remodeldescription</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-util.html">Utility methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-numpyimplementation.html">Numpy-Based Implementations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-setimplementation.html">Set-Based Implementations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-bitarrayimplementation.html">Bitarray-Based Implementations</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

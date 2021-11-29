@@ -1,8 +1,8 @@
 Utility methods
 ===============
 
-Methods of the module :code:`re_model.util`
+Methods of the module :code:`rethon.util`
 
 
-.. automodule:: remodel.util
+.. automodule:: rethon.util
    :members:

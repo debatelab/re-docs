@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>De-/serialization of RE objects &#8212; rethon  documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="de-serialization-of-re-objects">
+<h1>De-/serialization of RE objects<a class="headerlink" href="#de-serialization-of-re-objects" title="Permalink to this headline">¶</a></h1>
+<p>The module <code class="xref py py-mod docutils literal notranslate"><span class="pre">remodel.util</span></code> provides some convenient methods that enable JSON de-/serialization of objects
+by utilizing the <code class="xref py py-mod docutils literal notranslate"><span class="pre">json</span></code>-python package.</p>
+<div class="section" id="serializing-re-objects">
+<h2>Serializing RE objects<a class="headerlink" href="#serializing-re-objects" title="Permalink to this headline">¶</a></h2>
+<p>You can serialize</p>
+<ul class="simple">
+<li><p>classes that implement <code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">DialecticalStructure</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">REState</span></code> and <code class="xref py py-class docutils literal notranslate"><span class="pre">ReflectiveEquilibrium</span></code>, or</p></li>
+<li><p>any compounds thereof as long as the <code class="xref py py-mod docutils literal notranslate"><span class="pre">json</span></code> python module can handle them (e.g., lists, dictionaries).</p></li>
+</ul>
+<p>For instance, the following code will serialize a position:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rethon.util</span> <span class="kn">import</span> <span class="n">re_dumps</span><span class="p">,</span> <span class="n">re_dump</span>
+<span class="kn">from</span> <span class="nn">rethon.model</span> <span class="kn">import</span> <span class="n">StandardPosition</span>
+
+<span class="c1"># serializing a position as JSON String</span>
+<span class="n">pos_json_str</span> <span class="o">=</span> <span class="n">re_dumps</span><span class="p">(</span><span class="n">StandardPosition</span><span class="o">.</span><span class="n">from_set</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">},</span><span class="mi">4</span><span class="p">),</span>
+                        <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pos_json_str</span><span class="p">)</span>
+
+<span class="c1"># serializing a list of positions</span>
+<span class="n">pos_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">StandardPosition</span><span class="o">.</span><span class="n">from_set</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">},</span><span class="mi">4</span><span class="p">),</span>
+            <span class="n">StandardPosition</span><span class="o">.</span><span class="n">from_set</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">},</span><span class="mi">4</span><span class="p">),</span>
+            <span class="n">StandardPosition</span><span class="o">.</span><span class="n">from_set</span><span class="p">(</span><span class="nb">set</span><span class="p">(),</span><span class="mi">0</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">re_dumps</span><span class="p">(</span><span class="n">pos_list</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="c1"># serializing a list of position into a file</span>
+<span class="n">output_file_path</span> <span class="o">=</span> <span class="s1">&#39;path-to-file/file-name.json&#39;</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="n">output_file_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">output_file</span><span class="p">:</span>
+    <span class="n">re_dump</span><span class="p">(</span><span class="n">pos_list</span><span class="p">,</span> <span class="n">output_file</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If important, you can save the implementation details (module name and class name), which can be considered
+later to deserialize the objects:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rethon.util</span> <span class="kn">import</span> <span class="n">re_dumps</span>
+<span class="kn">from</span> <span class="nn">rethon.set_implementation</span> <span class="kn">import</span> <span class="n">SetBasedPosition</span>
+
+<span class="c1"># serializing a position as JSON String</span>
+<span class="n">pos_json_str</span> <span class="o">=</span> <span class="n">re_dumps</span><span class="p">(</span><span class="n">StandardPosition</span><span class="o">.</span><span class="n">from_set</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">},</span><span class="mi">4</span><span class="p">),</span>
+                        <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+                        <span class="n">serialize_implementation</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pos_json_str</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="deserializing-re-objects">
+<h2>Deserializing RE objects<a class="headerlink" href="#deserializing-re-objects" title="Permalink to this headline">¶</a></h2>
+<p>The deserialization of RE objects is similarly simple. The implementation details can either be taken from
+the json file or can be explicitly given via parameters.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rethon.util</span> <span class="kn">import</span> <span class="n">re_dumps</span><span class="p">,</span> <span class="n">re_loads</span><span class="p">,</span> <span class="n">re_load</span>
+<span class="kn">from</span> <span class="nn">rethon.set_implementation</span> <span class="kn">import</span> <span class="n">SetBasedPosition</span>
+<span class="kn">from</span> <span class="nn">rethon.bitarray_implementation</span> <span class="kn">import</span> <span class="n">BitarrayPosition</span>
+
+<span class="c1"># serializing a position as JSON String</span>
+<span class="n">pos_json_str</span> <span class="o">=</span> <span class="n">re_dumps</span><span class="p">(</span><span class="n">SetBasedPosition</span><span class="o">.</span><span class="n">from_set</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">},</span><span class="mi">4</span><span class="p">),</span>
+                        <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+                        <span class="n">serialize_implementation</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1"># deserializing it</span>
+<span class="n">position</span> <span class="o">=</span> <span class="n">re_loads</span><span class="p">(</span><span class="n">pos_json_str</span><span class="p">,</span> <span class="n">use_json_specified_type</span> <span class="o">=</span> <span class="kc">True</span> <span class="p">)</span>
+
+<span class="c1"># deserializing it and using another implementation</span>
+<span class="n">position</span> <span class="o">=</span> <span class="n">re_loads</span><span class="p">(</span><span class="n">pos_json_str</span><span class="p">,</span>
+                    <span class="n">position_module</span> <span class="o">=</span> <span class="s1">&#39;rethon.bitarray_implementation&#39;</span><span class="p">,</span>
+                    <span class="n">position_class</span> <span class="o">=</span> <span class="s1">&#39;BitarrayPosition&#39;</span> <span class="p">)</span>
+
+
+
+<span class="c1"># deserializing re objects from a file</span>
+<span class="n">input_file_path</span> <span class="o">=</span> <span class="s1">&#39;path-to-file/file-name.json&#39;</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="n">input_file_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">input_file</span><span class="p">:</span>
+    <span class="n">obj</span> <span class="o">=</span> <span class="n">re_load</span><span class="p">(</span><span class="n">input_file</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="../index.html">Table of Contents</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-docs/api.html">API Docs</a></li>
+</ul>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Claus Beisbart, Gregor Betz, Georg Brun, Sebastian Cacean, Andreas Freivogel, Richard Lohse.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/user/serialization.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

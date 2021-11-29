@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>API Docs &#8212; remodel  documentation</title>
+    <title>API Docs &#8212; rethon  documentation</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -14,8 +14,8 @@
     <script src="../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="AbstractReflectiveEquilibrium" href="api-abstractre.html" />
-    <link rel="prev" title="Extending the Model" href="../user/extending_model.html" />
+    <link rel="next" title="Position" href="api-position.html" />
+    <link rel="prev" title="A Formal Model of Reflective Equilibrium" href="../index.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -34,33 +34,9 @@
             
   <div class="section" id="api-docs">
 <span id="api-docs-label"></span><h1>API Docs<a class="headerlink" href="#api-docs" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="package-repython">
-<h2>Package <code class="code docutils literal notranslate"><span class="pre">repython</span></code><a class="headerlink" href="#package-repython" title="Permalink to this headline">¶</a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="api-abstractre.html"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractReflectiveEquilibrium</span></code></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api-abstractre.html#abstractreflectiveequilibrium-restage"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractReflectiveEquilibrium.REStage</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api-setimplementation.html">Set-Based Implementations</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api-setimplementation.html#setbasedposition"><code class="xref py py-class docutils literal notranslate"><span class="pre">SetBasedPosition</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-setimplementation.html#setbaseddialecticalstructure"><code class="xref py py-class docutils literal notranslate"><span class="pre">SetBasedDialecticalStructure</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-setimplementation.html#setbasedreflectiveequilibrium"><code class="xref py py-class docutils literal notranslate"><span class="pre">SetBasedReflectiveEquilibrium</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api-bitarrayimplementation.html">Bitarray-Based Implementations</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api-bitarrayimplementation.html#bitarrayposition"><code class="xref py py-class docutils literal notranslate"><span class="pre">BitarrayPosition</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-bitarrayimplementation.html#bitarraydialecticalstructure"><code class="xref py py-class docutils literal notranslate"><span class="pre">BitarrayDialecticalStructure</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api-bitarrayimplementation.html#bitarrayreflectiveequilibrium"><code class="xref py py-class docutils literal notranslate"><span class="pre">BitarrayReflectiveEquilibrium</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api-ensemble-generation.html">Ensemble generation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="api-util.html">Utility methods</a></li>
-</ul>
-</div>
-</div>
 <div class="section" id="package-remodeldescription">
 <h2>Package <code class="code docutils literal notranslate"><span class="pre">remodeldescription</span></code><a class="headerlink" href="#package-remodeldescription" title="Permalink to this headline">¶</a></h2>
+<p>This package contains abstract base classes that describe an interface (with almost no implemented functionalities).</p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="api-position.html"><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></a><ul class="simple">
@@ -69,8 +45,58 @@
 <li class="toctree-l1"><a class="reference internal" href="api-dialecticalstructure.html"><code class="xref py py-class docutils literal notranslate"><span class="pre">DialecticalStructure</span></code></a><ul class="simple">
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="api-re.html"><code class="xref py py-class docutils literal notranslate"><span class="pre">ReflectiveEquilibrium</span></code></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api-re.html#reflectiveequilibrium-results"><code class="xref py py-class docutils literal notranslate"><span class="pre">ReflectiveEquilibrium.Results</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-re.html"><code class="xref py py-class docutils literal notranslate"><span class="pre">ReflectiveEquilibrium</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-restate.html"><code class="xref py py-class docutils literal notranslate"><span class="pre">REState</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-recontainter.html"><code class="xref py py-class docutils literal notranslate"><span class="pre">REContainer</span></code></a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="package-repython">
+<h2>Package <code class="code docutils literal notranslate"><span class="pre">repython</span></code><a class="headerlink" href="#package-repython" title="Permalink to this headline">¶</a></h2>
+<p>This package contains various implementations of the base classes.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api-abstractre.html">Module <code class="code docutils literal notranslate"><span class="pre">abstract_re.py</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api-abstractre.html#standardreflectiveequilibrium"><code class="xref py py-class docutils literal notranslate"><span class="pre">StandardReflectiveEquilibrium</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api-abstractre.html#localreflectiveequilibrium"><code class="xref py py-class docutils literal notranslate"><span class="pre">LocalReflectiveEquilibrium</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api-abstractre.html#globalreflectiveequilibrium"><code class="xref py py-class docutils literal notranslate"><span class="pre">GlobalReflectiveEquilibrium</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api-model.html">Standard Implementations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api-model.html#standardposition"><code class="xref py py-class docutils literal notranslate"><span class="pre">StandardPosition</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api-model.html#dagdialecticalstructure"><code class="xref py py-class docutils literal notranslate"><span class="pre">DAGDialecticalStructure</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api-model.html#bdddialecticalstructure"><code class="xref py py-class docutils literal notranslate"><span class="pre">BDDDialecticalStructure</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api-model.html#standardglobalreflectiveequilibrium"><code class="xref py py-class docutils literal notranslate"><span class="pre">StandardGlobalReflectiveEquilibrium</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api-model.html#standardlocalreflectiveequilibrium"><code class="xref py py-class docutils literal notranslate"><span class="pre">StandardLocalReflectiveEquilibrium</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api-model.html#fullbranchrecontainer"><code class="xref py py-class docutils literal notranslate"><span class="pre">FullBranchREContainer</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api-ensemble-generation.html">Ensemble generation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api-ensemble-generation.html#ensemblegenerator"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnsembleGenerator</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api-ensemble-generation.html#simpleensemblegenerator"><code class="xref py py-class docutils literal notranslate"><span class="pre">SimpleEnsembleGenerator</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api-ensemble-generation.html#module-rethon.ensemble_generation">Methods in <code class="code docutils literal notranslate"><span class="pre">rethon.ensemble_generation</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api-util.html">Utility methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-numpyimplementation.html">Numpy-Based Implementations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api-numpyimplementation.html#numpyposition"><code class="xref py py-class docutils literal notranslate"><span class="pre">NumpyPosition</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api-numpyimplementation.html#dagnumpydialecticalstructure"><code class="xref py py-class docutils literal notranslate"><span class="pre">DAGNumpyDialecticalStructure</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api-numpyimplementation.html#bddnumpydialecticalstructure"><code class="xref py py-class docutils literal notranslate"><span class="pre">BDDNumpyDialecticalStructure</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api-numpyimplementation.html#numpyreflectiveequilibrium"><code class="xref py py-class docutils literal notranslate"><span class="pre">NumpyReflectiveEquilibrium</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api-numpyimplementation.html#globalnumpyreflectiveequilibrium"><code class="xref py py-class docutils literal notranslate"><span class="pre">GlobalNumpyReflectiveEquilibrium</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api-numpyimplementation.html#localnumpyreflectiveequilibrium"><code class="xref py py-class docutils literal notranslate"><span class="pre">LocalNumpyReflectiveEquilibrium</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api-setimplementation.html">Set-Based Implementations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api-setimplementation.html#setbasedposition"><code class="xref py py-class docutils literal notranslate"><span class="pre">SetBasedPosition</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api-setimplementation.html#dagsetbaseddialecticalstructure"><code class="xref py py-class docutils literal notranslate"><span class="pre">DAGSetBasedDialecticalStructure</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api-setimplementation.html#globalsetbasedreflectiveequilibrium"><code class="xref py py-class docutils literal notranslate"><span class="pre">GlobalSetBasedReflectiveEquilibrium</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api-bitarrayimplementation.html">Bitarray-Based Implementations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api-bitarrayimplementation.html#bitarrayposition"><code class="xref py py-class docutils literal notranslate"><span class="pre">BitarrayPosition</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api-bitarrayimplementation.html#dagbitarraydialecticalstructure"><code class="xref py py-class docutils literal notranslate"><span class="pre">DAGBitarrayDialecticalStructure</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api-bitarrayimplementation.html#globalbitarrayreflectiveequilibrium"><code class="xref py py-class docutils literal notranslate"><span class="pre">GlobalBitarrayReflectiveEquilibrium</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -86,24 +112,24 @@
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
 <h3><a href="../index.html">Table of Contents</a></h3>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../user/running_model.html">Running the Model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user/extending_model.html">Extending the Model</a></li>
-</ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">API Docs</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#package-repython">Package <code class="code docutils literal notranslate"><span class="pre">repython</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="api-abstractre.html"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractReflectiveEquilibrium</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="api-setimplementation.html">Set-Based Implementations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api-bitarrayimplementation.html">Bitarray-Based Implementations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api-ensemble-generation.html">Ensemble generation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api-util.html">Utility methods</a></li>
-</ul>
-</li>
 <li class="toctree-l2"><a class="reference internal" href="#package-remodeldescription">Package <code class="code docutils literal notranslate"><span class="pre">remodeldescription</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="api-position.html"><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="api-dialecticalstructure.html"><code class="xref py py-class docutils literal notranslate"><span class="pre">DialecticalStructure</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="api-re.html"><code class="xref py py-class docutils literal notranslate"><span class="pre">ReflectiveEquilibrium</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-restate.html"><code class="xref py py-class docutils literal notranslate"><span class="pre">REState</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-recontainter.html"><code class="xref py py-class docutils literal notranslate"><span class="pre">REContainer</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#package-repython">Package <code class="code docutils literal notranslate"><span class="pre">repython</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api-abstractre.html">Module <code class="code docutils literal notranslate"><span class="pre">abstract_re.py</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-model.html">Standard Implementations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-ensemble-generation.html">Ensemble generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-util.html">Utility methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-numpyimplementation.html">Numpy-Based Implementations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-setimplementation.html">Set-Based Implementations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-bitarrayimplementation.html">Bitarray-Based Implementations</a></li>
 </ul>
 </li>
 </ul>

@@ -4,7 +4,7 @@ Bitarray-Based Implementations
 .. toctree::
     :maxdepth: 3
 
-.. currentmodule:: remodel.bitarray_implementation
+.. currentmodule:: rethon.bitarray_implementation
 
 :class:`BitarrayPosition`
 -------------------------
@@ -14,18 +14,18 @@ Bitarray-Based Implementations
     :undoc-members:
     :show-inheritance:
 
-:class:`BitarrayDialecticalStructure`
--------------------------------------
+:class:`DAGBitarrayDialecticalStructure`
+----------------------------------------
 
-.. autoclass:: bitarray_implementation.BitarrayDialecticalStructure
+.. autoclass:: bitarray_implementation.DAGBitarrayDialecticalStructure
     :members:
     :undoc-members:
     :show-inheritance:
 
-:class:`BitarrayReflectiveEquilibrium`
---------------------------------------
+:class:`GlobalBitarrayReflectiveEquilibrium`
+--------------------------------------------
 
-.. autoclass:: bitarray_implementation.BitarrayReflectiveEquilibrium
+.. autoclass:: bitarray_implementation.GlobalBitarrayReflectiveEquilibrium
     :members:
     :undoc-members:
     :show-inheritance:

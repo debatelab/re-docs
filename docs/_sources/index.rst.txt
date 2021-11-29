@@ -16,9 +16,9 @@ you have to install both packages locally, by
 
 * first git-cloning the repositories of both packages:
 
-  * :code:`git clone git@git.scc.kit.edu:debatelab/re-python.git`
+  * :code:`git clone git@github.com:debatelab/re-python.git`
 
-  * :code:`git clone git@git.scc.kit.edu:debatelab/re-model-description.git`
+  * :code:`git clone git@github.com:debatelab/re-model-description.git`
 
 * and then installing the packages by running :code:`pip install -e .` from the local directories of
   the packages (e.g. :code:`local-path-to-repository/remodel`). Pip will install the packges by using the
@@ -26,24 +26,22 @@ you have to install both packages locally, by
   change the source code.)
 
 .. note:: Both packages require a python version >= 3.8. The package *remodel* further depends on the
-    packages `bitarray <https://pypi.org/project/bitarray/>`_ and `PySat <https://github.com/pysathq/pysat>`_
+    packages `bitarray <https://pypi.org/project/bitarray/>`_, `numba <https://numba.pydata.org/>`_ and `PySat <https://github.com/pysathq/pysat>`_
     (which will be installed when installing *remodel* by using pip).
 
 
-User Guide
-----------
+Tutorials
+---------
 
-This part of the documentation provides step-by-step instructions for running and adapting the model.
+The are different `Jupyter notebooks <https://jupyter.org/>`_ that provide step-by-step instructions of running and adapting the model:
 
-.. toctree::
-    :maxdepth: 1
-
-    user/running_model
-    user/extending_model
-
-For further information consult the :ref:`API-docs <api-docs-label>` or have a look at
-the various **notebook-examples** (todo templates).
-
+* `intro-repython.ipynb <https://github.com/debatelab/re-docs/blob/master/notebooks/intro-repython.ipynb>`_: Introduction of using
+  re-python. Covering the following topics:
+    + Running the model
+    + Export to JSON
+    + Extending the model
+* `ensemble-generation-tutorial.ipynb <https://github.com/debatelab/re-docs/blob/master/notebooks/ensemble-generation-tutorial.ipynb>`_: A
+  notebook that illustrates how to generate model ensembles with the :ref:`ensemble generation module <ensemble-generation-label>`.
 
 
 API Documentation

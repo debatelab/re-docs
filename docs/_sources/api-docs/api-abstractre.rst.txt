@@ -1,17 +1,32 @@
-:class:`AbstractReflectiveEquilibrium`
-======================================
 
-.. autoclass:: abstract_re.AbstractReflectiveEquilibrium
+Module :code:`abstract_re.py`
+=============================
+
+:class:`StandardReflectiveEquilibrium`
+--------------------------------------
+
+.. autoclass:: abstract_re.StandardReflectiveEquilibrium
    :members:
    :undoc-members:
    :show-inheritance:
 
 
-:class:`AbstractReflectiveEquilibrium.REStage`
-----------------------------------------------
+:class:`LocalReflectiveEquilibrium`
+-----------------------------------
 
-.. autoclass:: abstract_re.AbstractReflectiveEquilibrium.REStage
-    :members:
-    :undoc-members:
-    :show-inheritance:
+.. autoclass:: abstract_re.LocalReflectiveEquilibrium
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+:class:`GlobalReflectiveEquilibrium`
+------------------------------------
+
+.. autoclass:: abstract_re.GlobalReflectiveEquilibrium
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
 
