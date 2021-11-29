@@ -15,7 +15,7 @@ and use instead:
 .. math::
     A(\mathcal{C}, \mathcal{T}):=\left( 1-\frac{D_{0,0.3,1,1}(\mathcal{C}, \overline{\mathcal{T}})}{N} \right)
 
-This can simply done by overriding the account-function of the
+This can simply done by overwriting the account-function of the
 :class:`SetBasedReflectiveEquilibrium` in the following way:
 
 .. code:: python

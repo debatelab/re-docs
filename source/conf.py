@@ -12,14 +12,14 @@
 #
 import os
 import sys
-sys.path.insert(0, os.path.abspath('../../re-python/remodel/'))
+sys.path.insert(0, os.path.abspath('../../re-python/rethon/'))
 sys.path.insert(0, os.path.abspath('../../re-model-description/remodeldescription/'))
 
 print('Using the python:', sys.executable)
 print ('Using path:', sys.path)
 # -- Project information -----------------------------------------------------
 
-project = 'remodel'
+project = 'rethon'
 copyright = '2020, Claus Beisbart, Gregor Betz, Georg Brun, Sebastian Cacean, Andreas Freivogel, Richard Lohse'
 author = 'Claus Beisbart, Gregor Betz, Georg Brun, Sebastian Cacean, Andreas Freivogel, Richard Lohse'
 
@@ -33,8 +33,13 @@ author = 'Claus Beisbart, Gregor Betz, Georg Brun, Sebastian Cacean, Andreas Fre
 # see https://github.com/agronholm/sphinx-autodoc-typehints
 
 extensions = ['sphinx.ext.autodoc','numpydoc','sphinx_autodoc_typehints',
+                'sphinx.ext.napoleon',
               # via sphinxcontrib-fulltoc (https://pypi.org/project/sphinxcontrib-fulltoc/)
-              'sphinxcontrib.fulltoc']
+              'sphinxcontrib.fulltoc',
+              # https://pypi.org/project/sphinx-resolve-py-references/
+              # throws an extentions error
+              #'sphinx_resolve_py_references'
+              ]
 
 
 # Add any paths that contain templates here, relative to this directory.
