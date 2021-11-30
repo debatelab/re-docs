@@ -36,8 +36,58 @@
 <h1><code class="xref py py-class docutils literal notranslate"><span class="pre">REState</span></code><a class="headerlink" href="#restate" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
 <dt id="basics.REState">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">basics.</span></code><code class="sig-name descname"><span class="pre">REState</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">finished</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">evolution</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alternatives</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#basics.REState" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">basics.</span></code><code class="sig-name descname"><span class="pre">REState</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">finished</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">evolution</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alternatives</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_line</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#basics.REState" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class that represent the internal state of an RE process.</p>
+<p><em>Remark:</em> The attribute <code class="code docutils literal notranslate"><span class="pre">time_line</span></code> can be used to externally attribute points in time to the steps of
+the RE process. This feature will be used to coordinate different re processes with each other.</p>
+<dl class="py attribute">
+<dt id="basics.REState.finished">
+<code class="sig-name descname"><span class="pre">finished</span></code><a class="headerlink" href="#basics.REState.finished" title="Permalink to this definition">¶</a></dt>
+<dd><p>A boolean indicating whether the process terminated in a fixed point.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="basics.REState.evolution">
+<code class="sig-name descname"><span class="pre">evolution</span></code><a class="headerlink" href="#basics.REState.evolution" title="Permalink to this definition">¶</a></dt>
+<dd><p>The evolution of steps beginning with the initial state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>List[<a class="reference internal" href="api-position.html#basics.Position" title="basics.Position">Position</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="basics.REState.alternatives">
+<code class="sig-name descname"><span class="pre">alternatives</span></code><a class="headerlink" href="#basics.REState.alternatives" title="Permalink to this definition">¶</a></dt>
+<dd><p>For each step a set of possible alternatives the process could have
+used as step according to <a class="reference internal" href="api-re.html#basics.ReflectiveEquilibrium.commitment_candidates" title="basics.ReflectiveEquilibrium.commitment_candidates"><code class="xref py py-func docutils literal notranslate"><span class="pre">ReflectiveEquilibrium.commitment_candidates()</span></code></a>
+(or <a class="reference internal" href="api-re.html#basics.ReflectiveEquilibrium.theory_candidates" title="basics.ReflectiveEquilibrium.theory_candidates"><code class="xref py py-func docutils literal notranslate"><span class="pre">ReflectiveEquilibrium.theory_candidates()</span></code></a> respectively).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>List[Set[<a class="reference internal" href="api-position.html#basics.Position" title="basics.Position">Position</a>]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="basics.REState.time_line">
+<code class="sig-name descname"><span class="pre">time_line</span></code><a class="headerlink" href="#basics.REState.time_line" title="Permalink to this definition">¶</a></dt>
+<dd><p>For each step an integer that represents a point in time according to an (external)
+timeline.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>List[int]</p>
+</dd>
+</dl>
+</dd></dl>
+
 <p class="rubric">Methods</p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -45,69 +95,81 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#basics.REState.from_dict" title="basics.REState.from_dict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_dict</span></code></a>(state_dict)</p></td>
-<td><p></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#basics.REState.add_step" title="basics.REState.add_step"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_step</span></code></a>(position, alternatives[, time])</p></td>
+<td><p>Adding a new step to the state.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#basics.REState.indices_of_non_empty_alternatives" title="basics.REState.indices_of_non_empty_alternatives"><code class="xref py py-obj docutils literal notranslate"><span class="pre">indices_of_non_empty_alternatives</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#basics.REState.as_dict" title="basics.REState.as_dict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">as_dict</span></code></a>()</p></td>
+<td><p>The state as python dictionary.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#basics.REState.commitments_evolution" title="basics.REState.commitments_evolution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">commitments_evolution</span></code></a>()</p></td>
+<td><p>Evolution of commitments.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#basics.REState.from_dict" title="basics.REState.from_dict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_dict</span></code></a>(state_dict)</p></td>
+<td><p>Instantiation via dict.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#basics.REState.indices_of_non_empty_alternatives" title="basics.REState.indices_of_non_empty_alternatives"><code class="xref py py-obj docutils literal notranslate"><span class="pre">indices_of_non_empty_alternatives</span></code></a>()</p></td>
 <td><p>Steps in the process with non-empty alternatives.</p></td>
 </tr>
-</tbody>
-</table>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 71%" />
-<col style="width: 29%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><strong>add_step</strong></p></td>
-<td></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#basics.REState.initial_commitments" title="basics.REState.initial_commitments"><code class="xref py py-obj docutils literal notranslate"><span class="pre">initial_commitments</span></code></a>()</p></td>
+<td><p>The initial commitments of the process.</p></td>
 </tr>
-<tr class="row-even"><td><p><strong>as_dict</strong></p></td>
-<td></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#basics.REState.last_alternatives" title="basics.REState.last_alternatives"><code class="xref py py-obj docutils literal notranslate"><span class="pre">last_alternatives</span></code></a>()</p></td>
+<td><p>Alternatives of the last step.</p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>commitments_evolution</strong></p></td>
-<td></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#basics.REState.last_commitments" title="basics.REState.last_commitments"><code class="xref py py-obj docutils literal notranslate"><span class="pre">last_commitments</span></code></a>()</p></td>
+<td><p>The last chosen commitments.</p></td>
 </tr>
-<tr class="row-even"><td><p><strong>initial_commitments</strong></p></td>
-<td></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#basics.REState.last_step" title="basics.REState.last_step"><code class="xref py py-obj docutils literal notranslate"><span class="pre">last_step</span></code></a>()</p></td>
+<td><p>Last step of the evolution.</p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>last_alternatives</strong></p></td>
-<td></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#basics.REState.last_theory" title="basics.REState.last_theory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">last_theory</span></code></a>()</p></td>
+<td><p>The last chosen theory.</p></td>
 </tr>
-<tr class="row-even"><td><p><strong>last_commitments</strong></p></td>
-<td></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#basics.REState.next_step_is_theory" title="basics.REState.next_step_is_theory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">next_step_is_theory</span></code></a>()</p></td>
+<td><p>Checks whether the next step is a theory.</p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>last_step</strong></p></td>
-<td></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#basics.REState.past" title="basics.REState.past"><code class="xref py py-obj docutils literal notranslate"><span class="pre">past</span></code></a>(past)</p></td>
+<td><p>A past state as copy.</p></td>
 </tr>
-<tr class="row-even"><td><p><strong>last_theory</strong></p></td>
-<td></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#basics.REState.past_commitments" title="basics.REState.past_commitments"><code class="xref py py-obj docutils literal notranslate"><span class="pre">past_commitments</span></code></a>([past])</p></td>
+<td><p>Past commitments.</p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>next_step_is_theory</strong></p></td>
-<td></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#basics.REState.past_step" title="basics.REState.past_step"><code class="xref py py-obj docutils literal notranslate"><span class="pre">past_step</span></code></a>(time)</p></td>
+<td><p>A past step according to the timeline.</p></td>
 </tr>
-<tr class="row-even"><td><p><strong>past</strong></p></td>
-<td></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#basics.REState.past_theory" title="basics.REState.past_theory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">past_theory</span></code></a>([past])</p></td>
+<td><p>Past theory.</p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>theory_evolution</strong></p></td>
-<td></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#basics.REState.theory_evolution" title="basics.REState.theory_evolution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">theory_evolution</span></code></a>()</p></td>
+<td><p>Evolution of theories.</p></td>
 </tr>
 </tbody>
 </table>
 <dl class="py method">
 <dt id="basics.REState.add_step">
-<code class="sig-name descname"><span class="pre">add_step</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alternatives</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#basics.REState.add_step" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="basics.REState.alternatives">
-<code class="sig-name descname"><span class="pre">alternatives</span></code><em class="property"><span class="pre">:</span> <span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="api-position.html#basics.Position" title="basics.Position"><span class="pre">basics.Position</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#basics.REState.alternatives" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="sig-name descname"><span class="pre">add_step</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alternatives</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#basics.REState.add_step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adding a new step to the state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>position</strong> (<a class="reference internal" href="api-position.html#basics.Position" title="basics.Position"><em>Position</em></a>) – The added step’s position.</p></li>
+<li><p><strong>alternatives</strong> (<em>Set</em><em>[</em><a class="reference internal" href="api-position.html#basics.Position" title="basics.Position"><em>Position</em></a><em>]</em>) – The alternatives to the added step’s position.</p></li>
+<li><p><strong>time</strong> (<em>int</em>) – A point in time that attributes the next step to an external timeline.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt id="basics.REState.as_dict">
 <code class="sig-name descname"><span class="pre">as_dict</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#basics.REState.as_dict" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>The state as python dictionary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dictionary with the state’s attributes as key-value pairs.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>Dict</p>
 </dd>
@@ -117,22 +179,29 @@
 <dl class="py method">
 <dt id="basics.REState.commitments_evolution">
 <code class="sig-name descname"><span class="pre">commitments_evolution</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#basics.REState.commitments_evolution" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="basics.REState.evolution">
-<code class="sig-name descname"><span class="pre">evolution</span></code><em class="property"><span class="pre">:</span> <span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="api-position.html#basics.Position" title="basics.Position"><span class="pre">basics.Position</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#basics.REState.evolution" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="basics.REState.finished">
-<code class="sig-name descname"><span class="pre">finished</span></code><em class="property"><span class="pre">:</span> <span class="pre">bool</span></em><a class="headerlink" href="#basics.REState.finished" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Evolution of commitments.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The steps of the process that represents commitments.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="api-position.html#basics.Position" title="basics.Position"><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt id="basics.REState.from_dict">
 <em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">from_dict</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state_dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#basics.REState.from_dict" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>Instantiation via dict.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>state_dict</strong> (<em>Dict</em>) – A dictionary with key-value pairs representing the attribute of <a class="reference internal" href="#basics.REState" title="basics.REState"><code class="xref py py-class docutils literal notranslate"><span class="pre">REState</span></code></a></p>
+</dd>
+</dl>
+<dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><a class="reference internal" href="#basics.REState" title="basics.REState">REState</a></p>
 </dd>
@@ -153,17 +222,25 @@
 <dl class="py method">
 <dt id="basics.REState.initial_commitments">
 <code class="sig-name descname"><span class="pre">initial_commitments</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#basics.REState.initial_commitments" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>The initial commitments of the process.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="api-position.html#basics.Position" title="basics.Position"><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt id="basics.REState.last_alternatives">
 <code class="sig-name descname"><span class="pre">last_alternatives</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#basics.REState.last_alternatives" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Alternatives of the last step.</p>
+</dd></dl>
 
 <dl class="py method">
 <dt id="basics.REState.last_commitments">
-<code class="sig-name descname"><span class="pre">last_commitments</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">past</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#basics.REState.last_commitments" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<code class="sig-name descname"><span class="pre">last_commitments</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#basics.REState.last_commitments" title="Permalink to this definition">¶</a></dt>
+<dd><p>The last chosen commitments.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><a class="reference internal" href="api-position.html#basics.Position" title="basics.Position"><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></a></p>
 </dd>
@@ -173,7 +250,8 @@
 <dl class="py method">
 <dt id="basics.REState.last_step">
 <code class="sig-name descname"><span class="pre">last_step</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#basics.REState.last_step" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>Last step of the evolution.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><a class="reference internal" href="api-position.html#basics.Position" title="basics.Position"><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></a></p>
 </dd>
@@ -182,8 +260,9 @@
 
 <dl class="py method">
 <dt id="basics.REState.last_theory">
-<code class="sig-name descname"><span class="pre">last_theory</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">past</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#basics.REState.last_theory" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<code class="sig-name descname"><span class="pre">last_theory</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#basics.REState.last_theory" title="Permalink to this definition">¶</a></dt>
+<dd><p>The last chosen theory.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><a class="reference internal" href="api-position.html#basics.Position" title="basics.Position"><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></a></p>
 </dd>
@@ -193,7 +272,8 @@
 <dl class="py method">
 <dt id="basics.REState.next_step_is_theory">
 <code class="sig-name descname"><span class="pre">next_step_is_theory</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#basics.REState.next_step_is_theory" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>Checks whether the next step is a theory.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
 </dd>
@@ -203,7 +283,17 @@
 <dl class="py method">
 <dt id="basics.REState.past">
 <code class="sig-name descname"><span class="pre">past</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">past</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#basics.REState.past" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>A past state as copy.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>past</strong> (<em>int</em>) – Int indicating the past as counted by steps. <code class="code docutils literal notranslate"><span class="pre">-1</span></code> represents the last state,
+<code class="code docutils literal notranslate"><span class="pre">-2</span></code> represents the next-to-last state and so on.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A state representing the past state as a copy.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><a class="reference internal" href="#basics.REState" title="basics.REState"><code class="xref py py-class docutils literal notranslate"><span class="pre">REState</span></code></a></p>
 </dd>
@@ -211,9 +301,81 @@
 </dd></dl>
 
 <dl class="py method">
+<dt id="basics.REState.past_commitments">
+<code class="sig-name descname"><span class="pre">past_commitments</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">past</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#basics.REState.past_commitments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Past commitments.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>past</strong> (<em>int</em>) – The past counted stepwise beginning from the last commitment (<code class="code docutils literal notranslate"><span class="pre">0</span></code> indicating the
+last commitments, <code class="code docutils literal notranslate"><span class="pre">-1</span></code> the next-to-last commitments and so on).</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="api-position.html#basics.Position" title="basics.Position"><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="basics.REState.past_step">
+<code class="sig-name descname"><span class="pre">past_step</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#basics.REState.past_step" title="Permalink to this definition">¶</a></dt>
+<dd><p>A past step according to the timeline.</p>
+<p><em>Remark:</em> The time line of the state maps each step to a point in time on an (external) timeline.
+An re process can, among other things, pause according to this timeline in the case that the states’
+timeline looks e.g. like <code class="code docutils literal notranslate"><span class="pre">[0,1,2,5]</span></code>. Accordingly, the third step persist through the time points
+2,3,4 on the external timeline.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>time</strong> (<em>int</em>) – The point in time attributed to the requested step.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>Returns <code class="code docutils literal notranslate"><span class="pre">None</span></code> if <code class="code docutils literal notranslate"><span class="pre">time</span></code> falls before the time of the initial state. Otherwise, it</dt><dd><p>will return the requested <a class="reference internal" href="api-position.html#basics.Position" title="basics.Position"><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></a>.</p>
+</dd>
+</dl>
+</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="api-position.html#basics.Position" title="basics.Position"><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="basics.REState.past_theory">
+<code class="sig-name descname"><span class="pre">past_theory</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">past</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#basics.REState.past_theory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Past theory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>past</strong> (<em>int</em>) – The past counted stepwise beginning from the last theory (<code class="code docutils literal notranslate"><span class="pre">0</span></code> indicating the
+last theory, <code class="code docutils literal notranslate"><span class="pre">-1</span></code> the next-to-last theory and so on).</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="api-position.html#basics.Position" title="basics.Position"><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt id="basics.REState.theory_evolution">
 <code class="sig-name descname"><span class="pre">theory_evolution</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#basics.REState.theory_evolution" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Evolution of theories.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The steps of the process that represents theories.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="api-position.html#basics.Position" title="basics.Position"><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 

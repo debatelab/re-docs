@@ -53,29 +53,35 @@ that maximises an achievement function <span class="math notranslate nohighlight
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#basics.ReflectiveEquilibrium.model_name" title="basics.ReflectiveEquilibrium.model_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_name</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#basics.ReflectiveEquilibrium.commitment_candidates" title="basics.ReflectiveEquilibrium.commitment_candidates"><code class="xref py py-obj docutils literal notranslate"><span class="pre">commitment_candidates</span></code></a>([time])</p></td>
+<td><p>Commitment candidates for choosing next commitments.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#basics.ReflectiveEquilibrium.model_name" title="basics.ReflectiveEquilibrium.model_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_name</span></code></a>()</p></td>
 <td><p>Model name.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#basics.ReflectiveEquilibrium.model_parameters" title="basics.ReflectiveEquilibrium.model_parameters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_parameters</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#basics.ReflectiveEquilibrium.model_parameters" title="basics.ReflectiveEquilibrium.model_parameters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_parameters</span></code></a>()</p></td>
 <td><p>Getting all model parameters as dict.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#basics.ReflectiveEquilibrium.re_process" title="basics.ReflectiveEquilibrium.re_process"><code class="xref py py-obj docutils literal notranslate"><span class="pre">re_process</span></code></a>([initial_commitments])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#basics.ReflectiveEquilibrium.re_process" title="basics.ReflectiveEquilibrium.re_process"><code class="xref py py-obj docutils literal notranslate"><span class="pre">re_process</span></code></a>([initial_commitments])</p></td>
 <td><p>Process of finding an RE-state based on given initial commitments.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#basics.ReflectiveEquilibrium.reset_model_parameters" title="basics.ReflectiveEquilibrium.reset_model_parameters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset_model_parameters</span></code></a>(parameters)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#basics.ReflectiveEquilibrium.reset_model_parameters" title="basics.ReflectiveEquilibrium.reset_model_parameters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset_model_parameters</span></code></a>(parameters)</p></td>
 <td><p>Resetting model parameters.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_dirty</span></code>(dirty)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_dirty</span></code>(dirty)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#basics.ReflectiveEquilibrium.set_model_parameters" title="basics.ReflectiveEquilibrium.set_model_parameters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_model_parameters</span></code></a>([parameters])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#basics.ReflectiveEquilibrium.set_model_parameters" title="basics.ReflectiveEquilibrium.set_model_parameters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_model_parameters</span></code></a>([parameters])</p></td>
 <td><p>Setting model parameters either by a dictionary or key-value pairs.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#basics.ReflectiveEquilibrium.set_state" title="basics.ReflectiveEquilibrium.set_state"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_state</span></code></a>(state)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#basics.ReflectiveEquilibrium.set_state" title="basics.ReflectiveEquilibrium.set_state"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_state</span></code></a>(state)</p></td>
 <td><p>Setting the current state of the model.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#basics.ReflectiveEquilibrium.state" title="basics.ReflectiveEquilibrium.state"><code class="xref py py-obj docutils literal notranslate"><span class="pre">state</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#basics.ReflectiveEquilibrium.state" title="basics.ReflectiveEquilibrium.state"><code class="xref py py-obj docutils literal notranslate"><span class="pre">state</span></code></a>()</p></td>
 <td><p>Getting the current state of the model.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#basics.ReflectiveEquilibrium.theory_candidates" title="basics.ReflectiveEquilibrium.theory_candidates"><code class="xref py py-obj docutils literal notranslate"><span class="pre">theory_candidates</span></code></a>([time])</p></td>
+<td><p>Theory candidates for choosing the next theory.</p></td>
 </tr>
 </tbody>
 </table>
@@ -85,46 +91,40 @@ that maximises an achievement function <span class="math notranslate nohighlight
 <col style="width: 22%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><strong>commitment_candidates</strong></p></td>
+<tr class="row-odd"><td><p><strong>default_model_parameters</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>default_model_parameters</strong></p></td>
+<tr class="row-even"><td><p><strong>dialectical_structure</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>dialectical_structure</strong></p></td>
+<tr class="row-odd"><td><p><strong>finished</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>finished</strong></p></td>
+<tr class="row-even"><td><p><strong>is_dirty</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>is_dirty</strong></p></td>
+<tr class="row-odd"><td><p><strong>model_parameter</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>model_parameter</strong></p></td>
+<tr class="row-even"><td><p><strong>model_parameter_names</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>model_parameter_names</strong></p></td>
+<tr class="row-odd"><td><p><strong>model_parameters_set_to_default</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>model_parameters_set_to_default</strong></p></td>
+<tr class="row-even"><td><p><strong>next_step</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>next_step</strong></p></td>
+<tr class="row-odd"><td><p><strong>pick_commitment_candidate</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>pick_commitment_candidate</strong></p></td>
+<tr class="row-even"><td><p><strong>pick_theory_candidate</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>pick_theory_candidate</strong></p></td>
+<tr class="row-odd"><td><p><strong>set_dialectical_structure</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>set_dialectical_structure</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><strong>set_initial_state</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><strong>theory_candidates</strong></p></td>
+<tr class="row-even"><td><p><strong>set_initial_state</strong></p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p><strong>update</strong></p></td>
@@ -132,6 +132,17 @@ that maximises an achievement function <span class="math notranslate nohighlight
 </tr>
 </tbody>
 </table>
+<dl class="py method">
+<dt id="basics.ReflectiveEquilibrium.commitment_candidates">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">commitment_candidates</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#basics.ReflectiveEquilibrium.commitment_candidates" title="Permalink to this definition">¶</a></dt>
+<dd><p>Commitment candidates for choosing next commitments.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Set</span></code>[<a class="reference internal" href="api-position.html#basics.Position" title="basics.Position"><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py method">
 <dt id="basics.ReflectiveEquilibrium.model_name">
 <code class="sig-name descname"><span class="pre">model_name</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#basics.ReflectiveEquilibrium.model_name" title="Permalink to this definition">¶</a></dt>
@@ -194,6 +205,17 @@ state differs.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><a class="reference internal" href="api-restate.html#basics.REState" title="basics.REState"><code class="xref py py-class docutils literal notranslate"><span class="pre">REState</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="basics.ReflectiveEquilibrium.theory_candidates">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">theory_candidates</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#basics.ReflectiveEquilibrium.theory_candidates" title="Permalink to this definition">¶</a></dt>
+<dd><p>Theory candidates for choosing the next theory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Set</span></code>[<a class="reference internal" href="api-position.html#basics.Position" title="basics.Position"><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></a>]</p>
 </dd>
 </dl>
 </dd></dl>
