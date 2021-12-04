@@ -44,6 +44,7 @@
 <dt id="model.StandardPosition">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">model.</span></code><code class="sig-name descname"><span class="pre">StandardPosition</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.StandardPosition" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">rethon.numpy_implementation.NumpyPosition</span></code></p>
+<p>Class that simply tags <code class="xref py py-class docutils literal notranslate"><span class="pre">NumpyPosition</span></code> as the default implementation of <code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></p>
 <p class="rubric">Methods</p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -133,6 +134,9 @@
 <dt id="model.DAGDialecticalStructure">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">model.</span></code><code class="sig-name descname"><span class="pre">DAGDialecticalStructure</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_arguments</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.DAGDialecticalStructure" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">rethon.numpy_implementation.DAGNumpyDialecticalStructure</span></code></p>
+<p>Class that simply tags <code class="xref py py-class docutils literal notranslate"><span class="pre">DAGNumpyDialecticalStructure</span></code> as the default implementation of
+<code class="xref py py-class docutils literal notranslate"><span class="pre">DialecticalStructure</span></code> that is based on a directed acyclic graph. (Preferably used together
+with globally searching RE processes (see <a class="reference internal" href="#model.StandardGlobalReflectiveEquilibrium" title="model.StandardGlobalReflectiveEquilibrium"><code class="xref py py-class docutils literal notranslate"><span class="pre">StandardGlobalReflectiveEquilibrium</span></code></a>).</p>
 <p class="rubric">Methods</p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -225,6 +229,9 @@
 <dt id="model.BDDDialecticalStructure">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">model.</span></code><code class="sig-name descname"><span class="pre">BDDDialecticalStructure</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_arguments</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.BDDDialecticalStructure" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">rethon.numpy_implementation.BDDNumpyDialecticalStructure</span></code></p>
+<p>Class that simply tags <code class="xref py py-class docutils literal notranslate"><span class="pre">BDDNumpyDialecticalStructure</span></code> as the default implementation of
+<code class="xref py py-class docutils literal notranslate"><span class="pre">DialecticalStructure</span></code> that is based on a binary decision trees. (Preferably used together
+with locally searching RE processes (see <a class="reference internal" href="#model.StandardLocalReflectiveEquilibrium" title="model.StandardLocalReflectiveEquilibrium"><code class="xref py py-class docutils literal notranslate"><span class="pre">StandardLocalReflectiveEquilibrium</span></code></a>).</p>
 <p class="rubric">Methods</p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -320,6 +327,8 @@
 <dt id="model.StandardGlobalReflectiveEquilibrium">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">model.</span></code><code class="sig-name descname"><span class="pre">StandardGlobalReflectiveEquilibrium</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dialectical_structure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_commitments</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.StandardGlobalReflectiveEquilibrium" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">rethon.numpy_implementation.GlobalNumpyReflectiveEquilibrium</span></code></p>
+<p>Class that simply tags <code class="xref py py-class docutils literal notranslate"><span class="pre">GlobalNumpyReflectiveEquilibrium</span></code> as the default implementation of
+<code class="xref py py-class docutils literal notranslate"><span class="pre">GlobalReflectiveEquilibrium</span></code>.</p>
 <p class="rubric">Methods</p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -333,124 +342,14 @@
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">achievement</span></code>(commitments, theory, …)</p></td>
 <td><p>The achievement function <span class="math notranslate nohighlight">\(Z\)</span>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">faithfulness</span></code>(commitments, initial_commitments)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">commitment_candidates</span></code>(**kwargs)</p></td>
+<td><p>Commitment candidates for choosing next commitments.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">faithfulness</span></code>(commitments, initial_commitments)</p></td>
 <td><p>Faithfulness of the commitments w.r.t.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">global_optima</span></code>(initial_commitments)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">global_optima</span></code>(initial_commitments)</p></td>
 <td><p>Searches for globally optimal theory-commitment pairs (according to the achievement function).</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">hamming_distance</span></code>(position1, position2, penalties)</p></td>
-<td><p>The weighted Hamming distance.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_name</span></code>()</p></td>
-<td><p>Model name.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_parameters</span></code>()</p></td>
-<td><p>Getting all model parameters as dict.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">penalty</span></code>(pos1, pos2, sentence, penalties)</p></td>
-<td><p>A penalty function.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">re_process</span></code>([initial_commitments])</p></td>
-<td><p>Process of finding an RE-state based on given initial commitments.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset_model_parameters</span></code>(parameters)</p></td>
-<td><p>Resetting model parameters.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_dirty</span></code>(dirty)</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_model_parameters</span></code>([parameters])</p></td>
-<td><p>Setting model parameters either by a dictionary or key-value pairs.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_state</span></code>(state)</p></td>
-<td><p>Setting the current state of the model.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">state</span></code>()</p></td>
-<td><p>Getting the current state of the model.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">systematicity</span></code>(theory)</p></td>
-<td><p>Systematicity of the theory.</p></td>
-</tr>
-</tbody>
-</table>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 78%" />
-<col style="width: 22%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><strong>commitment_candidates</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><strong>default_model_parameters</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><strong>dialectical_structure</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><strong>finished</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><strong>is_dirty</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><strong>model_parameter</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><strong>model_parameter_names</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><strong>model_parameters_set_to_default</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><strong>next_step</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><strong>pick_commitment_candidate</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><strong>pick_theory_candidate</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><strong>set_dialectical_structure</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><strong>set_initial_state</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><strong>theory_candidates</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><strong>update</strong></p></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-</div>
-<div class="section" id="standardlocalreflectiveequilibrium">
-<h2><code class="xref py py-class docutils literal notranslate"><span class="pre">StandardLocalReflectiveEquilibrium</span></code><a class="headerlink" href="#standardlocalreflectiveequilibrium" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt id="model.StandardLocalReflectiveEquilibrium">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">model.</span></code><code class="sig-name descname"><span class="pre">StandardLocalReflectiveEquilibrium</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dialectical_structure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_commitments</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.StandardLocalReflectiveEquilibrium" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">rethon.numpy_implementation.LocalNumpyReflectiveEquilibrium</span></code></p>
-<p class="rubric">Methods</p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">account</span></code>(commitments, theory)</p></td>
-<td><p>Account of the theory w.r.t.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">achievement</span></code>(commitments, theory, …)</p></td>
-<td><p>The achievement function <span class="math notranslate nohighlight">\(Z\)</span>.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">faithfulness</span></code>(commitments, initial_commitments)</p></td>
-<td><p>Faithfulness of the commitments w.r.t.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">hamming_distance</span></code>(position1, position2, penalties)</p></td>
 <td><p>The weighted Hamming distance.</p></td>
@@ -485,6 +384,9 @@
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">systematicity</span></code>(theory)</p></td>
 <td><p>Systematicity of the theory.</p></td>
 </tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">theory_candidates</span></code>(**kwargs)</p></td>
+<td><p>Theory candidates for choosing the next theory.</p></td>
+</tr>
 </tbody>
 </table>
 <table class="docutils align-default">
@@ -493,19 +395,13 @@
 <col style="width: 22%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><strong>commitment_candidates</strong></p></td>
+<tr class="row-odd"><td><p><strong>default_model_parameters</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>default_model_parameters</strong></p></td>
+<tr class="row-even"><td><p><strong>dialectical_structure</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>dialectical_structure</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><strong>finished</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><strong>first_theory</strong></p></td>
+<tr class="row-odd"><td><p><strong>finished</strong></p></td>
 <td></td>
 </tr>
 <tr class="row-even"><td><p><strong>is_dirty</strong></p></td>
@@ -535,10 +431,7 @@
 <tr class="row-even"><td><p><strong>set_initial_state</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>theory_candidates</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><strong>update</strong></p></td>
+<tr class="row-odd"><td><p><strong>update</strong></p></td>
 <td></td>
 </tr>
 </tbody>
@@ -546,47 +439,121 @@
 </dd></dl>
 
 </div>
-<div class="section" id="fullbranchrecontainer">
-<h2><code class="xref py py-class docutils literal notranslate"><span class="pre">FullBranchREContainer</span></code><a class="headerlink" href="#fullbranchrecontainer" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="standardlocalreflectiveequilibrium">
+<h2><code class="xref py py-class docutils literal notranslate"><span class="pre">StandardLocalReflectiveEquilibrium</span></code><a class="headerlink" href="#standardlocalreflectiveequilibrium" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
-<dt id="model.FullBranchREContainer">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">model.</span></code><code class="sig-name descname"><span class="pre">FullBranchREContainer</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">max_re_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_branches</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.FullBranchREContainer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">remodeldescription.basics.REContainer</span></code></p>
+<dt id="model.StandardLocalReflectiveEquilibrium">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">model.</span></code><code class="sig-name descname"><span class="pre">StandardLocalReflectiveEquilibrium</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dialectical_structure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_commitments</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'LocalStandardReflectiveEquilibrium'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.StandardLocalReflectiveEquilibrium" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">rethon.numpy_implementation.LocalNumpyReflectiveEquilibrium</span></code></p>
+<p>Class that simply tags <code class="xref py py-class docutils literal notranslate"><span class="pre">LocalNumpyReflectiveEquilibrium</span></code> as the default implementation of
+<code class="xref py py-class docutils literal notranslate"><span class="pre">LocalReflectiveEquilibrium</span></code></p>
 <p class="rubric">Methods</p>
-<table class="docutils align-default">
+<table class="longtable docutils align-default">
 <colgroup>
-<col style="width: 63%" />
-<col style="width: 37%" />
+<col style="width: 10%" />
+<col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><strong>re_processes</strong></p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">account</span></code>(commitments, theory)</p></td>
+<td><p>Account of the theory w.r.t.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">achievement</span></code>(commitments, theory, …)</p></td>
+<td><p>The achievement function <span class="math notranslate nohighlight">\(Z\)</span>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">commitment_candidates</span></code>(**kwargs)</p></td>
+<td><p>Commitment candidates for choosing next commitments.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">faithfulness</span></code>(commitments, initial_commitments)</p></td>
+<td><p>Faithfulness of the commitments w.r.t.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">hamming_distance</span></code>(position1, position2, penalties)</p></td>
+<td><p>The weighted Hamming distance.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_name</span></code>()</p></td>
+<td><p>Model name.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_parameters</span></code>()</p></td>
+<td><p>Getting all model parameters as dict.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">penalty</span></code>(pos1, pos2, sentence, penalties)</p></td>
+<td><p>A penalty function.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">re_process</span></code>([initial_commitments])</p></td>
+<td><p>Process of finding an RE-state based on given initial commitments.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset_model_parameters</span></code>(parameters)</p></td>
+<td><p>Resetting model parameters.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_dirty</span></code>(dirty)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_model_parameters</span></code>([parameters])</p></td>
+<td><p>Setting model parameters either by a dictionary or key-value pairs.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_state</span></code>(state)</p></td>
+<td><p>Setting the current state of the model.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">state</span></code>()</p></td>
+<td><p>Getting the current state of the model.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">systematicity</span></code>(theory)</p></td>
+<td><p>Systematicity of the theory.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">theory_candidates</span></code>(**kwargs)</p></td>
+<td><p>Theory candidates for choosing the next theory.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 78%" />
+<col style="width: 22%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>default_model_parameters</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>result_states</strong></p></td>
+<tr class="row-even"><td><p><strong>dialectical_structure</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>finished</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>first_theory</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>is_dirty</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>model_parameter</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>model_parameter_names</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>model_parameters_set_to_default</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>next_step</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>pick_commitment_candidate</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>pick_theory_candidate</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>set_dialectical_structure</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>set_initial_state</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>update</strong></p></td>
 <td></td>
 </tr>
 </tbody>
 </table>
-<dl class="py method">
-<dt id="model.FullBranchREContainer.re_processes">
-<code class="sig-name descname"><span class="pre">re_processes</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">re_models</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.FullBranchREContainer.re_processes" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ReflectiveEquilibrium</span></code>]</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="model.FullBranchREContainer.result_states">
-<code class="sig-name descname"><span class="pre">result_states</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">re_model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.FullBranchREContainer.result_states" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">REState</span></code>]</p>
-</dd>
-</dl>
-</dd></dl>
-
 </dd></dl>
 
 </div>
@@ -611,10 +578,10 @@
 <li class="toctree-l4"><a class="reference internal" href="#bdddialecticalstructure"><code class="xref py py-class docutils literal notranslate"><span class="pre">BDDDialecticalStructure</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#standardglobalreflectiveequilibrium"><code class="xref py py-class docutils literal notranslate"><span class="pre">StandardGlobalReflectiveEquilibrium</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#standardlocalreflectiveequilibrium"><code class="xref py py-class docutils literal notranslate"><span class="pre">StandardLocalReflectiveEquilibrium</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#fullbranchrecontainer"><code class="xref py py-class docutils literal notranslate"><span class="pre">FullBranchREContainer</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="api-ensemble-generation.html">Ensemble generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-container-impl.html">RE Container</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api-util.html">Utility methods</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api-numpyimplementation.html">Numpy-Based Implementations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api-setimplementation.html">Set-Based Implementations</a></li>

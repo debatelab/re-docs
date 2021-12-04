@@ -29,6 +29,7 @@ This package contains various implementations of the base classes.
     api-abstractre
     api-model
     api-ensemble-generation
+    api-container-impl
     api-util
     api-numpyimplementation
     api-setimplementation

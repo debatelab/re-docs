@@ -39,13 +39,20 @@
 <dt id="basics.ReflectiveEquilibrium">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">basics.</span></code><code class="sig-name descname"><span class="pre">ReflectiveEquilibrium</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dialectical_structure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_commitments</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#basics.ReflectiveEquilibrium" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
-<p>Class representing a process of finding RE states.</p>
-<p>Implementations of this abstract class represent a formal model of a process that finds reflective
-equilibria (RE states). The process of finding an
-RE state starts with an initial epistemic state (initial commitments <span class="math notranslate nohighlight">\(\mathcal{C}_0\)</span>), which
-are step-wise adjusted until they reach an RE state.
-An RE state is an epistemic state - pairs of commitments and theories <span class="math notranslate nohighlight">\((\mathcal{C}, \mathcal{T}\)</span>) -
-that maximises an achievement function <span class="math notranslate nohighlight">\(Z\)</span> and is dialectically consistent.</p>
+<p>Abstract class representing a process of finding epistemic states that are in a reflective quilibrium.</p>
+<p>The process of finding a reflective equilbrium starts with a set of initial commitments <span class="math notranslate nohighlight">\(\mathcal{C}_0\)</span>.
+In the next step a first theory <span class="math notranslate nohighlight">\(\mathcal{T}_0\)</span> is chosen. The process is repeated and represents a step-wise adjusted of
+theories and commitments until a final state is reached the represents the reflective equilibrium.</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{C_0} \rightarrow \mathcal{T_0} \rightarrow \mathcal{C_1} \rightarrow \mathcal{T_1} \rightarrow \dots \rightarrow \mathcal{T_{final}} \rightarrow \mathcal{C_{final}}\]</div>
+<p>Each step is triggered by <a class="reference internal" href="#basics.ReflectiveEquilibrium.next_step" title="basics.ReflectiveEquilibrium.next_step"><code class="xref py py-func docutils literal notranslate"><span class="pre">next_step()</span></code></a> which will, depending on whether the next step is choosing a new
+theory or a set of new commitments, succeed in the following way:</p>
+<ul class="simple">
+<li><p>Either <a class="reference internal" href="#basics.ReflectiveEquilibrium.commitment_candidates" title="basics.ReflectiveEquilibrium.commitment_candidates"><code class="xref py py-func docutils literal notranslate"><span class="pre">commitment_candidates()</span></code></a> or <a class="reference internal" href="#basics.ReflectiveEquilibrium.theory_candidates" title="basics.ReflectiveEquilibrium.theory_candidates"><code class="xref py py-func docutils literal notranslate"><span class="pre">theory_candidates()</span></code></a> will be called to determine a set of candidate commitments or theories.</p></li>
+<li><p><code class="xref py py-func docutils literal notranslate"><span class="pre">pick_commitment_candidates()</span></code> or <code class="xref py py-func docutils literal notranslate"><span class="pre">pick_theory_candidates()</span></code> will be called to decide on the next commitments/theory according to some additional criterion (which will be non-trivial if the former sets have more than one element).</p></li>
+</ul>
+<p>The function <a class="reference internal" href="#basics.ReflectiveEquilibrium.finished" title="basics.ReflectiveEquilibrium.finished"><code class="xref py py-func docutils literal notranslate"><span class="pre">finished()</span></code></a> is used to determine the final state of the process.</p>
+<p>Accordingly, subclasses must implement these functions to specify re processes.</p>
 <p class="rubric">Methods</p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -56,20 +63,56 @@ that maximises an achievement function <span class="math notranslate nohighlight
 <tr class="row-odd"><td><p><a class="reference internal" href="#basics.ReflectiveEquilibrium.commitment_candidates" title="basics.ReflectiveEquilibrium.commitment_candidates"><code class="xref py py-obj docutils literal notranslate"><span class="pre">commitment_candidates</span></code></a>([time])</p></td>
 <td><p>Commitment candidates for choosing next commitments.</p></td>
 </tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#basics.ReflectiveEquilibrium.default_model_parameters" title="basics.ReflectiveEquilibrium.default_model_parameters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">default_model_parameters</span></code></a>()</p></td>
+<td><p>Implementing classes should use this method to define default model parameters.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#basics.ReflectiveEquilibrium.dialectical_structure" title="basics.ReflectiveEquilibrium.dialectical_structure"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dialectical_structure</span></code></a>()</p></td>
+<td><p>Return the dialectical structure on which the model is based.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#basics.ReflectiveEquilibrium.finished" title="basics.ReflectiveEquilibrium.finished"><code class="xref py py-obj docutils literal notranslate"><span class="pre">finished</span></code></a>(**kwargs)</p></td>
+<td><p>Criterion of when the RE process reached a final state.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#basics.ReflectiveEquilibrium.is_dirty" title="basics.ReflectiveEquilibrium.is_dirty"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_dirty</span></code></a>()</p></td>
+<td><p>Checks whether the model demand an update of internal attributes.</p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#basics.ReflectiveEquilibrium.model_name" title="basics.ReflectiveEquilibrium.model_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_name</span></code></a>()</p></td>
 <td><p>Model name.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#basics.ReflectiveEquilibrium.model_parameter" title="basics.ReflectiveEquilibrium.model_parameter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_parameter</span></code></a>(name)</p></td>
+<td><p>Returns model parameters by names.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#basics.ReflectiveEquilibrium.model_parameter_names" title="basics.ReflectiveEquilibrium.model_parameter_names"><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_parameter_names</span></code></a>()</p></td>
+<td><p>Returns names (keys) of the model parameters.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#basics.ReflectiveEquilibrium.model_parameters" title="basics.ReflectiveEquilibrium.model_parameters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_parameters</span></code></a>()</p></td>
 <td><p>Getting all model parameters as dict.</p></td>
 </tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#basics.ReflectiveEquilibrium.model_parameters_set_to_default" title="basics.ReflectiveEquilibrium.model_parameters_set_to_default"><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_parameters_set_to_default</span></code></a>()</p></td>
+<td><p>Resets the model parameters to their default values.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#basics.ReflectiveEquilibrium.next_step" title="basics.ReflectiveEquilibrium.next_step"><code class="xref py py-obj docutils literal notranslate"><span class="pre">next_step</span></code></a>([time])</p></td>
+<td><p>Triggers search for next commitments/theory.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#basics.ReflectiveEquilibrium.pick_commitment_candidate" title="basics.ReflectiveEquilibrium.pick_commitment_candidate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pick_commitment_candidate</span></code></a>(commitments_candidates)</p></td>
+<td><p>Determination of the next commitments given the commitments candidates.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#basics.ReflectiveEquilibrium.pick_theory_candidate" title="basics.ReflectiveEquilibrium.pick_theory_candidate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pick_theory_candidate</span></code></a>(theory_candidates[, time])</p></td>
+<td><p>Determination of the next theory given the theory candidates.</p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#basics.ReflectiveEquilibrium.re_process" title="basics.ReflectiveEquilibrium.re_process"><code class="xref py py-obj docutils literal notranslate"><span class="pre">re_process</span></code></a>([initial_commitments])</p></td>
-<td><p>Process of finding an RE-state based on given initial commitments.</p></td>
+<td><p>Process of finding a reflective equilibrium based on given initial commitments.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#basics.ReflectiveEquilibrium.reset_model_parameters" title="basics.ReflectiveEquilibrium.reset_model_parameters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset_model_parameters</span></code></a>(parameters)</p></td>
 <td><p>Resetting model parameters.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_dirty</span></code>(dirty)</p></td>
-<td><p></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#basics.ReflectiveEquilibrium.set_dialectical_structure" title="basics.ReflectiveEquilibrium.set_dialectical_structure"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_dialectical_structure</span></code></a>(dialectical_structure)</p></td>
+<td><p>Set the dialectical structure on which the model is based.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#basics.ReflectiveEquilibrium.set_dirty" title="basics.ReflectiveEquilibrium.set_dirty"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_dirty</span></code></a>(dirty)</p></td>
+<td><p>Should be used to indicate whether attributes are reset that demand updating other attributes of the model.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#basics.ReflectiveEquilibrium.set_initial_state" title="basics.ReflectiveEquilibrium.set_initial_state"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_initial_state</span></code></a>(initial_commitments)</p></td>
+<td><p>Set the initial state of the model.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#basics.ReflectiveEquilibrium.set_model_parameters" title="basics.ReflectiveEquilibrium.set_model_parameters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_model_parameters</span></code></a>([parameters])</p></td>
 <td><p>Setting model parameters either by a dictionary or key-value pairs.</p></td>
@@ -78,57 +121,13 @@ that maximises an achievement function <span class="math notranslate nohighlight
 <td><p>Setting the current state of the model.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#basics.ReflectiveEquilibrium.state" title="basics.ReflectiveEquilibrium.state"><code class="xref py py-obj docutils literal notranslate"><span class="pre">state</span></code></a>()</p></td>
-<td><p>Getting the current state of the model.</p></td>
+<td><p>Getting the current state of the model as <a class="reference internal" href="api-restate.html#basics.REState" title="basics.REState"><code class="xref py py-class docutils literal notranslate"><span class="pre">REState</span></code></a>.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#basics.ReflectiveEquilibrium.theory_candidates" title="basics.ReflectiveEquilibrium.theory_candidates"><code class="xref py py-obj docutils literal notranslate"><span class="pre">theory_candidates</span></code></a>([time])</p></td>
 <td><p>Theory candidates for choosing the next theory.</p></td>
 </tr>
-</tbody>
-</table>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 78%" />
-<col style="width: 22%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><strong>default_model_parameters</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><strong>dialectical_structure</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><strong>finished</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><strong>is_dirty</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><strong>model_parameter</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><strong>model_parameter_names</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><strong>model_parameters_set_to_default</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><strong>next_step</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><strong>pick_commitment_candidate</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><strong>pick_theory_candidate</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><strong>set_dialectical_structure</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><strong>set_initial_state</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><strong>update</strong></p></td>
-<td></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#basics.ReflectiveEquilibrium.update" title="basics.ReflectiveEquilibrium.update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update</span></code></a>()</p></td>
+<td><p>Subclasses can extend/override this method to update internal attributes of the model.</p></td>
 </tr>
 </tbody>
 </table>
@@ -141,6 +140,45 @@ that maximises an achievement function <span class="math notranslate nohighlight
 <dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Set</span></code>[<a class="reference internal" href="api-position.html#basics.Position" title="basics.Position"><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></a>]</p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="basics.ReflectiveEquilibrium.default_model_parameters">
+<em class="property"><span class="pre">abstract</span> <span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">default_model_parameters</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#basics.ReflectiveEquilibrium.default_model_parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implementing classes should use this method to define default model parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="basics.ReflectiveEquilibrium.dialectical_structure">
+<code class="sig-name descname"><span class="pre">dialectical_structure</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#basics.ReflectiveEquilibrium.dialectical_structure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the dialectical structure on which the model is based.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="api-dialecticalstructure.html#basics.DialecticalStructure" title="basics.DialecticalStructure"><code class="xref py py-class docutils literal notranslate"><span class="pre">DialecticalStructure</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="basics.ReflectiveEquilibrium.finished">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">finished</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#basics.ReflectiveEquilibrium.finished" title="Permalink to this definition">¶</a></dt>
+<dd><p>Criterion of when the RE process reached a final state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="basics.ReflectiveEquilibrium.is_dirty">
+<code class="sig-name descname"><span class="pre">is_dirty</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#basics.ReflectiveEquilibrium.is_dirty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks whether the model demand an update of internal attributes.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -158,6 +196,18 @@ that maximises an achievement function <span class="math notranslate nohighlight
 </dd></dl>
 
 <dl class="py method">
+<dt id="basics.ReflectiveEquilibrium.model_parameter">
+<code class="sig-name descname"><span class="pre">model_parameter</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#basics.ReflectiveEquilibrium.model_parameter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns model parameters by names.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="basics.ReflectiveEquilibrium.model_parameter_names">
+<code class="sig-name descname"><span class="pre">model_parameter_names</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#basics.ReflectiveEquilibrium.model_parameter_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns names (keys) of the model parameters.</p>
+</dd></dl>
+
+<dl class="py method">
 <dt id="basics.ReflectiveEquilibrium.model_parameters">
 <code class="sig-name descname"><span class="pre">model_parameters</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#basics.ReflectiveEquilibrium.model_parameters" title="Permalink to this definition">¶</a></dt>
 <dd><p>Getting all model parameters as dict.</p>
@@ -169,11 +219,45 @@ that maximises an achievement function <span class="math notranslate nohighlight
 </dd></dl>
 
 <dl class="py method">
+<dt id="basics.ReflectiveEquilibrium.model_parameters_set_to_default">
+<code class="sig-name descname"><span class="pre">model_parameters_set_to_default</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#basics.ReflectiveEquilibrium.model_parameters_set_to_default" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resets the model parameters to their default values.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="basics.ReflectiveEquilibrium.next_step">
+<code class="sig-name descname"><span class="pre">next_step</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#basics.ReflectiveEquilibrium.next_step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Triggers search for next commitments/theory.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="basics.ReflectiveEquilibrium.pick_commitment_candidate">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">pick_commitment_candidate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">commitments_candidates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#basics.ReflectiveEquilibrium.pick_commitment_candidate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determination of the next commitments given the commitments candidates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="api-position.html#basics.Position" title="basics.Position"><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="basics.ReflectiveEquilibrium.pick_theory_candidate">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">pick_theory_candidate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">theory_candidates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#basics.ReflectiveEquilibrium.pick_theory_candidate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determination of the next theory given the theory candidates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="api-position.html#basics.Position" title="basics.Position"><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt id="basics.ReflectiveEquilibrium.re_process">
 <code class="sig-name descname"><span class="pre">re_process</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">initial_commitments</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#basics.ReflectiveEquilibrium.re_process" title="Permalink to this definition">¶</a></dt>
-<dd><p>Process of finding an RE-state based on given initial commitments.</p>
+<dd><p>Process of finding a reflective equilibrium based on given initial commitments.</p>
 <p>Starting with the initial commitments <span class="math notranslate nohighlight">\(\mathcal{C}_0\)</span> as the initial epistemic state, the epistemic
-state is successively revised until a stopping condition is satisfied.</p>
+state is successively revised until the process is finished (as defined by <a class="reference internal" href="#basics.ReflectiveEquilibrium.finished" title="basics.ReflectiveEquilibrium.finished"><code class="xref py py-func docutils literal notranslate"><span class="pre">finished()</span></code></a>).</p>
 </dd></dl>
 
 <dl class="py method">
@@ -181,6 +265,24 @@ state is successively revised until a stopping condition is satisfied.</p>
 <code class="sig-name descname"><span class="pre">reset_model_parameters</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#basics.ReflectiveEquilibrium.reset_model_parameters" title="Permalink to this definition">¶</a></dt>
 <dd><p>Resetting model parameters.</p>
 <p>Replaces the current model parameters with <code class="code docutils literal notranslate"><span class="pre">paramters</span></code>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="basics.ReflectiveEquilibrium.set_dialectical_structure">
+<code class="sig-name descname"><span class="pre">set_dialectical_structure</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dialectical_structure</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#basics.ReflectiveEquilibrium.set_dialectical_structure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the dialectical structure on which the model is based.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="basics.ReflectiveEquilibrium.set_dirty">
+<code class="sig-name descname"><span class="pre">set_dirty</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dirty</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#basics.ReflectiveEquilibrium.set_dirty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Should be used to indicate whether attributes are reset that demand updating other attributes of the model.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="basics.ReflectiveEquilibrium.set_initial_state">
+<code class="sig-name descname"><span class="pre">set_initial_state</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">initial_commitments</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#basics.ReflectiveEquilibrium.set_initial_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the initial state of the model.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -201,7 +303,7 @@ state differs.</p>
 <dl class="py method">
 <dt id="basics.ReflectiveEquilibrium.state">
 <code class="sig-name descname"><span class="pre">state</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#basics.ReflectiveEquilibrium.state" title="Permalink to this definition">¶</a></dt>
-<dd><p>Getting the current state of the model.</p>
+<dd><p>Getting the current state of the model as <a class="reference internal" href="api-restate.html#basics.REState" title="basics.REState"><code class="xref py py-class docutils literal notranslate"><span class="pre">REState</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><a class="reference internal" href="api-restate.html#basics.REState" title="basics.REState"><code class="xref py py-class docutils literal notranslate"><span class="pre">REState</span></code></a></p>
@@ -218,6 +320,12 @@ state differs.</p>
 <dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Set</span></code>[<a class="reference internal" href="api-position.html#basics.Position" title="basics.Position"><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></a>]</p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="basics.ReflectiveEquilibrium.update">
+<code class="sig-name descname"><span class="pre">update</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#basics.ReflectiveEquilibrium.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Subclasses can extend/override this method to update internal attributes of the model.</p>
 </dd></dl>
 
 </dd></dl>

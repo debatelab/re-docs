@@ -48,10 +48,3 @@ This module provides labels for standard classes and process container.
     :undoc-members:
     :show-inheritance:
 
-:class:`FullBranchREContainer`
-------------------------------
-
-.. autoclass:: model.FullBranchREContainer
-    :members:
-    :undoc-members:
-    :show-inheritance:

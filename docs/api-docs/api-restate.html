@@ -39,7 +39,7 @@
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">basics.</span></code><code class="sig-name descname"><span class="pre">REState</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">finished</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">evolution</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alternatives</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_line</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#basics.REState" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Class that represent the internal state of an RE process.</p>
-<p><em>Remark:</em> The attribute <code class="code docutils literal notranslate"><span class="pre">time_line</span></code> can be used to externally attribute points in time to the steps of
+<p><em>Remark:</em> The attribute <code class="code docutils literal notranslate"><span class="pre">time_line</span></code> can be used to externally assign points in time to the steps of
 the RE process. This feature will be used to coordinate different re processes with each other.</p>
 <dl class="py attribute">
 <dt id="basics.REState.finished">
@@ -131,13 +131,13 @@ timeline.</p>
 <tr class="row-even"><td><p><a class="reference internal" href="#basics.REState.past" title="basics.REState.past"><code class="xref py py-obj docutils literal notranslate"><span class="pre">past</span></code></a>(past)</p></td>
 <td><p>A past state as copy.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#basics.REState.past_commitments" title="basics.REState.past_commitments"><code class="xref py py-obj docutils literal notranslate"><span class="pre">past_commitments</span></code></a>([past])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#basics.REState.past_commitments" title="basics.REState.past_commitments"><code class="xref py py-obj docutils literal notranslate"><span class="pre">past_commitments</span></code></a>([past_step, time])</p></td>
 <td><p>Past commitments.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#basics.REState.past_step" title="basics.REState.past_step"><code class="xref py py-obj docutils literal notranslate"><span class="pre">past_step</span></code></a>(time)</p></td>
 <td><p>A past step according to the timeline.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#basics.REState.past_theory" title="basics.REState.past_theory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">past_theory</span></code></a>([past])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#basics.REState.past_theory" title="basics.REState.past_theory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">past_theory</span></code></a>([past_step, time])</p></td>
 <td><p>Past theory.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#basics.REState.theory_evolution" title="basics.REState.theory_evolution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">theory_evolution</span></code></a>()</p></td>
@@ -302,12 +302,17 @@ timeline.</p>
 
 <dl class="py method">
 <dt id="basics.REState.past_commitments">
-<code class="sig-name descname"><span class="pre">past_commitments</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">past</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#basics.REState.past_commitments" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">past_commitments</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">past_step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#basics.REState.past_commitments" title="Permalink to this definition">¶</a></dt>
 <dd><p>Past commitments.</p>
+<p>Convenience method to access past commitments either by their timeline or by commitment
+steps counting backwards. You have to provide exactly one of the arguments.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>past</strong> (<em>int</em>) – The past counted stepwise beginning from the last commitment (<code class="code docutils literal notranslate"><span class="pre">0</span></code> indicating the
-last commitments, <code class="code docutils literal notranslate"><span class="pre">-1</span></code> the next-to-last commitments and so on).</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>past_step</strong> (<em>int</em>) – The past counted stepwise beginning from the last commitment (<code class="code docutils literal notranslate"><span class="pre">0</span></code> indicating the
+last commitments, <code class="code docutils literal notranslate"><span class="pre">-1</span></code> the next-to-last commitments and so on).</p></li>
+<li><p><strong>time</strong> (<em>int</em>) – The point in time according to <a class="reference internal" href="#basics.REState.evolution" title="basics.REState.evolution"><code class="xref py py-attr docutils literal notranslate"><span class="pre">REState.evolution</span></code></a>.</p></li>
+</ul>
 </dd>
 </dl>
 <dl class="field-list simple">
@@ -324,7 +329,7 @@ last commitments, <code class="code docutils literal notranslate"><span class="p
 <p><em>Remark:</em> The time line of the state maps each step to a point in time on an (external) timeline.
 An re process can, among other things, pause according to this timeline in the case that the states’
 timeline looks e.g. like <code class="code docutils literal notranslate"><span class="pre">[0,1,2,5]</span></code>. Accordingly, the third step persist through the time points
-2,3,4 on the external timeline.</p>
+2,3,4 on the external timeline in this specific example.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>time</strong> (<em>int</em>) – The point in time attributed to the requested step.</p>
@@ -346,12 +351,17 @@ timeline looks e.g. like <code class="code docutils literal notranslate"><span c
 
 <dl class="py method">
 <dt id="basics.REState.past_theory">
-<code class="sig-name descname"><span class="pre">past_theory</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">past</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#basics.REState.past_theory" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">past_theory</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">past_step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#basics.REState.past_theory" title="Permalink to this definition">¶</a></dt>
 <dd><p>Past theory.</p>
+<p>Convenience method to access past theories either by their timeline or by theory
+steps counting backwards. You have to provide exactly one of the arguments.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>past</strong> (<em>int</em>) – The past counted stepwise beginning from the last theory (<code class="code docutils literal notranslate"><span class="pre">0</span></code> indicating the
-last theory, <code class="code docutils literal notranslate"><span class="pre">-1</span></code> the next-to-last theory and so on).</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>past_step</strong> (<em>int</em>) – The past counted stepwise beginning from the last theory (<code class="code docutils literal notranslate"><span class="pre">0</span></code> indicating the
+last theory, <code class="code docutils literal notranslate"><span class="pre">-1</span></code> the next-to-last theory and so on).</p></li>
+<li><p><strong>time</strong> (<em>int</em>) – The point in time according to <a class="reference internal" href="#basics.REState.evolution" title="basics.REState.evolution"><code class="xref py py-attr docutils literal notranslate"><span class="pre">REState.evolution</span></code></a>.</p></li>
+</ul>
 </dd>
 </dl>
 <dl class="field-list simple">
