@@ -6,8 +6,9 @@ The steps are:
 
 1. Getting access to the cluster.
 2. Installation of Anaconda in your home directory of the cluster.
-3. Setting up ssh 
-4. 
+3. Setting up ssh for installing the Python RE packages.
+4. Installing the RE python packages.
+5. Starting simulation using the slurm manager.
 
 This procedure has been tested with Anaconda3 on a Red Hat Enterprise Linux 8.2.
 
