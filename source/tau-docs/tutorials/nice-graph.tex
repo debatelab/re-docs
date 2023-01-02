@@ -1,0 +1,79 @@
+\documentclass{article}
+\usepackage[x11names, rgb]{xcolor}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes}
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{decorations.markings}
+
+\usepackage{amsmath}
+%
+%
+\usepackage[active,tightpage]{preview}
+\PreviewEnvironment{tikzpicture}
+\setlength\PreviewBorder{5pt}%
+%
+
+%\definecolor{attackColor}{RGB}{219,6,10}
+%\definecolor{supportColor}{RGB}{50,144,24}
+
+%\tikzstyle{argument}= [rectangle,rounded corners,draw=black, top color=white, bottom color=black!10, thick, text centered]
+% for using linebreaks with `\\` we use `align = center` (see: https://tex.stackexchange.com/questions/123671/manual-automatic-line-breaks-and-text-alignment-in-tikz-nodes#124114
+\tikzstyle{argument}= [rectangle,rounded corners,draw=black, top color=white, bottom color=black!10, thick, align=center]
+
+%\tikzstyle{attack}= [>=latex',  shorten >=1pt, thick, auto, text=black, decorate, decoration = {snake, amplitude=1pt, segment length=4pt, pre length=2pt,post length=6pt}]
+\tikzstyle{attack}= [>=latex',  shorten >=1pt, thick, auto, text=black, decorate, decoration = {snake, amplitude=0.5pt, segment length=4pt, pre length=2pt,post length=6pt}]
+\tikzstyle{support}= [>=latex',  shorten >=1pt, thick, auto, text=black]
+
+\begin{document}
+\pagestyle{empty}
+%
+%
+%
+
+\enlargethispage{100cm}
+% Start of code
+% \begin{tikzpicture}[anchor=mid,>=latex',join=bevel,]
+\begin{tikzpicture}[>=latex',join=bevel,]
+\pgfsetlinewidth{1bp}
+%%
+\node (NA0) at (16.0bp,66.0bp) [draw,ellipse,argument] {\begin{tabular}{c}2 \\\hline -5\end{tabular}};
+  \node (NT2) at (37.0bp,7.0bp) [draw,ellipse,argument] {5};
+  \node (NA1) at (14.0bp,146.0bp) [draw,ellipse,argument] {\begin{tabular}{c}1 \\3 \\-4 \\\hline 2\end{tabular}};
+  \node (NA2) at (60.0bp,146.0bp) [draw,ellipse,argument] {\begin{tabular}{c}-3 \\-1 \\\hline 5\end{tabular}};
+  \node (NT0) at (18.0bp,217.0bp) [draw,ellipse,argument] {1};
+  \node (NT1) at (56.0bp,217.0bp) [draw,ellipse,argument] {3};
+  \draw [->,attack] (NA0) ..controls (24.568bp,41.745bp) and (28.163bp,31.987bp)  .. (NT2);
+  \draw [->,support] (NA1) ..controls (14.913bp,109.41bp) and (15.146bp,100.32bp)  .. (NA0);
+  \draw [->,support] (NA2) ..controls (51.844bp,96.416bp) and (43.88bp,48.981bp)  .. (NT2);
+  \draw [->,support] (NT0) ..controls (17.283bp,203.64bp) and (16.733bp,194.14bp)  .. (NA1);
+  \draw [->,attack] (NT0) ..controls (26.452bp,202.12bp) and (34.383bp,189.09bp)  .. (NA2);
+  \draw [->,support] (NT1) ..controls (47.787bp,202.51bp) and (40.435bp,190.43bp)  .. (NA1);
+  \draw [->,attack] (NT1) ..controls (56.788bp,202.41bp) and (57.502bp,190.09bp)  .. (NA2);
+%
+\end{tikzpicture}
+% End of code
+
+%
+\end{document}
+%
+<<startfigonlysection>>
+\begin{tikzpicture}[>=latex,join=bevel,]
+\pgfsetlinewidth{1bp}
+%%
+\node (NA0) at (16.0bp,66.0bp) [draw,ellipse,argument] {\begin{tabular}{c}2 \\\hline -5\end{tabular}};
+  \node (NT2) at (37.0bp,7.0bp) [draw,ellipse,argument] {5};
+  \node (NA1) at (14.0bp,146.0bp) [draw,ellipse,argument] {\begin{tabular}{c}1 \\3 \\-4 \\\hline 2\end{tabular}};
+  \node (NA2) at (60.0bp,146.0bp) [draw,ellipse,argument] {\begin{tabular}{c}-3 \\-1 \\\hline 5\end{tabular}};
+  \node (NT0) at (18.0bp,217.0bp) [draw,ellipse,argument] {1};
+  \node (NT1) at (56.0bp,217.0bp) [draw,ellipse,argument] {3};
+  \draw [->,attack] (NA0) ..controls (24.568bp,41.745bp) and (28.163bp,31.987bp)  .. (NT2);
+  \draw [->,support] (NA1) ..controls (14.913bp,109.41bp) and (15.146bp,100.32bp)  .. (NA0);
+  \draw [->,support] (NA2) ..controls (51.844bp,96.416bp) and (43.88bp,48.981bp)  .. (NT2);
+  \draw [->,support] (NT0) ..controls (17.283bp,203.64bp) and (16.733bp,194.14bp)  .. (NA1);
+  \draw [->,attack] (NT0) ..controls (26.452bp,202.12bp) and (34.383bp,189.09bp)  .. (NA2);
+  \draw [->,support] (NT1) ..controls (47.787bp,202.51bp) and (40.435bp,190.43bp)  .. (NA1);
+  \draw [->,attack] (NT1) ..controls (56.788bp,202.41bp) and (57.502bp,190.09bp)  .. (NA2);
+%
+\end{tikzpicture}
+<<endfigonlysection>>

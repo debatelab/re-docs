@@ -1,0 +1,397 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Set Based Implementation &#8212; RE Docs  documentation</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/styles/pydata-sphinx-theme.css" type="text/css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "tex2jax_ignore|mathjax_ignore|document", "processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Utility Methods" href="api-util.html" />
+    <link rel="prev" title="Bitarray Implementation" href="api-bitarray-implementation.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+<a class="navbar-brand" href="../../index.html">
+<p class="title">RE Docs</p>
+</a>
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../tau-docs/index-tau.html">
+  Tau Docs
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="../index-rethon.html">
+  Rethon Docs
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar">
+              <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../tutorials/rethon-tutorials.html">
+   Tutorials
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tutorials/rethon-tutorial.html">
+     Rethon Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tutorials/ensemble-generation-tutorial.html">
+     Ensemble Generation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="api.html">
+   API documentation
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="api-base-core.html">
+     Abstract and Core Classes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api-numpy-implementation.html">
+     Numpy Implementation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api-bitarray-implementation.html">
+     Bitarray Implementation
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Set Based Implementation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api-util.html">
+     Utility Methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api-ensemble-generation.html">
+     Ensemble Generation
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+  </div>
+</nav>
+              </div>
+              <div class="sidebar-end-items">
+              </div>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#globalsetbasedreflectiveequilibrium">
+   GlobalSetBasedReflectiveEquilibrium
+  </a>
+ </li>
+</ul>
+
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="set-based-implementation">
+<h1>Set Based Implementation<a class="headerlink" href="#set-based-implementation" title="Permalink to this headline">#</a></h1>
+<div class="section" id="globalsetbasedreflectiveequilibrium">
+<h2>GlobalSetBasedReflectiveEquilibrium<a class="headerlink" href="#globalsetbasedreflectiveequilibrium" title="Permalink to this headline">#</a></h2>
+<dl class="py class">
+<dt id="rethon.GlobalSetBasedReflectiveEquilibrium">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">rethon.</span></code><code class="sig-name descname"><span class="pre">GlobalSetBasedReflectiveEquilibrium</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dialectical_structure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_commitments</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'GlobalStandardReflectiveEquilibrium'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.GlobalSetBasedReflectiveEquilibrium" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">rethon.base.GlobalReflectiveEquilibrium</span></code></p>
+<p class="rubric">Methods</p>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">account</span></code>(commitments, theory)</p></td>
+<td><p>Account of the theory w.r.t.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">achievement</span></code>(commitments, theory, …)</p></td>
+<td><p>The achievement function <span class="math notranslate nohighlight">\(Z\)</span>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">commitment_candidates</span></code>(**kwargs)</p></td>
+<td><p>Implements <code class="xref py py-func docutils literal notranslate"><span class="pre">basics.ReflectiveEquilibrium.commitment_candidates()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">default_model_parameters</span></code>()</p></td>
+<td><p>Default model parameters of the standard model.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">dialectical_structure</span></code>()</p></td>
+<td><p>Return the dialectical structure on which the model is based.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">faithfulness</span></code>(commitments, initial_commitments)</p></td>
+<td><p>Faithfulness of the commitments w.r.t.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">finished</span></code>([re_states])</p></td>
+<td><p>Implements <a class="reference internal" href="api-base-core.html#rethon.ReflectiveEquilibrium.finished" title="rethon.ReflectiveEquilibrium.finished"><code class="xref py py-func docutils literal notranslate"><span class="pre">ReflectiveEquilibrium.finished()</span></code></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">global_optima</span></code>(initial_commitments)</p></td>
+<td><p>Searches for globally optimal theory-commitment pairs (according to the achievement function).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">hamming_distance</span></code>(position1, position2, penalties)</p></td>
+<td><p>The weighted Hamming distance.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_dirty</span></code>()</p></td>
+<td><p>Checks whether the model demand an update of internal attributes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_name</span></code>()</p></td>
+<td><p>Model name.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_parameter</span></code>(name)</p></td>
+<td><p>Returns model parameters by names.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_parameter_names</span></code>()</p></td>
+<td><p>Returns names (keys) of the model parameters.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_parameters</span></code>()</p></td>
+<td><p>Getting all model parameters as dict.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_parameters_set_to_default</span></code>()</p></td>
+<td><p>Resets the model parameters to their default values.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">next_step</span></code>([time])</p></td>
+<td><p>Triggers search for next commitments/theory.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rethon.GlobalSetBasedReflectiveEquilibrium.penalty" title="rethon.GlobalSetBasedReflectiveEquilibrium.penalty"><code class="xref py py-obj docutils literal notranslate"><span class="pre">penalty</span></code></a>(position1, position2, sentence, …)</p></td>
+<td><p>A penalty function.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">pick_commitment_candidate</span></code>(…)</p></td>
+<td><p>Implements :py:func:ReflectiveEquilibrium.pick_commitment_candidate.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">pick_theory_candidate</span></code>(theory_candidates, …)</p></td>
+<td><p>Implements :py:func:ReflectiveEquilibrium.pick_theory_candidate.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">re_process</span></code>([initial_commitments])</p></td>
+<td><p>Process of finding a reflective equilibrium based on given initial commitments.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset_model_parameters</span></code>(parameters)</p></td>
+<td><p>Resetting model parameters.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_dialectical_structure</span></code>(dialectical_structure)</p></td>
+<td><p>Set the dialectical structure on which the model is based.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_dirty</span></code>(dirty)</p></td>
+<td><p>Should be used to indicate whether attributes are reset that demand updating other attributes of the model.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_initial_state</span></code>(initial_commitments)</p></td>
+<td><p>Set the initial state of the model.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_model_parameters</span></code>([parameters])</p></td>
+<td><p>Setting model parameters either by a dictionary or key-value pairs.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_state</span></code>(state)</p></td>
+<td><p>Setting the current state of the model.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">state</span></code>()</p></td>
+<td><p>Getting the current state of the model as <a class="reference internal" href="api-base-core.html#rethon.REState" title="rethon.REState"><code class="xref py py-class docutils literal notranslate"><span class="pre">REState</span></code></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">systematicity</span></code>(theory)</p></td>
+<td><p>Systematicity of the theory.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">theory_candidates</span></code>(**kwargs)</p></td>
+<td><p>Implements <code class="xref py py-func docutils literal notranslate"><span class="pre">basics.ReflectiveEquilibrium.theory_candidates()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">update</span></code>()</p></td>
+<td><p>Implements <code class="xref py py-func docutils literal notranslate"><span class="pre">basics.ReflectiveEquilibrium.update()</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="rethon.GlobalSetBasedReflectiveEquilibrium.penalty">
+<code class="sig-name descname"><span class="pre">penalty</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sentence</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">penalties</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.GlobalSetBasedReflectiveEquilibrium.penalty" title="Permalink to this definition">#</a></dt>
+<dd><p>A penalty function.</p>
+<p>The penalty function calculates a penalty value for two sentences of two positions given a list of penalty-value
+and is defined by</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}d_{{d_0,d_1,d_2,d_3}}(\mathcal{A}, \mathcal{B}, \{s,\neg s\}):=         \begin{cases} d_3 \text{ if } \{s,\neg s\}\subset(\mathcal{A}\cup \mathcal{B}),        \\ d_2 \text{ if } \{s,\neg s\}\cap \mathcal{A} \neq \emptyset \text{ and }         \{s,\neg s\}\cap \mathcal{B} = \emptyset,         \\ d_3 \text{ if } \{s,\neg s\}\cap \mathcal{A} = \emptyset \text{ and }         \{s,\neg s\}\cap \mathcal{B} \neq \emptyset,         \\ d_0 \text{ otherwise.}\end{cases}\end{split}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>position1</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code>) – </p></li>
+<li><p><strong>position2</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code>) – </p></li>
+<li><p><strong>sentence</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – The index of the sentences with both positions.</p></li>
+<li><p><strong>penalties</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]) – A float-list of penalty values.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+              </div>
+              
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2023, Claus Beisbart, Gregor Betz, Georg Brun, Sebastian Cacean, Andreas Freivogel, Richard Lohse.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.4.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>

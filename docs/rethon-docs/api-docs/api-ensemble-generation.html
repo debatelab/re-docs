@@ -1,0 +1,1485 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ensemble Generation &#8212; RE Docs  documentation</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/styles/pydata-sphinx-theme.css" type="text/css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "tex2jax_ignore|mathjax_ignore|document", "processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="Utility Methods" href="api-util.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+<a class="navbar-brand" href="../../index.html">
+<p class="title">RE Docs</p>
+</a>
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../tau-docs/index-tau.html">
+  Tau Docs
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="../index-rethon.html">
+  Rethon Docs
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar">
+              <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../tutorials/rethon-tutorials.html">
+   Tutorials
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tutorials/rethon-tutorial.html">
+     Rethon Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tutorials/ensemble-generation-tutorial.html">
+     Ensemble Generation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="api.html">
+   API documentation
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="api-base-core.html">
+     Abstract and Core Classes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api-numpy-implementation.html">
+     Numpy Implementation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api-bitarray-implementation.html">
+     Bitarray Implementation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api-setbased-implementation.html">
+     Set Based Implementation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api-util.html">
+     Utility Methods
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Ensemble Generation
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+  </div>
+</nav>
+              </div>
+              <div class="sidebar-end-items">
+              </div>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#abstractensemblegenerator">
+   AbstractEnsembleGenerator
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ensemblegenerator">
+   EnsembleGenerator
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#simpleensemblegenerator">
+   SimpleEnsembleGenerator
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#globalreensemblegenerator">
+   GlobalREEnsembleGenerator
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#localreensemblegenerator">
+   LocalREEnsembleGenerator
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#simplemultiagentrecontainer">
+   SimpleMultiAgentREContainer
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#multiagentensemblesgenerator">
+   MultiAgentEnsemblesGenerator
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#simplemultiagentensemblesgenerator">
+   SimpleMultiAgentEnsemblesGenerator
+  </a>
+ </li>
+</ul>
+
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="ensemble-generation">
+<h1>Ensemble Generation<a class="headerlink" href="#ensemble-generation" title="Permalink to this headline">#</a></h1>
+<div class="section" id="abstractensemblegenerator">
+<h2>AbstractEnsembleGenerator<a class="headerlink" href="#abstractensemblegenerator" title="Permalink to this headline">#</a></h2>
+<dl class="py class">
+<dt id="rethon.AbstractEnsembleGenerator">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">rethon.</span></code><code class="sig-name descname"><span class="pre">AbstractEnsembleGenerator</span></code><a class="headerlink" href="#rethon.AbstractEnsembleGenerator" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<p>Abstract base class for all ensemble generators.</p>
+<p>This abstract class should be used to implement ensemble generators. It implements basic functionalities to
+add data items that will be used to generate dictionaries for each model run and that will contain information
+about each model run according to the specified data items. Data items (key-value pairs in the produced dict)
+can be defined by specifying a key and a function that returns the desired data (see <a class="reference internal" href="#rethon.AbstractEnsembleGenerator.add_item" title="rethon.AbstractEnsembleGenerator.add_item"><code class="xref py py-func docutils literal notranslate"><span class="pre">add_item()</span></code></a>).</p>
+<p class="rubric">Methods</p>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rethon.AbstractEnsembleGenerator.add_item" title="rethon.AbstractEnsembleGenerator.add_item"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_item</span></code></a>(key, fun)</p></td>
+<td><p>Adds a data item.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rethon.AbstractEnsembleGenerator.add_obj" title="rethon.AbstractEnsembleGenerator.add_obj"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_obj</span></code></a>(key, obj)</p></td>
+<td><p>Adding a data object.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rethon.AbstractEnsembleGenerator.dialectical_structure" title="rethon.AbstractEnsembleGenerator.dialectical_structure"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dialectical_structure</span></code></a>()</p></td>
+<td><p>Current dialectical structure when iterating through model runs.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rethon.AbstractEnsembleGenerator.ensemble_items_iter" title="rethon.AbstractEnsembleGenerator.ensemble_items_iter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ensemble_items_iter</span></code></a>()</p></td>
+<td><p>Iterator through data items of model runs.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rethon.AbstractEnsembleGenerator.ensemble_items_to_csv" title="rethon.AbstractEnsembleGenerator.ensemble_items_to_csv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ensemble_items_to_csv</span></code></a>(output_file_name, …)</p></td>
+<td><p>Saving model runs as csv file.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rethon.AbstractEnsembleGenerator.ensemble_iter" title="rethon.AbstractEnsembleGenerator.ensemble_iter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ensemble_iter</span></code></a>()</p></td>
+<td><p>Iterator through all model runs.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rethon.AbstractEnsembleGenerator.ensemble_states" title="rethon.AbstractEnsembleGenerator.ensemble_states"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ensemble_states</span></code></a>()</p></td>
+<td><p>Current ensemble states when iterating through the model runs.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rethon.AbstractEnsembleGenerator.get_item" title="rethon.AbstractEnsembleGenerator.get_item"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_item</span></code></a>(key)</p></td>
+<td><p>Returns the return value of the function that is defined by the data item.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rethon.AbstractEnsembleGenerator.get_obj" title="rethon.AbstractEnsembleGenerator.get_obj"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_obj</span></code></a>(key)</p></td>
+<td><p>Returns a data object.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rethon.AbstractEnsembleGenerator.init_ensemble_fields" title="rethon.AbstractEnsembleGenerator.init_ensemble_fields"><code class="xref py py-obj docutils literal notranslate"><span class="pre">init_ensemble_fields</span></code></a>(ensemble_states, …)</p></td>
+<td><p>Initiating data objects that rely on the dialectical structure and a set of finished model runs.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rethon.AbstractEnsembleGenerator.init_re_final_fields" title="rethon.AbstractEnsembleGenerator.init_re_final_fields"><code class="xref py py-obj docutils literal notranslate"><span class="pre">init_re_final_fields</span></code></a>(reflective_equilibrium, …)</p></td>
+<td><p>Initiating data objects that rely on the dialectical structure and a finished model run.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rethon.AbstractEnsembleGenerator.init_re_start_fields" title="rethon.AbstractEnsembleGenerator.init_re_start_fields"><code class="xref py py-obj docutils literal notranslate"><span class="pre">init_re_start_fields</span></code></a>(reflective_equilibrium, …)</p></td>
+<td><p>Initiating data objects that rely on the dialectical structure and an instantied RE.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rethon.AbstractEnsembleGenerator.init_tau_fields" title="rethon.AbstractEnsembleGenerator.init_tau_fields"><code class="xref py py-obj docutils literal notranslate"><span class="pre">init_tau_fields</span></code></a>(tau)</p></td>
+<td><p>Initiating data objects that rely on the dialectical structure.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rethon.AbstractEnsembleGenerator.initial_commitments" title="rethon.AbstractEnsembleGenerator.initial_commitments"><code class="xref py py-obj docutils literal notranslate"><span class="pre">initial_commitments</span></code></a>()</p></td>
+<td><p>Current initial commitments when iterating through the model runs.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rethon.AbstractEnsembleGenerator.reflective_equilibrium" title="rethon.AbstractEnsembleGenerator.reflective_equilibrium"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reflective_equilibrium</span></code></a>()</p></td>
+<td><p>Current state when iterating through the model runs.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rethon.AbstractEnsembleGenerator.remove_item" title="rethon.AbstractEnsembleGenerator.remove_item"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_item</span></code></a>(key)</p></td>
+<td><p>Removing a data item.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rethon.AbstractEnsembleGenerator.state" title="rethon.AbstractEnsembleGenerator.state"><code class="xref py py-obj docutils literal notranslate"><span class="pre">state</span></code></a>()</p></td>
+<td><p>Current state when iterating through model runs.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="rethon.AbstractEnsembleGenerator.add_item">
+<code class="sig-name descname"><span class="pre">add_item</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fun</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.AbstractEnsembleGenerator.add_item" title="Permalink to this definition">#</a></dt>
+<dd><p>Adds a data item.</p>
+<p>Adding a key-method pair that will be used to calculate a data item. Data items will be returned for each model
+run by <a class="reference internal" href="#rethon.AbstractEnsembleGenerator.ensemble_items_iter" title="rethon.AbstractEnsembleGenerator.ensemble_items_iter"><code class="xref py py-func docutils literal notranslate"><span class="pre">ensemble_items_iter()</span></code></a>. A data item represents data that describes a model run in some way. It
+can be defined by providing a function that can use the internal attributes (e.g. via its getters
+<a class="reference internal" href="#rethon.AbstractEnsembleGenerator.state" title="rethon.AbstractEnsembleGenerator.state"><code class="xref py py-func docutils literal notranslate"><span class="pre">state()</span></code></a>, <a class="reference internal" href="#rethon.AbstractEnsembleGenerator.dialectical_structure" title="rethon.AbstractEnsembleGenerator.dialectical_structure"><code class="xref py py-func docutils literal notranslate"><span class="pre">dialectical_structure()</span></code></a>, <a class="reference internal" href="#rethon.AbstractEnsembleGenerator.reflective_equilibrium" title="rethon.AbstractEnsembleGenerator.reflective_equilibrium"><code class="xref py py-func docutils literal notranslate"><span class="pre">reflective_equilibrium()</span></code></a>,
+<a class="reference internal" href="#rethon.AbstractEnsembleGenerator.initial_commitments" title="rethon.AbstractEnsembleGenerator.initial_commitments"><code class="xref py py-func docutils literal notranslate"><span class="pre">initial_commitments()</span></code></a> and <a class="reference internal" href="#rethon.AbstractEnsembleGenerator.ensemble_states" title="rethon.AbstractEnsembleGenerator.ensemble_states"><code class="xref py py-func docutils literal notranslate"><span class="pre">ensemble_states()</span></code></a>) and deposited objects (via
+<a class="reference internal" href="#rethon.AbstractEnsembleGenerator.add_obj" title="rethon.AbstractEnsembleGenerator.add_obj"><code class="xref py py-func docutils literal notranslate"><span class="pre">add_obj()</span></code></a>). The function should specify an <a class="reference internal" href="#rethon.AbstractEnsembleGenerator" title="rethon.AbstractEnsembleGenerator"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractEnsembleGenerator</span></code></a>
+as its one argument.</p>
+<p>A simple example is the following:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># defining the function</span>
+<span class="k">def</span> <span class="nf">data_last_coms</span><span class="p">(</span><span class="n">ensemble_generator</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">ensemble_generator</span><span class="o">.</span><span class="n">state</span><span class="p">()</span><span class="o">.</span><span class="n">last_commitments</span><span class="p">()</span>
+
+<span class="c1"># adding the data item</span>
+<span class="n">my_ensemble_generator</span><span class="o">.</span><span class="n">add_item</span><span class="p">(</span><span class="s1">&#39;last_coms&#39;</span><span class="p">,</span> <span class="n">data_last_coms</span><span class="p">)</span>
+
+<span class="c1"># looping through the ensemble using the item_iter will now</span>
+<span class="c1"># have a key-value pair that stores the final commitments</span>
+<span class="c1"># for each model run</span>
+<span class="k">for</span> <span class="n">model_run_data_items</span> <span class="ow">in</span> <span class="n">my_ensemble_generator</span><span class="o">.</span><span class="n">ensemble_items_iter</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The model run produced the following data items:&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">model_run_data_items</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> (<em>str</em>) – A key for the data item.</p></li>
+<li><p><strong>fun</strong> (<em>Callable</em><em>[</em><em>[</em><a class="reference internal" href="#rethon.AbstractEnsembleGenerator" title="rethon.AbstractEnsembleGenerator"><em>AbstractEnsembleGenerator</em></a><em>]</em><em>, </em><em>None</em><em>]</em>) – A function that defines a datum of a model run.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.AbstractEnsembleGenerator.add_obj">
+<code class="sig-name descname"><span class="pre">add_obj</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.AbstractEnsembleGenerator.add_obj" title="Permalink to this definition">#</a></dt>
+<dd><p>Adding a data object.</p>
+<p>This method can be used to store data objects that persists through different model runs and can then be accessed
+via <a class="reference internal" href="#rethon.AbstractEnsembleGenerator.get_obj" title="rethon.AbstractEnsembleGenerator.get_obj"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_obj()</span></code></a>. See <a class="reference internal" href="#rethon.AbstractEnsembleGenerator.init_tau_fields" title="rethon.AbstractEnsembleGenerator.init_tau_fields"><code class="xref py py-func docutils literal notranslate"><span class="pre">init_tau_fields()</span></code></a> for the rationale of using data objects.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>key</strong> (<em>str</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.AbstractEnsembleGenerator.dialectical_structure">
+<code class="sig-name descname"><span class="pre">dialectical_structure</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rethon.AbstractEnsembleGenerator.dialectical_structure" title="Permalink to this definition">#</a></dt>
+<dd><p>Current dialectical structure when iterating through model runs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">DialecticalStructure</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.AbstractEnsembleGenerator.ensemble_items_iter">
+<code class="sig-name descname"><span class="pre">ensemble_items_iter</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rethon.AbstractEnsembleGenerator.ensemble_items_iter" title="Permalink to this definition">#</a></dt>
+<dd><p>Iterator through data items of model runs.</p>
+<p>This methods uses <a class="reference internal" href="#rethon.AbstractEnsembleGenerator.ensemble_iter" title="rethon.AbstractEnsembleGenerator.ensemble_iter"><code class="xref py py-func docutils literal notranslate"><span class="pre">ensemble_iter()</span></code></a> to return for each model run a dictionary with
+predefined data items as key-value pairs. The data items can be added with <a class="reference internal" href="#rethon.AbstractEnsembleGenerator.add_item" title="rethon.AbstractEnsembleGenerator.add_item"><code class="xref py py-func docutils literal notranslate"><span class="pre">add_item()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.AbstractEnsembleGenerator.ensemble_items_to_csv">
+<code class="sig-name descname"><span class="pre">ensemble_items_to_csv</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output_file_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dir_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">archive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_preliminary_results</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preliminary_results_interval</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">500</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">append</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.AbstractEnsembleGenerator.ensemble_items_to_csv" title="Permalink to this definition">#</a></dt>
+<dd><p>Saving model runs as csv file.</p>
+<p>Using <a class="reference internal" href="#rethon.AbstractEnsembleGenerator.ensemble_items_iter" title="rethon.AbstractEnsembleGenerator.ensemble_items_iter"><code class="xref py py-func docutils literal notranslate"><span class="pre">ensemble_items_iter()</span></code></a> to save the data items of each model run as csv file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>output_file_name</strong> (<em>str</em>) – Name of the csv file.</p></li>
+<li><p><strong>output_dir_name</strong> (<em>str</em>) – Directory of the csv file.</p></li>
+<li><p><strong>archive</strong> (<em>bool</em>) – If <code class="code docutils literal notranslate"><span class="pre">True</span></code> the csv file will be archived as <cite>tar.gz</cite>. The csv file will not be removed.</p></li>
+<li><p><strong>save_preliminary_results</strong> (<em>bool</em>) – If <code class="code docutils literal notranslate"><span class="pre">True</span></code> the method will save preliminary results every other
+model run as defined by <code class="code docutils literal notranslate"><span class="pre">preliminary_results_interval</span></code>.</p></li>
+<li><p><strong>append</strong> (<em>bool</em>) – If <code class="code docutils literal notranslate"><span class="pre">True</span></code> the rows will be added to the file (if it already exists).</p></li>
+<li><p><strong>preliminary_results_interval</strong> (<em>int</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.AbstractEnsembleGenerator.ensemble_iter">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">ensemble_iter</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rethon.AbstractEnsembleGenerator.ensemble_iter" title="Permalink to this definition">#</a></dt>
+<dd><p>Iterator through all model runs.</p>
+<p>This method should be overriden by subclasses and is responsible to call <a class="reference internal" href="#rethon.AbstractEnsembleGenerator.init_tau_fields" title="rethon.AbstractEnsembleGenerator.init_tau_fields"><code class="xref py py-func docutils literal notranslate"><span class="pre">init_tau_fields()</span></code></a>,
+<a class="reference internal" href="#rethon.AbstractEnsembleGenerator.init_re_start_fields" title="rethon.AbstractEnsembleGenerator.init_re_start_fields"><code class="xref py py-func docutils literal notranslate"><span class="pre">init_re_start_fields()</span></code></a>, <a class="reference internal" href="#rethon.AbstractEnsembleGenerator.init_re_final_fields" title="rethon.AbstractEnsembleGenerator.init_re_final_fields"><code class="xref py py-func docutils literal notranslate"><span class="pre">init_re_final_fields()</span></code></a> and <a class="reference internal" href="#rethon.AbstractEnsembleGenerator.init_ensemble_fields" title="rethon.AbstractEnsembleGenerator.init_ensemble_fields"><code class="xref py py-func docutils literal notranslate"><span class="pre">init_ensemble_fields()</span></code></a> at
+appropriate times. Addionally, it should reset the internal attributes <code class="xref py py-attr docutils literal notranslate"><span class="pre">current_dialectical_structure</span></code>,
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">current_state</span></code>, <code class="xref py py-attr docutils literal notranslate"><span class="pre">current_reflective_equilibrium</span></code>, <code class="xref py py-attr docutils literal notranslate"><span class="pre">current_initial_commitments</span></code> and
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">current_ensemble_states</span></code> that can be used to define data item (see <a class="reference internal" href="#rethon.AbstractEnsembleGenerator.add_item" title="rethon.AbstractEnsembleGenerator.add_item"><code class="xref py py-func docutils literal notranslate"><span class="pre">add_item()</span></code></a>).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ReflectiveEquilibrium</span></code>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.AbstractEnsembleGenerator.ensemble_states">
+<code class="sig-name descname"><span class="pre">ensemble_states</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rethon.AbstractEnsembleGenerator.ensemble_states" title="Permalink to this definition">#</a></dt>
+<dd><p>Current ensemble states when iterating through the model runs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">REState</span></code>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.AbstractEnsembleGenerator.get_item">
+<code class="sig-name descname"><span class="pre">get_item</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.AbstractEnsembleGenerator.get_item" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns the return value of the function that is defined by the data item.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.AbstractEnsembleGenerator.get_obj">
+<code class="sig-name descname"><span class="pre">get_obj</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.AbstractEnsembleGenerator.get_obj" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns a data object.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.AbstractEnsembleGenerator.init_ensemble_fields">
+<code class="sig-name descname"><span class="pre">init_ensemble_fields</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ensemble_states</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dialectical_structure</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.AbstractEnsembleGenerator.init_ensemble_fields" title="Permalink to this definition">#</a></dt>
+<dd><p>Initiating data objects that rely on the dialectical structure and a set of finished model runs.</p>
+<p>This method can be called by implementations of <a class="reference internal" href="#rethon.AbstractEnsembleGenerator.ensemble_iter" title="rethon.AbstractEnsembleGenerator.ensemble_iter"><code class="xref py py-func docutils literal notranslate"><span class="pre">ensemble_iter()</span></code></a> and can be used to store objects
+by <a class="reference internal" href="#rethon.AbstractEnsembleGenerator.add_obj" title="rethon.AbstractEnsembleGenerator.add_obj"><code class="xref py py-func docutils literal notranslate"><span class="pre">add_obj()</span></code></a> that in turn can be accessed by <a class="reference internal" href="#rethon.AbstractEnsembleGenerator.get_obj" title="rethon.AbstractEnsembleGenerator.get_obj"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_obj()</span></code></a> in the definition of data items.
+Implementing classes should ensure that all models that are aggregated in a sub-ensemble finished in
+fixed points. (For a rationale of why using this method, see <a class="reference internal" href="#rethon.AbstractEnsembleGenerator.init_tau_fields" title="rethon.AbstractEnsembleGenerator.init_tau_fields"><code class="xref py py-func docutils literal notranslate"><span class="pre">init_tau_fields()</span></code></a>.)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ensemble_states</strong> (<em>List</em><em>[</em><em>rethon.base.REState</em><em>]</em>) – </p></li>
+<li><p><strong>dialectical_structure</strong> (<em>tau.base.DialecticalStructure</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.AbstractEnsembleGenerator.init_re_final_fields">
+<code class="sig-name descname"><span class="pre">init_re_final_fields</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reflective_equilibrium</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dialectical_structure</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.AbstractEnsembleGenerator.init_re_final_fields" title="Permalink to this definition">#</a></dt>
+<dd><p>Initiating data objects that rely on the dialectical structure and a finished model run.</p>
+<p>This method can be called by implementations of <a class="reference internal" href="#rethon.AbstractEnsembleGenerator.ensemble_iter" title="rethon.AbstractEnsembleGenerator.ensemble_iter"><code class="xref py py-func docutils literal notranslate"><span class="pre">ensemble_iter()</span></code></a> and can be used to store objects
+by <a class="reference internal" href="#rethon.AbstractEnsembleGenerator.add_obj" title="rethon.AbstractEnsembleGenerator.add_obj"><code class="xref py py-func docutils literal notranslate"><span class="pre">add_obj()</span></code></a> that in turn can be accessed by <a class="reference internal" href="#rethon.AbstractEnsembleGenerator.get_obj" title="rethon.AbstractEnsembleGenerator.get_obj"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_obj()</span></code></a> in the definition of data items.
+Implementing classes should ensure that the model represented by <code class="code docutils literal notranslate"><span class="pre">reflective_equilibrium</span></code> finished in
+a fixed point. (For a rationale of why using this method, see <a class="reference internal" href="#rethon.AbstractEnsembleGenerator.init_tau_fields" title="rethon.AbstractEnsembleGenerator.init_tau_fields"><code class="xref py py-func docutils literal notranslate"><span class="pre">init_tau_fields()</span></code></a>.)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>reflective_equilibrium</strong> (<em>rethon.base.ReflectiveEquilibrium</em>) – </p></li>
+<li><p><strong>dialectical_structure</strong> (<em>tau.base.DialecticalStructure</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.AbstractEnsembleGenerator.init_re_start_fields">
+<code class="sig-name descname"><span class="pre">init_re_start_fields</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reflective_equilibrium</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dialectical_structure</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.AbstractEnsembleGenerator.init_re_start_fields" title="Permalink to this definition">#</a></dt>
+<dd><p>Initiating data objects that rely on the dialectical structure and an instantied RE.</p>
+<p>This method can be called by implementations of <a class="reference internal" href="#rethon.AbstractEnsembleGenerator.ensemble_iter" title="rethon.AbstractEnsembleGenerator.ensemble_iter"><code class="xref py py-func docutils literal notranslate"><span class="pre">ensemble_iter()</span></code></a> and can be used to store objects
+by <a class="reference internal" href="#rethon.AbstractEnsembleGenerator.add_obj" title="rethon.AbstractEnsembleGenerator.add_obj"><code class="xref py py-func docutils literal notranslate"><span class="pre">add_obj()</span></code></a> that in turn can be accessed by <a class="reference internal" href="#rethon.AbstractEnsembleGenerator.get_obj" title="rethon.AbstractEnsembleGenerator.get_obj"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_obj()</span></code></a> in the definition of data items.
+Implementing classes should ensure that at least the initial commitments and model parameters of the
+RE instance are already set. (For a rationale of why using this method, see <a class="reference internal" href="#rethon.AbstractEnsembleGenerator.init_tau_fields" title="rethon.AbstractEnsembleGenerator.init_tau_fields"><code class="xref py py-func docutils literal notranslate"><span class="pre">init_tau_fields()</span></code></a>.)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>reflective_equilibrium</strong> (<em>rethon.base.ReflectiveEquilibrium</em>) – </p></li>
+<li><p><strong>dialectical_structure</strong> (<em>tau.base.DialecticalStructure</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.AbstractEnsembleGenerator.init_tau_fields">
+<code class="sig-name descname"><span class="pre">init_tau_fields</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tau</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.AbstractEnsembleGenerator.init_tau_fields" title="Permalink to this definition">#</a></dt>
+<dd><p>Initiating data objects that rely on the dialectical structure.</p>
+<p>This method can be called by implementations of <a class="reference internal" href="#rethon.AbstractEnsembleGenerator.ensemble_iter" title="rethon.AbstractEnsembleGenerator.ensemble_iter"><code class="xref py py-func docutils literal notranslate"><span class="pre">ensemble_iter()</span></code></a> and can be used to store objects
+by <a class="reference internal" href="#rethon.AbstractEnsembleGenerator.add_obj" title="rethon.AbstractEnsembleGenerator.add_obj"><code class="xref py py-func docutils literal notranslate"><span class="pre">add_obj()</span></code></a> that in turn can be accessed by <a class="reference internal" href="#rethon.AbstractEnsembleGenerator.get_obj" title="rethon.AbstractEnsembleGenerator.get_obj"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_obj()</span></code></a> in the definition of data items.</p>
+<p>The idea is to reuse data instead of recalculating it in every model run inasmuch (depending on the
+implementation of this class) several model runs can be based on the same dialectical structure <span class="math notranslate nohighlight">\(\tau\)</span>.
+Accordingly, implementations of <a class="reference internal" href="#rethon.AbstractEnsembleGenerator.ensemble_iter" title="rethon.AbstractEnsembleGenerator.ensemble_iter"><code class="xref py py-func docutils literal notranslate"><span class="pre">ensemble_iter()</span></code></a> should call this method once for every model run
+that is based on a particular dialectical structure. A subclass, say <code class="code docutils literal notranslate"><span class="pre">MyEnsembleGenerator</span></code>,
+can then override this method:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">init_tau_fields</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tau</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">add_obj</span><span class="p">(</span><span class="s1">&#39;inferential_density&#39;</span><span class="p">,</span>
+                 <span class="n">tau</span><span class="o">.</span><span class="n">inferential_density</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>The implementation can then access this object in the definition of data items, for instance:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">generator</span> <span class="o">=</span> <span class="n">MyEnsembleGenerator</span><span class="p">()</span>
+<span class="n">generator</span><span class="o">.</span><span class="n">add_item</span><span class="p">(</span><span class="s1">&#39;calculated_inferential_density&#39;</span><span class="p">,</span>
+                   <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">get_obj</span><span class="p">(</span><span class="s1">&#39;inferential_density&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.AbstractEnsembleGenerator.initial_commitments">
+<code class="sig-name descname"><span class="pre">initial_commitments</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rethon.AbstractEnsembleGenerator.initial_commitments" title="Permalink to this definition">#</a></dt>
+<dd><p>Current initial commitments when iterating through the model runs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.AbstractEnsembleGenerator.reflective_equilibrium">
+<code class="sig-name descname"><span class="pre">reflective_equilibrium</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rethon.AbstractEnsembleGenerator.reflective_equilibrium" title="Permalink to this definition">#</a></dt>
+<dd><p>Current state when iterating through the model runs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ReflectiveEquilibrium</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.AbstractEnsembleGenerator.remove_item">
+<code class="sig-name descname"><span class="pre">remove_item</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.AbstractEnsembleGenerator.remove_item" title="Permalink to this definition">#</a></dt>
+<dd><p>Removing a data item.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>key</strong> (<em>str</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.AbstractEnsembleGenerator.state">
+<code class="sig-name descname"><span class="pre">state</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rethon.AbstractEnsembleGenerator.state" title="Permalink to this definition">#</a></dt>
+<dd><p>Current state when iterating through model runs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">REState</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="ensemblegenerator">
+<h2>EnsembleGenerator<a class="headerlink" href="#ensemblegenerator" title="Permalink to this headline">#</a></h2>
+<dl class="py class">
+<dt id="rethon.EnsembleGenerator">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">rethon.</span></code><code class="sig-name descname"><span class="pre">EnsembleGenerator</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arguments_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_sentence_pool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_commitments_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_parameters_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">create_branches</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">implementations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.EnsembleGenerator" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">rethon.ensemble_generation.AbstractEnsembleGenerator</span></code></p>
+<p>Ensemble generator base class for independent model runs.</p>
+<p>A class that provides iterators for model runs based on the given parameters of the constructor. The iterator
+will be build as a cartesian product of these arguments (see <a class="reference internal" href="#rethon.EnsembleGenerator.ensemble_iter" title="rethon.EnsembleGenerator.ensemble_iter"><code class="xref py py-func docutils literal notranslate"><span class="pre">EnsembleGenerator.ensemble_iter()</span></code></a>). The
+model runs of the ensemble are all based on the same sentence pool. If you whish to generate ensemble
+with differing sentence pool, you can concatenate instances of this class.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>arguments_list</strong> – Dialectical structures as list of argument lists.</p></li>
+<li><p><strong>n_sentence_pool</strong> – Number of (unnegated) sentences in the sentence pool.</p></li>
+<li><p><strong>initial_commitments_list</strong> – List of initial commitments. Each commitments is represent as set of integers.</p></li>
+<li><p><strong>model_parameters_list</strong> – A list of dictionaries that represents the model parameters and can be set by
+<code class="xref py py-func docutils literal notranslate"><span class="pre">ReflectiveEquilibrium.set_model_parameter()</span></code>.</p></li>
+<li><p><strong>create_branches</strong> – If <code class="code docutils literal notranslate"><span class="pre">True</span></code> all branches are created.</p></li>
+<li><p><strong>implementations</strong> – A list of dicts, each representing a specific implementation. Each dict should contain
+strings for the keys ‘tau_module_name’, ‘rethon_module_name’, ‘position_class_name’,
+‘dialectical_structure_class_name’
+and ‘reflective_equilibrium_class_name’. (If these classes are located in different modules, you can,
+alternatively, specify modules for each class by using the keys ‘position_module_name’,
+‘dialectical_structure_module_name’ and ‘reflective_equilibrium_module_name’)</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_item</span></code>(key, fun)</p></td>
+<td><p>Adds a data item.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_obj</span></code>(key, obj)</p></td>
+<td><p>Adding a data object.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">dialectical_structure</span></code>()</p></td>
+<td><p>Current dialectical structure when iterating through model runs.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ensemble_items_iter</span></code>()</p></td>
+<td><p>Iterator through data items of model runs.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ensemble_items_to_csv</span></code>(output_file_name, …)</p></td>
+<td><p>Saving model runs as csv file.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rethon.EnsembleGenerator.ensemble_iter" title="rethon.EnsembleGenerator.ensemble_iter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ensemble_iter</span></code></a>()</p></td>
+<td><p>Iterator through re processes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ensemble_states</span></code>()</p></td>
+<td><p>Current ensemble states when iterating through the model runs.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_item</span></code>(key)</p></td>
+<td><p>Returns the return value of the function that is defined by the data item.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_obj</span></code>(key)</p></td>
+<td><p>Returns a data object.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">init_ensemble_fields</span></code>(ensemble_states, …)</p></td>
+<td><p>Initiating data objects that rely on the dialectical structure and a set of finished model runs.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">init_re_final_fields</span></code>(reflective_equilibrium, …)</p></td>
+<td><p>Initiating data objects that rely on the dialectical structure and a finished model run.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">init_re_start_fields</span></code>(reflective_equilibrium, …)</p></td>
+<td><p>Initiating data objects that rely on the dialectical structure and an instantied RE.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">init_tau_fields</span></code>(tau)</p></td>
+<td><p>Initiating data objects that rely on the dialectical structure.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">initial_commitments</span></code>()</p></td>
+<td><p>Current initial commitments when iterating through the model runs.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">reflective_equilibrium</span></code>()</p></td>
+<td><p>Current state when iterating through the model runs.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_item</span></code>(key)</p></td>
+<td><p>Removing a data item.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">state</span></code>()</p></td>
+<td><p>Current state when iterating through model runs.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="rethon.EnsembleGenerator.ensemble_iter">
+<code class="sig-name descname"><span class="pre">ensemble_iter</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rethon.EnsembleGenerator.ensemble_iter" title="Permalink to this definition">#</a></dt>
+<dd><p>Iterator through re processes.</p>
+<p>An ensemble iterator that produces all ensembles in the cartesian product of the given
+dialectical structures (<code class="xref py py-attr docutils literal notranslate"><span class="pre">arguments_list</span></code>), the initial commitments
+(<code class="xref py py-attr docutils literal notranslate"><span class="pre">initial_commitments_list</span></code>), the list of
+model parameters (<code class="xref py py-attr docutils literal notranslate"><span class="pre">model_parameters_list</span></code>) and the given implementations
+(<code class="xref py py-attr docutils literal notranslate"><span class="pre">implementations</span></code>). If <code class="xref py py-attr docutils literal notranslate"><span class="pre">create_branches</span></code> is set to
+<code class="code docutils literal notranslate"><span class="pre">True</span></code> every branch resulting from an underdetermination of commitments or theory candidates will
+be returned as well.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ReflectiveEquilibrium</span></code>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="simpleensemblegenerator">
+<h2>SimpleEnsembleGenerator<a class="headerlink" href="#simpleensemblegenerator" title="Permalink to this headline">#</a></h2>
+<dl class="py class">
+<dt id="rethon.SimpleEnsembleGenerator">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">rethon.</span></code><code class="sig-name descname"><span class="pre">SimpleEnsembleGenerator</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arguments_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_sentence_pool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_commitments_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_parameters_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">create_branches</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">implementations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.SimpleEnsembleGenerator" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">rethon.ensemble_generation.EnsembleGenerator</span></code></p>
+<p>This class extends <a class="reference internal" href="#rethon.EnsembleGenerator" title="rethon.EnsembleGenerator"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnsembleGenerator</span></code></a> by adding the following data items that are produced by
+<a class="reference internal" href="#rethon.AbstractEnsembleGenerator.ensemble_items_iter" title="rethon.AbstractEnsembleGenerator.ensemble_items_iter"><code class="xref py py-func docutils literal notranslate"><span class="pre">AbstractEnsembleGenerator.ensemble_items_iter()</span></code></a>:</p>
+<p><strong>FEATURES OF THE DIALECTICAL STRUCTURE</strong></p>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">model_name</span></code>: A name of the model as string.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">ds</span></code>: The dialectical structure as list of int-lists. The first numbers of each list represent the premises,
+the last one the conclusion.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">n_sentence_pool</span></code>: Number of unnegated sentences (half the full size).</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">ds_arg_size</span></code>: Number of arguments.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">ds_infer_dens</span></code>: The inferential density of the structure.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">ds_n_consistent_complete_positions</span></code>: Number of dialectically complete and consistent positions.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">ds_mean_prem</span></code>: Mean number of premises per argument.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">ds_variance_prem</span></code>: Variance of the number of premises per argument.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">tau_truths</span></code>: Propositions that are true in every complete consistent position.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">principles</span></code>: A list of tuples of the form <code class="code docutils literal notranslate"><span class="pre">(principle,</span> <span class="pre">multiplicity)</span></code> with <code class="code docutils literal notranslate"><span class="pre">multiplicity</span></code>
+indicating the multiplicity of the principle.
+A sentence counts as a principle iff it occurs in at least one argument as premise and it or its negation
+does not occur as a conclusion in an argument. The multiplicity counts in how many argument the sentence occurs
+as premise.</p></li>
+</ul>
+<p><strong>PARAMETERS OF THE RE-PROCESS</strong></p>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">account_penalties</span></code>:</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">faithfulness_penalties</span></code>:</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">weight_account</span></code>:</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">weight_systematicity</span></code>:</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">weight_faithfulness</span></code>:</p></li>
+</ul>
+<p><strong>PROCESS-FEATURES</strong></p>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">init_coms</span></code>: The initial commitments.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">init_coms_size</span></code>: Number of initial commitments.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">init_coms_n_tau_truths</span></code>: Number of tau-true propositions in the initial commitments.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">init_coms_n_tau_falsehoods</span></code>: Number of tau-false propositions in the initial commitments.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">init_coms_min_ax_bases</span></code>: Minimal-length axiomatic bases of <code class="code docutils literal notranslate"><span class="pre">init_coms</span></code> with sentences
+from <code class="code docutils literal notranslate"><span class="pre">init_coms</span></code> only. (Sentences <span class="math notranslate nohighlight">\(\mathcal{C}_a\)</span> are an axiomatic basis
+of <span class="math notranslate nohighlight">\(\mathcal{C}_1\)</span> (with sentences from <span class="math notranslate nohighlight">\(\mathcal{C}_2\)</span> only) iff <span class="math notranslate nohighlight">\(\mathcal{C}_a\)</span> dialectically
+implies <span class="math notranslate nohighlight">\(\mathcal{C}_1\)</span> and there is no proper subset of <span class="math notranslate nohighlight">\(\mathcal{C}_a\)</span> such that it implies
+<span class="math notranslate nohighlight">\(\mathcal{C}_1\)</span> (and <span class="math notranslate nohighlight">\(\mathcal{C}_a \subset \mathcal{C}_2\)</span>).)</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">n_init_coms_min_ax_base</span></code>: The length of the minimal-length axiomatic bases (not the number of such bases).</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">init_coms_n_consistent_complete_positions</span></code>: Number of consistent complete positions that extend the initial
+commitments.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">init_coms_dia_consistent</span></code>: Whether the initial commitments are dialectically consistent.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">init_coms_closed</span></code>: Whether the initial commitments are dialectically closed.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">init_coms_closure</span></code>: Dialectical closure of initial commitments.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">fixed_point_coms</span></code>: Final commitments.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">fixed_point_coms_size</span></code>: The number of propositions in <code class="code docutils literal notranslate"><span class="pre">fixed_point_coms</span></code>.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">fixed_point_coms_com_n_tau_truths</span></code>: Number of tau-true propositions in the final commitments.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">fixed_point_coms_com_n_tau_falsehoods</span></code>: Number of tau-false propositions in the final commitments.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">fixed_point_coms_closed</span></code>: Whether the final commitments is dialectically closed.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">fixed_point_coms_closure</span></code>: Dialectical closure of final commitments.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">fixed_point_coms_consistent</span></code>: Whether the final commitments is dialectically consistent.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">fixed_point_theory</span></code>: The final theory.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">fixed_point_theory_closure</span></code>: Closure of the final theory.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">achievements_evolution</span></code>:</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">fixed_point_dia_consistent</span></code>: Whether the union of final theory &amp; commitments is dialectically consistent.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">init_final_coms_simple_hamming</span></code>: Simple hamming distance between initial and final commitments.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">init_final_coms_hamming</span></code>: Hamming distance between initial and final commitments as defined in
+BBB with d_3 = 1, d_2 = 1, d_1 = 1, d_0 = 0.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">init_final_coms_contradictions</span></code>: Amount of contradictions: number of sentences whose contradictions
+are in both positions (i.e. hamming distance as defined in BBB with d_3 = 1, d_2 = 0, d_1 = 0, d_0 = 0)</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">init_final_coms_expansions</span></code>: Amount of expansions without expansions that lead to
+contradictions or identities (i.e. hamming distance as defined in BBB with d_3 = 0, d_2 = 0, d_1 = 1, d_0 = 0)</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">init_final_coms_contractions</span></code>: Amount of contractions (i.e. hamming distance as
+defined in BBB with d_3 = 0, d_2 = 1, d_1 = 0, d_0 = 0)</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">init_final_coms_identities</span></code>: Amount of identities without identities that are associated with contradictions
+(i.e. hamming distance as defined in BBB with d_3 = 0, d_2 = 0, d_1 = 0, d_0 = 1)
+attention: counts also sentences on which both positions are indifferent.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">random_choices</span></code>:</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">n_random_choices</span></code>: Number of random choice of the process.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">comms_evolution</span></code>: The dynamic evolution of theories during the process. (Depicting the algorithmic
+process.)</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">theory_evolution</span></code>: The dynamic evolution of commitments during the process. (Depicting the algorithmic
+process.)</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">process_length</span></code>: The length of the process. Defined as the number of steps that will either produce a change
+in the commitments or a change in the theory, beginning the choosing the first theory. (I.e. this number will generally
+be smaller than the amount of elements combined in <code class="code docutils literal notranslate"><span class="pre">commitments_evolution</span></code> and <code class="code docutils literal notranslate"><span class="pre">theory_evolution</span></code>.)</p></li>
+</ul>
+<p><strong>PROCESS-INDEPENDENT FEATURES</strong></p>
+<p>In the case that the ensemble generator is configured (via its instantiation) to run all branches the following
+data items are added as well:</p>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">n_branches</span></code>: Number of branches of the process (i.e. paths to all fixed points w.r.t. the given initial
+commitments.</p></li>
+</ul>
+<p><em>Fixed points</em>:</p>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">fixed_points</span></code>: All fixed points as theory-commitments-tuples.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">n_fixed_points</span></code>: Number of fixed points</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">fp_coms_consistent</span></code>: A list of bools (<code class="code docutils literal notranslate"><span class="pre">List[bool]</span></code>) indicating whether commitments of the <cite>fixed_points</cite>
+are dialectically consistent. The order of the list represents the order in <cite>fixed_points</cite>.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">fp_union_consistent</span></code>:  A list of bools (<code class="code docutils literal notranslate"><span class="pre">List[bool]</span></code>) indicating whether the unions of a
+commitment-theory-tuple of the <cite>fixed_points</cite> are dialectically consistent.The order of the list represents the
+order in <cite>fixed_points</cite>.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">fp_account</span></code>: The account of each fixed point as <code class="code docutils literal notranslate"><span class="pre">List[float]</span></code>. The order of the list represents the
+order in <cite>fixed_points</cite>.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">fp_faithfulness</span></code>: The faithfulness of each fixed as <code class="code docutils literal notranslate"><span class="pre">List[float]</span></code>. The order of the list represents
+the order in <cite>fixed_points</cite>.</p></li>
+</ul>
+<p class="rubric">Methods</p>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_item</span></code>(key, fun)</p></td>
+<td><p>Adds a data item.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_obj</span></code>(key, obj)</p></td>
+<td><p>Adding a data object.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">dialectical_structure</span></code>()</p></td>
+<td><p>Current dialectical structure when iterating through model runs.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ensemble_items_iter</span></code>()</p></td>
+<td><p>Iterator through data items of model runs.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ensemble_items_to_csv</span></code>(output_file_name, …)</p></td>
+<td><p>Saving model runs as csv file.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ensemble_iter</span></code>()</p></td>
+<td><p>Iterator through re processes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ensemble_states</span></code>()</p></td>
+<td><p>Current ensemble states when iterating through the model runs.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_item</span></code>(key)</p></td>
+<td><p>Returns the return value of the function that is defined by the data item.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_obj</span></code>(key)</p></td>
+<td><p>Returns a data object.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rethon.SimpleEnsembleGenerator.init_ensemble_fields" title="rethon.SimpleEnsembleGenerator.init_ensemble_fields"><code class="xref py py-obj docutils literal notranslate"><span class="pre">init_ensemble_fields</span></code></a>(ensemble_states, …)</p></td>
+<td><p>Overrides <a class="reference internal" href="#rethon.AbstractEnsembleGenerator.init_ensemble_fields" title="rethon.AbstractEnsembleGenerator.init_ensemble_fields"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractEnsembleGenerator.init_ensemble_fields</span></code></a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">init_re_final_fields</span></code>(reflective_equilibrium, …)</p></td>
+<td><p>Initiating data objects that rely on the dialectical structure and a finished model run.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rethon.SimpleEnsembleGenerator.init_re_start_fields" title="rethon.SimpleEnsembleGenerator.init_re_start_fields"><code class="xref py py-obj docutils literal notranslate"><span class="pre">init_re_start_fields</span></code></a>(reflective_equilibrium, …)</p></td>
+<td><p>Overrides <a class="reference internal" href="#rethon.AbstractEnsembleGenerator.init_re_start_fields" title="rethon.AbstractEnsembleGenerator.init_re_start_fields"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractEnsembleGenerator.init_re_start_fields</span></code></a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rethon.SimpleEnsembleGenerator.init_tau_fields" title="rethon.SimpleEnsembleGenerator.init_tau_fields"><code class="xref py py-obj docutils literal notranslate"><span class="pre">init_tau_fields</span></code></a>(tau)</p></td>
+<td><p>Overrides <a class="reference internal" href="#rethon.AbstractEnsembleGenerator.init_tau_fields" title="rethon.AbstractEnsembleGenerator.init_tau_fields"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractEnsembleGenerator.init_tau_fields</span></code></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">initial_commitments</span></code>()</p></td>
+<td><p>Current initial commitments when iterating through the model runs.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">reflective_equilibrium</span></code>()</p></td>
+<td><p>Current state when iterating through the model runs.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_item</span></code>(key)</p></td>
+<td><p>Removing a data item.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">state</span></code>()</p></td>
+<td><p>Current state when iterating through model runs.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="rethon.SimpleEnsembleGenerator.init_ensemble_fields">
+<code class="sig-name descname"><span class="pre">init_ensemble_fields</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ensemble_states</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dialectical_structure</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.SimpleEnsembleGenerator.init_ensemble_fields" title="Permalink to this definition">#</a></dt>
+<dd><p>Overrides <a class="reference internal" href="#rethon.AbstractEnsembleGenerator.init_ensemble_fields" title="rethon.AbstractEnsembleGenerator.init_ensemble_fields"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractEnsembleGenerator.init_ensemble_fields</span></code></a>.</p>
+<p>Adds the following data object that can be accessed via <a class="reference internal" href="#rethon.AbstractEnsembleGenerator.get_obj" title="rethon.AbstractEnsembleGenerator.get_obj"><code class="xref py py-func docutils literal notranslate"><span class="pre">AbstractEnsembleGenerator.get_obj()</span></code></a>:
+‘n_branches’ and fixed_points’, if the ensemble generator is set up to run every branch.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ensemble_states</strong> (<em>List</em><em>[</em><em>rethon.base.REState</em><em>]</em>) – </p></li>
+<li><p><strong>dialectical_structure</strong> (<em>tau.base.DialecticalStructure</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.SimpleEnsembleGenerator.init_re_start_fields">
+<code class="sig-name descname"><span class="pre">init_re_start_fields</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reflective_equilibrium</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dialectical_structure</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.SimpleEnsembleGenerator.init_re_start_fields" title="Permalink to this definition">#</a></dt>
+<dd><p>Overrides <a class="reference internal" href="#rethon.AbstractEnsembleGenerator.init_re_start_fields" title="rethon.AbstractEnsembleGenerator.init_re_start_fields"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractEnsembleGenerator.init_re_start_fields</span></code></a>.</p>
+<p>Adds the following data object that can be accessed via <a class="reference internal" href="#rethon.AbstractEnsembleGenerator.get_obj" title="rethon.AbstractEnsembleGenerator.get_obj"><code class="xref py py-func docutils literal notranslate"><span class="pre">AbstractEnsembleGenerator.get_obj()</span></code></a>:
+‘init_com_min_ax_bases’.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>reflective_equilibrium</strong> (<em>rethon.base.ReflectiveEquilibrium</em>) – </p></li>
+<li><p><strong>dialectical_structure</strong> (<em>tau.base.DialecticalStructure</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.SimpleEnsembleGenerator.init_tau_fields">
+<code class="sig-name descname"><span class="pre">init_tau_fields</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tau</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.SimpleEnsembleGenerator.init_tau_fields" title="Permalink to this definition">#</a></dt>
+<dd><p>Overrides <a class="reference internal" href="#rethon.AbstractEnsembleGenerator.init_tau_fields" title="rethon.AbstractEnsembleGenerator.init_tau_fields"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractEnsembleGenerator.init_tau_fields</span></code></a>.</p>
+<p>Adds the following data objects that can be accessed via <a class="reference internal" href="#rethon.AbstractEnsembleGenerator.get_obj" title="rethon.AbstractEnsembleGenerator.get_obj"><code class="xref py py-func docutils literal notranslate"><span class="pre">AbstractEnsembleGenerator.get_obj()</span></code></a>:
+‘ds_infer_dens’, ‘n_premises’, ‘principles’, ‘tau_truths’ and ‘tau_falsehoods’.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>tau</strong> (<em>tau.base.DialecticalStructure</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="globalreensemblegenerator">
+<h2>GlobalREEnsembleGenerator<a class="headerlink" href="#globalreensemblegenerator" title="Permalink to this headline">#</a></h2>
+<dl class="py class">
+<dt id="rethon.GlobalREEnsembleGenerator">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">rethon.</span></code><code class="sig-name descname"><span class="pre">GlobalREEnsembleGenerator</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arguments_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_sentence_pool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_commitments_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_parameters_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">create_branches</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">implementations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.GlobalREEnsembleGenerator" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">rethon.ensemble_generation.SimpleEnsembleGenerator</span></code></p>
+<p>This class extends <a class="reference internal" href="#rethon.SimpleEnsembleGenerator" title="rethon.SimpleEnsembleGenerator"><code class="xref py py-class docutils literal notranslate"><span class="pre">SimpleEnsembleGenerator</span></code></a> by adding the following data items that are produced by
+<a class="reference internal" href="#rethon.AbstractEnsembleGenerator.ensemble_items_iter" title="rethon.AbstractEnsembleGenerator.ensemble_items_iter"><code class="xref py py-func docutils literal notranslate"><span class="pre">AbstractEnsembleGenerator.ensemble_items_iter()</span></code></a>:</p>
+<p>Additional items for the fixed point:</p>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">fixed_point_is_global_optimum</span></code>: Whether the fixed point is a global optimum.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">fixed_point_is_re_state</span></code>: Whether the fixed point is a RE state.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">fixed_point_is_full_re_state</span></code>: Whether the fixed point is a full RE state.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">fixed_point_coms_n_consistent_complete_positions</span></code>: The number of complete and dialectically consistent
+positions that extend the final commitments.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">fixed_point_coms_min_ax_bases</span></code>: Minimal-length axiomatic bases of <code class="code docutils literal notranslate"><span class="pre">fixed_point_coms</span></code> with
+sentences from <code class="code docutils literal notranslate"><span class="pre">fixed_point_coms</span></code> only. (Sentences <span class="math notranslate nohighlight">\(\mathcal{C}_a\)</span> are an axiomatic basis
+of <span class="math notranslate nohighlight">\(\mathcal{C}_1\)</span> (with sentences from <span class="math notranslate nohighlight">\(\mathcal{C}_2\)</span> only) iff <span class="math notranslate nohighlight">\(\mathcal{C}_a\)</span> dialectically
+implies <span class="math notranslate nohighlight">\(\mathcal{C}_1\)</span> and there is no proper subset of <span class="math notranslate nohighlight">\(\mathcal{C}_a\)</span> such that it implies
+<span class="math notranslate nohighlight">\(\mathcal{C}_1\)</span> (and <span class="math notranslate nohighlight">\(\mathcal{C}_a \subset \mathcal{C}_2\)</span>).)</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">n_fixed_point_coms_min_ax_base</span></code>: The size of minimal-length axiomatic bases of <code class="code docutils literal notranslate"><span class="pre">fixed_point_coms</span></code> with
+sentences from <code class="code docutils literal notranslate"><span class="pre">fixed_point_coms</span></code> only.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">fixed_point_coms_min_ax_bases_theory</span></code>: A minimal-length subset <span class="math notranslate nohighlight">\(\mathcal{C}'\)</span> of the
+final commitments such that the final commitments are entailed by the theory and <span class="math notranslate nohighlight">\(\mathcal{C}'\)</span>.
+(Or equivalently: A smallest subset <span class="math notranslate nohighlight">\(\mathcal{C}'\)</span> within the commitments such that there is an axiomatic
+basis <span class="math notranslate nohighlight">\(A\)</span> for the commitments <span class="math notranslate nohighlight">\(\mathcal{C}\)</span> with:
+<span class="math notranslate nohighlight">\(A= \mathcal{C}' \cup \mathcal{T}'\)</span> and <span class="math notranslate nohighlight">\(\mathcal{T}'\)</span> a subset of the theory)</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">n_fixed_point_coms_min_ax_base_theory</span></code>: Number of propositions in each set
+in <code class="code docutils literal notranslate"><span class="pre">fixed_point_coms_min_ax_bases_theory</span></code>.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">fixed_point_theory_axioms</span></code>: Axiomatic bases of the final theory.</p></li>
+</ul>
+<p>Additional items for all fixed points (these items are only generated if branches are created):</p>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">fp_full_re_state</span></code>:  A list of bools (<code class="code docutils literal notranslate"><span class="pre">List[bool]</span></code>) indicating whether the <cite>fixed_points</cite> are full
+RE-states (i.e. whether the dialectical closure of the theory is identical to the commitments). The order of the list
+represents the order in <cite>fixed_points</cite>.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">fp_global_optimum</span></code>: A list of bools (<code class="code docutils literal notranslate"><span class="pre">List[bool]</span></code>) indicating whether the <cite>fixed_points</cite> are
+<cite>global_optima</cite>.</p></li>
+</ul>
+<p>Additional items for global optima:</p>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">global_optima</span></code>: All global optima as theory-commitments-tuples.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">n_global_optima</span></code>: Number of global optima.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">go_coms_consistent</span></code>: A list of bools (<code class="code docutils literal notranslate"><span class="pre">List[bool]</span></code>) indicating whether commitments of the <cite>global_optima</cite>
+are dialectically consistent. The order of the list represents the order in <cite>global_optima</cite>.</p></li>
+<li><dl class="simple">
+<dt><code class="code docutils literal notranslate"><span class="pre">go_union_consistent</span></code>: A list of bools (<code class="code docutils literal notranslate"><span class="pre">List[bool]</span></code>) indicating whether the unions of a</dt><dd><p>commitment-theory-tuple of the <cite>global_optima</cite> are dialectically consistent. I.e. whether the global optima
+are RE states.The order of the list represents the order in <cite>global_optima</cite>.</p>
+</dd>
+</dl>
+</li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">go_full_re_state</span></code>: A list of bools (<code class="code docutils literal notranslate"><span class="pre">List[bool]</span></code>) indicating whether the <cite>global_optima</cite> are full
+RE-states (i.e. whether the dialectical closure of the theory is identical to the commitments). The order of the list
+represents the order in <cite>global_optima</cite>.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">go_fixed_point</span></code>: A list of bools (<code class="code docutils literal notranslate"><span class="pre">List[bool]</span></code>) indicating which global optima are fixed points
+(i.e. which global optima are reachable via a re-process). The order of the list
+represents the order in <cite>global_optima</cite>.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">go_account</span></code>: The account of each global optimum as <code class="code docutils literal notranslate"><span class="pre">List[float]</span></code>. The order of the list represents the
+order in <cite>global_optima</cite>.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">go_faithfulness</span></code>: The faithfulness of each global optimum as <code class="code docutils literal notranslate"><span class="pre">List[float]</span></code>. The order of the list
+represents the order in <cite>global_optima</cite>.</p></li>
+</ul>
+<p>Additional items for RE states and full RE states:</p>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">re_states</span></code>:</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">n_re_states</span></code>:</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">full_re_states</span></code>:</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">n_full_re_states</span></code>:</p></li>
+</ul>
+<p class="rubric">Methods</p>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_item</span></code>(key, fun)</p></td>
+<td><p>Adds a data item.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_obj</span></code>(key, obj)</p></td>
+<td><p>Adding a data object.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">dialectical_structure</span></code>()</p></td>
+<td><p>Current dialectical structure when iterating through model runs.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ensemble_items_iter</span></code>()</p></td>
+<td><p>Iterator through data items of model runs.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ensemble_items_to_csv</span></code>(output_file_name, …)</p></td>
+<td><p>Saving model runs as csv file.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ensemble_iter</span></code>()</p></td>
+<td><p>Iterator through re processes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ensemble_states</span></code>()</p></td>
+<td><p>Current ensemble states when iterating through the model runs.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_item</span></code>(key)</p></td>
+<td><p>Returns the return value of the function that is defined by the data item.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_obj</span></code>(key)</p></td>
+<td><p>Returns a data object.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">init_ensemble_fields</span></code>(ensemble_states, …)</p></td>
+<td><p>Overrides <a class="reference internal" href="#rethon.AbstractEnsembleGenerator.init_ensemble_fields" title="rethon.AbstractEnsembleGenerator.init_ensemble_fields"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractEnsembleGenerator.init_ensemble_fields</span></code></a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rethon.GlobalREEnsembleGenerator.init_re_final_fields" title="rethon.GlobalREEnsembleGenerator.init_re_final_fields"><code class="xref py py-obj docutils literal notranslate"><span class="pre">init_re_final_fields</span></code></a>(reflective_equilibrium, …)</p></td>
+<td><p>Overrides <a class="reference internal" href="#rethon.AbstractEnsembleGenerator.init_re_final_fields" title="rethon.AbstractEnsembleGenerator.init_re_final_fields"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractEnsembleGenerator.init_re_final_fields</span></code></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rethon.GlobalREEnsembleGenerator.init_re_start_fields" title="rethon.GlobalREEnsembleGenerator.init_re_start_fields"><code class="xref py py-obj docutils literal notranslate"><span class="pre">init_re_start_fields</span></code></a>(reflective_equilibrium, …)</p></td>
+<td><p>Extends <code class="xref py py-class docutils literal notranslate"><span class="pre">SimpleEnsembleGenerator.init_re_final_fields</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">init_tau_fields</span></code>(tau)</p></td>
+<td><p>Overrides <a class="reference internal" href="#rethon.AbstractEnsembleGenerator.init_tau_fields" title="rethon.AbstractEnsembleGenerator.init_tau_fields"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractEnsembleGenerator.init_tau_fields</span></code></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">initial_commitments</span></code>()</p></td>
+<td><p>Current initial commitments when iterating through the model runs.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">reflective_equilibrium</span></code>()</p></td>
+<td><p>Current state when iterating through the model runs.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_item</span></code>(key)</p></td>
+<td><p>Removing a data item.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">state</span></code>()</p></td>
+<td><p>Current state when iterating through model runs.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="rethon.GlobalREEnsembleGenerator.init_re_final_fields">
+<code class="sig-name descname"><span class="pre">init_re_final_fields</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reflective_equilibrium</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dialectical_structure</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.GlobalREEnsembleGenerator.init_re_final_fields" title="Permalink to this definition">#</a></dt>
+<dd><p>Overrides <a class="reference internal" href="#rethon.AbstractEnsembleGenerator.init_re_final_fields" title="rethon.AbstractEnsembleGenerator.init_re_final_fields"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractEnsembleGenerator.init_re_final_fields</span></code></a>.</p>
+<p>Adds the following data objects that can be accessed via <a class="reference internal" href="#rethon.AbstractEnsembleGenerator.get_obj" title="rethon.AbstractEnsembleGenerator.get_obj"><code class="xref py py-func docutils literal notranslate"><span class="pre">AbstractEnsembleGenerator.get_obj()</span></code></a>:
+‘fixed_point_coms_min_ax_bases’ and ‘fixed_point_coms_min_ax_bases_theory’.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>reflective_equilibrium</strong> (<em>rethon.base.ReflectiveEquilibrium</em>) – </p></li>
+<li><p><strong>dialectical_structure</strong> (<em>tau.base.DialecticalStructure</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.GlobalREEnsembleGenerator.init_re_start_fields">
+<code class="sig-name descname"><span class="pre">init_re_start_fields</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reflective_equilibrium</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dialectical_structure</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.GlobalREEnsembleGenerator.init_re_start_fields" title="Permalink to this definition">#</a></dt>
+<dd><p>Extends <code class="xref py py-class docutils literal notranslate"><span class="pre">SimpleEnsembleGenerator.init_re_final_fields</span></code>.</p>
+<p>Adds the following data objects that can be accessed via <a class="reference internal" href="#rethon.AbstractEnsembleGenerator.get_obj" title="rethon.AbstractEnsembleGenerator.get_obj"><code class="xref py py-func docutils literal notranslate"><span class="pre">AbstractEnsembleGenerator.get_obj()</span></code></a>:
+‘global_optima’, ‘re_states’ and ‘full_re_states’.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>reflective_equilibrium</strong> (<em>rethon.base.ReflectiveEquilibrium</em>) – </p></li>
+<li><p><strong>dialectical_structure</strong> (<em>tau.base.DialecticalStructure</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="localreensemblegenerator">
+<h2>LocalREEnsembleGenerator<a class="headerlink" href="#localreensemblegenerator" title="Permalink to this headline">#</a></h2>
+<dl class="py class">
+<dt id="rethon.LocalREEnsembleGenerator">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">rethon.</span></code><code class="sig-name descname"><span class="pre">LocalREEnsembleGenerator</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arguments_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_sentence_pool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_commitments_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_parameters_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">create_branches</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">implementations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.LocalREEnsembleGenerator" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">rethon.ensemble_generation.SimpleEnsembleGenerator</span></code></p>
+<p>This class extends <a class="reference internal" href="#rethon.SimpleEnsembleGenerator" title="rethon.SimpleEnsembleGenerator"><code class="xref py py-class docutils literal notranslate"><span class="pre">SimpleEnsembleGenerator</span></code></a> by adding the following data items that are produced by
+<a class="reference internal" href="#rethon.AbstractEnsembleGenerator.ensemble_items_iter" title="rethon.AbstractEnsembleGenerator.ensemble_items_iter"><code class="xref py py-func docutils literal notranslate"><span class="pre">AbstractEnsembleGenerator.ensemble_items_iter()</span></code></a>:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="code docutils literal notranslate"><span class="pre">neigbourhood_depth</span></code>: The neighbourhood depth that is used to search for next commitments</dt><dd><p>and theory candidates.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p class="rubric">Methods</p>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_item</span></code>(key, fun)</p></td>
+<td><p>Adds a data item.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_obj</span></code>(key, obj)</p></td>
+<td><p>Adding a data object.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">dialectical_structure</span></code>()</p></td>
+<td><p>Current dialectical structure when iterating through model runs.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ensemble_items_iter</span></code>()</p></td>
+<td><p>Iterator through data items of model runs.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ensemble_items_to_csv</span></code>(output_file_name, …)</p></td>
+<td><p>Saving model runs as csv file.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ensemble_iter</span></code>()</p></td>
+<td><p>Iterator through re processes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ensemble_states</span></code>()</p></td>
+<td><p>Current ensemble states when iterating through the model runs.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_item</span></code>(key)</p></td>
+<td><p>Returns the return value of the function that is defined by the data item.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_obj</span></code>(key)</p></td>
+<td><p>Returns a data object.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">init_ensemble_fields</span></code>(ensemble_states, …)</p></td>
+<td><p>Overrides <a class="reference internal" href="#rethon.AbstractEnsembleGenerator.init_ensemble_fields" title="rethon.AbstractEnsembleGenerator.init_ensemble_fields"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractEnsembleGenerator.init_ensemble_fields</span></code></a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">init_re_final_fields</span></code>(reflective_equilibrium, …)</p></td>
+<td><p>Initiating data objects that rely on the dialectical structure and a finished model run.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">init_re_start_fields</span></code>(reflective_equilibrium, …)</p></td>
+<td><p>Overrides <a class="reference internal" href="#rethon.AbstractEnsembleGenerator.init_re_start_fields" title="rethon.AbstractEnsembleGenerator.init_re_start_fields"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractEnsembleGenerator.init_re_start_fields</span></code></a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">init_tau_fields</span></code>(tau)</p></td>
+<td><p>Overrides <a class="reference internal" href="#rethon.AbstractEnsembleGenerator.init_tau_fields" title="rethon.AbstractEnsembleGenerator.init_tau_fields"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractEnsembleGenerator.init_tau_fields</span></code></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">initial_commitments</span></code>()</p></td>
+<td><p>Current initial commitments when iterating through the model runs.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">reflective_equilibrium</span></code>()</p></td>
+<td><p>Current state when iterating through the model runs.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_item</span></code>(key)</p></td>
+<td><p>Removing a data item.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">state</span></code>()</p></td>
+<td><p>Current state when iterating through model runs.</p></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="simplemultiagentrecontainer">
+<h2>SimpleMultiAgentREContainer<a class="headerlink" href="#simplemultiagentrecontainer" title="Permalink to this headline">#</a></h2>
+<dl class="py class">
+<dt id="rethon.SimpleMultiAgentREContainer">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">rethon.</span></code><code class="sig-name descname"><span class="pre">SimpleMultiAgentREContainer</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">re_models</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_commitments_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_re_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.SimpleMultiAgentREContainer" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">rethon.base.REContainer</span></code></p>
+<p>An <a class="reference internal" href="api-base-core.html#rethon.REContainer" title="rethon.REContainer"><code class="xref py py-class docutils literal notranslate"><span class="pre">REContainer</span></code></a> for multi-agent ensembles.</p>
+<p>This container manages and executes model runs that are defined as an multi-agent ensemble. The container will
+execute for each particular point in time the next step of all model and will then proceed accordingly
+with the time point. Each model will be provided with the current model states of the other models by references
+to the other models via the argument <code class="code docutils literal notranslate"><span class="pre">other_model_runs</span></code>. This argument is accessible by overriding or
+extending the following methods in each model:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="api-base-core.html#rethon.ReflectiveEquilibrium.theory_candidates" title="rethon.ReflectiveEquilibrium.theory_candidates"><code class="xref py py-func docutils literal notranslate"><span class="pre">ReflectiveEquilibrium.theory_candidates()</span></code></a>,</p></li>
+<li><p><a class="reference internal" href="api-base-core.html#rethon.ReflectiveEquilibrium.commitment_candidates" title="rethon.ReflectiveEquilibrium.commitment_candidates"><code class="xref py py-func docutils literal notranslate"><span class="pre">ReflectiveEquilibrium.commitment_candidates()</span></code></a>,</p></li>
+<li><p><a class="reference internal" href="api-base-core.html#rethon.ReflectiveEquilibrium.pick_theory_candidate" title="rethon.ReflectiveEquilibrium.pick_theory_candidate"><code class="xref py py-func docutils literal notranslate"><span class="pre">ReflectiveEquilibrium.pick_theory_candidate()</span></code></a>,</p></li>
+<li><p><a class="reference internal" href="api-base-core.html#rethon.ReflectiveEquilibrium.pick_commitment_candidate" title="rethon.ReflectiveEquilibrium.pick_commitment_candidate"><code class="xref py py-func docutils literal notranslate"><span class="pre">ReflectiveEquilibrium.pick_commitment_candidate()</span></code></a> and</p></li>
+<li><p><a class="reference internal" href="api-base-core.html#rethon.ReflectiveEquilibrium.finished" title="rethon.ReflectiveEquilibrium.finished"><code class="xref py py-func docutils literal notranslate"><span class="pre">ReflectiveEquilibrium.finished()</span></code></a>.</p></li>
+</ul>
+<p class="rubric">Methods</p>
+<table class="table">
+<colgroup>
+<col style="width: 62%" />
+<col style="width: 38%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>re_processes</strong></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="rethon.SimpleMultiAgentREContainer.re_processes">
+<code class="sig-name descname"><span class="pre">re_processes</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">re_models</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.SimpleMultiAgentREContainer.re_processes" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ReflectiveEquilibrium</span></code>]</p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><p><strong>re_models</strong> (<em>Optional</em><em>[</em><em>List</em><em>[</em><em>rethon.base.ReflectiveEquilibrium</em><em>]</em><em>]</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="multiagentensemblesgenerator">
+<h2>MultiAgentEnsemblesGenerator<a class="headerlink" href="#multiagentensemblesgenerator" title="Permalink to this headline">#</a></h2>
+<dl class="py class">
+<dt id="rethon.MultiAgentEnsemblesGenerator">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">rethon.</span></code><code class="sig-name descname"><span class="pre">MultiAgentEnsemblesGenerator</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arguments_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_sentence_pools</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_commitments_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">implementations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_parameters_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.MultiAgentEnsemblesGenerator" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">rethon.ensemble_generation.AbstractEnsembleGenerator</span></code></p>
+<p>Ensemble generator base class for multi-agent (=interdependent) model runs.</p>
+<p>A class that provides iterators for interdependet model runs based on the given parameters of the constructor.
+One ensemble corresponds to a dialectical structure together with a set of agents (represented by their
+initial commitments). The generator will run all ensembles successively.</p>
+<p>This structure can be used to generate different ensembles.
+(E.g., you can vary the number of agents for one particular dialectical structure by repeating the dialectical
+structure in the above list and vary the list of initial positions.) However, this design adheres to the
+following confinements: All agents in one ensemble share the implementating classes and their model parameters.</p>
+<p>The following data items are defined by default: ‘ensemble_id’ and ‘ensemble_size’ for each multi-agent ensemble.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>arguments_list</strong> – A list of n dialectical structures as list of argument lists. Each dialectical structure
+corresponds an multi-agent ensemble.</p></li>
+<li><p><strong>n_sentence_pool</strong> – Number of (unnegated) sentences in the sentence pool.</p></li>
+<li><p><strong>initial_commitments_list</strong> – For each dialectical structure a list of initial commitments.
+(The initial commitments can be thought of as different agents.)</p></li>
+<li><p><strong>model_parameters_list</strong> – For each dialectical structure a specification of model parameters as dictionary
+that can be set via <a class="reference internal" href="api-base-core.html#rethon.ReflectiveEquilibrium.set_model_parameters" title="rethon.ReflectiveEquilibrium.set_model_parameters"><code class="xref py py-func docutils literal notranslate"><span class="pre">ReflectiveEquilibrium.set_model_parameters()</span></code></a>.</p></li>
+<li><p><strong>implementations</strong> – A list of dicts, each representing a specific implementation. Each dict should contain
+strings for the keys ‘module_name’, ‘position_class_name’, ‘dialectical_structure_class_name’
+and ‘reflective_equilibrium_class_name’. (If these classes are located in different modules, you can,
+alternatively, specify modules for each class by using the keys ‘position_module_name’,
+‘dialectical_structure_module_name’ and ‘reflective_equilibrium_module_name’)</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_item</span></code>(key, fun)</p></td>
+<td><p>Adds a data item.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_obj</span></code>(key, obj)</p></td>
+<td><p>Adding a data object.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">dialectical_structure</span></code>()</p></td>
+<td><p>Current dialectical structure when iterating through model runs.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ensemble_items_iter</span></code>()</p></td>
+<td><p>Iterator through data items of model runs.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rethon.MultiAgentEnsemblesGenerator.ensemble_items_to_csv" title="rethon.MultiAgentEnsemblesGenerator.ensemble_items_to_csv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ensemble_items_to_csv</span></code></a>(output_file_name, …)</p></td>
+<td><p>Extends <code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractEnsembleGenerator.ensemble_items_to_csv.</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rethon.MultiAgentEnsemblesGenerator.ensemble_iter" title="rethon.MultiAgentEnsemblesGenerator.ensemble_iter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ensemble_iter</span></code></a>()</p></td>
+<td><p>Iterator through the re processes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ensemble_states</span></code>()</p></td>
+<td><p>Current ensemble states when iterating through the model runs.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_item</span></code>(key)</p></td>
+<td><p>Returns the return value of the function that is defined by the data item.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_obj</span></code>(key)</p></td>
+<td><p>Returns a data object.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rethon.MultiAgentEnsemblesGenerator.init_ensemble_fields" title="rethon.MultiAgentEnsemblesGenerator.init_ensemble_fields"><code class="xref py py-obj docutils literal notranslate"><span class="pre">init_ensemble_fields</span></code></a>(re_states, …)</p></td>
+<td><p>Overrides <a class="reference internal" href="#rethon.AbstractEnsembleGenerator.init_ensemble_fields" title="rethon.AbstractEnsembleGenerator.init_ensemble_fields"><code class="xref py py-func docutils literal notranslate"><span class="pre">AbstractEnsembleGenerator.init_ensemble_fields()</span></code></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">init_re_final_fields</span></code>(reflective_equilibrium, …)</p></td>
+<td><p>Initiating data objects that rely on the dialectical structure and a finished model run.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">init_re_start_fields</span></code>(reflective_equilibrium, …)</p></td>
+<td><p>Initiating data objects that rely on the dialectical structure and an instantied RE.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">init_tau_fields</span></code>(tau)</p></td>
+<td><p>Initiating data objects that rely on the dialectical structure.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">initial_commitments</span></code>()</p></td>
+<td><p>Current initial commitments when iterating through the model runs.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">reflective_equilibrium</span></code>()</p></td>
+<td><p>Current state when iterating through the model runs.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_item</span></code>(key)</p></td>
+<td><p>Removing a data item.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">state</span></code>()</p></td>
+<td><p>Current state when iterating through model runs.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="rethon.MultiAgentEnsemblesGenerator.ensemble_items_to_csv">
+<code class="sig-name descname"><span class="pre">ensemble_items_to_csv</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output_file_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dir_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">archive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_preliminary_results</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preliminary_results_interval</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">500</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">append</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.MultiAgentEnsemblesGenerator.ensemble_items_to_csv" title="Permalink to this definition">#</a></dt>
+<dd><p>Extends <code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractEnsembleGenerator.ensemble_items_to_csv.</span></code></p>
+<p>If <code class="code docutils literal notranslate"><span class="pre">append</span></code> is set to <code class="code docutils literal notranslate"><span class="pre">True</span></code> the method will make sure that different ensembles have different
+ensemble ids (which are saved via an extra column for each model run).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>output_file_name</strong> (<em>str</em>) – </p></li>
+<li><p><strong>output_dir_name</strong> (<em>str</em>) – </p></li>
+<li><p><strong>save_preliminary_results</strong> (<em>bool</em>) – </p></li>
+<li><p><strong>preliminary_results_interval</strong> (<em>int</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.MultiAgentEnsemblesGenerator.ensemble_iter">
+<code class="sig-name descname"><span class="pre">ensemble_iter</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rethon.MultiAgentEnsemblesGenerator.ensemble_iter" title="Permalink to this definition">#</a></dt>
+<dd><p>Iterator through the re processes.</p>
+<p>An ensemble iterator through all model rus of all multi-agents ensembles as defined by the class
+attributes (implements <a class="reference internal" href="#rethon.AbstractEnsembleGenerator.ensemble_iter" title="rethon.AbstractEnsembleGenerator.ensemble_iter"><code class="xref py py-func docutils literal notranslate"><span class="pre">AbstractEnsembleGenerator.ensemble_iter()</span></code></a>). Model runs that belong to
+the same multi-agent ensemble can be identified via their ensemble id, which can be accessed via
+<code class="code docutils literal notranslate"><span class="pre">get_obj('ensemble_id')</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ReflectiveEquilibrium</span></code>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.MultiAgentEnsemblesGenerator.init_ensemble_fields">
+<code class="sig-name descname"><span class="pre">init_ensemble_fields</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">re_states</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dialectical_structure</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.MultiAgentEnsemblesGenerator.init_ensemble_fields" title="Permalink to this definition">#</a></dt>
+<dd><p>Overrides <a class="reference internal" href="#rethon.AbstractEnsembleGenerator.init_ensemble_fields" title="rethon.AbstractEnsembleGenerator.init_ensemble_fields"><code class="xref py py-func docutils literal notranslate"><span class="pre">AbstractEnsembleGenerator.init_ensemble_fields()</span></code></a></p>
+<p>Adds for every multi-agent ensemble the following data objects: ‘ensemble_id’ and ‘ensemble_size’.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>re_states</strong> (<em>List</em><em>[</em><em>rethon.base.REState</em><em>]</em>) – </p></li>
+<li><p><strong>dialectical_structure</strong> (<em>tau.base.DialecticalStructure</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="simplemultiagentensemblesgenerator">
+<h2>SimpleMultiAgentEnsemblesGenerator<a class="headerlink" href="#simplemultiagentensemblesgenerator" title="Permalink to this headline">#</a></h2>
+<dl class="py class">
+<dt id="rethon.SimpleMultiAgentEnsemblesGenerator">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">rethon.</span></code><code class="sig-name descname"><span class="pre">SimpleMultiAgentEnsemblesGenerator</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arguments_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_sentence_pools</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_commitments_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">implementations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_parameters_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.SimpleMultiAgentEnsemblesGenerator" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">rethon.ensemble_generation.MultiAgentEnsemblesGenerator</span></code></p>
+<p>A <code class="xref py py-class docutils literal notranslate"><span class="pre">MultiAgentEnsembleGenerator</span></code> with predefined data items.</p>
+<p>This class extends <code class="xref py py-class docutils literal notranslate"><span class="pre">MultiAgentEnsembleGenerator</span></code> by adding data items that are produced by
+<a class="reference internal" href="#rethon.AbstractEnsembleGenerator.ensemble_items_iter" title="rethon.AbstractEnsembleGenerator.ensemble_items_iter"><code class="xref py py-func docutils literal notranslate"><span class="pre">AbstractEnsembleGenerator.ensemble_items_iter()</span></code></a>. The ensemble generator is initiated with the same
+data fields as the <a class="reference internal" href="#rethon.SimpleEnsembleGenerator" title="rethon.SimpleEnsembleGenerator"><code class="xref py py-class docutils literal notranslate"><span class="pre">SimpleEnsembleGenerator</span></code></a> (except data fields that are only created in the
+case that the <a class="reference internal" href="#rethon.SimpleEnsembleGenerator" title="rethon.SimpleEnsembleGenerator"><code class="xref py py-class docutils literal notranslate"><span class="pre">SimpleEnsembleGenerator</span></code></a> runs all branches).</p>
+<p class="rubric">Methods</p>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_item</span></code>(key, fun)</p></td>
+<td><p>Adds a data item.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_obj</span></code>(key, obj)</p></td>
+<td><p>Adding a data object.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">dialectical_structure</span></code>()</p></td>
+<td><p>Current dialectical structure when iterating through model runs.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ensemble_items_iter</span></code>()</p></td>
+<td><p>Iterator through data items of model runs.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ensemble_items_to_csv</span></code>(output_file_name, …)</p></td>
+<td><p>Extends <code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractEnsembleGenerator.ensemble_items_to_csv.</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ensemble_iter</span></code>()</p></td>
+<td><p>Iterator through the re processes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ensemble_states</span></code>()</p></td>
+<td><p>Current ensemble states when iterating through the model runs.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_item</span></code>(key)</p></td>
+<td><p>Returns the return value of the function that is defined by the data item.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_obj</span></code>(key)</p></td>
+<td><p>Returns a data object.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">init_ensemble_fields</span></code>(re_states, …)</p></td>
+<td><p>Overrides <a class="reference internal" href="#rethon.AbstractEnsembleGenerator.init_ensemble_fields" title="rethon.AbstractEnsembleGenerator.init_ensemble_fields"><code class="xref py py-func docutils literal notranslate"><span class="pre">AbstractEnsembleGenerator.init_ensemble_fields()</span></code></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">init_re_final_fields</span></code>(reflective_equilibrium, …)</p></td>
+<td><p>Initiating data objects that rely on the dialectical structure and a finished model run.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rethon.SimpleMultiAgentEnsemblesGenerator.init_re_start_fields" title="rethon.SimpleMultiAgentEnsemblesGenerator.init_re_start_fields"><code class="xref py py-obj docutils literal notranslate"><span class="pre">init_re_start_fields</span></code></a>(reflective_equilibrium, …)</p></td>
+<td><p>Overrides <a class="reference internal" href="#rethon.AbstractEnsembleGenerator.init_re_start_fields" title="rethon.AbstractEnsembleGenerator.init_re_start_fields"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractEnsembleGenerator.init_re_start_fields</span></code></a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rethon.SimpleMultiAgentEnsemblesGenerator.init_tau_fields" title="rethon.SimpleMultiAgentEnsemblesGenerator.init_tau_fields"><code class="xref py py-obj docutils literal notranslate"><span class="pre">init_tau_fields</span></code></a>(tau)</p></td>
+<td><p>Overrides <a class="reference internal" href="#rethon.AbstractEnsembleGenerator.init_tau_fields" title="rethon.AbstractEnsembleGenerator.init_tau_fields"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractEnsembleGenerator.init_tau_fields</span></code></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">initial_commitments</span></code>()</p></td>
+<td><p>Current initial commitments when iterating through the model runs.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">reflective_equilibrium</span></code>()</p></td>
+<td><p>Current state when iterating through the model runs.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_item</span></code>(key)</p></td>
+<td><p>Removing a data item.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">state</span></code>()</p></td>
+<td><p>Current state when iterating through model runs.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="rethon.SimpleMultiAgentEnsemblesGenerator.init_re_start_fields">
+<code class="sig-name descname"><span class="pre">init_re_start_fields</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reflective_equilibrium</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dialectical_structure</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.SimpleMultiAgentEnsemblesGenerator.init_re_start_fields" title="Permalink to this definition">#</a></dt>
+<dd><p>Overrides <a class="reference internal" href="#rethon.AbstractEnsembleGenerator.init_re_start_fields" title="rethon.AbstractEnsembleGenerator.init_re_start_fields"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractEnsembleGenerator.init_re_start_fields</span></code></a>.</p>
+<p>Adds the following data object that can be accessed via <a class="reference internal" href="#rethon.AbstractEnsembleGenerator.get_obj" title="rethon.AbstractEnsembleGenerator.get_obj"><code class="xref py py-func docutils literal notranslate"><span class="pre">AbstractEnsembleGenerator.get_obj()</span></code></a>:
+‘init_com_min_ax_bases’.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>reflective_equilibrium</strong> (<em>rethon.base.ReflectiveEquilibrium</em>) – </p></li>
+<li><p><strong>dialectical_structure</strong> (<em>tau.base.DialecticalStructure</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.SimpleMultiAgentEnsemblesGenerator.init_tau_fields">
+<code class="sig-name descname"><span class="pre">init_tau_fields</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tau</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.SimpleMultiAgentEnsemblesGenerator.init_tau_fields" title="Permalink to this definition">#</a></dt>
+<dd><p>Overrides <a class="reference internal" href="#rethon.AbstractEnsembleGenerator.init_tau_fields" title="rethon.AbstractEnsembleGenerator.init_tau_fields"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractEnsembleGenerator.init_tau_fields</span></code></a>.</p>
+<p>Adds the following data objects that can be accessed via <a class="reference internal" href="#rethon.AbstractEnsembleGenerator.get_obj" title="rethon.AbstractEnsembleGenerator.get_obj"><code class="xref py py-func docutils literal notranslate"><span class="pre">AbstractEnsembleGenerator.get_obj()</span></code></a>:
+‘ds_infer_dens’, ‘n_premises’, ‘principles’, ‘tau_truths’ and ‘tau_falsehoods’.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>tau</strong> (<em>tau.base.DialecticalStructure</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+              </div>
+              
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2023, Claus Beisbart, Gregor Betz, Georg Brun, Sebastian Cacean, Andreas Freivogel, Richard Lohse.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.4.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>

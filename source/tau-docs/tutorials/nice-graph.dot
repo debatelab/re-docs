@@ -1,0 +1,18 @@
+digraph G{
+rankdir=TB;
+node [shape=rectangle, style="argument", width=0, height=0, margin=0.05];
+edge [lblstyle="xshift=-6"];
+NA0 [texlbl="\begin{tabular}{c}2 \\\hline -5\end{tabular}"];
+NA1 [texlbl="\begin{tabular}{c}1 \\3 \\-4 \\\hline 2\end{tabular}"];
+NA2 [texlbl="\begin{tabular}{c}-3 \\-1 \\\hline 5\end{tabular}"];
+NT0 [texlbl="1"];
+NT1 [texlbl="3"];
+NT2 [texlbl="5"];
+NA0 -> NT2 [style ="attack"];
+NA1 -> NA0 [style ="support"];
+NA2 -> NT2 [style ="support"];
+NT0 -> NA1 [style ="support"];
+NT0 -> NA2 [style ="attack"];
+NT1 -> NA1 [style ="support"];
+NT1 -> NA2 [style ="attack"];
+}

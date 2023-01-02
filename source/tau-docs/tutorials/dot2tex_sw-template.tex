@@ -1,0 +1,57 @@
+\documentclass{article}
+\usepackage[x11names, rgb]{xcolor}
+\usepackage[<<textencoding>>]{inputenc}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes}
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{decorations.markings}
+
+\usepackage{amsmath}
+<<startpreprocsection>>%
+\usepackage[active,auctex]{preview}
+<<endpreprocsection>>%
+<<gvcols>>%
+<<cropcode>>%
+<<docpreamble>>%
+
+%\definecolor{attackColor}{RGB}{219,6,10}
+%\definecolor{supportColor}{RGB}{50,144,24}
+
+%\tikzstyle{argument}= [rectangle,rounded corners,draw=black, top color=white, bottom color=black!10, thick, text centered]
+% for using linebreaks with `\\` we use `align = center` (see: https://tex.stackexchange.com/questions/123671/manual-automatic-line-breaks-and-text-alignment-in-tikz-nodes#124114
+\tikzstyle{argument}= [rectangle,rounded corners,draw=black, top color=white, bottom color=black!10, thick, align=center]
+
+%\tikzstyle{attack}= [>=latex',  shorten >=1pt, thick, auto, text=black, decorate, decoration = {snake, amplitude=1pt, segment length=4pt, pre length=2pt,post length=6pt}]
+\tikzstyle{attack}= [>=latex',  shorten >=1pt, thick, auto, text=black, decorate, decoration = {snake, amplitude=0.5pt, segment length=4pt, pre length=2pt,post length=6pt}]
+\tikzstyle{support}= [>=latex',  shorten >=1pt, thick, auto, text=black]
+
+\begin{document}
+\pagestyle{empty}
+%
+<<startpreprocsection>>%
+<<preproccode>>
+<<endpreprocsection>>%
+%
+<<startoutputsection>>
+\enlargethispage{100cm}
+% Start of code
+% \begin{tikzpicture}[anchor=mid,>=latex',join=bevel,<<graphstyle>>]
+\begin{tikzpicture}[>=latex',join=bevel,<<graphstyle>>]
+\pgfsetlinewidth{1bp}
+<<figpreamble>>%
+<<drawcommands>>
+<<figpostamble>>%
+\end{tikzpicture}
+% End of code
+<<endoutputsection>>
+%
+\end{document}
+%
+<<startfigonlysection>>
+\begin{tikzpicture}[>=latex,join=bevel,<<graphstyle>>]
+\pgfsetlinewidth{1bp}
+<<figpreamble>>%
+<<drawcommands>>
+<<figpostamble>>%
+\end{tikzpicture}
+<<endfigonlysection>>

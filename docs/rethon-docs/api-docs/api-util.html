@@ -1,0 +1,461 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Utility Methods &#8212; RE Docs  documentation</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/styles/pydata-sphinx-theme.css" type="text/css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Ensemble Generation" href="api-ensemble-generation.html" />
+    <link rel="prev" title="Set Based Implementation" href="api-setbased-implementation.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+<a class="navbar-brand" href="../../index.html">
+<p class="title">RE Docs</p>
+</a>
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../tau-docs/index-tau.html">
+  Tau Docs
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="../index-rethon.html">
+  Rethon Docs
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar">
+              <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../tutorials/rethon-tutorials.html">
+   Tutorials
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tutorials/rethon-tutorial.html">
+     Rethon Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tutorials/ensemble-generation-tutorial.html">
+     Ensemble Generation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="api.html">
+   API documentation
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="api-base-core.html">
+     Abstract and Core Classes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api-numpy-implementation.html">
+     Numpy Implementation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api-bitarray-implementation.html">
+     Bitarray Implementation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api-setbased-implementation.html">
+     Set Based Implementation
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Utility Methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api-ensemble-generation.html">
+     Ensemble Generation
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+  </div>
+</nav>
+              </div>
+              <div class="sidebar-end-items">
+              </div>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+
+<nav id="bd-toc-nav">
+    
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="module-rethon.util">
+<span id="utility-methods"></span><h1>Utility Methods<a class="headerlink" href="#module-rethon.util" title="Permalink to this headline">#</a></h1>
+<p>A collection of convenient helper-functions.</p>
+<dl class="py class">
+<dt id="rethon.util.RethonJSONEncoder">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">rethon.util.</span></code><code class="sig-name descname"><span class="pre">RethonJSONEncoder</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">serialize_implementation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.util.RethonJSONEncoder" title="Permalink to this definition">#</a></dt>
+<dd><p class="rubric">Methods</p>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rethon.util.RethonJSONEncoder.default" title="rethon.util.RethonJSONEncoder.default"><code class="xref py py-obj docutils literal notranslate"><span class="pre">default</span></code></a>(o)</p></td>
+<td><p>An implemention of <code class="xref py py-func docutils literal notranslate"><span class="pre">JSONEncoder.default()</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">encode</span></code>(o)</p></td>
+<td><p>Return a JSON string representation of a Python data structure.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">iterencode</span></code>(o[, _one_shot])</p></td>
+<td><p>Encode the given object and yield each string representation as available.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="rethon.util.RethonJSONEncoder.default">
+<code class="sig-name descname"><span class="pre">default</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">o</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.util.RethonJSONEncoder.default" title="Permalink to this definition">#</a></dt>
+<dd><p>An implemention of <code class="xref py py-func docutils literal notranslate"><span class="pre">JSONEncoder.default()</span></code>.</p>
+<p>This implementation handles the serialization of <code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code>-,
+<code class="xref py py-class docutils literal notranslate"><span class="pre">DialecticalStructure</span></code>-, <code class="xref py py-class docutils literal notranslate"><span class="pre">REState</span></code>- and <code class="xref py py-class docutils literal notranslate"><span class="pre">ReflectiveEquilibrium</span></code> instances.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="rethon.util.local_re_model_params_varied_alphas">
+<code class="sig-prename descclassname"><span class="pre">rethon.util.</span></code><code class="sig-name descname"><span class="pre">local_re_model_params_varied_alphas</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alpha_resolution</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">with_extremes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.util.local_re_model_params_varied_alphas" title="Permalink to this definition">#</a></dt>
+<dd><p>Model parameters for Local RE with varied alphas.</p>
+<p>Convenience method that uses <a class="reference internal" href="#rethon.util.varied_alphas" title="rethon.util.varied_alphas"><code class="xref py py-func docutils literal notranslate"><span class="pre">varied_alphas()</span></code></a> to generate a list of model parameters for the
+locally searching standard model (see <code class="xref py py-class docutils literal notranslate"><span class="pre">LocalReflectiveEquilibrium</span></code>) as dict. Alphas are
+varied; all other parameters a set to default (see <code class="xref py py-class docutils literal notranslate"><span class="pre">basics.ReflectiveEquilibrium</span></code> for details about
+model parameters).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="rethon.util.re_from_text_file">
+<code class="sig-prename descclassname"><span class="pre">rethon.util.</span></code><code class="sig-name descname"><span class="pre">re_from_text_file</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">re_implementations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[('rethon',</span> <span class="pre">'BitarrayReflectiveEquilibrium')]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ds_module_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'tau'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ds_class_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'BitarrayDialecticalStructure'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position_module_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'tau'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position_class_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'BitarrayPosition'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.util.re_from_text_file" title="Permalink to this definition">#</a></dt>
+<dd><p>Creates a list of RE classes  from a text-file.</p>
+<p>The text file consists of a list (i.e. […]) of dictionaries (i.e. {…})
+and commented lines used for the description of the example (starting with #).
+The dictionaries have to contain comma separated entries for the number of unnegated
+sentences (key: ‘n’, e.g. ‘n’:7) and the arguments (key: ‘arguments’) as a list of lists of numbers
+(e.g.’arguments’:[[1,-3], [2,3,5]]).</p>
+<p>Optionally, the dictionary may contain entries ‘account_penalties’, ‘faithfulness_penalties’ and
+‘weights’ if non-standard values should be considered. Finally, an entry of ‘initial_commitments’
+may be provided, which is returned as a list of positions in the desired implementation.</p>
+<p>A simple schematic example is:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+<span class="c1"># the standard examples (cases A,B,C and D) contain only arguments with one premise.</span>
+<span class="p">{</span>
+    <span class="s1">&#39;n&#39;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+    <span class="s1">&#39;arguments&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">6</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">4</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span>
+    <span class="p">],</span>
+    <span class="s1">&#39;initial_commitments&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">},</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">},</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">},</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">}],</span>
+    <span class="s1">&#39;weights&#39;</span> <span class="p">:</span> <span class="p">{</span><span class="s1">&#39;account&#39;</span><span class="p">:</span> <span class="mf">0.35</span><span class="p">,</span> <span class="s1">&#39;systematicity&#39;</span><span class="p">:</span> <span class="mf">0.55</span><span class="p">,</span> <span class="s1">&#39;faithfulness&#39;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">},</span>
+    <span class="s1">&#39;account_penalties&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="s1">&#39;faithfulness_penalties&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="p">},</span>
+<span class="p">{</span> <span class="c1"># some other dialectical structure ...</span>
+<span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dir</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Directory of the text-file.</p></li>
+<li><p><strong>file_name</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Name of the text-file to be used.</p></li>
+<li><p><strong>re_implementations</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]) – String-representation of the implementation to be used (defined by module- and class name).</p></li>
+<li><p><strong>ds_module_name</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Modulename of the implementation of <code class="code docutils literal notranslate"><span class="pre">DialecticalStructure</span></code> to be used.</p></li>
+<li><p><strong>ds_class_name</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Classname of the implementation of <code class="code docutils literal notranslate"><span class="pre">DialecticalStructure</span></code> to be used.</p></li>
+<li><p><strong>position_module_name</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Module name of the implementation of <code class="code docutils literal notranslate"><span class="pre">Position</span></code> to be used.</p></li>
+<li><p><strong>position_class_name</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Class name of the implementation of <code class="code docutils literal notranslate"><span class="pre">Position</span></code> to be used.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ReflectiveEquilibrium</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code>]]]</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>List of the form <code class="code docutils literal notranslate"><span class="pre">[(ReflectiveEquilibrium,[Position,Position,...]),(ReflectiveEquilibrium,[Position,Position,...]),...]</span></code>
+with the inner lists of <code class="code docutils literal notranslate"><span class="pre">Position</span></code> possibly being <code class="code docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="rethon.util.re_weight_variations">
+<code class="sig-prename descclassname"><span class="pre">rethon.util.</span></code><code class="sig-name descname"><span class="pre">re_weight_variations</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">re</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_commitments</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">DIR</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fileName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.util.re_weight_variations" title="Permalink to this definition">#</a></dt>
+<dd><p>Simulate RE processes with
+todo</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="rethon.util.rethon_decoder">
+<code class="sig-prename descclassname"><span class="pre">rethon.util.</span></code><code class="sig-name descname"><span class="pre">rethon_decoder</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">json_obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_json_specified_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position_module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'tau'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position_class</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'BitarrayPosition'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dialectical_structure_module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'tau'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dialectical_structure_class</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'BitarrayDialecticalStructure'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reflective_equilibrium_module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'rethon'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reflective_equilibrium_class</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'BitarrayReflectiveEquilibrium'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.util.rethon_decoder" title="Permalink to this definition">#</a></dt>
+<dd><p>Object hook for <code class="xref py py-func docutils literal notranslate"><span class="pre">json.loads()</span></code> and <code class="xref py py-func docutils literal notranslate"><span class="pre">json.load()</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>use_json_specified_type</strong> – If <code class="code docutils literal notranslate"><span class="pre">True</span></code> the methods used the implementation details
+(module name and class name) that are specified in the json string, if there are any. Otherwise,
+the methode uses implementation details as given by the other parameters.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="rethon.util.rethon_dump">
+<code class="sig-prename descclassname"><span class="pre">rethon.util.</span></code><code class="sig-name descname"><span class="pre">rethon_dump</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">re_object</span></em>, <em class="sig-param"><span class="pre">fp</span></em>, <em class="sig-param"><span class="pre">cls=&lt;class</span> <span class="pre">'rethon.util.RethonJSONEncoder'&gt;</span></em>, <em class="sig-param"><span class="pre">serialize_implementation=False</span></em>, <em class="sig-param"><span class="pre">**kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.util.rethon_dump" title="Permalink to this definition">#</a></dt>
+<dd><p>Saving an object as JSON-String in a file.</p>
+<p>This is a convenient method that calls <code class="xref py py-func docutils literal notranslate"><span class="pre">json.dump()</span></code> with <a class="reference internal" href="#rethon.util.RethonJSONEncoder" title="rethon.util.RethonJSONEncoder"><code class="xref py py-class docutils literal notranslate"><span class="pre">RethonJSONEncoder</span></code></a> as
+its default encoder, which will handle the JSON serialization of <code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code>-,
+<code class="xref py py-class docutils literal notranslate"><span class="pre">DialecticalStructure</span></code>-, <code class="xref py py-class docutils literal notranslate"><span class="pre">REState</span></code>- and <code class="xref py py-class docutils literal notranslate"><span class="pre">ReflectiveEquilibrium</span></code> instances.</p>
+<p><a href="#id1"><span class="problematic" id="id2">**</span></a>kwargs will be given to <code class="xref py py-func docutils literal notranslate"><span class="pre">json.dumps()</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>serialize_implementation</strong> – If <code class="code docutils literal notranslate"><span class="pre">True</span></code> implementation details (module name and class name) will
+be serialized.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The object as a JSON string.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="rethon.util.rethon_dumps">
+<code class="sig-prename descclassname"><span class="pre">rethon.util.</span></code><code class="sig-name descname"><span class="pre">rethon_dumps</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">re_object</span></em>, <em class="sig-param"><span class="pre">cls=&lt;class</span> <span class="pre">'rethon.util.RethonJSONEncoder'&gt;</span></em>, <em class="sig-param"><span class="pre">serialize_implementation=False</span></em>, <em class="sig-param"><span class="pre">**kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.util.rethon_dumps" title="Permalink to this definition">#</a></dt>
+<dd><p>Getting an object as JSON-String.</p>
+<p>This is a convenient method that calls <code class="xref py py-func docutils literal notranslate"><span class="pre">json.dumps()</span></code> with <a class="reference internal" href="#rethon.util.RethonJSONEncoder" title="rethon.util.RethonJSONEncoder"><code class="xref py py-class docutils literal notranslate"><span class="pre">RethonJSONEncoder</span></code></a> as
+its default encoder, which will handle the JSON serialization of <code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code>-,
+<code class="xref py py-class docutils literal notranslate"><span class="pre">DialecticalStructure</span></code>-, <code class="xref py py-class docutils literal notranslate"><span class="pre">REState</span></code>- and <code class="xref py py-class docutils literal notranslate"><span class="pre">ReflectiveEquilibrium</span></code> instances.</p>
+<p><a href="#id3"><span class="problematic" id="id4">**</span></a>kwargs will be given to <code class="xref py py-func docutils literal notranslate"><span class="pre">json.dumps()</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>serialize_implementation</strong> – If <code class="code docutils literal notranslate"><span class="pre">True</span></code> implementation details (module name and class name) will
+be serialized.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The object as a JSON string.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="rethon.util.rethon_load">
+<code class="sig-prename descclassname"><span class="pre">rethon.util.</span></code><code class="sig-name descname"><span class="pre">rethon_load</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_json_specified_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position_module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'tau'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position_class</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'BitarrayPosition'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dialectical_structure_module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'tau'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dialectical_structure_class</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'BitarrayDialecticalStructure'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reflective_equilibrium_module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'rethon'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reflective_equilibrium_class</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'BitarrayReflectiveEquilibrium'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.util.rethon_load" title="Permalink to this definition">#</a></dt>
+<dd><p>Loading an object from a JSON file.</p>
+<p>This is a convenient method that calls <code class="xref py py-func docutils literal notranslate"><span class="pre">json.load()</span></code> and uses <a class="reference internal" href="#rethon.util.rethon_decoder" title="rethon.util.rethon_decoder"><code class="xref py py-func docutils literal notranslate"><span class="pre">rethon_decoder()</span></code></a> as object hook
+to handle the instantiation of <code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code>-,
+<code class="xref py py-class docutils literal notranslate"><span class="pre">DialecticalStructure</span></code>-, <code class="xref py py-class docutils literal notranslate"><span class="pre">REState</span></code>- and <code class="xref py py-class docutils literal notranslate"><span class="pre">ReflectiveEquilibrium</span></code> objects. Desired
+implementation details can be given by parameter values (see <a class="reference internal" href="#rethon.util.rethon_decoder" title="rethon.util.rethon_decoder"><code class="xref py py-func docutils literal notranslate"><span class="pre">rethon_decoder()</span></code></a>).</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="rethon.util.rethon_loads">
+<code class="sig-prename descclassname"><span class="pre">rethon.util.</span></code><code class="sig-name descname"><span class="pre">rethon_loads</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">json_obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_json_specified_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position_module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'tau'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position_class</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'BitarrayPosition'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dialectical_structure_module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'tau'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dialectical_structure_class</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'BitarrayDialecticalStructure'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reflective_equilibrium_module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'rethon'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reflective_equilibrium_class</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'BitarrayReflectiveEquilibrium'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.util.rethon_loads" title="Permalink to this definition">#</a></dt>
+<dd><p>Loading an object from a JSON string.</p>
+<p>This is a convenient method that calls <code class="xref py py-func docutils literal notranslate"><span class="pre">json.loads()</span></code> and uses <a class="reference internal" href="#rethon.util.rethon_decoder" title="rethon.util.rethon_decoder"><code class="xref py py-func docutils literal notranslate"><span class="pre">rethon_decoder()</span></code></a> as object hook
+to handle the instantiation of <code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code>-,
+<code class="xref py py-class docutils literal notranslate"><span class="pre">DialecticalStructure</span></code>-, <code class="xref py py-class docutils literal notranslate"><span class="pre">REState</span></code>- and <code class="xref py py-class docutils literal notranslate"><span class="pre">ReflectiveEquilibrium</span></code> objects. Desired
+implementation details can be given by parameter values (see <a class="reference internal" href="#rethon.util.rethon_decoder" title="rethon.util.rethon_decoder"><code class="xref py py-func docutils literal notranslate"><span class="pre">rethon_decoder()</span></code></a>).</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="rethon.util.standard_model_params_varied_alphas">
+<code class="sig-prename descclassname"><span class="pre">rethon.util.</span></code><code class="sig-name descname"><span class="pre">standard_model_params_varied_alphas</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alpha_resolution</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">with_extremes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.util.standard_model_params_varied_alphas" title="Permalink to this definition">#</a></dt>
+<dd><p>Standard model parameters with varied alphas.</p>
+<p>Convenience method that uses <a class="reference internal" href="#rethon.util.varied_alphas" title="rethon.util.varied_alphas"><code class="xref py py-func docutils literal notranslate"><span class="pre">varied_alphas()</span></code></a> to generate a list of model parameters for the
+standard model (see <code class="xref py py-class docutils literal notranslate"><span class="pre">StandardReflectiveEquilibrium</span></code>) as dict. Alphas are
+varied; all other parameters a set to default (see <code class="xref py py-class docutils literal notranslate"><span class="pre">basics.ReflectiveEquilibrium</span></code> for details about
+model parameters).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="rethon.util.varied_alphas">
+<code class="sig-prename descclassname"><span class="pre">rethon.util.</span></code><code class="sig-name descname"><span class="pre">varied_alphas</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alpha_resolution</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">with_extremes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.util.varied_alphas" title="Permalink to this definition">#</a></dt>
+<dd><p>A list of alpha values that can be used as model parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+              </div>
+              
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2023, Claus Beisbart, Gregor Betz, Georg Brun, Sebastian Cacean, Andreas Freivogel, Richard Lohse.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.4.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>

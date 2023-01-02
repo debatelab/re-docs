@@ -1,0 +1,1168 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bitarray Implementation &#8212; RE Docs  documentation</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/styles/pydata-sphinx-theme.css" type="text/css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "tex2jax_ignore|mathjax_ignore|document", "processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Set Based Implementation" href="api-setbased-implementation.html" />
+    <link rel="prev" title="Numpy Implementation" href="api-numpy-implementation.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+<a class="navbar-brand" href="../../index.html">
+<p class="title">RE Docs</p>
+</a>
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="../index-tau.html">
+  Tau Docs
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../rethon-docs/index-rethon.html">
+  Rethon Docs
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar">
+              <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../tutorials/tau-tutorials.html">
+   Tutorials
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tutorials/tau-tutorial.html">
+     Tau Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tutorials/visualisation.html">
+     Visualisation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="api.html">
+   API documentation
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="api-abstract.html">
+     Abstract Base Classes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api-numpy-implementation.html">
+     Numpy Implementation
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Bitarray Implementation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api-setbased-implementation.html">
+     Set Based Implementation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api-util.html">
+     Utility Methods
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+  </div>
+</nav>
+              </div>
+              <div class="sidebar-end-items">
+              </div>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bitarrayposition">
+   BitarrayPosition
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dagbitarraydialecticalstructure">
+   DAGBitarrayDialecticalStructure
+  </a>
+ </li>
+</ul>
+
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="bitarray-implementation">
+<h1>Bitarray Implementation<a class="headerlink" href="#bitarray-implementation" title="Permalink to this headline">#</a></h1>
+<div class="section" id="bitarrayposition">
+<h2>BitarrayPosition<a class="headerlink" href="#bitarrayposition" title="Permalink to this headline">#</a></h2>
+<dl class="py class">
+<dt id="tau.BitarrayPosition">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">tau.</span></code><code class="sig-name descname"><span class="pre">BitarrayPosition</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ba</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_unnegated_sentence_pool</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tau.BitarrayPosition" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tau.base.Position</span></code></p>
+<p>using bitarrays to represent positions and their methods</p>
+<p>A pair of bits represents a sentence:
+The first bit represents acceptance and the second bit rejection
+Suspension of a sentence corresponds to both bits being False/0
+(Minimal or flat) contradiction is present if both bits are True/1</p>
+<p>A BitarrayPosition may be created by a bitarray,
+e.g. BitarrayPosition(bitarray(‘10001001’)), or by a set
+of integer-represented sentences and the number of unnegated sentences in the
+sentencepool, e.g. BitarrayPosition({1, 3, -4}, n_unnegated_sentence_pool = 4))</p>
+<p class="rubric">Methods</p>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#tau.BitarrayPosition.are_minimally_compatible" title="tau.BitarrayPosition.are_minimally_compatible"><code class="xref py py-obj docutils literal notranslate"><span class="pre">are_minimally_compatible</span></code></a>(position1)</p></td>
+<td><p>Checks for minimal compatibility with <code class="code docutils literal notranslate"><span class="pre">position</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#tau.BitarrayPosition.as_bitarray" title="tau.BitarrayPosition.as_bitarray"><code class="xref py py-obj docutils literal notranslate"><span class="pre">as_bitarray</span></code></a>()</p></td>
+<td><p>Position as <a class="reference internal" href="#tau.BitarrayPosition" title="tau.BitarrayPosition"><code class="xref py py-class docutils literal notranslate"><span class="pre">BitarrayPosition</span></code></a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#tau.BitarrayPosition.as_list" title="tau.BitarrayPosition.as_list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">as_list</span></code></a>()</p></td>
+<td><p>Position as integer list.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#tau.BitarrayPosition.as_set" title="tau.BitarrayPosition.as_set"><code class="xref py py-obj docutils literal notranslate"><span class="pre">as_set</span></code></a>()</p></td>
+<td><p>Position as integer set.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#tau.BitarrayPosition.as_ternary" title="tau.BitarrayPosition.as_ternary"><code class="xref py py-obj docutils literal notranslate"><span class="pre">as_ternary</span></code></a>()</p></td>
+<td><p>Position as ternary.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#tau.BitarrayPosition.direct_subpositions" title="tau.BitarrayPosition.direct_subpositions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">direct_subpositions</span></code></a>()</p></td>
+<td><p>Creates subpositions of position that have exactly one element less than postion.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#tau.BitarrayPosition.domain" title="tau.BitarrayPosition.domain"><code class="xref py py-obj docutils literal notranslate"><span class="pre">domain</span></code></a>()</p></td>
+<td><p>Determines the domain of the position.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#tau.BitarrayPosition.from_set" title="tau.BitarrayPosition.from_set"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_set</span></code></a>(position, n_unnegated_sentence_pool)</p></td>
+<td><p>Instanciating a <a class="reference internal" href="api-abstract.html#tau.Position" title="tau.Position"><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></a> from a set.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#tau.BitarrayPosition.intersection" title="tau.BitarrayPosition.intersection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">intersection</span></code></a>(positions)</p></td>
+<td><p>set-theoretic intersection</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#tau.BitarrayPosition.is_accepting" title="tau.BitarrayPosition.is_accepting"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_accepting</span></code></a>(sentence)</p></td>
+<td><p>Checks whether <code class="code docutils literal notranslate"><span class="pre">sentence</span></code> is in the position.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#tau.BitarrayPosition.is_in_domain" title="tau.BitarrayPosition.is_in_domain"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_in_domain</span></code></a>(sentence)</p></td>
+<td><p>Checks whether <code class="code docutils literal notranslate"><span class="pre">sentence</span></code> is in the domain of the position.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#tau.BitarrayPosition.is_minimally_consistent" title="tau.BitarrayPosition.is_minimally_consistent"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_minimally_consistent</span></code></a>()</p></td>
+<td><p>Checks for minimal consistency.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#tau.BitarrayPosition.is_subposition" title="tau.BitarrayPosition.is_subposition"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_subposition</span></code></a>(pos2)</p></td>
+<td><p>Checks for set-theoretic inclusion.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#tau.BitarrayPosition.neighbours" title="tau.BitarrayPosition.neighbours"><code class="xref py py-obj docutils literal notranslate"><span class="pre">neighbours</span></code></a>(depth)</p></td>
+<td><p>Neighbours of the position.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#tau.BitarrayPosition.sentence_pool" title="tau.BitarrayPosition.sentence_pool"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sentence_pool</span></code></a>()</p></td>
+<td><p>Size of sentence pool.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#tau.BitarrayPosition.size" title="tau.BitarrayPosition.size"><code class="xref py py-obj docutils literal notranslate"><span class="pre">size</span></code></a>()</p></td>
+<td><p>size of the position</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#tau.BitarrayPosition.subpositions" title="tau.BitarrayPosition.subpositions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">subpositions</span></code></a>([n, only_consistent_subpositions])</p></td>
+<td><p>Returns an iterator over subpositions of size n, with n being an optional argument (defaulting to -1, returning all subpositions.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#tau.BitarrayPosition.union" title="tau.BitarrayPosition.union"><code class="xref py py-obj docutils literal notranslate"><span class="pre">union</span></code></a>(positions)</p></td>
+<td><p>set-theoretic union</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="tau.BitarrayPosition.are_minimally_compatible">
+<code class="sig-name descname"><span class="pre">are_minimally_compatible</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tau.BitarrayPosition.are_minimally_compatible" title="Permalink to this definition">#</a></dt>
+<dd><p>Checks for minimal compatibility with <code class="code docutils literal notranslate"><span class="pre">position</span></code>.</p>
+<p>Two positions <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> and <span class="math notranslate nohighlight">\(\mathcal{A}'\)</span> are minimally compatible iff
+<span class="math notranslate nohighlight">\(\mathcal{A} \cup \mathcal{A}'\)</span> is minimally consistent.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><code class="code docutils literal notranslate"><span class="pre">True</span></code> iff the position-instance is compatible with <code class="code docutils literal notranslate"><span class="pre">position</span></code></p>
+</dd>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>position1</strong> (<em>tau.base.Position</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="tau.BitarrayPosition.as_bitarray">
+<code class="sig-name descname"><span class="pre">as_bitarray</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tau.BitarrayPosition.as_bitarray" title="Permalink to this definition">#</a></dt>
+<dd><p>Position as <a class="reference internal" href="#tau.BitarrayPosition" title="tau.BitarrayPosition"><code class="xref py py-class docutils literal notranslate"><span class="pre">BitarrayPosition</span></code></a>.</p>
+<p>A pair of bits represents a sentence:
+The first bit represents acceptance and the second bit rejection.
+Suspension of a sentence corresponds to both bits being False/0 and
+(minimal or flat) contradiction is present if both bits are True/1. For instance,
+the position <span class="math notranslate nohighlight">\(\{ s_1, s_3, \neg s_4 \}\)</span> is represented by <code class="code docutils literal notranslate"><span class="pre">10001001</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bitarray</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a bitarray representation of the position if possible, otherwise should return <code class="code docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="tau.BitarrayPosition.as_list">
+<code class="sig-name descname"><span class="pre">as_list</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tau.BitarrayPosition.as_list" title="Permalink to this definition">#</a></dt>
+<dd><p>Position as integer list.</p>
+<p>The position <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> represented by a python list of integer values.
+<span class="math notranslate nohighlight">\(s_i \in \mathcal{A}\)</span> is represented by <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(\neg s_i \in \mathcal{A}\)</span> by <span class="math notranslate nohighlight">\(-i\)</span>.
+For instance, the position <span class="math notranslate nohighlight">\(\{ s_1, s_3, \neg s_4 \}\)</span> is represented by <code class="code docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">3,</span> <span class="pre">-4]</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The returned order integer values is not specified.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a representation of the position as a list of integer values</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="tau.BitarrayPosition.as_set">
+<code class="sig-name descname"><span class="pre">as_set</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tau.BitarrayPosition.as_set" title="Permalink to this definition">#</a></dt>
+<dd><p>Position as integer set.</p>
+<p>The position <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> represented by a python set of integer values.
+<span class="math notranslate nohighlight">\(s_i \in \mathcal{A}\)</span> is represented by <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(\neg s_i \in \mathcal{A}\)</span> by <span class="math notranslate nohighlight">\(-i\)</span>.
+For instance, the position <span class="math notranslate nohighlight">\(\{ s_1, s_3, \neg s_4 \}\)</span> is represented by <code class="code docutils literal notranslate"><span class="pre">{1,</span> <span class="pre">3,</span> <span class="pre">-4}</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Set</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a representation of the position as a set of integer values</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="tau.BitarrayPosition.as_ternary">
+<code class="sig-name descname"><span class="pre">as_ternary</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tau.BitarrayPosition.as_ternary" title="Permalink to this definition">#</a></dt>
+<dd><p>Position as ternary.</p>
+<p>The position <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> represented by an integer of base 3 (at least).
+<span class="math notranslate nohighlight">\(s_i \in \mathcal{A}\)</span> is represented by <span class="math notranslate nohighlight">\(1*10^{i-1}\)</span>,
+<span class="math notranslate nohighlight">\(\neg s_i \in \mathcal{A}\)</span> by <span class="math notranslate nohighlight">\(2*10^{i-1}\)</span> and
+<span class="math notranslate nohighlight">\(s_i, \neg s_i \notin \mathcal{A}\)</span> by zero. For instance, the position
+<span class="math notranslate nohighlight">\(\{ s_1, s_3, \neg s_4 \}\)</span> is represented by the integer 2101.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Positions that are not minimally consistent cannot be represented in this way.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a ternary representation of the position if possible, otherwise should return <code class="code docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="tau.BitarrayPosition.direct_subpositions">
+<code class="sig-name descname"><span class="pre">direct_subpositions</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tau.BitarrayPosition.direct_subpositions" title="Permalink to this definition">#</a></dt>
+<dd><p>Creates subpositions of position that have exactly one element less than postion.
+Used for efficiency in update method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="tau.BitarrayPosition.domain">
+<code class="sig-name descname"><span class="pre">domain</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tau.BitarrayPosition.domain" title="Permalink to this definition">#</a></dt>
+<dd><p>Determines the domain of the position.</p>
+<p>The domain of a position <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> is the closure of <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> under negation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the domain of the position</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="tau.BitarrayPosition.from_set">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">from_set</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_unnegated_sentence_pool</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tau.BitarrayPosition.from_set" title="Permalink to this definition">#</a></dt>
+<dd><p>Instanciating a <a class="reference internal" href="api-abstract.html#tau.Position" title="tau.Position"><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></a> from a set.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><a class="reference internal" href="api-abstract.html#tau.Position" title="tau.Position"><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></a></p>
+</dd>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>position</strong> (<em>Set</em><em>[</em><em>int</em><em>]</em>) – </p></li>
+<li><p><strong>n_unnegated_sentence_pool</strong> (<em>int</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="tau.BitarrayPosition.intersection">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">intersection</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">positions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tau.BitarrayPosition.intersection" title="Permalink to this definition">#</a></dt>
+<dd><p>set-theoretic intersection</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The set-theoretic intersection of the given set of :code:<a href="#id1"><span class="problematic" id="id2">`</span></a>position`s.</p>
+</dd>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>positions</strong> (<em>Set</em><em>[</em><em>tau.base.Position</em><em>]</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="tau.BitarrayPosition.is_accepting">
+<code class="sig-name descname"><span class="pre">is_accepting</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sentence</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tau.BitarrayPosition.is_accepting" title="Permalink to this definition">#</a></dt>
+<dd><p>Checks whether <code class="code docutils literal notranslate"><span class="pre">sentence</span></code> is in the position.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>sentence</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – A sentence <span class="math notranslate nohighlight">\(s_i\)</span> represented by i.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><code class="code docutils literal notranslate"><span class="pre">True</span></code> iff <code class="code docutils literal notranslate"><span class="pre">sentence</span></code> is in the position.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="tau.BitarrayPosition.is_in_domain">
+<code class="sig-name descname"><span class="pre">is_in_domain</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sentence</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tau.BitarrayPosition.is_in_domain" title="Permalink to this definition">#</a></dt>
+<dd><p>Checks whether <code class="code docutils literal notranslate"><span class="pre">sentence</span></code> is in the domain of the position.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>sentence</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – A sentence <span class="math notranslate nohighlight">\(s_i\)</span> represented by i.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><code class="code docutils literal notranslate"><span class="pre">True</span></code> iff <code class="code docutils literal notranslate"><span class="pre">sentence</span></code> is in the domain of the position.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="tau.BitarrayPosition.is_minimally_consistent">
+<code class="sig-name descname"><span class="pre">is_minimally_consistent</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tau.BitarrayPosition.is_minimally_consistent" title="Permalink to this definition">#</a></dt>
+<dd><p>Checks for minimal consistency.</p>
+<p>A position <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> is minimally consistent iff
+<span class="math notranslate nohighlight">\(\forall s \in S: s\in \mathcal{A} \rightarrow \neg s \notin \mathcal{A}\)</span></p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><code class="code docutils literal notranslate"><span class="pre">True</span></code> iff the position is minimally consistent</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="tau.BitarrayPosition.is_subposition">
+<code class="sig-name descname"><span class="pre">is_subposition</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tau.BitarrayPosition.is_subposition" title="Permalink to this definition">#</a></dt>
+<dd><p>Checks for set-theoretic inclusion.</p>
+<p>The position <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> is a subposition of <span class="math notranslate nohighlight">\(\mathcal{A}'\)</span> iff
+<span class="math notranslate nohighlight">\(\mathcal{A} \subset \mathcal{A}'\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><code class="code docutils literal notranslate"><span class="pre">True</span></code> iff the position-instance is a subposition of <code class="code docutils literal notranslate"><span class="pre">position</span></code></p>
+</dd>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>tau.base.Position</em>) – </p></li>
+<li><p><strong>pos2</strong> (<em>tau.base.Position</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="tau.BitarrayPosition.neighbours">
+<code class="sig-name descname"><span class="pre">neighbours</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">depth</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tau.BitarrayPosition.neighbours" title="Permalink to this definition">#</a></dt>
+<dd><p>Neighbours of the position.</p>
+<p>Generates all neighbours of the position that can be reached by at most
+<code class="code docutils literal notranslate"><span class="pre">depth</span></code> many adjustments of individual sentences (including the position itself).
+The number of neighbours is
+<span class="math notranslate nohighlight">\(\sum_{k=0}^d {n\choose k}*2^k)\)</span>, where n is the number of unnegated sentences and d is
+the depth of the neighbourhood.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code>]</p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><p><strong>depth</strong> (<em>int</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="tau.BitarrayPosition.sentence_pool">
+<code class="sig-name descname"><span class="pre">sentence_pool</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tau.BitarrayPosition.sentence_pool" title="Permalink to this definition">#</a></dt>
+<dd><p>Size of sentence pool.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the size of the unnegated sentence pool.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="tau.BitarrayPosition.size">
+<code class="sig-name descname"><span class="pre">size</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tau.BitarrayPosition.size" title="Permalink to this definition">#</a></dt>
+<dd><p>size of the position</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The amount of sentences in that position (<span class="math notranslate nohighlight">\(|S|\)</span>).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="tau.BitarrayPosition.subpositions">
+<code class="sig-name descname"><span class="pre">subpositions</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_consistent_subpositions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tau.BitarrayPosition.subpositions" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns an iterator over subpositions of size n, with n being an optional
+argument (defaulting to -1, returning all subpositions.
+If only_consistent_subposition is set to true (by default), only minimally
+consistent subpositions are returned, which is less costly than returning all subpositions
+(if the parameter is set to false)).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code>]</p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>n</strong> (<em>int</em>) – </p></li>
+<li><p><strong>only_consistent_subpositions</strong> (<em>bool</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="tau.BitarrayPosition.union">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">union</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">positions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tau.BitarrayPosition.union" title="Permalink to this definition">#</a></dt>
+<dd><p>set-theoretic union</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The set-theoretic union of the given set of :code:<a href="#id3"><span class="problematic" id="id4">`</span></a>position`s.</p>
+</dd>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>positions</strong> (<em>Set</em><em>[</em><em>tau.base.Position</em><em>]</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="dagbitarraydialecticalstructure">
+<h2>DAGBitarrayDialecticalStructure<a class="headerlink" href="#dagbitarraydialecticalstructure" title="Permalink to this headline">#</a></h2>
+<dl class="py class">
+<dt id="tau.DAGBitarrayDialecticalStructure">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">tau.</span></code><code class="sig-name descname"><span class="pre">DAGBitarrayDialecticalStructure</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_arguments</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tau.DAGBitarrayDialecticalStructure" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tau.base.DialecticalStructure</span></code></p>
+<p class="rubric">Methods</p>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#tau.DAGBitarrayDialecticalStructure.add_argument" title="tau.DAGBitarrayDialecticalStructure.add_argument"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_argument</span></code></a>(argument)</p></td>
+<td><p>Adds an argument to the dialectical structure.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#tau.DAGBitarrayDialecticalStructure.add_arguments" title="tau.DAGBitarrayDialecticalStructure.add_arguments"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_arguments</span></code></a>(arguments)</p></td>
+<td><p>Adds arguments to the dialectical structure.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#tau.DAGBitarrayDialecticalStructure.are_compatible" title="tau.DAGBitarrayDialecticalStructure.are_compatible"><code class="xref py py-obj docutils literal notranslate"><span class="pre">are_compatible</span></code></a>(position1, position2)</p></td>
+<td><p>Checks for dialectical compatibility of two positions.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#tau.DAGBitarrayDialecticalStructure.axioms" title="tau.DAGBitarrayDialecticalStructure.axioms"><code class="xref py py-obj docutils literal notranslate"><span class="pre">axioms</span></code></a>(position[, source])</p></td>
+<td><p>Iterator over all axiomatic bases from source.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#tau.DAGBitarrayDialecticalStructure.closed_positions" title="tau.DAGBitarrayDialecticalStructure.closed_positions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">closed_positions</span></code></a>()</p></td>
+<td><p>Iterator over all dialectically closed positions.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#tau.DAGBitarrayDialecticalStructure.closure" title="tau.DAGBitarrayDialecticalStructure.closure"><code class="xref py py-obj docutils literal notranslate"><span class="pre">closure</span></code></a>(position)</p></td>
+<td><p>Dialectical closure.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#tau.DAGBitarrayDialecticalStructure.complete_extensions" title="tau.DAGBitarrayDialecticalStructure.complete_extensions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">complete_extensions</span></code></a>(position)</p></td>
+<td><p>Returns complete extensions of position by retrieving corresponding node in the graph that stores complete extensions.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#tau.DAGBitarrayDialecticalStructure.consistent_complete_positions" title="tau.DAGBitarrayDialecticalStructure.consistent_complete_positions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">consistent_complete_positions</span></code></a>()</p></td>
+<td><p>Iterator over all dialectically consistent and complete positions.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#tau.DAGBitarrayDialecticalStructure.consistent_positions" title="tau.DAGBitarrayDialecticalStructure.consistent_positions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">consistent_positions</span></code></a>()</p></td>
+<td><p>Iterator over all dialectically consistent positions.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#tau.DAGBitarrayDialecticalStructure.degree_of_justification" title="tau.DAGBitarrayDialecticalStructure.degree_of_justification"><code class="xref py py-obj docutils literal notranslate"><span class="pre">degree_of_justification</span></code></a>(position1, position2)</p></td>
+<td><p>Conditional degree of justification.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#tau.DAGBitarrayDialecticalStructure.entails" title="tau.DAGBitarrayDialecticalStructure.entails"><code class="xref py py-obj docutils literal notranslate"><span class="pre">entails</span></code></a>(position1, position2)</p></td>
+<td><p>Dialectical entailment.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#tau.DAGBitarrayDialecticalStructure.from_arguments" title="tau.DAGBitarrayDialecticalStructure.from_arguments"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_arguments</span></code></a>(arguments, …)</p></td>
+<td><p>Instanciating a <a class="reference internal" href="api-abstract.html#tau.DialecticalStructure" title="tau.DialecticalStructure"><code class="xref py py-class docutils literal notranslate"><span class="pre">DialecticalStructure</span></code></a> from a list of int lists.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#tau.DAGBitarrayDialecticalStructure.get_arguments" title="tau.DAGBitarrayDialecticalStructure.get_arguments"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_arguments</span></code></a>()</p></td>
+<td><p>The arguments as a list.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#tau.DAGBitarrayDialecticalStructure.is_closed" title="tau.DAGBitarrayDialecticalStructure.is_closed"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_closed</span></code></a>(position)</p></td>
+<td><p>Checks whether a position is dialectically closed.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#tau.DAGBitarrayDialecticalStructure.is_complete" title="tau.DAGBitarrayDialecticalStructure.is_complete"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_complete</span></code></a>(position)</p></td>
+<td><p>Checks whether :code:<a href="#id5"><span class="problematic" id="id6">`</span></a>position’ is complete.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#tau.DAGBitarrayDialecticalStructure.is_consistent" title="tau.DAGBitarrayDialecticalStructure.is_consistent"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_consistent</span></code></a>(position)</p></td>
+<td><p>Checks for dialectical consistency.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#tau.DAGBitarrayDialecticalStructure.is_minimal" title="tau.DAGBitarrayDialecticalStructure.is_minimal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_minimal</span></code></a>(position)</p></td>
+<td><p>Checks dialectical minimality.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#tau.DAGBitarrayDialecticalStructure.minimal_positions" title="tau.DAGBitarrayDialecticalStructure.minimal_positions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">minimal_positions</span></code></a>()</p></td>
+<td><p>Iterator over all dialectically minimal positions.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#tau.DAGBitarrayDialecticalStructure.minimally_consistent_positions" title="tau.DAGBitarrayDialecticalStructure.minimally_consistent_positions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">minimally_consistent_positions</span></code></a>()</p></td>
+<td><p>Iterator over all minimally consistent positions.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#tau.DAGBitarrayDialecticalStructure.n_complete_extensions" title="tau.DAGBitarrayDialecticalStructure.n_complete_extensions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_complete_extensions</span></code></a>([position])</p></td>
+<td><p>Number of complete and consistent extension.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#tau.DAGBitarrayDialecticalStructure.sentence_pool" title="tau.DAGBitarrayDialecticalStructure.sentence_pool"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sentence_pool</span></code></a>()</p></td>
+<td><p>Returns the unnegated half of sentence pool</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#tau.DAGBitarrayDialecticalStructure.to_bitarray_position" title="tau.DAGBitarrayDialecticalStructure.to_bitarray_position"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_bitarray_position</span></code></a>(position)</p></td>
+<td><p>This auxiliary method converts a position from another implemenation to a BitarrayPosition.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="table">
+<colgroup>
+<col style="width: 57%" />
+<col style="width: 43%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>satisfies</strong></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="tau.DAGBitarrayDialecticalStructure.add_argument">
+<code class="sig-name descname"><span class="pre">add_argument</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">argument</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tau.DAGBitarrayDialecticalStructure.add_argument" title="Permalink to this definition">#</a></dt>
+<dd><p>Adds an argument to the dialectical structure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>argument</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – An argument as an integer list. The last element represents the conclusion the others the premises.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">DialecticalStructure</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The dialectical structure for convenience.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="tau.DAGBitarrayDialecticalStructure.add_arguments">
+<code class="sig-name descname"><span class="pre">add_arguments</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arguments</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tau.DAGBitarrayDialecticalStructure.add_arguments" title="Permalink to this definition">#</a></dt>
+<dd><p>Adds arguments to the dialectical structure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>arguments</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]]) – A list of arguments as a list of integer lists.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">DialecticalStructure</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The dialectical structure for convenience.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="tau.DAGBitarrayDialecticalStructure.are_compatible">
+<code class="sig-name descname"><span class="pre">are_compatible</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tau.DAGBitarrayDialecticalStructure.are_compatible" title="Permalink to this definition">#</a></dt>
+<dd><p>Checks for dialectical compatibility of two positions.</p>
+<p>Two positions are dialectically compatible iff there is a complete and consistent positition that
+extends both.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><code class="code docutils literal notranslate"><span class="pre">True</span></code> iff <code class="code docutils literal notranslate"><span class="pre">position1</span></code> it dialectically compatible to <code class="code docutils literal notranslate"><span class="pre">position2</span></code>.</p>
+</dd>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>position1</strong> (<em>tau.base.Position</em>) – </p></li>
+<li><p><strong>position2</strong> (<em>tau.base.Position</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="tau.DAGBitarrayDialecticalStructure.axioms">
+<code class="sig-name descname"><span class="pre">axioms</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tau.DAGBitarrayDialecticalStructure.axioms" title="Permalink to this definition">#</a></dt>
+<dd><p>Iterator over all axiomatic bases from source.
+The source defaults to all consistent positions if it is not provided.</p>
+<p>A position <span class="math notranslate nohighlight">\(\mathcal{B}\)</span> is an axiomatic basis of another position <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> iff
+<span class="math notranslate nohighlight">\(\mathcal{A}\)</span> is dialectically entailed by <span class="math notranslate nohighlight">\(\mathcal{B}\)</span> and there is no proper
+subset <span class="math notranslate nohighlight">\(\mathcal{C}\)</span> of <span class="math notranslate nohighlight">\(\mathcal{B}\)</span> such that <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> is entailed by
+<span class="math notranslate nohighlight">\(\mathcal{C}\)</span>.</p>
+<p>This method should throw a <code class="code docutils literal notranslate"><span class="pre">ValueError</span></code> if the given position is inconsistent.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code>]</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A python-iterator over all axiomatic bases of <code class="code docutils literal notranslate"><span class="pre">position</span></code> from <code class="code docutils literal notranslate"><span class="pre">source</span></code> and <code class="code docutils literal notranslate"><span class="pre">None</span></code> if
+there is no axiomatic basis in the source.</p>
+</dd>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>position</strong> (<em>tau.base.Position</em>) – </p></li>
+<li><p><strong>source</strong> (<em>Optional</em><em>[</em><em>Iterator</em><em>[</em><em>tau.base.Position</em><em>]</em><em>]</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="tau.DAGBitarrayDialecticalStructure.closed_positions">
+<code class="sig-name descname"><span class="pre">closed_positions</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tau.DAGBitarrayDialecticalStructure.closed_positions" title="Permalink to this definition">#</a></dt>
+<dd><p>Iterator over all dialectically closed positions.</p>
+<p>This iterator will include the empty position, if it is closed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code>]</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A python-iterator over all dialectically closed positions.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="tau.DAGBitarrayDialecticalStructure.closure">
+<code class="sig-name descname"><span class="pre">closure</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tau.DAGBitarrayDialecticalStructure.closure" title="Permalink to this definition">#</a></dt>
+<dd><p>Dialectical closure.</p>
+<p>The dialectical closure of a position <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> is the intersection of all consistent and
+complete positions that extend <span class="math notranslate nohighlight">\(\mathcal{A}\)</span>. Note that in consequence, the empty position can have
+a non-empty closure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The dialectical closure of <code class="code docutils literal notranslate"><span class="pre">position</span></code>.</p>
+</dd>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>position</strong> (<em>tau.base.Position</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="tau.DAGBitarrayDialecticalStructure.complete_extensions">
+<code class="sig-name descname"><span class="pre">complete_extensions</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tau.DAGBitarrayDialecticalStructure.complete_extensions" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns complete extensions of position by retrieving corresponding
+node in the graph that stores complete extensions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Set</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code>]</p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><p><strong>position</strong> (<em>tau.base.Position</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="tau.DAGBitarrayDialecticalStructure.consistent_complete_positions">
+<code class="sig-name descname"><span class="pre">consistent_complete_positions</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tau.DAGBitarrayDialecticalStructure.consistent_complete_positions" title="Permalink to this definition">#</a></dt>
+<dd><p>Iterator over all dialectically consistent and complete positions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code>]</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A python iterator over all dialectically consistent and complete positions.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="tau.DAGBitarrayDialecticalStructure.consistent_positions">
+<code class="sig-name descname"><span class="pre">consistent_positions</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tau.DAGBitarrayDialecticalStructure.consistent_positions" title="Permalink to this definition">#</a></dt>
+<dd><p>Iterator over all dialectically consistent positions.</p>
+<p>This iterator will include the empty position.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code>]</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A python iterator over all dialectically consistent positions.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="tau.DAGBitarrayDialecticalStructure.degree_of_justification">
+<code class="sig-name descname"><span class="pre">degree_of_justification</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tau.DAGBitarrayDialecticalStructure.degree_of_justification" title="Permalink to this definition">#</a></dt>
+<dd><p>Conditional degree of justification.</p>
+<p>The conditional degree of justification <span class="math notranslate nohighlight">\(DOJ\)</span> of two positions <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> and
+<span class="math notranslate nohighlight">\(\mathcal{B}\)</span> is defined by <span class="math notranslate nohighlight">\(DOJ(\mathcal{A}| \mathcal{B}):=\frac{\sigma_{\mathcal{AB}}}{\sigma_{\mathcal{B}}}\)</span>
+with <span class="math notranslate nohighlight">\(\sigma_{\mathcal{AB}}\)</span> the set of all consistent and complete positions that extend both <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> and <span class="math notranslate nohighlight">\(\mathcal{B}\)</span>
+and <span class="math notranslate nohighlight">\(\sigma_{\mathcal{B}}\)</span> the set of all consistent and complete positions that extend <span class="math notranslate nohighlight">\(\mathcal{B}\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The conditional degree of justification of <code class="code docutils literal notranslate"><span class="pre">position1</span></code> with respect to <code class="code docutils literal notranslate"><span class="pre">position2</span></code>.</p>
+</dd>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>position1</strong> (<em>tau.base.Position</em>) – </p></li>
+<li><p><strong>position2</strong> (<em>tau.base.Position</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="tau.DAGBitarrayDialecticalStructure.entails">
+<code class="sig-name descname"><span class="pre">entails</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tau.DAGBitarrayDialecticalStructure.entails" title="Permalink to this definition">#</a></dt>
+<dd><p>Dialectical entailment.</p>
+<p>A position <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> dialectically entails another position <span class="math notranslate nohighlight">\(\mathcal{B}\)</span> iff
+every consistent and complete position that extends <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> also extends <span class="math notranslate nohighlight">\(\mathcal{B}\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><code class="code docutils literal notranslate"><span class="pre">True</span></code> iff <code class="code docutils literal notranslate"><span class="pre">position2</span></code> is dialectically entailed by <code class="code docutils literal notranslate"><span class="pre">position1</span></code>.</p>
+</dd>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>position1</strong> (<em>tau.base.Position</em>) – </p></li>
+<li><p><strong>position2</strong> (<em>tau.base.Position</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="tau.DAGBitarrayDialecticalStructure.from_arguments">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">from_arguments</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arguments</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_unnegated_sentence_pool</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tau.DAGBitarrayDialecticalStructure.from_arguments" title="Permalink to this definition">#</a></dt>
+<dd><p>Instanciating a <a class="reference internal" href="api-abstract.html#tau.DialecticalStructure" title="tau.DialecticalStructure"><code class="xref py py-class docutils literal notranslate"><span class="pre">DialecticalStructure</span></code></a> from a list of int lists.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">DialecticalStructure</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><a class="reference internal" href="api-abstract.html#tau.DialecticalStructure" title="tau.DialecticalStructure"><code class="xref py py-class docutils literal notranslate"><span class="pre">DialecticalStructure</span></code></a></p>
+</dd>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>arguments</strong> (<em>List</em><em>[</em><em>List</em><em>[</em><em>int</em><em>]</em><em>]</em>) – </p></li>
+<li><p><strong>n_unnegated_sentence_pool</strong> (<em>int</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="tau.DAGBitarrayDialecticalStructure.get_arguments">
+<code class="sig-name descname"><span class="pre">get_arguments</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tau.DAGBitarrayDialecticalStructure.get_arguments" title="Permalink to this definition">#</a></dt>
+<dd><p>The arguments as a list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]]</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The arguments as a list of integer lists. The last element of each inner list represents the conclusion, the others the premises.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="tau.DAGBitarrayDialecticalStructure.is_closed">
+<code class="sig-name descname"><span class="pre">is_closed</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tau.DAGBitarrayDialecticalStructure.is_closed" title="Permalink to this definition">#</a></dt>
+<dd><p>Checks whether a position is dialectically closed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><code class="code docutils literal notranslate"><span class="pre">True</span></code> iff <code class="code docutils literal notranslate"><span class="pre">position</span></code> is dialectically closed.</p>
+</dd>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>position</strong> (<em>tau.base.Position</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="tau.DAGBitarrayDialecticalStructure.is_complete">
+<code class="sig-name descname"><span class="pre">is_complete</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tau.DAGBitarrayDialecticalStructure.is_complete" title="Permalink to this definition">#</a></dt>
+<dd><p>Checks whether :code:<a href="#id7"><span class="problematic" id="id8">`</span></a>position’ is complete.</p>
+<p>A position <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> is complete iff the domain of <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> is identical with the
+sentence pool <span class="math notranslate nohighlight">\(S\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><code class="code docutils literal notranslate"><span class="pre">True</span></code> iff the <code class="code docutils literal notranslate"><span class="pre">Position</span></code> is complete.</p>
+</dd>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>position</strong> (<em>tau.base.Position</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="tau.DAGBitarrayDialecticalStructure.is_consistent">
+<code class="sig-name descname"><span class="pre">is_consistent</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tau.DAGBitarrayDialecticalStructure.is_consistent" title="Permalink to this definition">#</a></dt>
+<dd><p>Checks for dialectical consistency.</p>
+<p>A complete position <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> is dialectically consistent iff it is a minimally consistent
+and for all arguments <span class="math notranslate nohighlight">\(a=(P_a, c_a) \in A\)</span> holds: If <span class="math notranslate nohighlight">\((\forall p \in P_a:p \in \mathcal{A})\)</span> then
+<span class="math notranslate nohighlight">\(c_a \in \mathcal{A}\)</span></p>
+<p>A partial position <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> is dialectically consistent iff there is a complete and
+consistent position that extends <span class="math notranslate nohighlight">\(\mathcal{A}\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><code class="code docutils literal notranslate"><span class="pre">True</span></code> iff <code class="code docutils literal notranslate"><span class="pre">position</span></code> it dialectically consistent.</p>
+</dd>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>position</strong> (<em>tau.base.Position</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="tau.DAGBitarrayDialecticalStructure.is_minimal">
+<code class="sig-name descname"><span class="pre">is_minimal</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tau.DAGBitarrayDialecticalStructure.is_minimal" title="Permalink to this definition">#</a></dt>
+<dd><p>Checks dialectical minimality.</p>
+<p>A position <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> is dialectically minimal if every
+subposition <span class="math notranslate nohighlight">\(\mathcal{B}\subseteq\mathcal{A}\)</span> that
+entails <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> is identical with <span class="math notranslate nohighlight">\(\mathcal{A}\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><code class="code docutils literal notranslate"><span class="pre">True</span></code> iff <code class="code docutils literal notranslate"><span class="pre">position</span></code> is dialectically minimal.</p>
+</dd>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>position</strong> (<em>tau.base.Position</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="tau.DAGBitarrayDialecticalStructure.minimal_positions">
+<code class="sig-name descname"><span class="pre">minimal_positions</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tau.DAGBitarrayDialecticalStructure.minimal_positions" title="Permalink to this definition">#</a></dt>
+<dd><p>Iterator over all dialectically minimal positions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code>]</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A python iterator over all dialectically minimal positions.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="tau.DAGBitarrayDialecticalStructure.minimally_consistent_positions">
+<code class="sig-name descname"><span class="pre">minimally_consistent_positions</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tau.DAGBitarrayDialecticalStructure.minimally_consistent_positions" title="Permalink to this definition">#</a></dt>
+<dd><p>Iterator over all minimally consistent positions.</p>
+<p>A position <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> is minimally consistent iff
+<span class="math notranslate nohighlight">\(\forall s \in S: s\in \mathcal{A} \rightarrow \neg s \notin \mathcal{A}\)</span></p>
+<p>This iterator will include the empty position.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code>]</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A python iterator over all minimally consistent positions.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="tau.DAGBitarrayDialecticalStructure.n_complete_extensions">
+<code class="sig-name descname"><span class="pre">n_complete_extensions</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tau.DAGBitarrayDialecticalStructure.n_complete_extensions" title="Permalink to this definition">#</a></dt>
+<dd><p>Number of complete and consistent extension.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The number of complete and consistent positions that extend <code class="code docutils literal notranslate"><span class="pre">position</span></code>.</p>
+</dd>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>position</strong> (<em>Optional</em><em>[</em><em>tau.base.Position</em><em>]</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="tau.DAGBitarrayDialecticalStructure.satisfies">
+<code class="sig-name descname"><span class="pre">satisfies</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">argument</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tau.DAGBitarrayDialecticalStructure.satisfies" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>argument</strong> (<em>tau.base.Position</em>) – </p></li>
+<li><p><strong>position</strong> (<em>tau.base.Position</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="tau.DAGBitarrayDialecticalStructure.sentence_pool">
+<code class="sig-name descname"><span class="pre">sentence_pool</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tau.DAGBitarrayDialecticalStructure.sentence_pool" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns the unnegated half of sentence pool</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="tau.DAGBitarrayDialecticalStructure.to_bitarray_position">
+<code class="sig-name descname"><span class="pre">to_bitarray_position</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tau.DAGBitarrayDialecticalStructure.to_bitarray_position" title="Permalink to this definition">#</a></dt>
+<dd><p>This auxiliary method converts a position from another implemenation to a BitarrayPosition.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">BitarrayPosition</span></code></p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><p><strong>position</strong> (<em>tau.base.Position</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+              </div>
+              
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2023, Claus Beisbart, Gregor Betz, Georg Brun, Sebastian Cacean, Andreas Freivogel, Richard Lohse.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.4.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>

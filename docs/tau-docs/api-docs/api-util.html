@@ -1,0 +1,570 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Utility Methods &#8212; RE Docs  documentation</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/styles/pydata-sphinx-theme.css" type="text/css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "tex2jax_ignore|mathjax_ignore|document", "processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="rethon" href="../../rethon-docs/index-rethon.html" />
+    <link rel="prev" title="Set Based Implementation" href="api-setbased-implementation.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+<a class="navbar-brand" href="../../index.html">
+<p class="title">RE Docs</p>
+</a>
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="../index-tau.html">
+  Tau Docs
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../rethon-docs/index-rethon.html">
+  Rethon Docs
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar">
+              <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../tutorials/tau-tutorials.html">
+   Tutorials
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tutorials/tau-tutorial.html">
+     Tau Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tutorials/visualisation.html">
+     Visualisation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="api.html">
+   API documentation
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="api-abstract.html">
+     Abstract Base Classes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api-numpy-implementation.html">
+     Numpy Implementation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api-bitarray-implementation.html">
+     Bitarray Implementation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api-setbased-implementation.html">
+     Set Based Implementation
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Utility Methods
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+  </div>
+</nav>
+              </div>
+              <div class="sidebar-end-items">
+              </div>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+
+<nav id="bd-toc-nav">
+    
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="module-tau.util">
+<span id="utility-methods"></span><h1>Utility Methods<a class="headerlink" href="#module-tau.util" title="Permalink to this headline">#</a></h1>
+<p>A collection of convenient helper-functions.</p>
+<dl class="py class">
+<dt id="tau.util.TauJSONEncoder">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">tau.util.</span></code><code class="sig-name descname"><span class="pre">TauJSONEncoder</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">serialize_implementation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tau.util.TauJSONEncoder" title="Permalink to this definition">#</a></dt>
+<dd><p class="rubric">Methods</p>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#tau.util.TauJSONEncoder.default" title="tau.util.TauJSONEncoder.default"><code class="xref py py-obj docutils literal notranslate"><span class="pre">default</span></code></a>(o)</p></td>
+<td><p>An implementation of <code class="xref py py-func docutils literal notranslate"><span class="pre">JSONEncoder.default()</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">encode</span></code>(o)</p></td>
+<td><p>Return a JSON string representation of a Python data structure.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">iterencode</span></code>(o[, _one_shot])</p></td>
+<td><p>Encode the given object and yield each string representation as available.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="tau.util.TauJSONEncoder.default">
+<code class="sig-name descname"><span class="pre">default</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">o</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tau.util.TauJSONEncoder.default" title="Permalink to this definition">#</a></dt>
+<dd><p>An implementation of <code class="xref py py-func docutils literal notranslate"><span class="pre">JSONEncoder.default()</span></code>.</p>
+<p>This implementation handles the serialization of <code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code> and
+<code class="xref py py-class docutils literal notranslate"><span class="pre">DialecticalStructure</span></code> instances.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="tau.util.arg_to_cnf">
+<code class="sig-prename descclassname"><span class="pre">tau.util.</span></code><code class="sig-name descname"><span class="pre">arg_to_cnf</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tau.util.arg_to_cnf" title="Permalink to this definition">#</a></dt>
+<dd><p>Converts list representation of an argument to a cnf-position-like list
+of negated premises + non-negated conclusion</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>arg</strong> (<em>List</em><em>[</em><em>int</em><em>]</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="tau.util.args2cnf">
+<code class="sig-prename descclassname"><span class="pre">tau.util.</span></code><code class="sig-name descname"><span class="pre">args2cnf</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arguments</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_sentence_pool</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tau.util.args2cnf" title="Permalink to this definition">#</a></dt>
+<dd><p>Converting argument list to <code class="code docutils literal notranslate"><span class="pre">pysat.formula.CNF</span></code></p>
+<p>This method converts a list of arguments into a conjunctive normal form.
+Sentences <span class="math notranslate nohighlight">\(p\)</span> that are not used in arguments will be added in a tautological manner (i.e.,
+<span class="math notranslate nohighlight">\(p\vee\neg p\)</span>)
+to the CNF formula.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">CNF</span></code></p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>arguments</strong> (<em>List</em><em>[</em><em>List</em><em>[</em><em>int</em><em>]</em><em>]</em>) – </p></li>
+<li><p><strong>n_sentence_pool</strong> (<em>int</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="tau.util.create_random_argument_list">
+<code class="sig-prename descclassname"><span class="pre">tau.util.</span></code><code class="sig-name descname"><span class="pre">create_random_argument_list</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_arguments_min</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_arguments_max</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_sentences</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_premises_max</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tau.util.create_random_argument_list" title="Permalink to this definition">#</a></dt>
+<dd><p>A random list of arguments.</p>
+<p>A convenience function that uses <code class="xref py py-func docutils literal notranslate"><span class="pre">create_random_arguments2()</span></code> to create a random list of arguments.
+Instead of specifying a fixed number of desired arguments the number of arguments will be a random
+number between <cite>n_arguments_min</cite> and ` n_arguments_max`.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]]</p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>n_arguments_min</strong> (<em>int</em>) – </p></li>
+<li><p><strong>n_arguments_max</strong> (<em>int</em>) – </p></li>
+<li><p><strong>n_sentences</strong> (<em>int</em>) – </p></li>
+<li><p><strong>n_premises_max</strong> (<em>int</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="tau.util.create_random_arguments">
+<code class="sig-prename descclassname"><span class="pre">tau.util.</span></code><code class="sig-name descname"><span class="pre">create_random_arguments</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_sentences</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_arguments</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_max_premises</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_principles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connected</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_all_sentences</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_loops</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tau.util.create_random_arguments" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns a list of arguments represented as integer lists.</p>
+<p>The dialectical structure given by the returned arguments is satisfiable
+(i.e. there is at least one complete and dialectically consistent position).
+Furthermore, the arguments avoid begging the question, repeating premises,
+flat contradictions among premises and with the conclusion, and using the same
+premises for different conclusions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n_sentences</strong> (<em>int</em>) – Number of non-negated sentences of the sentence pool.
+Every sentence (or its negation) occurs at least once in an argument.</p></li>
+<li><p><strong>n_arguments</strong> (<em>int</em>) – Number of generated arguments.</p></li>
+<li><p><strong>n_max_premises</strong> (<em>int</em>) – Maximal number of premises per argument.</p></li>
+<li><p><strong>n_principles</strong> (<em>int</em>) – The number of principles, i.e. sentences that may occur in arguments as premises only.</p></li>
+<li><p><strong>variation</strong> (<em>bool</em>) – If true (default), the number of premises per argument is chosen randomly.
+Otherwise it is constantly n_max_premises.</p></li>
+<li><p><strong>connected</strong> (<em>bool</em>) – If true (default), the arguments are related
+(either by attack or support) to at least one other argument in the structure.</p></li>
+<li><p><strong>use_all_sentences</strong> (<em>bool</em>) – If true, the algorithm returns only dialectical structures that include each sentence
+,or its negation respectively, in the arguments. If the algorithm is not able to generate such a structure
+in the limits given by <code class="code docutils literal notranslate"><span class="pre">max_loops</span></code>, a RuntimeWarning is thrown.</p></li>
+<li><p><strong>max_loops</strong> (<em>int</em>) – Breaks possibly endless loops. Number of arguments that tested
+whether they fit into the dialectical structure. If the algorithm takes longer a RuntimeWarning is thrown.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A list of argument as integer lists.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>List[List[int]]</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="tau.util.get_principles">
+<code class="sig-prename descclassname"><span class="pre">tau.util.</span></code><code class="sig-name descname"><span class="pre">get_principles</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arguments</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tau.util.get_principles" title="Permalink to this definition">#</a></dt>
+<dd><p>”
+Returns a list of tuples of the form <code class="code docutils literal notranslate"><span class="pre">(principle,</span> <span class="pre">multiplicity)</span></code> with <code class="code docutils literal notranslate"><span class="pre">multiplicity</span></code>
+indicating the multiplicity of the principle.
+A sentence counts as a principle iff it occurs in at least one argument as premise and it or its negation
+does not occur as a conclusion in an argument. The multiplicity counts in how many argument the sentence occurs
+as premise.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="tau.util.inferential_density">
+<code class="sig-prename descclassname"><span class="pre">tau.util.</span></code><code class="sig-name descname"><span class="pre">inferential_density</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dialectical_structure</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tau.util.inferential_density" title="Permalink to this definition">#</a></dt>
+<dd><p>Inferential density of a dialectical structure.</p>
+<p>As defined by Betz (2013), p. 44: todo</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="tau.util.is_satisfiable">
+<code class="sig-prename descclassname"><span class="pre">tau.util.</span></code><code class="sig-name descname"><span class="pre">is_satisfiable</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">principles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tau.util.is_satisfiable" title="Permalink to this definition">#</a></dt>
+<dd><p>Fast method of checking for satisfiability (using xxx).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>args</strong> (<em>List</em><em>[</em><em>List</em><em>[</em><em>int</em><em>]</em><em>]</em>) – </p></li>
+<li><p><strong>principles</strong> (<em>Optional</em><em>[</em><em>List</em><em>[</em><em>int</em><em>]</em><em>]</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="tau.util.load_dialectical_structure">
+<code class="sig-prename descclassname"><span class="pre">tau.util.</span></code><code class="sig-name descname"><span class="pre">load_dialectical_structure</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">DIR</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fileName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tau.util.load_dialectical_structure" title="Permalink to this definition">#</a></dt>
+<dd><p>ToDo: doc</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="tau.util.number_of_complete_consistent_positions">
+<code class="sig-prename descclassname"><span class="pre">tau.util.</span></code><code class="sig-name descname"><span class="pre">number_of_complete_consistent_positions</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_unnegated_sentence_pool</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tau.util.number_of_complete_consistent_positions" title="Permalink to this definition">#</a></dt>
+<dd><p>Fast method to calculate the number of complete consistent positions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>args</strong> (<em>List</em><em>[</em><em>List</em><em>[</em><em>int</em><em>]</em><em>]</em>) – </p></li>
+<li><p><strong>n_unnegated_sentence_pool</strong> (<em>int</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="tau.util.random_dialectical_structures">
+<code class="sig-prename descclassname"><span class="pre">tau.util.</span></code><code class="sig-name descname"><span class="pre">random_dialectical_structures</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_dialectical_structure</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_arguments_min</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_arguments_max</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_sentences</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_premises_max</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'rethon.model'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">class_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'DAGDialecticalStructure'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tau.util.random_dialectical_structures" title="Permalink to this definition">#</a></dt>
+<dd><p>A random list of dialectical structures.</p>
+<p>A convenience function that uses <a class="reference internal" href="#tau.util.create_random_argument_list" title="tau.util.create_random_argument_list"><code class="xref py py-func docutils literal notranslate"><span class="pre">create_random_argument_list()</span></code></a> to create an instance of
+<code class="xref py py-class docutils literal notranslate"><span class="pre">basics.DialecticalStructure</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A random dialectical structure. The implementing class can be specified via the method’s arguments.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Iterator[tau.base.DialecticalStructure]</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">DialecticalStructure</span></code>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="tau.util.random_position_as_set">
+<code class="sig-prename descclassname"><span class="pre">tau.util.</span></code><code class="sig-name descname"><span class="pre">random_position_as_set</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_sentences</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allow_empty_position</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tau.util.random_position_as_set" title="Permalink to this definition">#</a></dt>
+<dd><p>Generates a random minimally consistent position in its set-representation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n_sentences</strong> (<em>int</em>) – Size of the sentence-pool (without negations).</p></li>
+<li><p><strong>allow_empty_position</strong> (<em>bool</em>) – Iff <code class="code docutils literal notranslate"><span class="pre">True</span></code> an empty position might be returned.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A set of integer representing the position.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="tau.util.random_positions">
+<code class="sig-prename descclassname"><span class="pre">tau.util.</span></code><code class="sig-name descname"><span class="pre">random_positions</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_positions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_sentences</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position_module_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'rethon.model'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position_class_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'StandardPosition'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tau.util.random_positions" title="Permalink to this definition">#</a></dt>
+<dd><p>List of random positions.</p>
+<p>Convenience method that uses <a class="reference internal" href="#tau.util.random_position_as_set" title="tau.util.random_position_as_set"><code class="xref py py-func docutils literal notranslate"><span class="pre">random_position_as_set()</span></code></a> to generate a list of positions. The implementing
+class can be specified via arguments.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="tau.util.save_dialectical_structure">
+<code class="sig-prename descclassname"><span class="pre">tau.util.</span></code><code class="sig-name descname"><span class="pre">save_dialectical_structure</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">DIR</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fileName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dialectical_structure</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tau.util.save_dialectical_structure" title="Permalink to this definition">#</a></dt>
+<dd><p>ToDo: doc</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="tau.util.tau_decoder">
+<code class="sig-prename descclassname"><span class="pre">tau.util.</span></code><code class="sig-name descname"><span class="pre">tau_decoder</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">json_obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_json_specified_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position_module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'tau'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position_class</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'BitarrayPosition'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dialectical_structure_module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'tau'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dialectical_structure_class</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'BitarrayDialecticalStructure'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tau.util.tau_decoder" title="Permalink to this definition">#</a></dt>
+<dd><p>Object hook for <code class="xref py py-func docutils literal notranslate"><span class="pre">json.loads()</span></code> and <code class="xref py py-func docutils literal notranslate"><span class="pre">json.load()</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>use_json_specified_type</strong> – If <code class="code docutils literal notranslate"><span class="pre">True</span></code> the method uses the implementation details
+(modulename and classname) that are specified in the json string, if there are any. Otherwise,
+the method uses implementation details as specified the other given parameters.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="tau.util.tau_dump">
+<code class="sig-prename descclassname"><span class="pre">tau.util.</span></code><code class="sig-name descname"><span class="pre">tau_dump</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">re_object</span></em>, <em class="sig-param"><span class="pre">fp</span></em>, <em class="sig-param"><span class="pre">cls=&lt;class</span> <span class="pre">'tau.util.TauJSONEncoder'&gt;</span></em>, <em class="sig-param"><span class="pre">serialize_implementation=False</span></em>, <em class="sig-param"><span class="pre">**kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tau.util.tau_dump" title="Permalink to this definition">#</a></dt>
+<dd><p>Saving an object as JSON-String in a file.</p>
+<p>This is a convenient method that calls <code class="xref py py-func docutils literal notranslate"><span class="pre">json.dump()</span></code> with <a class="reference internal" href="#tau.util.TauJSONEncoder" title="tau.util.TauJSONEncoder"><code class="xref py py-class docutils literal notranslate"><span class="pre">TauJSONEncoder</span></code></a> as
+its default encoder, which will handle the JSON serialization of <code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code> and
+<code class="xref py py-class docutils literal notranslate"><span class="pre">DialecticalStructure</span></code> instances.</p>
+<p><a href="#id1"><span class="problematic" id="id2">**</span></a>kwargs will be given to <code class="xref py py-func docutils literal notranslate"><span class="pre">json.dumps()</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>serialize_implementation</strong> – If <code class="code docutils literal notranslate"><span class="pre">True</span></code> implementation details (modulename and classname) will
+be serialized.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The object as a JSON string.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="tau.util.tau_dumps">
+<code class="sig-prename descclassname"><span class="pre">tau.util.</span></code><code class="sig-name descname"><span class="pre">tau_dumps</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">re_object</span></em>, <em class="sig-param"><span class="pre">cls=&lt;class</span> <span class="pre">'tau.util.TauJSONEncoder'&gt;</span></em>, <em class="sig-param"><span class="pre">serialize_implementation=False</span></em>, <em class="sig-param"><span class="pre">**kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tau.util.tau_dumps" title="Permalink to this definition">#</a></dt>
+<dd><p>Getting an object as JSON-String.</p>
+<p>This is a convenient method that calls <code class="xref py py-func docutils literal notranslate"><span class="pre">json.dumps()</span></code> with <a class="reference internal" href="#tau.util.TauJSONEncoder" title="tau.util.TauJSONEncoder"><code class="xref py py-class docutils literal notranslate"><span class="pre">TauJSONEncoder</span></code></a> as
+its default encoder, which will handle the JSON serialization of <code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code> and
+<code class="xref py py-class docutils literal notranslate"><span class="pre">DialecticalStructure</span></code>.</p>
+<p><a href="#id3"><span class="problematic" id="id4">**</span></a>kwargs will be given to <code class="xref py py-func docutils literal notranslate"><span class="pre">json.dumps()</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>serialize_implementation</strong> – If <code class="code docutils literal notranslate"><span class="pre">True</span></code> implementation details (modulename and classname) will
+be serialized.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The object as a JSON string.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="tau.util.tau_load">
+<code class="sig-prename descclassname"><span class="pre">tau.util.</span></code><code class="sig-name descname"><span class="pre">tau_load</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_json_specified_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position_module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'tau'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position_class</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'BitarrayPosition'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dialectical_structure_module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'tau'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dialectical_structure_class</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'BitarrayDialecticalStructure'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tau.util.tau_load" title="Permalink to this definition">#</a></dt>
+<dd><p>Loading an object from a JSON file.</p>
+<p>This is a convenient method that calls <code class="xref py py-func docutils literal notranslate"><span class="pre">json.load()</span></code> and uses <a class="reference internal" href="#tau.util.tau_decoder" title="tau.util.tau_decoder"><code class="xref py py-func docutils literal notranslate"><span class="pre">tau_decoder()</span></code></a> as object hook
+to handle the instantiation of <code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code> and <code class="xref py py-class docutils literal notranslate"><span class="pre">DialecticalStructure</span></code> objects. Desired
+implementation details can be given by parameter values (see <a class="reference internal" href="#tau.util.tau_decoder" title="tau.util.tau_decoder"><code class="xref py py-func docutils literal notranslate"><span class="pre">tau_decoder()</span></code></a>).</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="tau.util.tau_loads">
+<code class="sig-prename descclassname"><span class="pre">tau.util.</span></code><code class="sig-name descname"><span class="pre">tau_loads</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">json_obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_json_specified_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position_module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'tau'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position_class</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'BitarrayPosition'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dialectical_structure_module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'tau'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dialectical_structure_class</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'BitarrayDialecticalStructure'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tau.util.tau_loads" title="Permalink to this definition">#</a></dt>
+<dd><p>Loading an object from a JSON string.</p>
+<p>This is a convenient method that calls <code class="xref py py-func docutils literal notranslate"><span class="pre">json.loads()</span></code> and uses <a class="reference internal" href="#tau.util.tau_decoder" title="tau.util.tau_decoder"><code class="xref py py-func docutils literal notranslate"><span class="pre">tau_decoder()</span></code></a> as object hook
+to handle the instantiation of <code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code> and <code class="xref py py-class docutils literal notranslate"><span class="pre">DialecticalStructure</span></code> objects. Desired
+implementation details can be given by parameter values (see <a class="reference internal" href="#tau.util.tau_decoder" title="tau.util.tau_decoder"><code class="xref py py-func docutils literal notranslate"><span class="pre">tau_decoder()</span></code></a>).</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="tau.util.write_as_dot">
+<code class="sig-prename descclassname"><span class="pre">tau.util.</span></code><code class="sig-name descname"><span class="pre">write_as_dot</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fileName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">equal_rank_for_principles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tau.util.write_as_dot" title="Permalink to this definition">#</a></dt>
+<dd><p>ToDo: doc</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="tau.util.write_as_tex">
+<code class="sig-prename descclassname"><span class="pre">tau.util.</span></code><code class="sig-name descname"><span class="pre">write_as_tex</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fileName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tau.util.write_as_tex" title="Permalink to this definition">#</a></dt>
+<dd><p>ToDo: doca</p>
+</dd></dl>
+
+</div>
+
+
+              </div>
+              
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2023, Claus Beisbart, Gregor Betz, Georg Brun, Sebastian Cacean, Andreas Freivogel, Richard Lohse.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.4.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>

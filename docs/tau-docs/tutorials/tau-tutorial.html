@@ -1,0 +1,772 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Introduction of using the tau package &#8212; RE Docs  documentation</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/styles/pydata-sphinx-theme.css" type="text/css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "tex2jax_ignore|mathjax_ignore|document", "processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Visualising Dialectical Structures" href="visualisation.html" />
+    <link rel="prev" title="Tau Tutorials" href="tau-tutorials.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+<a class="navbar-brand" href="../../index.html">
+<p class="title">RE Docs</p>
+</a>
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="../index-tau.html">
+  Tau Docs
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../rethon-docs/index-rethon.html">
+  Rethon Docs
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar">
+              <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="tau-tutorials.html">
+   Tutorials
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Tau Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="visualisation.html">
+     Visualisation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../api-docs/api.html">
+   API documentation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../api-docs/api-abstract.html">
+     Abstract Base Classes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../api-docs/api-numpy-implementation.html">
+     Numpy Implementation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../api-docs/api-bitarray-implementation.html">
+     Bitarray Implementation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../api-docs/api-setbased-implementation.html">
+     Set Based Implementation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../api-docs/api-util.html">
+     Utility Methods
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+  </div>
+</nav>
+              </div>
+              <div class="sidebar-end-items">
+              </div>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#Instantiation-of-dialectical-structures-and-positions">
+   Instantiation of dialectical structures and positions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#Export-to-JSON">
+   Export to JSON
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#Serializing-tau-objects">
+     Serializing
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       tau
+      </span>
+     </code>
+     objects
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#Deserializing-tau-objects">
+     Deserializing
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       tau
+      </span>
+     </code>
+     objects
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars and line breaks on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+    white-space: pre;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt .copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+.jp-RenderedHTMLCommon table,
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+.jp-RenderedHTMLCommon thead,
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+.jp-RenderedHTMLCommon tr,
+.jp-RenderedHTMLCommon th,
+.jp-RenderedHTMLCommon td,
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+.jp-RenderedHTMLCommon th,
+div.rendered_html th {
+  font-weight: bold;
+}
+.jp-RenderedHTMLCommon tbody tr:nth-child(odd),
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+.jp-RenderedHTMLCommon tbody tr:hover,
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+</style>
+<div class="section" id="Introduction-of-using-the-tau-package">
+<h1>Introduction of using the <code class="docutils literal notranslate"><span class="pre">tau</span></code> package<a class="headerlink" href="#Introduction-of-using-the-tau-package" title="Permalink to this headline">#</a></h1>
+<p>The <code class="docutils literal notranslate"><span class="pre">tau</span></code> package provides different classes and methods to apply the theory of dialectical structures (as introduced in <a class="reference external" href="https://doi.org/10.5771/9783465136293">Betz (2010)</a> and <a class="reference external" href="https://www.springer.com/de/book/9789400745988">Betz (2013)</a>).</p>
+<p>The provided functionalities are described by two abstract classes. Implementations of <code class="docutils literal notranslate"><span class="pre">DialecticalStructure</span></code>can be used to create, manipulate and calculate properties of dialectical structures. Implementations of <code class="docutils literal notranslate"><span class="pre">Position</span></code> represent positions on a sentence pool.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">tau</span></code> package includes different implementations of these abstract classes, which differ w.r.t. their runtime performance:</p>
+<ul class="simple">
+<li><p><em>DAG (directed acyclic graphs) based dialectical structures:</em> All important properties of the stucture are calculated and stored during instantiation. This implementation is fast for small sentence pools (<span class="math notranslate nohighlight">\(n&lt;15\)</span>).</p>
+<ul>
+<li><p>We recommend to use the following standard implementation: <code class="docutils literal notranslate"><span class="pre">DAGDialecticalStructure</span></code>.</p></li>
+</ul>
+</li>
+<li><p><em>BDD (binary decision diagramm) based dialectical structures:</em> Important properties of the structure are calculated by using binary decision trees. This representation is comparably fast for most properties of the graph even if the sentence pool is larger (<span class="math notranslate nohighlight">\(n&gt;10\)</span>). However, for larger sentence pools it will become more difficult to calculate all dialectically consistent positions, axiomatic bases (without a confining source) and minimal positions. (see the API-DOCs for further details
+(LINK NEEDED).</p>
+<ul>
+<li><p>We recommend to use the following standard implementation: <code class="docutils literal notranslate"><span class="pre">BDDDialecticalStructure</span></code>.</p></li>
+</ul>
+</li>
+</ul>
+<div class="section" id="Instantiation-of-dialectical-structures-and-positions">
+<h2>Instantiation of dialectical structures and positions<a class="headerlink" href="#Instantiation-of-dialectical-structures-and-positions" title="Permalink to this headline">#</a></h2>
+<p>A dialectical structure is a tupel <span class="math notranslate nohighlight">\(\left&lt;S,A\right&gt;\)</span> of a sentence pool <span class="math notranslate nohighlight">\(S = \{ s_1, s_2, \dots, s_n, \neg s_1, \neg s_2, \dots, \neg s_n \}\)</span> and a set <span class="math notranslate nohighlight">\(A\)</span> of arguments.</p>
+<p>An argument <span class="math notranslate nohighlight">\(a=(P_a, c_a)\)</span> is defined as a pair consisting of premises <span class="math notranslate nohighlight">\(P_a \subset S\)</span> and a conclusion <span class="math notranslate nohighlight">\(c_a \in S\)</span>.</p>
+<p>A dialectical structure is instantiated by specifying the size <span class="math notranslate nohighlight">\(n\)</span> of the sentence pool and a list of arguments, in which sententences are represented numerals. The minus sign is used to indicate the negation of a sentence. For instance, the list <code class="docutils literal notranslate"><span class="pre">[1,3,-4]</span></code> represents an argument with the premsises <span class="math notranslate nohighlight">\(P_a=\{s_1,s_3\}\)</span> and the conclusion <span class="math notranslate nohighlight">\(\neg s_4\)</span>.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tau</span> <span class="kn">import</span> <span class="n">DAGDialecticalStructure</span>
+
+<span class="c1"># size of the sentencepool</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="c1"># a list of arguments</span>
+<span class="n">arguments</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">]]</span>
+<span class="c1"># instantiation of a dialectical structure tau</span>
+<span class="n">tau</span> <span class="o">=</span> <span class="n">DAGDialecticalStructure</span><span class="o">.</span><span class="n">from_arguments</span><span class="p">(</span><span class="n">arguments</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>A position is a binary belief state that is represented by a subset <span class="math notranslate nohighlight">\(\mathcal{A}\subset S\)</span> over the. The internal representation depends on the implementation. However, independent of their implementation, positions can be instantiated by specifying the set of sentences the agent believes:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tau</span> <span class="kn">import</span> <span class="n">StandardPosition</span>
+
+<span class="c1"># believing s_3, s_4 and s_5</span>
+<span class="n">belief_state_a</span> <span class="o">=</span> <span class="n">StandardPosition</span><span class="o">.</span><span class="n">from_set</span><span class="p">({</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">},</span> <span class="n">n</span><span class="p">)</span>
+
+<span class="c1"># believing s_2 and believing that s_4 is false</span>
+<span class="n">belief_state_b</span> <span class="o">=</span> <span class="n">StandardPosition</span><span class="o">.</span><span class="n">from_set</span><span class="p">({</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">4</span><span class="p">},</span> <span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">tau</span></code> package provides several methods to manipulate dialectical structures and to determine properties of positions with regard to a given dialectical structure. For instance:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># implications of a believed sentences w.r.t. the</span>
+<span class="c1"># inferential relationships encoded in tau</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Implications of </span><span class="si">{</span><span class="n">belief_state_a</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">tau</span><span class="o">.</span><span class="n">closure</span><span class="p">(</span><span class="n">belief_state_a</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Implications of </span><span class="si">{</span><span class="n">belief_state_b</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">tau</span><span class="o">.</span><span class="n">closure</span><span class="p">(</span><span class="n">belief_state_b</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># checking whether a position is consistent w.r.t. tau</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Is </span><span class="si">{</span><span class="n">belief_state_a</span><span class="si">}</span><span class="s2"> consistent? </span><span class="si">{</span><span class="n">tau</span><span class="o">.</span><span class="n">is_consistent</span><span class="p">(</span><span class="n">belief_state_a</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Is </span><span class="si">{</span><span class="n">belief_state_b</span><span class="si">}</span><span class="s2"> consistent? </span><span class="si">{</span><span class="n">tau</span><span class="o">.</span><span class="n">is_consistent</span><span class="p">(</span><span class="n">belief_state_b</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># checking whether two positions are consistent with each other (w.r.t tau)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Are </span><span class="si">{</span><span class="n">belief_state_a</span><span class="si">}</span><span class="s2"> and </span><span class="si">{</span><span class="n">belief_state_b</span><span class="si">}</span><span class="s2"> consistent with each other?&quot;</span> <span class="o">+</span>
+      <span class="sa">f</span><span class="s2">&quot; </span><span class="si">{</span><span class="n">tau</span><span class="o">.</span><span class="n">are_compatible</span><span class="p">(</span><span class="n">belief_state_a</span><span class="p">,</span><span class="n">belief_state_b</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Implications of {3, 4, 5}: {3, 4, 5, -2}
+Implications of {2, -4}: {2, 5, 6, 7, -4, -1}
+Is {3, 4, 5} consistent? True
+Is {2, -4} consistent? True
+Are {3, 4, 5} and {2, -4} consistent with each other? False
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Export-to-JSON">
+<h2>Export to JSON<a class="headerlink" href="#Export-to-JSON" title="Permalink to this headline">#</a></h2>
+<div class="section" id="Serializing-tau-objects">
+<h3>Serializing <code class="docutils literal notranslate"><span class="pre">tau</span></code> objects<a class="headerlink" href="#Serializing-tau-objects" title="Permalink to this headline">#</a></h3>
+<p>You can serialize <code class="docutils literal notranslate"><span class="pre">tau</span></code> positions and dialectical structures and any compounds thereof, as long as the <code class="docutils literal notranslate"><span class="pre">json</span></code> python module can handle them (e.g., lists, dictionaries).</p>
+<p>For instance, the following code will serialize a position:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tau</span> <span class="kn">import</span> <span class="n">StandardPosition</span>
+<span class="kn">from</span> <span class="nn">tau.util</span> <span class="kn">import</span> <span class="n">tau_dumps</span><span class="p">,</span> <span class="n">tau_dump</span>
+<span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">getcwd</span><span class="p">,</span> <span class="n">path</span>
+
+<span class="c1"># serializing a position as JSON String</span>
+<span class="n">pos_json_str</span> <span class="o">=</span> <span class="n">tau_dumps</span><span class="p">(</span><span class="n">StandardPosition</span><span class="o">.</span><span class="n">from_set</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">},</span><span class="mi">4</span><span class="p">),</span>
+                         <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pos_json_str</span><span class="p">)</span>
+
+<span class="c1"># serializing a list of positions</span>
+<span class="n">pos_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">StandardPosition</span><span class="o">.</span><span class="n">from_set</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">},</span><span class="mi">4</span><span class="p">),</span>
+            <span class="n">StandardPosition</span><span class="o">.</span><span class="n">from_set</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">},</span><span class="mi">4</span><span class="p">),</span>
+            <span class="n">StandardPosition</span><span class="o">.</span><span class="n">from_set</span><span class="p">(</span><span class="nb">set</span><span class="p">(),</span><span class="mi">0</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tau_dumps</span><span class="p">(</span><span class="n">pos_list</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="c1"># serializing a list of position into a file</span>
+<span class="n">output_file_path</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">getcwd</span><span class="p">(),</span><span class="s1">&#39;positions.json&#39;</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="n">output_file_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">output_file</span><span class="p">:</span>
+    <span class="n">tau_dump</span><span class="p">(</span><span class="n">pos_list</span><span class="p">,</span> <span class="n">output_file</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{
+    &#34;n_unnegated_sentence_pool&#34;: 4,
+    &#34;position&#34;: [
+        1,
+        2
+    ]
+}
+[
+    {
+        &#34;n_unnegated_sentence_pool&#34;: 4,
+        &#34;position&#34;: [
+            1,
+            2
+        ]
+    },
+    {
+        &#34;n_unnegated_sentence_pool&#34;: 4,
+        &#34;position&#34;: [
+            1,
+            3
+        ]
+    },
+    {
+        &#34;n_unnegated_sentence_pool&#34;: 0,
+        &#34;position&#34;: []
+    }
+]
+</pre></div></div>
+</div>
+<p>If important, you can save the implementation details (module and class name), which can be considered later to deserialize the objects:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tau</span> <span class="kn">import</span> <span class="n">SetBasedPosition</span>
+<span class="kn">from</span> <span class="nn">tau.util</span> <span class="kn">import</span> <span class="n">tau_dumps</span>
+
+<span class="c1"># serializing a position as JSON String</span>
+<span class="n">pos_json_str</span> <span class="o">=</span> <span class="n">tau_dumps</span><span class="p">(</span><span class="n">StandardPosition</span><span class="o">.</span><span class="n">from_set</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">},</span><span class="mi">4</span><span class="p">),</span>
+                         <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+                         <span class="n">serialize_implementation</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pos_json_str</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{
+    &#34;n_unnegated_sentence_pool&#34;: 4,
+    &#34;position&#34;: [
+        1,
+        2
+    ],
+    &#34;module_name&#34;: &#34;tau.bitarray_implementation&#34;,
+    &#34;class_name&#34;: &#34;BitarrayPosition&#34;
+}
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Deserializing-tau-objects">
+<h3>Deserializing <code class="docutils literal notranslate"><span class="pre">tau</span></code> objects<a class="headerlink" href="#Deserializing-tau-objects" title="Permalink to this headline">#</a></h3>
+<p>The deserialization of objects is similarly simple. The implementation details can either be taken from the json file or can be explicitly given via parameters.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tau</span> <span class="kn">import</span> <span class="n">SetBasedPosition</span><span class="p">,</span> <span class="n">BitarrayPosition</span>
+<span class="kn">from</span> <span class="nn">tau.util</span> <span class="kn">import</span> <span class="n">tau_dumps</span><span class="p">,</span> <span class="n">tau_loads</span><span class="p">,</span> <span class="n">tau_load</span>
+<span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">getcwd</span><span class="p">,</span> <span class="n">path</span>
+
+<span class="c1"># serializing a position as JSON String</span>
+<span class="n">pos_json_str</span> <span class="o">=</span> <span class="n">tau_dumps</span><span class="p">(</span><span class="n">SetBasedPosition</span><span class="o">.</span><span class="n">from_set</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">},</span><span class="mi">4</span><span class="p">),</span>
+                         <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+                         <span class="n">serialize_implementation</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1"># deserializing it</span>
+<span class="n">position</span> <span class="o">=</span> <span class="n">tau_loads</span><span class="p">(</span><span class="n">pos_json_str</span><span class="p">,</span> <span class="n">use_json_specified_type</span> <span class="o">=</span> <span class="kc">True</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">position</span><span class="si">}</span><span class="s2"> of type </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">position</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># deserializing it and using another implementation</span>
+<span class="n">position</span> <span class="o">=</span> <span class="n">tau_loads</span><span class="p">(</span><span class="n">pos_json_str</span><span class="p">,</span>
+                     <span class="n">position_module</span> <span class="o">=</span> <span class="s1">&#39;tau&#39;</span><span class="p">,</span>
+                     <span class="n">position_class</span> <span class="o">=</span> <span class="s1">&#39;BitarrayPosition&#39;</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">position</span><span class="si">}</span><span class="s2"> of type </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">position</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># deserializing tau objects from a file</span>
+<span class="n">input_file_path</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">getcwd</span><span class="p">(),</span><span class="s1">&#39;positions.json&#39;</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="n">input_file_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">input_file</span><span class="p">:</span>
+    <span class="n">obj</span> <span class="o">=</span> <span class="n">tau_load</span><span class="p">(</span><span class="n">input_file</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{1, 2} of type &lt;class &#39;tau.set_implementation.SetBasedPosition&#39;&gt;
+{1, 2} of type &lt;class &#39;tau.bitarray_implementation.BitarrayPosition&#39;&gt;
+[{1, 2}, {1, 3}, set()]
+</pre></div></div>
+</div>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2023, Claus Beisbart, Gregor Betz, Georg Brun, Sebastian Cacean, Andreas Freivogel, Richard Lohse.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.4.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>

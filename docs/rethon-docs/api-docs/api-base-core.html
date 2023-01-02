@@ -1,0 +1,2068 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Abstract and Core Classes &#8212; RE Docs  documentation</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/styles/pydata-sphinx-theme.css" type="text/css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "tex2jax_ignore|mathjax_ignore|document", "processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Numpy Implementation" href="api-numpy-implementation.html" />
+    <link rel="prev" title="API Documentation" href="api.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+<a class="navbar-brand" href="../../index.html">
+<p class="title">RE Docs</p>
+</a>
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../tau-docs/index-tau.html">
+  Tau Docs
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="../index-rethon.html">
+  Rethon Docs
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar">
+              <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../tutorials/rethon-tutorials.html">
+   Tutorials
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tutorials/rethon-tutorial.html">
+     Rethon Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tutorials/ensemble-generation-tutorial.html">
+     Ensemble Generation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="api.html">
+   API documentation
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Abstract and Core Classes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api-numpy-implementation.html">
+     Numpy Implementation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api-bitarray-implementation.html">
+     Bitarray Implementation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api-setbased-implementation.html">
+     Set Based Implementation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api-util.html">
+     Utility Methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api-ensemble-generation.html">
+     Ensemble Generation
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+  </div>
+</nav>
+              </div>
+              <div class="sidebar-end-items">
+              </div>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reflectiveequilibrium">
+   ReflectiveEquilibrium
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#standardreflectiveequilibrium">
+   StandardReflectiveEquilibrium
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#localreflectiveequilibrium">
+   LocalReflectiveEquilibrium
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#globalreflectiveequilibrium">
+   GlobalReflectiveEquilibrium
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recontainer">
+   REContainer
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#restate">
+   REState
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#standardglobalreflectiveequilibrium">
+   StandardGlobalReflectiveEquilibrium
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#standardlocalreflectiveequilibrium">
+   StandardLocalReflectiveEquilibrium
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fullbranchrecontainer">
+   FullBranchREContainer
+  </a>
+ </li>
+</ul>
+
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="abstract-and-core-classes">
+<h1>Abstract and Core Classes<a class="headerlink" href="#abstract-and-core-classes" title="Permalink to this headline">#</a></h1>
+<div class="section" id="reflectiveequilibrium">
+<h2>ReflectiveEquilibrium<a class="headerlink" href="#reflectiveequilibrium" title="Permalink to this headline">#</a></h2>
+<dl class="py class">
+<dt id="rethon.ReflectiveEquilibrium">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">rethon.</span></code><code class="sig-name descname"><span class="pre">ReflectiveEquilibrium</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dialectical_structure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_commitments</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.ReflectiveEquilibrium" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<p>Abstract class representing a process of finding epistemic states that are in a reflective quilibrium.</p>
+<p>The process of finding a reflective equilbrium starts with a set of initial commitments <span class="math notranslate nohighlight">\(\mathcal{C}_0\)</span>.
+In the next step a first theory <span class="math notranslate nohighlight">\(\mathcal{T}_0\)</span> is chosen. The process is repeated and represents a step-wise adjusted of
+theories and commitments until a final state is reached the represents the reflective equilibrium.</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{C_0} \rightarrow \mathcal{T_0} \rightarrow \mathcal{C_1} \rightarrow \mathcal{T_1} \rightarrow \dots \rightarrow \mathcal{T_{final}} \rightarrow \mathcal{C_{final}}\]</div>
+<p>Each step is triggered by <a class="reference internal" href="#rethon.ReflectiveEquilibrium.next_step" title="rethon.ReflectiveEquilibrium.next_step"><code class="xref py py-func docutils literal notranslate"><span class="pre">next_step()</span></code></a> which will, depending on whether the next step is choosing a new
+theory or a set of new commitments, succeed in the following way:</p>
+<ul class="simple">
+<li><p>Either <a class="reference internal" href="#rethon.ReflectiveEquilibrium.commitment_candidates" title="rethon.ReflectiveEquilibrium.commitment_candidates"><code class="xref py py-func docutils literal notranslate"><span class="pre">commitment_candidates()</span></code></a> or <a class="reference internal" href="#rethon.ReflectiveEquilibrium.theory_candidates" title="rethon.ReflectiveEquilibrium.theory_candidates"><code class="xref py py-func docutils literal notranslate"><span class="pre">theory_candidates()</span></code></a> will be called to determine a set of candidate commitments or theories.</p></li>
+<li><p><a class="reference internal" href="#rethon.ReflectiveEquilibrium.pick_commitment_candidate" title="rethon.ReflectiveEquilibrium.pick_commitment_candidate"><code class="xref py py-func docutils literal notranslate"><span class="pre">pick_commitment_candidate()</span></code></a> or <a class="reference internal" href="#rethon.ReflectiveEquilibrium.pick_theory_candidate" title="rethon.ReflectiveEquilibrium.pick_theory_candidate"><code class="xref py py-func docutils literal notranslate"><span class="pre">pick_theory_candidate()</span></code></a> will be called to decide on the next commitments/theory according to some additional criterion (which will be non-trivial if the former sets have more than one element).</p></li>
+</ul>
+<p>The function <a class="reference internal" href="#rethon.ReflectiveEquilibrium.finished" title="rethon.ReflectiveEquilibrium.finished"><code class="xref py py-func docutils literal notranslate"><span class="pre">finished()</span></code></a> is used to determine the final state of the process.</p>
+<p>Accordingly, subclasses must implement these functions to specify re processes.</p>
+<p class="rubric">Methods</p>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rethon.ReflectiveEquilibrium.commitment_candidates" title="rethon.ReflectiveEquilibrium.commitment_candidates"><code class="xref py py-obj docutils literal notranslate"><span class="pre">commitment_candidates</span></code></a>([time])</p></td>
+<td><p>Commitment candidates for choosing next commitments.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rethon.ReflectiveEquilibrium.default_model_parameters" title="rethon.ReflectiveEquilibrium.default_model_parameters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">default_model_parameters</span></code></a>()</p></td>
+<td><p>Implementing classes should use this method to define default model parameters.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rethon.ReflectiveEquilibrium.dialectical_structure" title="rethon.ReflectiveEquilibrium.dialectical_structure"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dialectical_structure</span></code></a>()</p></td>
+<td><p>Return the dialectical structure on which the model is based.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rethon.ReflectiveEquilibrium.finished" title="rethon.ReflectiveEquilibrium.finished"><code class="xref py py-obj docutils literal notranslate"><span class="pre">finished</span></code></a>(**kwargs)</p></td>
+<td><p>Criterion of when the RE process reached a final state.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rethon.ReflectiveEquilibrium.is_dirty" title="rethon.ReflectiveEquilibrium.is_dirty"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_dirty</span></code></a>()</p></td>
+<td><p>Checks whether the model demand an update of internal attributes.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rethon.ReflectiveEquilibrium.model_name" title="rethon.ReflectiveEquilibrium.model_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_name</span></code></a>()</p></td>
+<td><p>Model name.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rethon.ReflectiveEquilibrium.model_parameter" title="rethon.ReflectiveEquilibrium.model_parameter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_parameter</span></code></a>(name)</p></td>
+<td><p>Returns model parameters by names.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rethon.ReflectiveEquilibrium.model_parameter_names" title="rethon.ReflectiveEquilibrium.model_parameter_names"><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_parameter_names</span></code></a>()</p></td>
+<td><p>Returns names (keys) of the model parameters.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rethon.ReflectiveEquilibrium.model_parameters" title="rethon.ReflectiveEquilibrium.model_parameters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_parameters</span></code></a>()</p></td>
+<td><p>Getting all model parameters as dict.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rethon.ReflectiveEquilibrium.model_parameters_set_to_default" title="rethon.ReflectiveEquilibrium.model_parameters_set_to_default"><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_parameters_set_to_default</span></code></a>()</p></td>
+<td><p>Resets the model parameters to their default values.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rethon.ReflectiveEquilibrium.next_step" title="rethon.ReflectiveEquilibrium.next_step"><code class="xref py py-obj docutils literal notranslate"><span class="pre">next_step</span></code></a>([time])</p></td>
+<td><p>Triggers search for next commitments/theory.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rethon.ReflectiveEquilibrium.pick_commitment_candidate" title="rethon.ReflectiveEquilibrium.pick_commitment_candidate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pick_commitment_candidate</span></code></a>(commitments_candidates)</p></td>
+<td><p>Determination of the next commitments given the commitments candidates.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rethon.ReflectiveEquilibrium.pick_theory_candidate" title="rethon.ReflectiveEquilibrium.pick_theory_candidate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pick_theory_candidate</span></code></a>(theory_candidates[, time])</p></td>
+<td><p>Determination of the next theory given the theory candidates.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rethon.ReflectiveEquilibrium.re_process" title="rethon.ReflectiveEquilibrium.re_process"><code class="xref py py-obj docutils literal notranslate"><span class="pre">re_process</span></code></a>([initial_commitments])</p></td>
+<td><p>Process of finding a reflective equilibrium based on given initial commitments.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rethon.ReflectiveEquilibrium.reset_model_parameters" title="rethon.ReflectiveEquilibrium.reset_model_parameters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset_model_parameters</span></code></a>(parameters)</p></td>
+<td><p>Resetting model parameters.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rethon.ReflectiveEquilibrium.set_dialectical_structure" title="rethon.ReflectiveEquilibrium.set_dialectical_structure"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_dialectical_structure</span></code></a>(dialectical_structure)</p></td>
+<td><p>Set the dialectical structure on which the model is based.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rethon.ReflectiveEquilibrium.set_dirty" title="rethon.ReflectiveEquilibrium.set_dirty"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_dirty</span></code></a>(dirty)</p></td>
+<td><p>Should be used to indicate whether attributes are reset that demand updating other attributes of the model.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rethon.ReflectiveEquilibrium.set_initial_state" title="rethon.ReflectiveEquilibrium.set_initial_state"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_initial_state</span></code></a>(initial_commitments)</p></td>
+<td><p>Set the initial state of the model.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rethon.ReflectiveEquilibrium.set_model_parameters" title="rethon.ReflectiveEquilibrium.set_model_parameters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_model_parameters</span></code></a>([parameters])</p></td>
+<td><p>Setting model parameters either by a dictionary or key-value pairs.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rethon.ReflectiveEquilibrium.set_state" title="rethon.ReflectiveEquilibrium.set_state"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_state</span></code></a>(state)</p></td>
+<td><p>Setting the current state of the model.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rethon.ReflectiveEquilibrium.state" title="rethon.ReflectiveEquilibrium.state"><code class="xref py py-obj docutils literal notranslate"><span class="pre">state</span></code></a>()</p></td>
+<td><p>Getting the current state of the model as <a class="reference internal" href="#rethon.REState" title="rethon.REState"><code class="xref py py-class docutils literal notranslate"><span class="pre">REState</span></code></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rethon.ReflectiveEquilibrium.theory_candidates" title="rethon.ReflectiveEquilibrium.theory_candidates"><code class="xref py py-obj docutils literal notranslate"><span class="pre">theory_candidates</span></code></a>([time])</p></td>
+<td><p>Theory candidates for choosing the next theory.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rethon.ReflectiveEquilibrium.update" title="rethon.ReflectiveEquilibrium.update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update</span></code></a>()</p></td>
+<td><p>Subclasses can extend/override this method to update internal attributes of the model.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="rethon.ReflectiveEquilibrium.commitment_candidates">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">commitment_candidates</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.ReflectiveEquilibrium.commitment_candidates" title="Permalink to this definition">#</a></dt>
+<dd><p>Commitment candidates for choosing next commitments.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Set</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code>]</p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><p><strong>time</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.ReflectiveEquilibrium.default_model_parameters">
+<em class="property"><span class="pre">abstract</span> <span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">default_model_parameters</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rethon.ReflectiveEquilibrium.default_model_parameters" title="Permalink to this definition">#</a></dt>
+<dd><p>Implementing classes should use this method to define default model parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.ReflectiveEquilibrium.dialectical_structure">
+<code class="sig-name descname"><span class="pre">dialectical_structure</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rethon.ReflectiveEquilibrium.dialectical_structure" title="Permalink to this definition">#</a></dt>
+<dd><p>Return the dialectical structure on which the model is based.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">DialecticalStructure</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.ReflectiveEquilibrium.finished">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">finished</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.ReflectiveEquilibrium.finished" title="Permalink to this definition">#</a></dt>
+<dd><p>Criterion of when the RE process reached a final state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.ReflectiveEquilibrium.is_dirty">
+<code class="sig-name descname"><span class="pre">is_dirty</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rethon.ReflectiveEquilibrium.is_dirty" title="Permalink to this definition">#</a></dt>
+<dd><p>Checks whether the model demand an update of internal attributes.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.ReflectiveEquilibrium.model_name">
+<code class="sig-name descname"><span class="pre">model_name</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rethon.ReflectiveEquilibrium.model_name" title="Permalink to this definition">#</a></dt>
+<dd><p>Model name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A name of the model implemented by that class.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.ReflectiveEquilibrium.model_parameter">
+<code class="sig-name descname"><span class="pre">model_parameter</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.ReflectiveEquilibrium.model_parameter" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns model parameters by names.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> (<em>str</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.ReflectiveEquilibrium.model_parameter_names">
+<code class="sig-name descname"><span class="pre">model_parameter_names</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rethon.ReflectiveEquilibrium.model_parameter_names" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns names (keys) of the model parameters.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.ReflectiveEquilibrium.model_parameters">
+<code class="sig-name descname"><span class="pre">model_parameters</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rethon.ReflectiveEquilibrium.model_parameters" title="Permalink to this definition">#</a></dt>
+<dd><p>Getting all model parameters as dict.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.ReflectiveEquilibrium.model_parameters_set_to_default">
+<code class="sig-name descname"><span class="pre">model_parameters_set_to_default</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rethon.ReflectiveEquilibrium.model_parameters_set_to_default" title="Permalink to this definition">#</a></dt>
+<dd><p>Resets the model parameters to their default values.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.ReflectiveEquilibrium.next_step">
+<code class="sig-name descname"><span class="pre">next_step</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.ReflectiveEquilibrium.next_step" title="Permalink to this definition">#</a></dt>
+<dd><p>Triggers search for next commitments/theory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>time</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.ReflectiveEquilibrium.pick_commitment_candidate">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">pick_commitment_candidate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">commitments_candidates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.ReflectiveEquilibrium.pick_commitment_candidate" title="Permalink to this definition">#</a></dt>
+<dd><p>Determination of the next commitments given the commitments candidates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>commitments_candidates</strong> (<em>Set</em><em>[</em><em>tau.base.Position</em><em>]</em>) – </p></li>
+<li><p><strong>time</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.ReflectiveEquilibrium.pick_theory_candidate">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">pick_theory_candidate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">theory_candidates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.ReflectiveEquilibrium.pick_theory_candidate" title="Permalink to this definition">#</a></dt>
+<dd><p>Determination of the next theory given the theory candidates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>theory_candidates</strong> (<em>Set</em><em>[</em><em>tau.base.Position</em><em>]</em>) – </p></li>
+<li><p><strong>time</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.ReflectiveEquilibrium.re_process">
+<code class="sig-name descname"><span class="pre">re_process</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">initial_commitments</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.ReflectiveEquilibrium.re_process" title="Permalink to this definition">#</a></dt>
+<dd><p>Process of finding a reflective equilibrium based on given initial commitments.</p>
+<p>Starting with the initial commitments <span class="math notranslate nohighlight">\(\mathcal{C}_0\)</span> as the initial epistemic state, the epistemic
+state is successively revised until the process is finished (as defined by <a class="reference internal" href="#rethon.ReflectiveEquilibrium.finished" title="rethon.ReflectiveEquilibrium.finished"><code class="xref py py-func docutils literal notranslate"><span class="pre">finished()</span></code></a>).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>initial_commitments</strong> (<em>Optional</em><em>[</em><em>tau.base.Position</em><em>]</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.ReflectiveEquilibrium.reset_model_parameters">
+<code class="sig-name descname"><span class="pre">reset_model_parameters</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.ReflectiveEquilibrium.reset_model_parameters" title="Permalink to this definition">#</a></dt>
+<dd><p>Resetting model parameters.</p>
+<p>Replaces the current model parameters with <code class="code docutils literal notranslate"><span class="pre">paramters</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>parameters</strong> (<em>Dict</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.ReflectiveEquilibrium.set_dialectical_structure">
+<code class="sig-name descname"><span class="pre">set_dialectical_structure</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dialectical_structure</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.ReflectiveEquilibrium.set_dialectical_structure" title="Permalink to this definition">#</a></dt>
+<dd><p>Set the dialectical structure on which the model is based.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>dialectical_structure</strong> (<em>tau.base.DialecticalStructure</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.ReflectiveEquilibrium.set_dirty">
+<code class="sig-name descname"><span class="pre">set_dirty</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dirty</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.ReflectiveEquilibrium.set_dirty" title="Permalink to this definition">#</a></dt>
+<dd><p>Should be used to indicate whether attributes are reset that demand updating other attributes of the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>dirty</strong> (<em>bool</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.ReflectiveEquilibrium.set_initial_state">
+<code class="sig-name descname"><span class="pre">set_initial_state</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">initial_commitments</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.ReflectiveEquilibrium.set_initial_state" title="Permalink to this definition">#</a></dt>
+<dd><p>Set the initial state of the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>initial_commitments</strong> (<em>tau.base.Position</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.ReflectiveEquilibrium.set_model_parameters">
+<code class="sig-name descname"><span class="pre">set_model_parameters</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.ReflectiveEquilibrium.set_model_parameters" title="Permalink to this definition">#</a></dt>
+<dd><p>Setting model parameters either by a dictionary or key-value pairs.</p>
+<p>The given parameters will be added to the given parameters or updated respectively.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>parameters</strong> (<em>Optional</em><em>[</em><em>Dict</em><em>]</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.ReflectiveEquilibrium.set_state">
+<code class="sig-name descname"><span class="pre">set_state</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.ReflectiveEquilibrium.set_state" title="Permalink to this definition">#</a></dt>
+<dd><p>Setting the current state of the model.</p>
+<p>The instance is set to dirty only when the state is set the first time or the initial
+state differs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>state</strong> (<em>rethon.base.REState</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.ReflectiveEquilibrium.state">
+<code class="sig-name descname"><span class="pre">state</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rethon.ReflectiveEquilibrium.state" title="Permalink to this definition">#</a></dt>
+<dd><p>Getting the current state of the model as <a class="reference internal" href="#rethon.REState" title="rethon.REState"><code class="xref py py-class docutils literal notranslate"><span class="pre">REState</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">REState</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.ReflectiveEquilibrium.theory_candidates">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">theory_candidates</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.ReflectiveEquilibrium.theory_candidates" title="Permalink to this definition">#</a></dt>
+<dd><p>Theory candidates for choosing the next theory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Set</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code>]</p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><p><strong>time</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.ReflectiveEquilibrium.update">
+<code class="sig-name descname"><span class="pre">update</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rethon.ReflectiveEquilibrium.update" title="Permalink to this definition">#</a></dt>
+<dd><p>Subclasses can extend/override this method to update internal attributes of the model.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="standardreflectiveequilibrium">
+<h2>StandardReflectiveEquilibrium<a class="headerlink" href="#standardreflectiveequilibrium" title="Permalink to this headline">#</a></h2>
+<dl class="py class">
+<dt id="rethon.StandardReflectiveEquilibrium">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">rethon.</span></code><code class="sig-name descname"><span class="pre">StandardReflectiveEquilibrium</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dialectical_structure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_commitments</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'StandardModel'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.StandardReflectiveEquilibrium" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">rethon.base.ReflectiveEquilibrium</span></code></p>
+<p>Abstract class that describes RE in terms of optimizing an achievement function.</p>
+<p>The class partially implements <a class="reference internal" href="#rethon.ReflectiveEquilibrium" title="rethon.ReflectiveEquilibrium"><code class="xref py py-class docutils literal notranslate"><span class="pre">ReflectiveEquilibrium</span></code></a> and provides additional functions to
+calculate an achievement function <span class="math notranslate nohighlight">\(Z\)</span> (<a class="reference internal" href="#rethon.StandardReflectiveEquilibrium.achievement" title="rethon.StandardReflectiveEquilibrium.achievement"><code class="xref py py-func docutils literal notranslate"><span class="pre">achievement()</span></code></a>) for each step that
+can be used by subclasses to propose theory and commitments candidates.</p>
+<p>This class already determines the behaviour in the case of an underdetermination of commitments and theory
+candidates: In this case a set of random commitments/ a random theory is chosen.</p>
+<p class="rubric">Methods</p>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rethon.StandardReflectiveEquilibrium.account" title="rethon.StandardReflectiveEquilibrium.account"><code class="xref py py-obj docutils literal notranslate"><span class="pre">account</span></code></a>(commitments, theory)</p></td>
+<td><p>Account of the theory w.r.t.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rethon.StandardReflectiveEquilibrium.achievement" title="rethon.StandardReflectiveEquilibrium.achievement"><code class="xref py py-obj docutils literal notranslate"><span class="pre">achievement</span></code></a>(commitments, theory, …)</p></td>
+<td><p>The achievement function <span class="math notranslate nohighlight">\(Z\)</span>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">commitment_candidates</span></code>([time])</p></td>
+<td><p>Commitment candidates for choosing next commitments.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rethon.StandardReflectiveEquilibrium.default_model_parameters" title="rethon.StandardReflectiveEquilibrium.default_model_parameters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">default_model_parameters</span></code></a>()</p></td>
+<td><p>Default model parameters of the standard model.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">dialectical_structure</span></code>()</p></td>
+<td><p>Return the dialectical structure on which the model is based.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rethon.StandardReflectiveEquilibrium.faithfulness" title="rethon.StandardReflectiveEquilibrium.faithfulness"><code class="xref py py-obj docutils literal notranslate"><span class="pre">faithfulness</span></code></a>(commitments, initial_commitments)</p></td>
+<td><p>Faithfulness of the commitments w.r.t.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rethon.StandardReflectiveEquilibrium.finished" title="rethon.StandardReflectiveEquilibrium.finished"><code class="xref py py-obj docutils literal notranslate"><span class="pre">finished</span></code></a>([re_states])</p></td>
+<td><p>Implements <a class="reference internal" href="#rethon.ReflectiveEquilibrium.finished" title="rethon.ReflectiveEquilibrium.finished"><code class="xref py py-func docutils literal notranslate"><span class="pre">ReflectiveEquilibrium.finished()</span></code></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rethon.StandardReflectiveEquilibrium.hamming_distance" title="rethon.StandardReflectiveEquilibrium.hamming_distance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hamming_distance</span></code></a>(position1, position2, penalties)</p></td>
+<td><p>The weighted Hamming distance.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_dirty</span></code>()</p></td>
+<td><p>Checks whether the model demand an update of internal attributes.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_name</span></code>()</p></td>
+<td><p>Model name.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_parameter</span></code>(name)</p></td>
+<td><p>Returns model parameters by names.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_parameter_names</span></code>()</p></td>
+<td><p>Returns names (keys) of the model parameters.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_parameters</span></code>()</p></td>
+<td><p>Getting all model parameters as dict.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rethon.StandardReflectiveEquilibrium.model_parameters_set_to_default" title="rethon.StandardReflectiveEquilibrium.model_parameters_set_to_default"><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_parameters_set_to_default</span></code></a>()</p></td>
+<td><p>Resets the model parameters to their default values.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">next_step</span></code>([time])</p></td>
+<td><p>Triggers search for next commitments/theory.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rethon.StandardReflectiveEquilibrium.penalty" title="rethon.StandardReflectiveEquilibrium.penalty"><code class="xref py py-obj docutils literal notranslate"><span class="pre">penalty</span></code></a>(position1, position2, sentence, …)</p></td>
+<td><p>A penalty function.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rethon.StandardReflectiveEquilibrium.pick_commitment_candidate" title="rethon.StandardReflectiveEquilibrium.pick_commitment_candidate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pick_commitment_candidate</span></code></a>(…)</p></td>
+<td><p>Implements :py:func:ReflectiveEquilibrium.pick_commitment_candidate.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rethon.StandardReflectiveEquilibrium.pick_theory_candidate" title="rethon.StandardReflectiveEquilibrium.pick_theory_candidate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pick_theory_candidate</span></code></a>(theory_candidates, …)</p></td>
+<td><p>Implements :py:func:ReflectiveEquilibrium.pick_theory_candidate.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">re_process</span></code>([initial_commitments])</p></td>
+<td><p>Process of finding a reflective equilibrium based on given initial commitments.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset_model_parameters</span></code>(parameters)</p></td>
+<td><p>Resetting model parameters.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_dialectical_structure</span></code>(dialectical_structure)</p></td>
+<td><p>Set the dialectical structure on which the model is based.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_dirty</span></code>(dirty)</p></td>
+<td><p>Should be used to indicate whether attributes are reset that demand updating other attributes of the model.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_initial_state</span></code>(initial_commitments)</p></td>
+<td><p>Set the initial state of the model.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_model_parameters</span></code>([parameters])</p></td>
+<td><p>Setting model parameters either by a dictionary or key-value pairs.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_state</span></code>(state)</p></td>
+<td><p>Setting the current state of the model.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">state</span></code>()</p></td>
+<td><p>Getting the current state of the model as <a class="reference internal" href="#rethon.REState" title="rethon.REState"><code class="xref py py-class docutils literal notranslate"><span class="pre">REState</span></code></a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rethon.StandardReflectiveEquilibrium.systematicity" title="rethon.StandardReflectiveEquilibrium.systematicity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">systematicity</span></code></a>(theory)</p></td>
+<td><p>Systematicity of the theory.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">theory_candidates</span></code>([time])</p></td>
+<td><p>Theory candidates for choosing the next theory.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">update</span></code>()</p></td>
+<td><p>Subclasses can extend/override this method to update internal attributes of the model.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="rethon.StandardReflectiveEquilibrium.account">
+<code class="sig-name descname"><span class="pre">account</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">commitments</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theory</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.StandardReflectiveEquilibrium.account" title="Permalink to this definition">#</a></dt>
+<dd><p>Account of the theory w.r.t. the position.</p>
+<p>The account <span class="math notranslate nohighlight">\(A\)</span> is a measure of how well the theory <span class="math notranslate nohighlight">\(\mathcal{T}\)</span> accounts for the given
+commitments <span class="math notranslate nohighlight">\(\mathcal{C}\)</span> and is defined by:</p>
+<div class="math notranslate nohighlight">
+\[A(\mathcal{C}, \mathcal{T}):=\left( 1- \left(\frac{D_{0,0.3,1,1}(\mathcal{C}         ,\overline{\mathcal{T}})}{N}\right)^2 \right)\]</div>
+<p>with <span class="math notranslate nohighlight">\(D\)</span> being the weighted (asymmetric) Hamming Distance (see <a class="reference internal" href="#rethon.StandardReflectiveEquilibrium.hamming_distance" title="rethon.StandardReflectiveEquilibrium.hamming_distance"><code class="xref py py-func docutils literal notranslate"><span class="pre">hamming_distance()</span></code></a>).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>commitments</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code>) – The commitments <span class="math notranslate nohighlight">\(\mathcal{C}\)</span>.</p></li>
+<li><p><strong>theory</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code>) – The theory <span class="math notranslate nohighlight">\(\mathcal{T}\)</span>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.StandardReflectiveEquilibrium.achievement">
+<code class="sig-name descname"><span class="pre">achievement</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">commitments</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_commitments</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.StandardReflectiveEquilibrium.achievement" title="Permalink to this definition">#</a></dt>
+<dd><p>The achievement function <span class="math notranslate nohighlight">\(Z\)</span>.</p>
+<p>The achievement function is a convex combination of account, systematicity and faitfulness:</p>
+<div class="math notranslate nohighlight">
+\[Z(\mathcal{C},\mathcal{T} | \mathcal{C}_0):= \alpha_A A(\mathcal{C}, \mathcal{T})        + \alpha_S S(\mathcal{T}) + \alpha_F F(\mathcal{C}| \mathcal{C}_0)\]</div>
+<p>The weighing factors <span class="math notranslate nohighlight">\(\alpha_A, \alpha_S, \alpha_F\)</span> are non-negative real numbers that add up to 1.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>commitments</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code>) – The (current) commitments <span class="math notranslate nohighlight">\(\mathcal{C}\)</span>.</p></li>
+<li><p><strong>theory</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code>) – The (current) theory <span class="math notranslate nohighlight">\(\mathcal{T}\)</span>.</p></li>
+<li><p><strong>initial_commitments</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code>) – The initial commitments <span class="math notranslate nohighlight">\(\mathcal{C}_0\)</span>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.StandardReflectiveEquilibrium.default_model_parameters">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">default_model_parameters</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rethon.StandardReflectiveEquilibrium.default_model_parameters" title="Permalink to this definition">#</a></dt>
+<dd><p>Default model parameters of the standard model.</p>
+<p>Default model parameter for the calculation of achievement and the determination of the vicinity of positions:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;weights&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;account&#39;</span><span class="p">:</span> <span class="mf">0.35</span><span class="p">,</span> <span class="s1">&#39;systematicity&#39;</span><span class="p">:</span> <span class="mf">0.55</span><span class="p">,</span> <span class="s1">&#39;faithfulness&#39;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">},</span>
+ <span class="s1">&#39;account_penalties&#39;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)),</span>
+ <span class="s1">&#39;faithfulness_penalties&#39;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">))</span>
+ <span class="p">}</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.StandardReflectiveEquilibrium.faithfulness">
+<code class="sig-name descname"><span class="pre">faithfulness</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">commitments</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_commitments</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.StandardReflectiveEquilibrium.faithfulness" title="Permalink to this definition">#</a></dt>
+<dd><p>Faithfulness of the commitments w.r.t. the initial commitments.</p>
+<p>The faithfulness <span class="math notranslate nohighlight">\(F\)</span> is a measure of how faithfull the commitments <span class="math notranslate nohighlight">\(\mathcal{C}\)</span>
+are to the initial commitments <span class="math notranslate nohighlight">\(\mathcal{C}_0\)</span> and is defined by:</p>
+<div class="math notranslate nohighlight">
+\[A(\mathcal{C} | \mathcal{C}_0):=\left( 1- \left(\frac{D_{0,0,1,1}(\mathcal{C}_0         ,\mathcal{C})}{N}\right)^2 \right)\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>commitments</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code>) – The commitments <span class="math notranslate nohighlight">\(\mathcal{C}\)</span>.</p></li>
+<li><p><strong>initial_commitments</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code>) – The initial commitments <span class="math notranslate nohighlight">\(\mathcal{C}_0\)</span>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.StandardReflectiveEquilibrium.finished">
+<code class="sig-name descname"><span class="pre">finished</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">re_states</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.StandardReflectiveEquilibrium.finished" title="Permalink to this definition">#</a></dt>
+<dd><p>Implements <a class="reference internal" href="#rethon.ReflectiveEquilibrium.finished" title="rethon.ReflectiveEquilibrium.finished"><code class="xref py py-func docutils literal notranslate"><span class="pre">ReflectiveEquilibrium.finished()</span></code></a>.</p>
+<p>An re process of the standard model finishes with a state <span class="math notranslate nohighlight">\((\mathcal{C}_i,\mathcal{T}_i)\)</span> iff
+<span class="math notranslate nohighlight">\((\mathcal{C}_i,\mathcal{T}_i) = (\mathcal{C}_{i-1},\mathcal{T}_{i-1})\)</span></p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><p><strong>re_states</strong> (<em>Optional</em><em>[</em><em>List</em><em>[</em><em>rethon.base.REState</em><em>]</em><em>]</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.StandardReflectiveEquilibrium.hamming_distance">
+<code class="sig-name descname"><span class="pre">hamming_distance</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">penalties</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.StandardReflectiveEquilibrium.hamming_distance" title="Permalink to this definition">#</a></dt>
+<dd><p>The weighted Hamming distance.</p>
+<p>A weighted (asymmetric) Hamming Distance <span class="math notranslate nohighlight">\(D\)</span> between two
+positions <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> and <span class="math notranslate nohighlight">\(\mathcal{B}\)</span> which is defined by</p>
+<div class="math notranslate nohighlight">
+\[D_{d_0,d_1,d_2,d_3}(\mathcal{A}, \mathcal{B}):= \sum_{\{s,\neg s\} \subset S}         d_{{d_0,d_1,d_2,d_3}}(\mathcal{A}, \mathcal{B}, \{s,\neg s\})\]</div>
+<p>and based on the <a class="reference internal" href="#rethon.StandardReflectiveEquilibrium.penalty" title="rethon.StandardReflectiveEquilibrium.penalty"><code class="xref py py-func docutils literal notranslate"><span class="pre">penalty()</span></code></a>-function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>position1</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code>) – </p></li>
+<li><p><strong>position2</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code>) – </p></li>
+<li><p><strong>penalties</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]) – A float-list of penalty values for the <a class="reference internal" href="#rethon.StandardReflectiveEquilibrium.penalty" title="rethon.StandardReflectiveEquilibrium.penalty"><code class="xref py py-func docutils literal notranslate"><span class="pre">penalty()</span></code></a>-function.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.StandardReflectiveEquilibrium.model_parameters_set_to_default">
+<code class="sig-name descname"><span class="pre">model_parameters_set_to_default</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rethon.StandardReflectiveEquilibrium.model_parameters_set_to_default" title="Permalink to this definition">#</a></dt>
+<dd><p>Resets the model parameters to their default values.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.StandardReflectiveEquilibrium.penalty">
+<code class="sig-name descname"><span class="pre">penalty</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sentence</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">penalties</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.StandardReflectiveEquilibrium.penalty" title="Permalink to this definition">#</a></dt>
+<dd><p>A penalty function.</p>
+<p>The penalty function calculates a penalty value for two sentences of two positions given a list of penalty-value
+and is defined by</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}d_{{d_0,d_1,d_2,d_3}}(\mathcal{A}, \mathcal{B}, \{s,\neg s\}):=         \begin{cases} d_3 \text{ if } \{s,\neg s\}\subset(\mathcal{A}\cup \mathcal{B}),        \\ d_2 \text{ if } \{s,\neg s\}\cap \mathcal{A} \neq \emptyset \text{ and }         \{s,\neg s\}\cap \mathcal{B} = \emptyset,         \\ d_3 \text{ if } \{s,\neg s\}\cap \mathcal{A} = \emptyset \text{ and }         \{s,\neg s\}\cap \mathcal{B} \neq \emptyset,         \\ d_0 \text{ otherwise.}\end{cases}\end{split}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>position1</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code>) – </p></li>
+<li><p><strong>position2</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code>) – </p></li>
+<li><p><strong>sentence</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – The index of the sentences with both positions.</p></li>
+<li><p><strong>penalties</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]) – A float-list of penalty values.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.StandardReflectiveEquilibrium.pick_commitment_candidate">
+<code class="sig-name descname"><span class="pre">pick_commitment_candidate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">commitments_candidates</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.StandardReflectiveEquilibrium.pick_commitment_candidate" title="Permalink to this definition">#</a></dt>
+<dd><p>Implements :py:func:ReflectiveEquilibrium.pick_commitment_candidate.</p>
+<p>Chooses randomly a next commitments from the commitment candidates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><p><strong>commitments_candidates</strong> (<em>Set</em><em>[</em><em>tau.base.Position</em><em>]</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.StandardReflectiveEquilibrium.pick_theory_candidate">
+<code class="sig-name descname"><span class="pre">pick_theory_candidate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">theory_candidates</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.StandardReflectiveEquilibrium.pick_theory_candidate" title="Permalink to this definition">#</a></dt>
+<dd><p>Implements :py:func:ReflectiveEquilibrium.pick_theory_candidate.</p>
+<p>Chooses randomly a theory from the theory candidates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><p><strong>theory_candidates</strong> (<em>Set</em><em>[</em><em>tau.base.Position</em><em>]</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.StandardReflectiveEquilibrium.systematicity">
+<code class="sig-name descname"><span class="pre">systematicity</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">theory</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.StandardReflectiveEquilibrium.systematicity" title="Permalink to this definition">#</a></dt>
+<dd><p>Systematicity of the theory.</p>
+<p>The systematicity <span class="math notranslate nohighlight">\(S\)</span> is a measure of the systematising power of a theory <span class="math notranslate nohighlight">\(\mathcal{T}\)</span>
+and is defined by:</p>
+<div class="math notranslate nohighlight">
+\[S(\mathcal{T}):=\left( 1- \left(\frac{|\mathcal{T}|-1}{|\overline{\mathcal{T}}|}\right)^2 \right)\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>theory</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code>) – The theory <span class="math notranslate nohighlight">\(\mathcal{T}\)</span>.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="localreflectiveequilibrium">
+<h2>LocalReflectiveEquilibrium<a class="headerlink" href="#localreflectiveequilibrium" title="Permalink to this headline">#</a></h2>
+<dl class="py class">
+<dt id="rethon.LocalReflectiveEquilibrium">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">rethon.</span></code><code class="sig-name descname"><span class="pre">LocalReflectiveEquilibrium</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dialectical_structure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_commitments</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'LocalStandardReflectiveEquilibrium'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.LocalReflectiveEquilibrium" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">rethon.base.StandardReflectiveEquilibrium</span></code></p>
+<p>A locally searching RE process.</p>
+<p>This (abstract) class implements the following behaviour for choosing commitments/theory candidates by
+<a class="reference internal" href="#rethon.LocalReflectiveEquilibrium.commitment_candidates" title="rethon.LocalReflectiveEquilibrium.commitment_candidates"><code class="xref py py-func docutils literal notranslate"><span class="pre">commitment_candidates()</span></code></a> and <a class="reference internal" href="#rethon.LocalReflectiveEquilibrium.theory_candidates" title="rethon.LocalReflectiveEquilibrium.theory_candidates"><code class="xref py py-func docutils literal notranslate"><span class="pre">theory_candidates()</span></code></a>:</p>
+<ul class="simple">
+<li><p>Theory candidates for the next theory are dialectically consistent positions in the vicinity of the last theory
+(as defined by the model parameter <code class="code docutils literal notranslate"><span class="pre">neighbourhood_depth</span></code>, see <code class="xref py py-func docutils literal notranslate"><span class="pre">basics.Position.neighbours()</span></code>) that
+maximize the achievement function.</p></li>
+<li><p>Commitments candidates for the next commitments are minimally consistent positions in the vicinity of the last
+commitments (as defined by the model parameter <code class="code docutils literal notranslate"><span class="pre">neighbourhood_depth</span></code>,
+see <code class="xref py py-func docutils literal notranslate"><span class="pre">basics.Position.neighbours()</span></code>) that maximize the achievement function.</p></li>
+<li><p>The first theory is chosen by <a class="reference internal" href="#rethon.LocalReflectiveEquilibrium.first_theory" title="rethon.LocalReflectiveEquilibrium.first_theory"><code class="xref py py-func docutils literal notranslate"><span class="pre">first_theory()</span></code></a>.</p></li>
+</ul>
+<p><em>Remark:</em> Note, that commitment candidates can be dialectically inconsistent.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This class should be used together with dialectical structures that are based on binary decision trees
+(e.g. <code class="xref py py-class docutils literal notranslate"><span class="pre">model.BDDDialecticalStructure</span></code>).</p>
+</div>
+<p class="rubric">Methods</p>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">account</span></code>(commitments, theory)</p></td>
+<td><p>Account of the theory w.r.t.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">achievement</span></code>(commitments, theory, …)</p></td>
+<td><p>The achievement function <span class="math notranslate nohighlight">\(Z\)</span>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rethon.LocalReflectiveEquilibrium.commitment_candidates" title="rethon.LocalReflectiveEquilibrium.commitment_candidates"><code class="xref py py-obj docutils literal notranslate"><span class="pre">commitment_candidates</span></code></a>(**kwargs)</p></td>
+<td><p>Implements <code class="xref py py-func docutils literal notranslate"><span class="pre">basics.ReflectiveEquilibrium.commitment_candidates()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rethon.LocalReflectiveEquilibrium.default_model_parameters" title="rethon.LocalReflectiveEquilibrium.default_model_parameters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">default_model_parameters</span></code></a>()</p></td>
+<td><p>Default model parameters of the standard model.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">dialectical_structure</span></code>()</p></td>
+<td><p>Return the dialectical structure on which the model is based.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">faithfulness</span></code>(commitments, initial_commitments)</p></td>
+<td><p>Faithfulness of the commitments w.r.t.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">finished</span></code>([re_states])</p></td>
+<td><p>Implements <a class="reference internal" href="#rethon.ReflectiveEquilibrium.finished" title="rethon.ReflectiveEquilibrium.finished"><code class="xref py py-func docutils literal notranslate"><span class="pre">ReflectiveEquilibrium.finished()</span></code></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rethon.LocalReflectiveEquilibrium.first_theory" title="rethon.LocalReflectiveEquilibrium.first_theory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">first_theory</span></code></a>()</p></td>
+<td><p>Criterion to chose the first theory.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">hamming_distance</span></code>(position1, position2, penalties)</p></td>
+<td><p>The weighted Hamming distance.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_dirty</span></code>()</p></td>
+<td><p>Checks whether the model demand an update of internal attributes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_name</span></code>()</p></td>
+<td><p>Model name.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_parameter</span></code>(name)</p></td>
+<td><p>Returns model parameters by names.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_parameter_names</span></code>()</p></td>
+<td><p>Returns names (keys) of the model parameters.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_parameters</span></code>()</p></td>
+<td><p>Getting all model parameters as dict.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rethon.LocalReflectiveEquilibrium.model_parameters_set_to_default" title="rethon.LocalReflectiveEquilibrium.model_parameters_set_to_default"><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_parameters_set_to_default</span></code></a>()</p></td>
+<td><p>Resets the model parameters to their default values.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">next_step</span></code>([time])</p></td>
+<td><p>Triggers search for next commitments/theory.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">penalty</span></code>(position1, position2, sentence, …)</p></td>
+<td><p>A penalty function.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">pick_commitment_candidate</span></code>(…)</p></td>
+<td><p>Implements :py:func:ReflectiveEquilibrium.pick_commitment_candidate.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">pick_theory_candidate</span></code>(theory_candidates, …)</p></td>
+<td><p>Implements :py:func:ReflectiveEquilibrium.pick_theory_candidate.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">re_process</span></code>([initial_commitments])</p></td>
+<td><p>Process of finding a reflective equilibrium based on given initial commitments.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset_model_parameters</span></code>(parameters)</p></td>
+<td><p>Resetting model parameters.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_dialectical_structure</span></code>(dialectical_structure)</p></td>
+<td><p>Set the dialectical structure on which the model is based.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_dirty</span></code>(dirty)</p></td>
+<td><p>Should be used to indicate whether attributes are reset that demand updating other attributes of the model.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_initial_state</span></code>(initial_commitments)</p></td>
+<td><p>Set the initial state of the model.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_model_parameters</span></code>([parameters])</p></td>
+<td><p>Setting model parameters either by a dictionary or key-value pairs.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_state</span></code>(state)</p></td>
+<td><p>Setting the current state of the model.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">state</span></code>()</p></td>
+<td><p>Getting the current state of the model as <a class="reference internal" href="#rethon.REState" title="rethon.REState"><code class="xref py py-class docutils literal notranslate"><span class="pre">REState</span></code></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">systematicity</span></code>(theory)</p></td>
+<td><p>Systematicity of the theory.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rethon.LocalReflectiveEquilibrium.theory_candidates" title="rethon.LocalReflectiveEquilibrium.theory_candidates"><code class="xref py py-obj docutils literal notranslate"><span class="pre">theory_candidates</span></code></a>(**kwargs)</p></td>
+<td><p>Implements <code class="xref py py-func docutils literal notranslate"><span class="pre">basics.ReflectiveEquilibrium.theory_candidates()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">update</span></code>()</p></td>
+<td><p>Subclasses can extend/override this method to update internal attributes of the model.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="rethon.LocalReflectiveEquilibrium.commitment_candidates">
+<code class="sig-name descname"><span class="pre">commitment_candidates</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.LocalReflectiveEquilibrium.commitment_candidates" title="Permalink to this definition">#</a></dt>
+<dd><p>Implements <code class="xref py py-func docutils literal notranslate"><span class="pre">basics.ReflectiveEquilibrium.commitment_candidates()</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Set</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.LocalReflectiveEquilibrium.default_model_parameters">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">default_model_parameters</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rethon.LocalReflectiveEquilibrium.default_model_parameters" title="Permalink to this definition">#</a></dt>
+<dd><p>Default model parameters of the standard model.</p>
+<p>Default model parameter for the calculation of achievement:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;weights&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;account&#39;</span><span class="p">:</span> <span class="mf">0.35</span><span class="p">,</span> <span class="s1">&#39;systematicity&#39;</span><span class="p">:</span> <span class="mf">0.55</span><span class="p">,</span> <span class="s1">&#39;faithfulness&#39;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">},</span>
+ <span class="s1">&#39;account_penalties&#39;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)),</span>
+ <span class="s1">&#39;faithfulness_penalties&#39;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)),</span>
+ <span class="s1">&#39;neighbourhood_depth&#39;</span><span class="p">:</span> <span class="mi">1</span>
+ <span class="p">}</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.LocalReflectiveEquilibrium.first_theory">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">first_theory</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rethon.LocalReflectiveEquilibrium.first_theory" title="Permalink to this definition">#</a></dt>
+<dd><p>Criterion to chose the first theory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.LocalReflectiveEquilibrium.model_parameters_set_to_default">
+<code class="sig-name descname"><span class="pre">model_parameters_set_to_default</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rethon.LocalReflectiveEquilibrium.model_parameters_set_to_default" title="Permalink to this definition">#</a></dt>
+<dd><p>Resets the model parameters to their default values.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.LocalReflectiveEquilibrium.theory_candidates">
+<code class="sig-name descname"><span class="pre">theory_candidates</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.LocalReflectiveEquilibrium.theory_candidates" title="Permalink to this definition">#</a></dt>
+<dd><p>Implements <code class="xref py py-func docutils literal notranslate"><span class="pre">basics.ReflectiveEquilibrium.theory_candidates()</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Set</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="globalreflectiveequilibrium">
+<h2>GlobalReflectiveEquilibrium<a class="headerlink" href="#globalreflectiveequilibrium" title="Permalink to this headline">#</a></h2>
+<dl class="py class">
+<dt id="rethon.GlobalReflectiveEquilibrium">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">rethon.</span></code><code class="sig-name descname"><span class="pre">GlobalReflectiveEquilibrium</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dialectical_structure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_commitments</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'GlobalStandardReflectiveEquilibrium'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.GlobalReflectiveEquilibrium" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">rethon.base.StandardReflectiveEquilibrium</span></code></p>
+<p>A globally searching RE process.</p>
+<p>This class implements the following behaviour for choosing commitments/theory candidates by
+<a class="reference internal" href="#rethon.GlobalReflectiveEquilibrium.commitment_candidates" title="rethon.GlobalReflectiveEquilibrium.commitment_candidates"><code class="xref py py-func docutils literal notranslate"><span class="pre">commitment_candidates()</span></code></a> and <a class="reference internal" href="#rethon.GlobalReflectiveEquilibrium.theory_candidates" title="rethon.GlobalReflectiveEquilibrium.theory_candidates"><code class="xref py py-func docutils literal notranslate"><span class="pre">theory_candidates()</span></code></a>:</p>
+<ul class="simple">
+<li><p>Theory candidates for the next theory are all dialectically consistent positions that maximize the achievement function.</p></li>
+<li><p>Commitments candidates for the next commitments are all minimally consistent positions that maximize the achievement function.</p></li>
+</ul>
+<p><em>Remark:</em> Note, that commitment candidates can be dialectically inconsistent.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This class should be used together with dialectical structures that are based on directed acyclic
+graph (e.g. <code class="xref py py-class docutils literal notranslate"><span class="pre">model.DAGDialecticalStructure</span></code>). Globally searching RE processes are computationally complex.
+Hence, you probably won’t be able to compute RE processes with a bigger sentence pool in a reasonable time.</p>
+</div>
+<p class="rubric">Methods</p>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">account</span></code>(commitments, theory)</p></td>
+<td><p>Account of the theory w.r.t.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">achievement</span></code>(commitments, theory, …)</p></td>
+<td><p>The achievement function <span class="math notranslate nohighlight">\(Z\)</span>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rethon.GlobalReflectiveEquilibrium.commitment_candidates" title="rethon.GlobalReflectiveEquilibrium.commitment_candidates"><code class="xref py py-obj docutils literal notranslate"><span class="pre">commitment_candidates</span></code></a>(**kwargs)</p></td>
+<td><p>Implements <code class="xref py py-func docutils literal notranslate"><span class="pre">basics.ReflectiveEquilibrium.commitment_candidates()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">default_model_parameters</span></code>()</p></td>
+<td><p>Default model parameters of the standard model.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">dialectical_structure</span></code>()</p></td>
+<td><p>Return the dialectical structure on which the model is based.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">faithfulness</span></code>(commitments, initial_commitments)</p></td>
+<td><p>Faithfulness of the commitments w.r.t.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">finished</span></code>([re_states])</p></td>
+<td><p>Implements <a class="reference internal" href="#rethon.ReflectiveEquilibrium.finished" title="rethon.ReflectiveEquilibrium.finished"><code class="xref py py-func docutils literal notranslate"><span class="pre">ReflectiveEquilibrium.finished()</span></code></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rethon.GlobalReflectiveEquilibrium.global_optima" title="rethon.GlobalReflectiveEquilibrium.global_optima"><code class="xref py py-obj docutils literal notranslate"><span class="pre">global_optima</span></code></a>(initial_commitments)</p></td>
+<td><p>Searches for globally optimal theory-commitment pairs (according to the achievement function).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">hamming_distance</span></code>(position1, position2, penalties)</p></td>
+<td><p>The weighted Hamming distance.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_dirty</span></code>()</p></td>
+<td><p>Checks whether the model demand an update of internal attributes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_name</span></code>()</p></td>
+<td><p>Model name.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_parameter</span></code>(name)</p></td>
+<td><p>Returns model parameters by names.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_parameter_names</span></code>()</p></td>
+<td><p>Returns names (keys) of the model parameters.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_parameters</span></code>()</p></td>
+<td><p>Getting all model parameters as dict.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_parameters_set_to_default</span></code>()</p></td>
+<td><p>Resets the model parameters to their default values.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">next_step</span></code>([time])</p></td>
+<td><p>Triggers search for next commitments/theory.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">penalty</span></code>(position1, position2, sentence, …)</p></td>
+<td><p>A penalty function.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">pick_commitment_candidate</span></code>(…)</p></td>
+<td><p>Implements :py:func:ReflectiveEquilibrium.pick_commitment_candidate.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">pick_theory_candidate</span></code>(theory_candidates, …)</p></td>
+<td><p>Implements :py:func:ReflectiveEquilibrium.pick_theory_candidate.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">re_process</span></code>([initial_commitments])</p></td>
+<td><p>Process of finding a reflective equilibrium based on given initial commitments.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset_model_parameters</span></code>(parameters)</p></td>
+<td><p>Resetting model parameters.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_dialectical_structure</span></code>(dialectical_structure)</p></td>
+<td><p>Set the dialectical structure on which the model is based.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_dirty</span></code>(dirty)</p></td>
+<td><p>Should be used to indicate whether attributes are reset that demand updating other attributes of the model.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_initial_state</span></code>(initial_commitments)</p></td>
+<td><p>Set the initial state of the model.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_model_parameters</span></code>([parameters])</p></td>
+<td><p>Setting model parameters either by a dictionary or key-value pairs.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_state</span></code>(state)</p></td>
+<td><p>Setting the current state of the model.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">state</span></code>()</p></td>
+<td><p>Getting the current state of the model as <a class="reference internal" href="#rethon.REState" title="rethon.REState"><code class="xref py py-class docutils literal notranslate"><span class="pre">REState</span></code></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">systematicity</span></code>(theory)</p></td>
+<td><p>Systematicity of the theory.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rethon.GlobalReflectiveEquilibrium.theory_candidates" title="rethon.GlobalReflectiveEquilibrium.theory_candidates"><code class="xref py py-obj docutils literal notranslate"><span class="pre">theory_candidates</span></code></a>(**kwargs)</p></td>
+<td><p>Implements <code class="xref py py-func docutils literal notranslate"><span class="pre">basics.ReflectiveEquilibrium.theory_candidates()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rethon.GlobalReflectiveEquilibrium.update" title="rethon.GlobalReflectiveEquilibrium.update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update</span></code></a>()</p></td>
+<td><p>Implements <code class="xref py py-func docutils literal notranslate"><span class="pre">basics.ReflectiveEquilibrium.update()</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="rethon.GlobalReflectiveEquilibrium.commitment_candidates">
+<code class="sig-name descname"><span class="pre">commitment_candidates</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.GlobalReflectiveEquilibrium.commitment_candidates" title="Permalink to this definition">#</a></dt>
+<dd><p>Implements <code class="xref py py-func docutils literal notranslate"><span class="pre">basics.ReflectiveEquilibrium.commitment_candidates()</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Set</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.GlobalReflectiveEquilibrium.global_optima">
+<code class="sig-name descname"><span class="pre">global_optima</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">initial_commitments</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.GlobalReflectiveEquilibrium.global_optima" title="Permalink to this definition">#</a></dt>
+<dd><p>Searches for globally optimal theory-commitment pairs (according to
+the achievement function).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>initial_commitments</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code>) – A Position</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Set</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code>]]</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A set of globally optimal theory-commitment-pairs as Positions.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.GlobalReflectiveEquilibrium.theory_candidates">
+<code class="sig-name descname"><span class="pre">theory_candidates</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.GlobalReflectiveEquilibrium.theory_candidates" title="Permalink to this definition">#</a></dt>
+<dd><p>Implements <code class="xref py py-func docutils literal notranslate"><span class="pre">basics.ReflectiveEquilibrium.theory_candidates()</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Set</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.GlobalReflectiveEquilibrium.update">
+<code class="sig-name descname"><span class="pre">update</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rethon.GlobalReflectiveEquilibrium.update" title="Permalink to this definition">#</a></dt>
+<dd><p>Implements <code class="xref py py-func docutils literal notranslate"><span class="pre">basics.ReflectiveEquilibrium.update()</span></code></p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="recontainer">
+<h2>REContainer<a class="headerlink" href="#recontainer" title="Permalink to this headline">#</a></h2>
+<dl class="py class">
+<dt id="rethon.REContainer">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">rethon.</span></code><code class="sig-name descname"><span class="pre">REContainer</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">re_models</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.REContainer" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p class="rubric">Methods</p>
+<table class="table">
+<colgroup>
+<col style="width: 62%" />
+<col style="width: 38%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>re_processes</strong></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="rethon.REContainer.re_processes">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">re_processes</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">re_models</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.REContainer.re_processes" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ReflectiveEquilibrium</span></code>]</p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><p><strong>re_models</strong> (<em>Optional</em><em>[</em><em>List</em><em>[</em><em>rethon.base.ReflectiveEquilibrium</em><em>]</em><em>]</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="restate">
+<h2>REState<a class="headerlink" href="#restate" title="Permalink to this headline">#</a></h2>
+<dl class="py class">
+<dt id="rethon.REState">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">rethon.</span></code><code class="sig-name descname"><span class="pre">REState</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">finished</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">evolution</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alternatives</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_line</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.REState" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class that represent the internal state of an RE process.</p>
+<p><em>Remark:</em> The attribute <code class="code docutils literal notranslate"><span class="pre">time_line</span></code> can be used to externally assign points in time to the steps of
+the RE process. This feature will be used to coordinate different re processes with each other.</p>
+<dl class="py attribute">
+<dt id="rethon.REState.finished">
+<code class="sig-name descname"><span class="pre">finished</span></code><a class="headerlink" href="#rethon.REState.finished" title="Permalink to this definition">#</a></dt>
+<dd><p>A boolean indicating whether the process terminated in a fixed point.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="rethon.REState.evolution">
+<code class="sig-name descname"><span class="pre">evolution</span></code><a class="headerlink" href="#rethon.REState.evolution" title="Permalink to this definition">#</a></dt>
+<dd><p>The evolution of steps beginning with the initial state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>List[<a class="reference internal" href="../../tau-docs/api-docs/api-abstract.html#tau.Position" title="tau.Position">Position</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="rethon.REState.alternatives">
+<code class="sig-name descname"><span class="pre">alternatives</span></code><a class="headerlink" href="#rethon.REState.alternatives" title="Permalink to this definition">#</a></dt>
+<dd><p>For each step a set of possible alternatives the process could have
+used as step according to <a class="reference internal" href="#rethon.ReflectiveEquilibrium.commitment_candidates" title="rethon.ReflectiveEquilibrium.commitment_candidates"><code class="xref py py-func docutils literal notranslate"><span class="pre">ReflectiveEquilibrium.commitment_candidates()</span></code></a>
+(or <a class="reference internal" href="#rethon.ReflectiveEquilibrium.theory_candidates" title="rethon.ReflectiveEquilibrium.theory_candidates"><code class="xref py py-func docutils literal notranslate"><span class="pre">ReflectiveEquilibrium.theory_candidates()</span></code></a> respectively).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>List[Set[<a class="reference internal" href="../../tau-docs/api-docs/api-abstract.html#tau.Position" title="tau.Position">Position</a>]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="rethon.REState.time_line">
+<code class="sig-name descname"><span class="pre">time_line</span></code><a class="headerlink" href="#rethon.REState.time_line" title="Permalink to this definition">#</a></dt>
+<dd><p>For each step an integer that represents a point in time according to an (external)
+timeline.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>List[int]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rethon.REState.add_step" title="rethon.REState.add_step"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_step</span></code></a>(position, alternatives[, time])</p></td>
+<td><p>Adding a new step to the state.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rethon.REState.as_dict" title="rethon.REState.as_dict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">as_dict</span></code></a>()</p></td>
+<td><p>The state as python dictionary.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rethon.REState.commitments_evolution" title="rethon.REState.commitments_evolution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">commitments_evolution</span></code></a>()</p></td>
+<td><p>Evolution of commitments.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rethon.REState.from_dict" title="rethon.REState.from_dict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_dict</span></code></a>(state_dict)</p></td>
+<td><p>Instantiation via dict.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rethon.REState.indices_of_non_empty_alternatives" title="rethon.REState.indices_of_non_empty_alternatives"><code class="xref py py-obj docutils literal notranslate"><span class="pre">indices_of_non_empty_alternatives</span></code></a>()</p></td>
+<td><p>Steps in the process with non-empty alternatives.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rethon.REState.initial_commitments" title="rethon.REState.initial_commitments"><code class="xref py py-obj docutils literal notranslate"><span class="pre">initial_commitments</span></code></a>()</p></td>
+<td><p>The initial commitments of the process.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rethon.REState.last_alternatives" title="rethon.REState.last_alternatives"><code class="xref py py-obj docutils literal notranslate"><span class="pre">last_alternatives</span></code></a>()</p></td>
+<td><p>Alternatives of the last step.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rethon.REState.last_commitments" title="rethon.REState.last_commitments"><code class="xref py py-obj docutils literal notranslate"><span class="pre">last_commitments</span></code></a>()</p></td>
+<td><p>The last chosen commitments.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rethon.REState.last_step" title="rethon.REState.last_step"><code class="xref py py-obj docutils literal notranslate"><span class="pre">last_step</span></code></a>()</p></td>
+<td><p>Last step of the evolution.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rethon.REState.last_theory" title="rethon.REState.last_theory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">last_theory</span></code></a>()</p></td>
+<td><p>The last chosen theory.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rethon.REState.next_step_is_theory" title="rethon.REState.next_step_is_theory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">next_step_is_theory</span></code></a>()</p></td>
+<td><p>Checks whether the next step is a theory.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rethon.REState.past" title="rethon.REState.past"><code class="xref py py-obj docutils literal notranslate"><span class="pre">past</span></code></a>(past)</p></td>
+<td><p>A past state as copy.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rethon.REState.past_commitments" title="rethon.REState.past_commitments"><code class="xref py py-obj docutils literal notranslate"><span class="pre">past_commitments</span></code></a>([past_step, time])</p></td>
+<td><p>Past commitments.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rethon.REState.past_step" title="rethon.REState.past_step"><code class="xref py py-obj docutils literal notranslate"><span class="pre">past_step</span></code></a>(time)</p></td>
+<td><p>A past step according to the timeline.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rethon.REState.past_theory" title="rethon.REState.past_theory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">past_theory</span></code></a>([past_step, time])</p></td>
+<td><p>Past theory.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rethon.REState.theory_evolution" title="rethon.REState.theory_evolution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">theory_evolution</span></code></a>()</p></td>
+<td><p>Evolution of theories.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="rethon.REState.add_step">
+<code class="sig-name descname"><span class="pre">add_step</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alternatives</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.REState.add_step" title="Permalink to this definition">#</a></dt>
+<dd><p>Adding a new step to the state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>position</strong> (<a class="reference internal" href="../../tau-docs/api-docs/api-abstract.html#tau.Position" title="tau.Position"><em>Position</em></a>) – The added step’s position.</p></li>
+<li><p><strong>alternatives</strong> (<em>Set</em><em>[</em><a class="reference internal" href="../../tau-docs/api-docs/api-abstract.html#tau.Position" title="tau.Position"><em>Position</em></a><em>]</em>) – The alternatives to the added step’s position.</p></li>
+<li><p><strong>time</strong> (<em>int</em>) – A point in time that attributes the next step to an external timeline.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.REState.as_dict">
+<code class="sig-name descname"><span class="pre">as_dict</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rethon.REState.as_dict" title="Permalink to this definition">#</a></dt>
+<dd><p>The state as python dictionary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dictionary with the state’s attributes as key-value pairs.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Dict</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.REState.commitments_evolution">
+<code class="sig-name descname"><span class="pre">commitments_evolution</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rethon.REState.commitments_evolution" title="Permalink to this definition">#</a></dt>
+<dd><p>Evolution of commitments.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The steps of the process that represents commitments.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>List[tau.base.Position]</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.REState.from_dict">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">from_dict</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state_dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.REState.from_dict" title="Permalink to this definition">#</a></dt>
+<dd><p>Instantiation via dict.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>state_dict</strong> (<em>Dict</em>) – A dictionary with key-value pairs representing the attribute of <a class="reference internal" href="#rethon.REState" title="rethon.REState"><code class="xref py py-class docutils literal notranslate"><span class="pre">REState</span></code></a></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>rethon.base.REState</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">REState</span></code></p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><p><strong>state_dict</strong> (<em>Dict</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.REState.indices_of_non_empty_alternatives">
+<code class="sig-name descname"><span class="pre">indices_of_non_empty_alternatives</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rethon.REState.indices_of_non_empty_alternatives" title="Permalink to this definition">#</a></dt>
+<dd><p>Steps in the process with non-empty alternatives.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.REState.initial_commitments">
+<code class="sig-name descname"><span class="pre">initial_commitments</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rethon.REState.initial_commitments" title="Permalink to this definition">#</a></dt>
+<dd><p>The initial commitments of the process.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.REState.last_alternatives">
+<code class="sig-name descname"><span class="pre">last_alternatives</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rethon.REState.last_alternatives" title="Permalink to this definition">#</a></dt>
+<dd><p>Alternatives of the last step.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.REState.last_commitments">
+<code class="sig-name descname"><span class="pre">last_commitments</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rethon.REState.last_commitments" title="Permalink to this definition">#</a></dt>
+<dd><p>The last chosen commitments.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.REState.last_step">
+<code class="sig-name descname"><span class="pre">last_step</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rethon.REState.last_step" title="Permalink to this definition">#</a></dt>
+<dd><p>Last step of the evolution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.REState.last_theory">
+<code class="sig-name descname"><span class="pre">last_theory</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rethon.REState.last_theory" title="Permalink to this definition">#</a></dt>
+<dd><p>The last chosen theory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.REState.next_step_is_theory">
+<code class="sig-name descname"><span class="pre">next_step_is_theory</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rethon.REState.next_step_is_theory" title="Permalink to this definition">#</a></dt>
+<dd><p>Checks whether the next step is a theory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.REState.past">
+<code class="sig-name descname"><span class="pre">past</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">past</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.REState.past" title="Permalink to this definition">#</a></dt>
+<dd><p>A past state as copy.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>past</strong> (<em>int</em>) – Int indicating the past as counted by steps. <code class="code docutils literal notranslate"><span class="pre">-1</span></code> represents the last state,
+<code class="code docutils literal notranslate"><span class="pre">-2</span></code> represents the next-to-last state and so on.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A state representing the past state as a copy.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>rethon.base.REState</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">REState</span></code></p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><p><strong>past</strong> (<em>int</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.REState.past_commitments">
+<code class="sig-name descname"><span class="pre">past_commitments</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">past_step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.REState.past_commitments" title="Permalink to this definition">#</a></dt>
+<dd><p>Past commitments.</p>
+<p>Convenience method to access past commitments either by their timeline or by commitment
+steps counting backwards. You have to provide exactly one of the arguments.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>past_step</strong> (<em>int</em>) – The past counted stepwise beginning from the last commitment (<code class="code docutils literal notranslate"><span class="pre">0</span></code> indicating the
+last commitments, <code class="code docutils literal notranslate"><span class="pre">-1</span></code> the next-to-last commitments and so on).</p></li>
+<li><p><strong>time</strong> (<em>int</em>) – The point in time according to <a class="reference internal" href="#rethon.REState.evolution" title="rethon.REState.evolution"><code class="xref py py-attr docutils literal notranslate"><span class="pre">REState.evolution</span></code></a>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>tau.base.Position</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>past_step</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – </p></li>
+<li><p><strong>time</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.REState.past_step">
+<code class="sig-name descname"><span class="pre">past_step</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.REState.past_step" title="Permalink to this definition">#</a></dt>
+<dd><p>A past step according to the timeline.</p>
+<p><em>Remark:</em> The time line of the state maps each step to a point in time on an (external) timeline.
+An re process can, among other things, pause according to this timeline in the case that the states’
+timeline looks e.g. like <code class="code docutils literal notranslate"><span class="pre">[0,1,2,5]</span></code>. Accordingly, the third step persist through the time points
+2,3,4 on the external timeline in this specific example.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>time</strong> (<em>int</em>) – The point in time attributed to the requested step.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>Returns <code class="code docutils literal notranslate"><span class="pre">None</span></code> if <code class="code docutils literal notranslate"><span class="pre">time</span></code> falls before the time of the initial state. Otherwise, it</dt><dd><p>will return the requested <code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code>.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tau.base.Position</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><p><strong>time</strong> (<em>int</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.REState.past_theory">
+<code class="sig-name descname"><span class="pre">past_theory</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">past_step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.REState.past_theory" title="Permalink to this definition">#</a></dt>
+<dd><p>Past theory.</p>
+<p>Convenience method to access past theories either by their timeline or by theory
+steps counting backwards. You have to provide exactly one of the arguments.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>past_step</strong> (<em>int</em>) – The past counted stepwise beginning from the last theory (<code class="code docutils literal notranslate"><span class="pre">0</span></code> indicating the
+last theory, <code class="code docutils literal notranslate"><span class="pre">-1</span></code> the next-to-last theory and so on).</p></li>
+<li><p><strong>time</strong> (<em>int</em>) – The point in time according to <a class="reference internal" href="#rethon.REState.evolution" title="rethon.REState.evolution"><code class="xref py py-attr docutils literal notranslate"><span class="pre">REState.evolution</span></code></a>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>tau.base.Position</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>past_step</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – </p></li>
+<li><p><strong>time</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.REState.theory_evolution">
+<code class="sig-name descname"><span class="pre">theory_evolution</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rethon.REState.theory_evolution" title="Permalink to this definition">#</a></dt>
+<dd><p>Evolution of theories.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The steps of the process that represents theories.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>List[tau.base.Position]</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="standardglobalreflectiveequilibrium">
+<h2>StandardGlobalReflectiveEquilibrium<a class="headerlink" href="#standardglobalreflectiveequilibrium" title="Permalink to this headline">#</a></h2>
+<dl class="py class">
+<dt id="rethon.StandardGlobalReflectiveEquilibrium">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">rethon.</span></code><code class="sig-name descname"><span class="pre">StandardGlobalReflectiveEquilibrium</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dialectical_structure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_commitments</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'GlobalNumpyReflectiveEquilibrium'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.StandardGlobalReflectiveEquilibrium" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">rethon.numpy_implementation.GlobalNumpyReflectiveEquilibrium</span></code></p>
+<p>Class that simply tags <a class="reference internal" href="api-numpy-implementation.html#rethon.GlobalNumpyReflectiveEquilibrium" title="rethon.GlobalNumpyReflectiveEquilibrium"><code class="xref py py-class docutils literal notranslate"><span class="pre">GlobalNumpyReflectiveEquilibrium</span></code></a> as the default implementation of
+<a class="reference internal" href="#rethon.GlobalReflectiveEquilibrium" title="rethon.GlobalReflectiveEquilibrium"><code class="xref py py-class docutils literal notranslate"><span class="pre">GlobalReflectiveEquilibrium</span></code></a>.</p>
+<p class="rubric">Methods</p>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">account</span></code>(commitments, theory)</p></td>
+<td><p>Account of the theory w.r.t.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">achievement</span></code>(commitments, theory, …)</p></td>
+<td><p>The achievement function <span class="math notranslate nohighlight">\(Z\)</span>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">commitment_candidates</span></code>(**kwargs)</p></td>
+<td><p>Implements <code class="xref py py-func docutils literal notranslate"><span class="pre">basics.ReflectiveEquilibrium.commitment_candidates()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">default_model_parameters</span></code>()</p></td>
+<td><p>Default model parameters of the standard model.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">dialectical_structure</span></code>()</p></td>
+<td><p>Return the dialectical structure on which the model is based.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">faithfulness</span></code>(commitments, initial_commitments)</p></td>
+<td><p>Faithfulness of the commitments w.r.t.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">finished</span></code>([re_states])</p></td>
+<td><p>Implements <a class="reference internal" href="#rethon.ReflectiveEquilibrium.finished" title="rethon.ReflectiveEquilibrium.finished"><code class="xref py py-func docutils literal notranslate"><span class="pre">ReflectiveEquilibrium.finished()</span></code></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">global_optima</span></code>(initial_commitments)</p></td>
+<td><p>Searches for globally optimal theory-commitment pairs (according to the achievement function).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">hamming_distance</span></code>(position1, position2, penalties)</p></td>
+<td><p>The weighted Hamming distance.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_dirty</span></code>()</p></td>
+<td><p>Checks whether the model demand an update of internal attributes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_name</span></code>()</p></td>
+<td><p>Model name.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_parameter</span></code>(name)</p></td>
+<td><p>Returns model parameters by names.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_parameter_names</span></code>()</p></td>
+<td><p>Returns names (keys) of the model parameters.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_parameters</span></code>()</p></td>
+<td><p>Getting all model parameters as dict.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_parameters_set_to_default</span></code>()</p></td>
+<td><p>Resets the model parameters to their default values.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">next_step</span></code>([time])</p></td>
+<td><p>Triggers search for next commitments/theory.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">penalty</span></code>(pos1, pos2, sentence, penalties)</p></td>
+<td><p>A penalty function.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">pick_commitment_candidate</span></code>(…)</p></td>
+<td><p>Implements :py:func:ReflectiveEquilibrium.pick_commitment_candidate.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">pick_theory_candidate</span></code>(theory_candidates, …)</p></td>
+<td><p>Implements :py:func:ReflectiveEquilibrium.pick_theory_candidate.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">re_process</span></code>([initial_commitments])</p></td>
+<td><p>Process of finding a reflective equilibrium based on given initial commitments.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset_model_parameters</span></code>(parameters)</p></td>
+<td><p>Resetting model parameters.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_dialectical_structure</span></code>(dialectical_structure)</p></td>
+<td><p>Set the dialectical structure on which the model is based.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_dirty</span></code>(dirty)</p></td>
+<td><p>Should be used to indicate whether attributes are reset that demand updating other attributes of the model.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_initial_state</span></code>(initial_commitments)</p></td>
+<td><p>Set the initial state of the model.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_model_parameters</span></code>([parameters])</p></td>
+<td><p>Setting model parameters either by a dictionary or key-value pairs.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_state</span></code>(state)</p></td>
+<td><p>Setting the current state of the model.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">state</span></code>()</p></td>
+<td><p>Getting the current state of the model as <a class="reference internal" href="#rethon.REState" title="rethon.REState"><code class="xref py py-class docutils literal notranslate"><span class="pre">REState</span></code></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">systematicity</span></code>(theory)</p></td>
+<td><p>Systematicity of the theory.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">theory_candidates</span></code>(**kwargs)</p></td>
+<td><p>Implements <code class="xref py py-func docutils literal notranslate"><span class="pre">basics.ReflectiveEquilibrium.theory_candidates()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">update</span></code>()</p></td>
+<td><p>Implements <code class="xref py py-func docutils literal notranslate"><span class="pre">basics.ReflectiveEquilibrium.update()</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="standardlocalreflectiveequilibrium">
+<h2>StandardLocalReflectiveEquilibrium<a class="headerlink" href="#standardlocalreflectiveequilibrium" title="Permalink to this headline">#</a></h2>
+<dl class="py class">
+<dt id="rethon.StandardLocalReflectiveEquilibrium">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">rethon.</span></code><code class="sig-name descname"><span class="pre">StandardLocalReflectiveEquilibrium</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dialectical_structure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_commitments</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'LocalStandardReflectiveEquilibrium'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.StandardLocalReflectiveEquilibrium" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">rethon.numpy_implementation.LocalNumpyReflectiveEquilibrium</span></code></p>
+<p>Class that simply tags <a class="reference internal" href="api-numpy-implementation.html#rethon.LocalNumpyReflectiveEquilibrium" title="rethon.LocalNumpyReflectiveEquilibrium"><code class="xref py py-class docutils literal notranslate"><span class="pre">LocalNumpyReflectiveEquilibrium</span></code></a> as the default implementation of
+<a class="reference internal" href="#rethon.LocalReflectiveEquilibrium" title="rethon.LocalReflectiveEquilibrium"><code class="xref py py-class docutils literal notranslate"><span class="pre">LocalReflectiveEquilibrium</span></code></a></p>
+<p class="rubric">Methods</p>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">account</span></code>(commitments, theory)</p></td>
+<td><p>Account of the theory w.r.t.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">achievement</span></code>(commitments, theory, …)</p></td>
+<td><p>The achievement function <span class="math notranslate nohighlight">\(Z\)</span>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">commitment_candidates</span></code>(**kwargs)</p></td>
+<td><p>Implements <code class="xref py py-func docutils literal notranslate"><span class="pre">basics.ReflectiveEquilibrium.commitment_candidates()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">default_model_parameters</span></code>()</p></td>
+<td><p>Default model parameters of the standard model.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">dialectical_structure</span></code>()</p></td>
+<td><p>Return the dialectical structure on which the model is based.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">faithfulness</span></code>(commitments, initial_commitments)</p></td>
+<td><p>Faithfulness of the commitments w.r.t.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">finished</span></code>([re_states])</p></td>
+<td><p>Implements <a class="reference internal" href="#rethon.ReflectiveEquilibrium.finished" title="rethon.ReflectiveEquilibrium.finished"><code class="xref py py-func docutils literal notranslate"><span class="pre">ReflectiveEquilibrium.finished()</span></code></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">first_theory</span></code>()</p></td>
+<td><p>Implementation of <a class="reference internal" href="#rethon.LocalReflectiveEquilibrium.first_theory" title="rethon.LocalReflectiveEquilibrium.first_theory"><code class="xref py py-class docutils literal notranslate"><span class="pre">LocalReflectiveEquilibrium.first_theory</span></code></a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">hamming_distance</span></code>(position1, position2, penalties)</p></td>
+<td><p>The weighted Hamming distance.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_dirty</span></code>()</p></td>
+<td><p>Checks whether the model demand an update of internal attributes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_name</span></code>()</p></td>
+<td><p>Model name.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_parameter</span></code>(name)</p></td>
+<td><p>Returns model parameters by names.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_parameter_names</span></code>()</p></td>
+<td><p>Returns names (keys) of the model parameters.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_parameters</span></code>()</p></td>
+<td><p>Getting all model parameters as dict.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_parameters_set_to_default</span></code>()</p></td>
+<td><p>Resets the model parameters to their default values.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">next_step</span></code>([time])</p></td>
+<td><p>Triggers search for next commitments/theory.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">penalty</span></code>(pos1, pos2, sentence, penalties)</p></td>
+<td><p>A penalty function.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">pick_commitment_candidate</span></code>(…)</p></td>
+<td><p>Implements :py:func:ReflectiveEquilibrium.pick_commitment_candidate.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">pick_theory_candidate</span></code>(theory_candidates, …)</p></td>
+<td><p>Implements :py:func:ReflectiveEquilibrium.pick_theory_candidate.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">re_process</span></code>([initial_commitments])</p></td>
+<td><p>Process of finding a reflective equilibrium based on given initial commitments.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset_model_parameters</span></code>(parameters)</p></td>
+<td><p>Resetting model parameters.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_dialectical_structure</span></code>(dialectical_structure)</p></td>
+<td><p>Set the dialectical structure on which the model is based.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_dirty</span></code>(dirty)</p></td>
+<td><p>Should be used to indicate whether attributes are reset that demand updating other attributes of the model.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_initial_state</span></code>(initial_commitments)</p></td>
+<td><p>Set the initial state of the model.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_model_parameters</span></code>([parameters])</p></td>
+<td><p>Setting model parameters either by a dictionary or key-value pairs.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_state</span></code>(state)</p></td>
+<td><p>Setting the current state of the model.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">state</span></code>()</p></td>
+<td><p>Getting the current state of the model as <a class="reference internal" href="#rethon.REState" title="rethon.REState"><code class="xref py py-class docutils literal notranslate"><span class="pre">REState</span></code></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">systematicity</span></code>(theory)</p></td>
+<td><p>Systematicity of the theory.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">theory_candidates</span></code>(**kwargs)</p></td>
+<td><p>Implements <code class="xref py py-func docutils literal notranslate"><span class="pre">basics.ReflectiveEquilibrium.theory_candidates()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">update</span></code>()</p></td>
+<td><p>Subclasses can extend/override this method to update internal attributes of the model.</p></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="fullbranchrecontainer">
+<h2>FullBranchREContainer<a class="headerlink" href="#fullbranchrecontainer" title="Permalink to this headline">#</a></h2>
+<dl class="py class">
+<dt id="rethon.FullBranchREContainer">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">rethon.</span></code><code class="sig-name descname"><span class="pre">FullBranchREContainer</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">max_re_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_branches</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.FullBranchREContainer" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">rethon.base.REContainer</span></code></p>
+<p>An REContainer generating all branches of model runs.</p>
+<p>This container will generate all branches of the given model (i.e. branches that occur when the choice of
+next theories and/or commitments is underdetermined by <code class="xref py py-func docutils literal notranslate"><span class="pre">ReflectiveEquilibirium.theory_candidates()</span></code>
+and/or  <code class="xref py py-func docutils literal notranslate"><span class="pre">ReflectiveEquilibirium.commitments_candidates()</span></code>).</p>
+<dl class="py attribute">
+<dt id="rethon.FullBranchREContainer.max_re_length">
+<code class="sig-name descname"><span class="pre">max_re_length</span></code><a class="headerlink" href="#rethon.FullBranchREContainer.max_re_length" title="Permalink to this definition">#</a></dt>
+<dd><p>The maximum allowed amount of steps for each individual branch (to avoid infinite loops for
+non-converging processes).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="rethon.FullBranchREContainer.max_branches">
+<code class="sig-name descname"><span class="pre">max_branches</span></code><a class="headerlink" href="#rethon.FullBranchREContainer.max_branches" title="Permalink to this definition">#</a></dt>
+<dd><p>The maximum allow amount of branches (to avoid indefinite generation of branches).</p>
+</dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="table">
+<colgroup>
+<col style="width: 63%" />
+<col style="width: 37%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>re_processes</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>result_states</strong></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="rethon.FullBranchREContainer.re_processes">
+<code class="sig-name descname"><span class="pre">re_processes</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">re_models</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.FullBranchREContainer.re_processes" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ReflectiveEquilibrium</span></code>]</p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><p><strong>re_models</strong> (<em>Optional</em><em>[</em><em>List</em><em>[</em><em>rethon.base.ReflectiveEquilibrium</em><em>]</em><em>]</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rethon.FullBranchREContainer.result_states">
+<code class="sig-name descname"><span class="pre">result_states</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">re_model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rethon.FullBranchREContainer.result_states" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">REState</span></code>]</p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><p><strong>re_model</strong> (<em>rethon.base.ReflectiveEquilibrium</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+              </div>
+              
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2023, Claus Beisbart, Gregor Betz, Georg Brun, Sebastian Cacean, Andreas Freivogel, Richard Lohse.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.4.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>

@@ -12,15 +12,15 @@
 #
 import os
 import sys
-sys.path.insert(0, os.path.abspath('../../re-python/rethon/'))
-sys.path.insert(0, os.path.abspath('../../re-model-description/remodeldescription/'))
+sys.path.insert(0, os.path.abspath('../../rethon/rethon/'))
+sys.path.insert(0, os.path.abspath('../../tau/tau/'))
 
 print('Using the python:', sys.executable)
 print ('Using path:', sys.path)
 # -- Project information -----------------------------------------------------
 
-project = 'rethon'
-copyright = '2020, Claus Beisbart, Gregor Betz, Georg Brun, Sebastian Cacean, Andreas Freivogel, Richard Lohse'
+project = 'RE Docs'
+copyright = '2023, Claus Beisbart, Gregor Betz, Georg Brun, Sebastian Cacean, Andreas Freivogel, Richard Lohse'
 author = 'Claus Beisbart, Gregor Betz, Georg Brun, Sebastian Cacean, Andreas Freivogel, Richard Lohse'
 
 
@@ -32,13 +32,11 @@ author = 'Claus Beisbart, Gregor Betz, Georg Brun, Sebastian Cacean, Andreas Fre
 # extensions = ['sphinx.ext.autodoc','sphinx.ext.napoleon']
 # see https://github.com/agronholm/sphinx-autodoc-typehints
 
-extensions = ['sphinx.ext.autodoc','numpydoc','sphinx_autodoc_typehints',
-                'sphinx.ext.napoleon',
-              # via sphinxcontrib-fulltoc (https://pypi.org/project/sphinxcontrib-fulltoc/)
-              'sphinxcontrib.fulltoc',
-              # https://pypi.org/project/sphinx-resolve-py-references/
-              # throws an extentions error
-              #'sphinx_resolve_py_references'
+extensions = ['sphinx.ext.autodoc',
+              'numpydoc',
+              'sphinx_autodoc_typehints',
+              'sphinx.ext.napoleon',
+              'nbsphinx', # including jupyter notebooks
               ]
 
 
@@ -50,21 +48,31 @@ templates_path = ['_templates']
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = []
 
+# -- Options for autodoc ----------------------------------------------------
+# https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#configuration
+
+# Automatically extract typehints when specified and place them in
+# descriptions of the relevant function/method.
+autodoc_typehints = "description"
+
+# Don't show class signature with the class' name.
+autodoc_class_signature = "separated"
 
 # -- Options for HTML output -------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'alabaster'
+#html_theme = 'alabaster'
+html_theme = "pydata_sphinx_theme"
+
+html_theme_options = {
+  "show_prev_next": False,
+  "show_toc_level": 4 # toc-level of the secondary sidbar (the right one)
+}
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
-html_sidebars = {
-   #'**': ['globaltoc.html','localtoc.html'],
-   '**': ['globaltoc.html'],
-   #'modules': ['windowssidebar.html', 'searchbox.html'],
-}
