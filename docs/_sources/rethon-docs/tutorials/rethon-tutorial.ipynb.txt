@@ -34,7 +34,9 @@
     "+ *DAG (directed acyclic graphs) based dialectical structures:* All important properties of the stuctrue are calculated once and then stored. This representation is fast for smaller sentence pools and should be used in combination with globally searching RE processes.\n",
     "+ *BDD (binary decision diagramm) based dialectical structures:* Important properties of the structure are calculated by using binary decision trees. This representation is comparably fast for most properties of the graph even if the sentence pool is larger ($n>10$). However, for larger sentence it will become difficult to calculate all dialectically consistent positions, axiomatic bases (without a confining source) and minimal positions.\n",
     "\n",
-    "Accordingly, we advise to use DAG based dialectical structures for globally searching RE processes and BDD based dialectical structures for locally searching RE processes."
+    "Accordingly, we advise to use DAG based dialectical structures for globally searching RE processes and BDD based dialectical structures for locally searching RE processes.\n",
+    "\n",
+    "*Source:* You can download this notebook from [here](https://github.com/debatelab/re-docs/blob/master/source/rethon-docs/tutorials/rethon-tutorial.ipynb)."
    ]
   },
   {

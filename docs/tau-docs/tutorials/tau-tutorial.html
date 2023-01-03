@@ -510,7 +510,7 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="Introduction-of-using-the-tau-package">
 <h1>Introduction of using the <code class="docutils literal notranslate"><span class="pre">tau</span></code> package<a class="headerlink" href="#Introduction-of-using-the-tau-package" title="Permalink to this headline">#</a></h1>
 <p>The <code class="docutils literal notranslate"><span class="pre">tau</span></code> package provides different classes and methods to apply the theory of dialectical structures (as introduced in <a class="reference external" href="https://doi.org/10.5771/9783465136293">Betz (2010)</a> and <a class="reference external" href="https://www.springer.com/de/book/9789400745988">Betz (2013)</a>).</p>
-<p>The provided functionalities are described by two abstract classes. Implementations of <code class="docutils literal notranslate"><span class="pre">DialecticalStructure</span></code>can be used to create, manipulate and calculate properties of dialectical structures. Implementations of <code class="docutils literal notranslate"><span class="pre">Position</span></code> represent positions on a sentence pool.</p>
+<p>The provided functionalities are described by two abstract classes. Implementations of <code class="docutils literal notranslate"><span class="pre">DialecticalStructure</span></code> can be used to create, manipulate and calculate properties of dialectical structures. Implementations of <code class="docutils literal notranslate"><span class="pre">Position</span></code> represent positions on a sentence pool.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">tau</span></code> package includes different implementations of these abstract classes, which differ w.r.t. their runtime performance:</p>
 <ul class="simple">
 <li><p><em>DAG (directed acyclic graphs) based dialectical structures:</em> All important properties of the stucture are calculated and stored during instantiation. This implementation is fast for small sentence pools (<span class="math notranslate nohighlight">\(n&lt;15\)</span>).</p>
@@ -525,6 +525,7 @@ div.rendered_html tbody tr:hover {
 </ul>
 </li>
 </ul>
+<p><em>Source:</em> You can download this notebook from <a class="reference external" href="https://github.com/debatelab/re-docs/blob/master/source/tau-docs/tutorials/tau-tutorial.ipynb">here</a>.</p>
 <div class="section" id="Instantiation-of-dialectical-structures-and-positions">
 <h2>Instantiation of dialectical structures and positions<a class="headerlink" href="#Instantiation-of-dialectical-structures-and-positions" title="Permalink to this headline">#</a></h2>
 <p>A dialectical structure is a tupel <span class="math notranslate nohighlight">\(\left&lt;S,A\right&gt;\)</span> of a sentence pool <span class="math notranslate nohighlight">\(S = \{ s_1, s_2, \dots, s_n, \neg s_1, \neg s_2, \dots, \neg s_n \}\)</span> and a set <span class="math notranslate nohighlight">\(A\)</span> of arguments.</p>
